@@ -3,6 +3,12 @@ from typing import List
 from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent.parent
+load_dotenv(ROOT_DIR / '.env')
 
 from models import (
     PersonalInfo, PersonalInfoUpdate,
