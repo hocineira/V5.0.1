@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Calendar, Award, Code, Server, Shield, Users } from 'lucide-react';
+import { Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Calendar, Award, Code, Server, Shield, Users, Loader2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
@@ -7,11 +7,15 @@ import { Progress } from './ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Separator } from './ui/separator';
-import { personalInfo, education, skills, projects, experience, certifications, testimonials } from '../data/mock';
+import { Toaster } from './ui/toaster';
+import { usePortfolioData } from '../hooks/usePortfolioData';
 
 const Portfolio = () => {
+  const { data, loading, error, submitContactMessage } = usePortfolioData();
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -40,6 +44,49 @@ const Portfolio = () => {
     }
   };
 
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    if (!contactForm.name || !contactForm.email || !contactForm.message) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    const success = await submitContactMessage(contactForm);
+    if (success) {
+      setContactForm({ name: '', email: '', message: '' });
+    }
+    setIsSubmitting(false);
+  };
+
+  // Loading state
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="h-12 w-12 animate-spin text-blue-600 mx-auto mb-4" />
+          <p className="text-xl text-gray-600">Chargement du portfolio...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Error state
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-500 text-xl mb-4">⚠️ Erreur</div>
+          <p className="text-gray-600">{error}</p>
+          <Button onClick={() => window.location.reload()} className="mt-4">
+            Réessayer
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  const { personalInfo, education, skills, projects, experience, certifications, testimonials } = data;
+
   const HeroSection = () => (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div 
@@ -51,18 +98,18 @@ const Portfolio = () => {
       <div className="relative z-10 text-center text-white space-y-8 px-4 max-w-4xl">
         <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
           <Avatar className="w-32 h-32 mx-auto mb-8 border-4 border-white/20 shadow-2xl">
-            <AvatarImage src={personalInfo.avatar} alt={personalInfo.name} />
+            <AvatarImage src={personalInfo?.avatar} alt={personalInfo?.name} />
             <AvatarFallback className="text-3xl font-bold bg-gradient-to-br from-blue-500 to-purple-600">
-              {personalInfo.name.split(' ').map(n => n[0]).join('')}
+              {personalInfo?.name?.split(' ').map(n => n[0]).join('')}
             </AvatarFallback>
           </Avatar>
           <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-            {personalInfo.name}
+            {personalInfo?.name}
           </h1>
-          <h2 className="text-3xl font-semibold mb-2">{personalInfo.title}</h2>
-          <p className="text-xl text-gray-300 mb-8">{personalInfo.subtitle}</p>
+          <h2 className="text-3xl font-semibold mb-2">{personalInfo?.title}</h2>
+          <p className="text-xl text-gray-300 mb-8">{personalInfo?.subtitle}</p>
           <p className="text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            {personalInfo.description}
+            {personalInfo?.description}
           </p>
         </div>
         <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
@@ -100,24 +147,39 @@ const Portfolio = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4 text-gray-600">
               <Mail className="w-5 h-5" />
-              <span>{personalInfo.email}</span>
+              <span>{personalInfo?.email}</span>
             </div>
             <div className="flex items-center gap-4 text-gray-600">
               <Phone className="w-5 h-5" />
-              <span>{personalInfo.phone}</span>
+              <span>{personalInfo?.phone}</span>
             </div>
             <div className="flex items-center gap-4 text-gray-600">
               <MapPin className="w-5 h-5" />
-              <span>{personalInfo.location}</span>
+              <span>{personalInfo?.location}</span>
             </div>
             <div className="flex gap-4 pt-4">
-              <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-300">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="hover:bg-blue-50 hover:border-blue-300"
+                onClick={() => window.open(personalInfo?.social?.github, '_blank')}
+              >
                 <Github className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-300">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="hover:bg-blue-50 hover:border-blue-300"
+                onClick={() => window.open(personalInfo?.social?.linkedin, '_blank')}
+              >
                 <Linkedin className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="icon" className="hover:bg-blue-50 hover:border-blue-300">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="hover:bg-blue-50 hover:border-blue-300"
+                onClick={() => window.open(personalInfo?.social?.email, '_blank')}
+              >
                 <Mail className="w-4 h-4" />
               </Button>
             </div>
@@ -125,7 +187,7 @@ const Portfolio = () => {
           
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold mb-4">Formation</h3>
-            {education.map((edu, index) => (
+            {education?.map((edu, index) => (
               <Card key={edu.id} className="border-l-4 border-l-blue-500 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className="text-xl">{edu.degree}</CardTitle>
@@ -136,7 +198,7 @@ const Portfolio = () => {
                 <CardContent>
                   <p className="text-gray-700 mb-4">{edu.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {edu.skills.map((skill, idx) => (
+                    {edu.skills?.map((skill, idx) => (
                       <Badge key={idx} variant="secondary" className="bg-blue-100 text-blue-800">
                         {skill}
                       </Badge>
@@ -162,8 +224,8 @@ const Portfolio = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skills.map((skillCategory, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          {skills?.map((skillCategory, index) => (
+            <Card key={skillCategory.id} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                   {index === 0 && <Server className="w-8 h-8 text-white" />}
@@ -175,7 +237,7 @@ const Portfolio = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {skillCategory.items.map((skill, idx) => (
+                  {skillCategory.items?.map((skill, idx) => (
                     <div key={idx} className="space-y-2">
                       <div className="flex justify-between items-center">
                         <span className="text-sm font-medium">{skill.name}</span>
@@ -204,7 +266,7 @@ const Portfolio = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects?.map((project, index) => (
             <Card key={project.id} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 overflow-hidden">
               <div className="relative overflow-hidden">
                 <img 
@@ -229,14 +291,14 @@ const Portfolio = () => {
               <CardContent>
                 <p className="text-gray-700 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, idx) => (
+                  {project.technologies?.map((tech, idx) => (
                     <Badge key={idx} variant="outline" className="text-xs">
                       {tech}
                     </Badge>
                   ))}
                 </div>
                 <ul className="space-y-1 text-sm text-gray-600">
-                  {project.highlights.map((highlight, idx) => (
+                  {project.highlights?.map((highlight, idx) => (
                     <li key={idx} className="flex items-center gap-2">
                       <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
                       {highlight}
@@ -269,7 +331,7 @@ const Portfolio = () => {
             </TabsList>
             
             <TabsContent value="experience" className="space-y-6">
-              {experience.map((exp, index) => (
+              {experience?.map((exp, index) => (
                 <Card key={exp.id} className="border-l-4 border-l-purple-500 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardHeader>
                     <CardTitle className="text-xl">{exp.title}</CardTitle>
@@ -280,7 +342,7 @@ const Portfolio = () => {
                   <CardContent>
                     <p className="text-gray-700 mb-4">{exp.description}</p>
                     <ul className="space-y-2">
-                      {exp.responsibilities.map((resp, idx) => (
+                      {exp.responsibilities?.map((resp, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-gray-600">
                           <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span>{resp}</span>
@@ -293,7 +355,7 @@ const Portfolio = () => {
             </TabsContent>
             
             <TabsContent value="certifications" className="space-y-6">
-              {certifications.map((cert, index) => (
+              {certifications?.map((cert, index) => (
                 <Card key={cert.id} className="border-l-4 border-l-green-500 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardHeader>
                     <CardTitle className="text-xl flex items-center gap-2">
@@ -342,7 +404,7 @@ const Portfolio = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Email</h3>
-                  <p className="text-gray-300">{personalInfo.email}</p>
+                  <p className="text-gray-300">{personalInfo?.email}</p>
                 </div>
               </div>
               
@@ -352,7 +414,7 @@ const Portfolio = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Téléphone</h3>
-                  <p className="text-gray-300">{personalInfo.phone}</p>
+                  <p className="text-gray-300">{personalInfo?.phone}</p>
                 </div>
               </div>
               
@@ -362,20 +424,35 @@ const Portfolio = () => {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Localisation</h3>
-                  <p className="text-gray-300">{personalInfo.location}</p>
+                  <p className="text-gray-300">{personalInfo?.location}</p>
                 </div>
               </div>
               
               <div className="pt-6">
                 <h3 className="text-xl font-semibold mb-4">Réseaux sociaux</h3>
                 <div className="flex gap-4">
-                  <Button variant="outline" size="icon" className="border-white/30 text-white hover:bg-white/10">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="border-white/30 text-white hover:bg-white/10"
+                    onClick={() => window.open(personalInfo?.social?.github, '_blank')}
+                  >
                     <Github className="w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="icon" className="border-white/30 text-white hover:bg-white/10">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="border-white/30 text-white hover:bg-white/10"
+                    onClick={() => window.open(personalInfo?.social?.linkedin, '_blank')}
+                  >
                     <Linkedin className="w-5 h-5" />
                   </Button>
-                  <Button variant="outline" size="icon" className="border-white/30 text-white hover:bg-white/10">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    className="border-white/30 text-white hover:bg-white/10"
+                    onClick={() => window.open(personalInfo?.social?.email, '_blank')}
+                  >
                     <Mail className="w-5 h-5" />
                   </Button>
                 </div>
@@ -386,34 +463,50 @@ const Portfolio = () => {
               <CardHeader>
                 <CardTitle className="text-white">Envoyez-moi un message</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-200">Nom</label>
-                  <input 
-                    type="text" 
-                    className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Votre nom"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-200">Email</label>
-                  <input 
-                    type="email" 
-                    className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="votre@email.com"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-200">Message</label>
-                  <textarea 
-                    rows={4}
-                    className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                    placeholder="Votre message..."
-                  />
-                </div>
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 font-semibold">
-                  Envoyer le message
-                </Button>
+              <CardContent>
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-200">Nom</label>
+                    <input 
+                      type="text" 
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
+                      className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Votre nom"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-200">Email</label>
+                    <input 
+                      type="email" 
+                      value={contactForm.email}
+                      onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                      className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="votre@email.com"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-gray-200">Message</label>
+                    <textarea 
+                      rows={4}
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+                      className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                      placeholder="Votre message..."
+                      required
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 font-semibold"
+                  >
+                    {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
+                    {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
@@ -423,7 +516,7 @@ const Portfolio = () => {
           <div className="text-center">
             <h3 className="text-2xl font-semibold mb-6">Témoignages</h3>
             <div className="grid md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial) => (
+              {testimonials?.map((testimonial) => (
                 <Card key={testimonial.id} className="bg-white/10 border-white/20 backdrop-blur-sm">
                   <CardContent className="p-6">
                     <p className="text-gray-200 mb-4 italic">"{testimonial.content}"</p>
@@ -457,7 +550,7 @@ const Portfolio = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {personalInfo.name}
+              {personalInfo?.name}
             </div>
             <div className="hidden md:flex space-x-8">
               {[
@@ -479,7 +572,10 @@ const Portfolio = () => {
                 </button>
               ))}
             </div>
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+            <Button 
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+              onClick={() => window.open(personalInfo?.resume, '_blank')}
+            >
               <Download className="w-4 h-4 mr-2" />
               CV
             </Button>
@@ -494,6 +590,9 @@ const Portfolio = () => {
       <ProjectsSection />
       <ExperienceSection />
       <ContactSection />
+      
+      {/* Toast notifications */}
+      <Toaster />
     </div>
   );
 };
