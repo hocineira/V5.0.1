@@ -1,7 +1,13 @@
 import asyncio
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 from models import PersonalInfo, Education, SkillCategory, SkillItem, Project, Experience, Certification, Testimonial
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent.parent
+load_dotenv(ROOT_DIR / '.env')
 
 async def seed_database():
     # MongoDB connection
