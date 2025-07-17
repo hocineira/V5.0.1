@@ -165,20 +165,32 @@
           agent: "main"
           comment: "Routes définies correctement dans App.js pour /tcs, /bts-sio, /projets-scolaires, /veille. Navigation.js semble correct avec gestion des routes via useNavigate. Needs testing pour confirmer que les routes fonctionnent correctement."
 
-  - task: "Correction problème formulaire contact"
+  - task: "Changement du titre de l'onglet du navigateur"
     implemented: true
-    working: true  
-    file: "Portfolio.js"
+    working: true
+    file: "frontend/public/index.html"
     stuck_count: 0
-    priority: "medium"
+    priority: "high"
     needs_retesting: true
     status_history:
-        - working: "NA"
-          agent: "main"
-          comment: "Problème identifié: formulaire de contact fait remonter la page vers le haut lors de la saisie. Code examiné dans Portfolio.js lignes 467-510. Probable problème avec les toasts ou re-render. Needs fix."
         - working: true
           agent: "main"
-          comment: "Problème corrigé: ajout d'une fonction handleContactChange pour éviter les re-renders inutiles qui causaient le scroll vers le haut. Utilise un callback plus optimisé pour la gestion des états du formulaire."
+          comment: "Titre de l'onglet changé de 'Emergent | Fullstack App' vers 'Portfolio IRATNI Hocine' dans le fichier index.html"
+
+  - task: "Optimisation du formulaire de contact"
+    implemented: true
+    working: true
+    file: "frontend/src/components/Portfolio.js"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "user"
+          comment: "Utilisateur signale que le problème du formulaire de contact qui fait remonter la page vers le haut lors de la saisie persiste malgré les corrections précédentes"
+        - working: true
+          agent: "main"
+          comment: "Amélioration du formulaire de contact avec useCallback pour optimiser les handlers et éviter les re-renders inutiles. Ajout de handleNameChange, handleEmailChange, handleMessageChange avec useCallback pour stabiliser les références."
 
   - task: "Validation déploiement Ubuntu 24.04"
     implemented: true
