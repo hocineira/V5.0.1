@@ -56,7 +56,7 @@ sudo -u postgres psql -d portfolio_db -c "SELECT current_database(), current_use
 
 ```bash
 # Clonage du projet
-git clone https://github.com/hocineira/siteweb.git /var/www/portfolio
+git clone https://github.com/hocineira/V3.git /var/www/portfolio
 cd /var/www/portfolio
 
 # Configuration des permissions
