@@ -103,13 +103,24 @@
 #====================================================================================================
 
 ## user_problem_statement: |
-  "Tester le backend après la mise à jour de sécurité majeure. Objectifs spécifiques :
-  1. Tests de sécurité : Vérifier que toutes les vulnérabilités ont été corrigées
-  2. Tests de compatibilité : Confirmer que FastAPI 0.116.1 et Starlette 0.46.x fonctionnent correctement ensemble
-  3. Tests de régression : S'assurer que toutes les fonctionnalités existantes continuent de fonctionner après les mises à jour
-  4. Tests PostgreSQL : Confirmer que la base de données PostgreSQL fonctionne correctement (pas MongoDB)
+  "Je viens de migrer l'application de PostgreSQL vers MariaDB. J'ai besoin de tester complètement le backend pour vérifier que :
+  1. **Connexion MariaDB** : La connexion à MariaDB fonctionne correctement
+  2. **Tous les endpoints API** : Test de tous les endpoints CRUD du portfolio
+  3. **Gestion des données** : Vérification que les données sont correctement stockées et récupérées
+  4. **Sérialisation JSON** : Vérification que les UUIDs et JSON sont correctement gérés
+  5. **Stabilité** : Test de plusieurs requêtes consécutives pour vérifier la stabilité
+  6. **Gestion des erreurs** : Test de la gestion d'erreurs avec MariaDB
   
-  Contexte : Mise à jour de FastAPI 0.110.1 → 0.116.1, Starlette 0.37.2 → 0.46.x, setuptools 65.5.0 → 78.1.1+, suppression complète de pymongo et motor (vulnérabilités MongoDB), nettoyage de toutes les références MongoDB dans le code."
+  Contexte technique :
+  - URL de base : http://localhost:8001
+  - Base de données : MariaDB avec utilisateur portfolio_user
+  - Tous les endpoints sont préfixés par /api/portfolio/
+  - Les UUIDs sont maintenant stockés comme String(36) au lieu de UUID PostgreSQL
+  - Les modèles utilisent generate_uuid() pour créer des IDs
+  
+  Tables à tester :
+  - personal_info, education, skill_categories, projects, experience
+  - certifications, testimonials, contact_messages, procedures, veille_content"
 
 ## backend:
   - task: "Tests de sécurité post-mise à jour majeure"
