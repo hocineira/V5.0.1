@@ -101,3 +101,122 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+## user_problem_statement: |
+  "Migration complète de MongoDB vers PostgreSQL pour un site web portfolio. L'utilisateur a mentionné que MongoDB n'est pas compatible avec Ubuntu Server 24.04.02 et souhaite migrer vers PostgreSQL. Le but est de détecter et corriger toutes les erreurs rencontrées lors de la migration et de s'assurer que tout fonctionne correctement."
+
+## backend:
+  - task: "Installation et configuration PostgreSQL"
+    implemented: true
+    working: true
+    file: "database.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "PostgreSQL installé avec succès, base de données 'portfolio_db' créée, utilisateur 'portfolio_user' configuré avec les permissions nécessaires"
+
+  - task: "Création des modèles PostgreSQL"
+    implemented: true
+    working: true
+    file: "db_models.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Tous les modèles SQLAlchemy créés : PersonalInfo, Education, SkillCategory, Project, Experience, Certification, Testimonial, ContactMessage, Procedure, VeilleContent"
+
+  - task: "Migration des routes API MongoDB vers PostgreSQL"
+    implemented: true
+    working: true
+    file: "routes/portfolio.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Toutes les routes API migrées de MongoDB vers PostgreSQL avec SQLAlchemy ORM. Includes CRUD operations pour tous les modèles"
+
+  - task: "Mise à jour du serveur principal"
+    implemented: true
+    working: true
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Serveur FastAPI mis à jour pour utiliser PostgreSQL au lieu de MongoDB. Suppression des références Motor/AsyncIOMotorClient"
+
+  - task: "Mise à jour des dépendances"
+    implemented: true
+    working: true
+    file: "requirements.txt"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Requirements.txt mis à jour : ajout de psycopg2-binary, sqlalchemy, alembic et suppression de pymongo, motor"
+
+  - task: "Configuration des variables d'environnement"
+    implemented: true
+    working: true
+    file: "backend/.env"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Variables d'environnement mises à jour : DATABASE_URL remplace MONGO_URL et DB_NAME"
+
+  - task: "Initialisation de la base de données avec données de démonstration"
+    implemented: true
+    working: true
+    file: "init_db.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Script d'initialisation créé et exécuté avec succès. Base de données peuplée avec des données de démonstration complètes"
+
+## frontend:
+  - task: "Frontend compatibility verification"
+    implemented: true
+    working: "NA"
+    file: "src/*"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Le frontend utilise les mêmes endpoints API, donc aucune modification nécessaire. Mais needs testing pour confirmer compatibility"
+
+## metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: false
+
+## test_plan:
+  current_focus:
+    - "Migration des routes API MongoDB vers PostgreSQL"
+    - "Frontend compatibility verification"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+## agent_communication:
+    - agent: "main"
+      message: "Migration complète de MongoDB vers PostgreSQL effectuée avec succès. Tous les composants backend ont été migrés et PostgreSQL est configuré avec des données de démonstration. Le serveur backend fonctionne correctement. Les routes API doivent être testées pour confirmer la compatibilité complète."
