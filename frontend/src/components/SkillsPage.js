@@ -182,7 +182,9 @@ const SkillsPage = () => {
                 <CardContent>
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {Object.entries(skillsByCategory).map(([category, categorySkills]) => {
-                      const avgLevel = categorySkills.reduce((sum, skill) => sum + skill.level, 0) / categorySkills.length;
+                      const avgLevel = categorySkills && categorySkills.length > 0 
+                        ? categorySkills.reduce((sum, skill) => sum + (skill.level || 0), 0) / categorySkills.length 
+                        : 0;
                       return (
                         <div key={category} className="text-center p-6 bg-white rounded-lg shadow-sm">
                           <div className="mb-4">
@@ -192,7 +194,7 @@ const SkillsPage = () => {
                           <div className="space-y-2">
                             <div className="text-2xl font-bold text-blue-600">{Math.round(avgLevel)}%</div>
                             <Progress value={avgLevel} className="h-2" />
-                            <p className="text-sm text-gray-600">{categorySkills.length} compétences</p>
+                            <p className="text-sm text-gray-600">{categorySkills?.length || 0} compétences</p>
                           </div>
                         </div>
                       );
