@@ -73,12 +73,12 @@ check_dependencies() {
     fi
     print_success "pip3 détecté"
     
-    # Vérifier MongoDB
-    if ! command -v mongod &> /dev/null; then
-        print_warning "MongoDB n'est pas installé ou pas dans le PATH"
-        print_info "Installation recommandée pour le développement local"
+    # Vérifier PostgreSQL
+    if ! command -v psql &> /dev/null; then
+        print_warning "PostgreSQL n'est pas installé ou pas dans le PATH"
+        return 1
     else
-        print_success "MongoDB détecté"
+        print_success "PostgreSQL détecté"
     fi
 }
 
