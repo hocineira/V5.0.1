@@ -1,6 +1,16 @@
-# 🏠 Guide de déploiement sur serveur domestique - Portfolio PostgreSQL
+# 🏠 Guide de déploiement sur serveur domestique - Portfolio PostgreSQL (Sécurisé)
 
-## 🖥️ Configuration serveur Ubuntu Server 24.04.2
+## 🛡️ Mise à jour de sécurité - Juillet 2025
+
+**Versions sécurisées incluses :**
+- FastAPI 0.116.1 (dernière version sécurisée)
+- Starlette 0.46.2 (compatible et sécurisée)
+- React Router 7.5.2 (vulnérabilité high corrigée)
+- setuptools 80.9.0+ (vulnérabilités corrigées)
+- PostgreSQL 15 (stable et sécurisé)
+- Suppression complète de MongoDB/pymongo (vulnérabilités éliminées)
+
+## 🖥️ Configuration serveur Ubuntu Server 24.04.2 (Testée et validée)
 
 ### 1. Préparation du serveur Ubuntu
 
