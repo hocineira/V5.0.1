@@ -258,9 +258,13 @@
   run_ui: false
 
 ## test_plan:
-  current_focus: []
+  current_focus:
+    - "Tests de sécurité post-mise à jour majeure"
+    - "Tests de compatibilité FastAPI 0.116.1 + Starlette 0.46.x"
+    - "Tests de régression post-mises à jour"
+    - "Validation PostgreSQL (migration MongoDB terminée)"
   stuck_tasks: []
-  test_all: false
+  test_all: true
   test_priority: "high_first"
 
 ## agent_communication:
