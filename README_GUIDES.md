@@ -64,7 +64,9 @@
 - Monitoring et maintenance
 - **Testé et validé sur Ubuntu 24.04.2**
 
-### 4. 🛠️ Scripts d'automatisation
+### 4. 🛠️ Scripts d'automatisation (mis à jour)
+- **[test-ubuntu-24.02.sh](./test-ubuntu-24.02.sh)** - Test automatique Ubuntu 24.02.x avec versions sécurisées
+- **[validate-ubuntu-24.02.sh](./validate-ubuntu-24.02.sh)** - Validation complète installation Ubuntu 24.02.x
 - **[test-ubuntu-24.04.sh](./test-ubuntu-24.04.sh)** - Test automatique Ubuntu 24.04.2
 - **[validate-current-config.sh](./validate-current-config.sh)** - Validation configuration
 - **[demo-procedures.sh](./demo-procedures.sh)** - Démonstration des procédures
