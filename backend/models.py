@@ -196,3 +196,46 @@ class ContactMessageCreate(BaseModel):
     name: str
     email: str
     message: str
+
+# New models for additional features
+class Procedure(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str
+    description: str
+    content: str
+    category: str
+    tags: List[str]
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+class ProcedureCreate(BaseModel):
+    title: str
+    description: str
+    content: str
+    category: str
+    tags: List[str]
+
+class ProcedureUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    content: Optional[str] = None
+    category: Optional[str] = None
+    tags: Optional[List[str]] = None
+
+class VeilleContent(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    type: str  # 'technologique' or 'juridique'
+    title: str
+    content: str
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+class VeilleContentCreate(BaseModel):
+    type: str
+    title: str
+    content: str
+
+class VeilleContentUpdate(BaseModel):
+    type: Optional[str] = None
+    title: Optional[str] = None
+    content: Optional[str] = None

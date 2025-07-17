@@ -18,7 +18,9 @@ from models import (
     Experience, ExperienceCreate, ExperienceUpdate,
     Certification, CertificationCreate, CertificationUpdate,
     Testimonial, TestimonialCreate, TestimonialUpdate,
-    ContactMessage, ContactMessageCreate
+    ContactMessage, ContactMessageCreate,
+    Procedure, ProcedureCreate, ProcedureUpdate,
+    VeilleContent, VeilleContentCreate, VeilleContentUpdate
 )
 
 router = APIRouter()
@@ -304,3 +306,87 @@ async def delete_contact_message(message_id: str):
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Message not found")
     return {"message": "Contact message deleted successfully"}
+
+# Procedures Routes
+@router.get("/procedures", response_model=List[Procedure])
+async def get_procedures():
+    procedures_list = await db.procedures.find().to_list(100)
+    return [Procedure(**procedure) for procedure in procedures_list]
+
+@router.post("/procedures", response_model=Procedure)
+async def create_procedure(procedure_data: ProcedureCreate):
+    procedure = Procedure(**procedure_data.dict())
+    await db.procedures.insert_one(procedure.dict())
+    return procedure
+
+@router.get("/procedures/{procedure_id}", response_model=Procedure)
+async def get_procedure(procedure_id: str):
+    procedure = await db.procedures.find_one({"id": procedure_id})
+    if not procedure:
+        raise HTTPException(status_code=404, detail="Procedure not found")
+    return Procedure(**procedure)
+
+@router.put("/procedures/{procedure_id}", response_model=Procedure)
+async def update_procedure(procedure_id: str, update_data: ProcedureUpdate):
+    procedure = await db.procedures.find_one({"id": procedure_id})
+    if not procedure:
+        raise HTTPException(status_code=404, detail="Procedure not found")
+    
+    update_dict = update_data.dict(exclude_unset=True)
+    update_dict['updated_at'] = datetime.utcnow()
+    
+    await db.procedures.update_one(
+        {"id": procedure_id}, 
+        {"$set": update_dict}
+    )
+    
+    updated_procedure = await db.procedures.find_one({"id": procedure_id})
+    return Procedure(**updated_procedure)
+
+@router.delete("/procedures/{procedure_id}")
+async def delete_procedure(procedure_id: str):
+    result = await db.procedures.delete_one({"id": procedure_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Procedure not found")
+    return {"message": "Procedure deleted successfully"}
+
+# Veille Content Routes
+@router.get("/veille", response_model=List[VeilleContent])
+async def get_veille_content():
+    veille_list = await db.veille_content.find().to_list(100)
+    return [VeilleContent(**veille) for veille in veille_list]
+
+@router.get("/veille/{veille_type}", response_model=List[VeilleContent])
+async def get_veille_by_type(veille_type: str):
+    veille_list = await db.veille_content.find({"type": veille_type}).to_list(100)
+    return [VeilleContent(**veille) for veille in veille_list]
+
+@router.post("/veille", response_model=VeilleContent)
+async def create_veille_content(veille_data: VeilleContentCreate):
+    veille = VeilleContent(**veille_data.dict())
+    await db.veille_content.insert_one(veille.dict())
+    return veille
+
+@router.put("/veille/{veille_id}", response_model=VeilleContent)
+async def update_veille_content(veille_id: str, update_data: VeilleContentUpdate):
+    veille = await db.veille_content.find_one({"id": veille_id})
+    if not veille:
+        raise HTTPException(status_code=404, detail="Veille content not found")
+    
+    update_dict = update_data.dict(exclude_unset=True)
+    update_dict['updated_at'] = datetime.utcnow()
+    
+    await db.veille_content.update_one(
+        {"id": veille_id}, 
+        {"$set": update_dict}
+    )
+    
+    updated_veille = await db.veille_content.find_one({"id": veille_id})
+    return VeilleContent(**updated_veille)
+
+@router.delete("/veille/{veille_id}")
+async def delete_veille_content(veille_id: str):
+    result = await db.veille_content.delete_one({"id": veille_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Veille content not found")
+    return {"message": "Veille content deleted successfully"}
