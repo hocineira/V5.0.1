@@ -196,12 +196,8 @@
 
 ## test_plan:
   current_focus:
-    - "Configuration et test PostgreSQL"
-    - "Correction des dépendances npm"
     - "Test de la navigation vers les sous-menus"
-    - "Correction problème formulaire contact"
-  stuck_tasks:
-    - "Correction problème formulaire contact"
+  stuck_tasks: []
   test_all: true
   test_priority: "high_first"
 
