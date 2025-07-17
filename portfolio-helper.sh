@@ -124,15 +124,15 @@ EOF
         print_success "Fichier .env backend créé"
     fi
     
-    # Démarrer MongoDB (si disponible)
-    if command -v mongod &> /dev/null; then
-        print_info "Démarrage de MongoDB..."
-        if pgrep mongod > /dev/null; then
-            print_success "MongoDB est déjà en cours d'exécution"
+    # Démarrer PostgreSQL (si disponible)
+    if command -v psql &> /dev/null; then
+        print_info "Démarrage de PostgreSQL..."
+        if pgrep postgres > /dev/null; then
+            print_success "PostgreSQL est déjà en cours d'exécution"
         else
-            # Démarrer MongoDB en arrière-plan
-            mongod --fork --logpath /tmp/mongodb.log --dbpath /tmp/mongodb_data 2>/dev/null || true
-            print_success "MongoDB démarré"
+            # Démarrer PostgreSQL en arrière-plan
+            sudo service postgresql start 2>/dev/null || true
+            print_success "PostgreSQL démarré"
         fi
     fi
     
