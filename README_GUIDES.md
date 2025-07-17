@@ -8,7 +8,8 @@
 **Vos objectifs** : Modifications visuelles, ajout de procédures et contenu
 **Votre domaine** : Acheté chez LWS
 **Migration** : ✅ MongoDB → PostgreSQL réussie
-**Compatibilité** : Ubuntu Server 24.04.2 LTS
+**Sécurité** : ✅ Mise à jour de sécurité majeure (Juillet 2025)
+**Compatibilité** : Ubuntu Server 24.04.2 LTS (✅ Testée)
 
 ---
 
