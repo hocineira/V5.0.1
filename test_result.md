@@ -254,6 +254,18 @@
           agent: "main"
           comment: "Script de validation du déploiement créé et testé avec succès. Tous les tests passent : prérequis, PostgreSQL, backend, frontend, base de données, formulaire contact, routes navigation. Le déploiement est validé pour Ubuntu Server 24.04.2."
 
+  - task: "Tests spécifiques données portfolio mises à jour"
+    implemented: true
+    working: false
+    file: "backend/routes/portfolio.py, backend/init_db.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "Tests focalisés sur les données portfolio spécifiques demandées. RÉSULTATS : 5/8 tests réussis (62.5%). ✅ RÉUSSIS : Compétences réseaux/systèmes (4 catégories avec skills appropriés), Certification CISCO CCNA 2025, Veille technologique Windows et RGPD, Endpoints de base, Intégrité données/UUIDs. ❌ ÉCHECS : 1) Personal info contient '-Updated' dans nom/titre (résidu tests précédents), 2) Education manque 'Licence portails descartes' exacte (trouvé version 'math-info-mécanique'), 3) Experience a 'Stage Administrateur Réseaux' au lieu de 'Administrateur Réseaux'. Backend fonctionnel, corrections mineures nécessaires."
+
 ## metadata:
   created_by: "main_agent"
   version: "1.0"
