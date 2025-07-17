@@ -491,8 +491,7 @@ const Portfolio = () => {
                     <input 
                       type="text" 
                       value={contactForm.name}
-                      onChange={(e) => handleFormInput(e, 'name')}
-                      onFocus={handleFormFocus}
+                      onChange={handleNameChange}
                       className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Votre nom"
                       required
@@ -503,8 +502,7 @@ const Portfolio = () => {
                     <input 
                       type="email" 
                       value={contactForm.email}
-                      onChange={(e) => handleFormInput(e, 'email')}
-                      onFocus={handleFormFocus}
+                      onChange={handleEmailChange}
                       className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="votre@email.com"
                       required
@@ -515,8 +513,7 @@ const Portfolio = () => {
                     <textarea 
                       rows={4}
                       value={contactForm.message}
-                      onChange={(e) => handleFormInput(e, 'message')}
-                      onFocus={handleFormFocus}
+                      onChange={handleMessageChange}
                       className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                       placeholder="Votre message..."
                       required
