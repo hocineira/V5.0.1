@@ -500,7 +500,7 @@ const Portfolio = () => {
                     <textarea 
                       rows={4}
                       value={contactForm.message}
-                      onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+                      onChange={(e) => handleContactChange('message', e.target.value)}
                       className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                       placeholder="Votre message..."
                       required
