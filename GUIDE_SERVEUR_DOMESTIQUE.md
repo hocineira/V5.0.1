@@ -228,7 +228,7 @@ ALTER USER portfolio_user CREATEDB;
 **PowerShell en tant qu'administrateur :**
 ```powershell
 # Clonage du projet
-git clone https://github.com/hocineira/siteweb.git C:\inetpub\wwwroot\portfolio
+git clone https://github.com/hocineira/V3.git C:\inetpub\wwwroot\portfolio
 cd C:\inetpub\wwwroot\portfolio
 
 # Installation des dépendances backend
