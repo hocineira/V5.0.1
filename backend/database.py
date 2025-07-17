@@ -10,7 +10,7 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 # Database configuration
-DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://portfolio_user:portfolio_password@localhost/portfolio_db")
+DATABASE_URL = os.environ.get("DATABASE_URL", "mysql+pymysql://portfolio_user:portfolio_password@localhost/portfolio_db")
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
