@@ -627,4 +627,36 @@ python -c "from database import engine; print('Database connection: OK')"
 
 ---
 
-*Ce guide a été mis à jour pour utiliser PostgreSQL au lieu de MongoDB et est optimisé pour Ubuntu Server 24.04.2 et Windows Server 2022.*
+*Ce guide a été mis à jour pour utiliser PostgreSQL au lieu de MongoDB, est optimisé pour Ubuntu Server 24.04.2 et Windows Server 2022, et inclut les dernières mises à jour de sécurité (Juillet 2025).*
+
+---
+
+## 🛡️ Vérification de sécurité post-installation
+
+### Script de test automatique
+```bash
+# Télécharger et exécuter le script de test Ubuntu 24.02
+chmod +x test-ubuntu-24.02.sh
+./test-ubuntu-24.02.sh
+```
+
+### Vérification manuelle des vulnérabilités
+```bash
+# Backend
+cd backend
+source venv/bin/activate
+pip-audit
+
+# Frontend
+cd ../frontend
+npm audit --audit-level=high
+```
+
+### Versions recommandées (sécurisées)
+- **FastAPI** : 0.116.1+
+- **Starlette** : 0.46.x (compatible avec FastAPI 0.116.1)
+- **React Router** : 7.5.2+
+- **setuptools** : 80.9.0+
+- **PostCSS** : 8.5.6+
+- **Node.js** : 20.x LTS
+- **PostgreSQL** : 15.x
