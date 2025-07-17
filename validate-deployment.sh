@@ -44,7 +44,7 @@ fi
 
 # Test 5: Test de la base de données
 echo "5. Test de la base de données..."
-if psql -h localhost -U portfolio_user -d portfolio_db -c "SELECT 1;" >/dev/null 2>&1; then
+if PGPASSWORD=portfolio_password psql -h localhost -U portfolio_user -d portfolio_db -c "SELECT 1;" >/dev/null 2>&1; then
     echo "✅ Base de données accessible"
 else
     echo "❌ Base de données non accessible"
