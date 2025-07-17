@@ -11,7 +11,7 @@ from datetime import datetime
 import uuid
 
 # Backend URL from environment
-BACKEND_URL = "https://0406dea4-3c16-41c0-8d76-e475f8263332.preview.emergentagent.com"
+BACKEND_URL = "https://c4579023-7de2-4520-987d-e76d1cabaa03.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 class PortfolioAPITester:
