@@ -29,9 +29,16 @@ def fix_portfolio_data():
         # 2. Corriger les formations
         education = db.query(EducationModel).filter(EducationModel.degree.like("%math-info-méchanique%")).first()
         if education:
-            education.degree = "Licence portails descartes math-info-méchanique"
+            education.degree = "Licences de Mathématique, Physique, Informatique"
             education.school = "Aix marseille université"
             print("✅ Formation licence corrigée")
+        else:
+            # Chercher aussi avec le nom actuel
+            education = db.query(EducationModel).filter(EducationModel.degree.like("%portails%")).first()
+            if education:
+                education.degree = "Licences de Mathématique, Physique, Informatique"
+                education.school = "Aix marseille université"
+                print("✅ Formation licence corrigée")
         
         # 3. Corriger l'expérience
         experience = db.query(ExperienceModel).filter(ExperienceModel.title.like("%Stage%")).first()
