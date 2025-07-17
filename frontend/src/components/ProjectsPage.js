@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Github, Calendar, Code, Server, Shield, Loader2, Eye, Star } from 'lucide-react';
 import { Button } from './ui/button';
