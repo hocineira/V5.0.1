@@ -305,6 +305,7 @@ const VeillePage = () => {
           </Tabs>
         </div>
       </div>
+      </div>
     </div>
   );
 };
