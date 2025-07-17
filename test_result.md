@@ -112,23 +112,53 @@
   Contexte : Mise à jour de FastAPI 0.110.1 → 0.116.1, Starlette 0.37.2 → 0.46.x, setuptools 65.5.0 → 78.1.1+, suppression complète de pymongo et motor (vulnérabilités MongoDB), nettoyage de toutes les références MongoDB dans le code."
 
 ## backend:
-  - task: "Configuration et test PostgreSQL"
+  - task: "Tests de sécurité post-mise à jour majeure"
     implemented: true
     working: true
-    file: "database.py, init_db.py"
+    file: "backend/requirements.txt, backend/server.py"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
         - working: true
-          agent: "main"
-          comment: "PostgreSQL installé et configuré avec succès. Base de données portfolio_db créée avec l'utilisateur portfolio_user. Données de démonstration insérées. API health endpoint répond correctement."
+          agent: "testing"
+          comment: "✅ TESTS DE SÉCURITÉ RÉUSSIS - Vérification complète des mises à jour de sécurité : FastAPI 0.116.1 ✅, Starlette 0.46.2 ✅ (compatible), setuptools 80.9.0 ✅ (>78.1.1+). Suppression confirmée de pymongo et motor (aucun package trouvé). Toutes les vulnérabilités MongoDB éliminées. Backend sécurisé et opérationnel."
+
+  - task: "Tests de compatibilité FastAPI 0.116.1 + Starlette 0.46.x"
+    implemented: true
+    working: true
+    file: "backend/server.py, backend/requirements.txt"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
         - working: true
           agent: "testing"
-          comment: "✅ TESTS COMPLETS RÉUSSIS - Tous les endpoints API testés avec succès (43/43 tests passés, 100% de réussite). Health endpoints (/api/, /api/health) fonctionnels. Tous les CRUD endpoints testés : personal-info, education, skills, projects, experience, certifications, testimonials, contact-messages, procedures, veille. PostgreSQL fonctionne correctement avec UUIDs et sérialisation JSON. Données de démonstration présentes dans toutes les collections."
+          comment: "✅ COMPATIBILITÉ CONFIRMÉE - FastAPI 0.116.1 et Starlette 0.46.2 fonctionnent parfaitement ensemble. Tous les endpoints API testés avec succès (43/43 tests passés, 100% de réussite). Aucun problème de compatibilité détecté. Middleware CORS, routes, et authentification fonctionnels."
+
+  - task: "Tests de régression post-mises à jour"
+    implemented: true
+    working: true
+    file: "backend/server.py, backend/routes/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
         - working: true
           agent: "testing"
-          comment: "✅ TESTS POST-REFONTE FRONTEND CONFIRMÉS - Suite à la refonte majeure frontend (création de 6 pages séparées), tests backend complets effectués avec succès. 43/43 tests API passés (100% de réussite). PostgreSQL stable, tous les endpoints CRUD opérationnels. Endpoint contact-messages spécifiquement testé avec données réalistes. Services supervisor actifs. Backend complètement stable après refonte frontend majeure."
+          comment: "✅ AUCUNE RÉGRESSION DÉTECTÉE - Tests complets de toutes les fonctionnalités existantes après mises à jour de sécurité. 43/43 tests API réussis : health endpoints (/api/, /api/health), CRUD complet sur toutes les collections (personal-info, education, skills, projects, experience, certifications, testimonials, contact-messages, procedures, veille). Toutes les fonctionnalités préservées."
+
+  - task: "Validation PostgreSQL (migration MongoDB terminée)"
+    implemented: true
+    working: true
+    file: "backend/database.py, backend/init_db.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "✅ POSTGRESQL OPÉRATIONNEL - PostgreSQL 15 installé et configuré avec succès. Base de données portfolio_db créée avec utilisateur portfolio_user. 10 tables créées (personal_info, education, skill_categories, projects, experience, certifications, testimonials, contact_messages, procedures, veille_content). Données de démonstration insérées. UUIDs et sérialisation JSON fonctionnent parfaitement. Migration MongoDB → PostgreSQL complètement terminée."
 
   - task: "Correction des dépendances npm"
     implemented: true
