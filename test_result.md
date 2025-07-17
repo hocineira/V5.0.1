@@ -127,11 +127,14 @@
     file: "package.json"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: true
           agent: "main"
           comment: "Dépendances npm corrigées : date-fns downgraded de 4.1.0 à 3.6.0, React downgraded de 19.0.0 à 18.3.1, react-dom downgraded de 19.0.0 à 18.3.1 pour compatibilité avec react-day-picker."
+        - working: true
+          agent: "testing"
+          comment: "✅ BACKEND TESTS CONFIRMÉS - Les dépendances npm corrigées n'affectent pas le backend. Tous les endpoints API fonctionnent correctement avec les nouvelles versions. Backend stable et opérationnel."
 
   - task: "Correction URL Git dans guide"
     implemented: true
