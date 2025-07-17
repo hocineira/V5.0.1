@@ -37,7 +37,7 @@ const VeillePage = () => {
 
   const formatContent = (content) => {
     return content.split('\n').map((paragraph, index) => (
-      <p key={index} className="mb-4 text-gray-700 leading-relaxed">
+      <p key={index} className="mb-4 text-gray-300 leading-relaxed">
         {paragraph}
       </p>
     ));
