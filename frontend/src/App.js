@@ -37,7 +37,12 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Routes>
-          <Route path="/" element={<Portfolio />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/skills" element={<SkillsPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/tcs" element={<TCSPage />} />
           <Route path="/bts-sio" element={<BTSSIOPage />} />
           <Route path="/projets-scolaires" element={<ProjetScolairePage />} />
