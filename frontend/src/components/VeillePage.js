@@ -83,12 +83,12 @@ const VeillePage = () => {
 
         <div className="max-w-6xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              <TabsTrigger value="technologique" className="flex items-center gap-2">
+            <TabsList className="grid w-full grid-cols-2 mb-8 bg-gray-800/50 border border-gray-700">
+              <TabsTrigger value="technologique" className="flex items-center gap-2 data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-300">
                 <Monitor className="w-4 h-4" />
                 Veille Technologique
               </TabsTrigger>
-              <TabsTrigger value="juridique" className="flex items-center gap-2">
+              <TabsTrigger value="juridique" className="flex items-center gap-2 data-[state=active]:bg-purple-500/20 data-[state=active]:text-purple-300">
                 <Scale className="w-4 h-4" />
                 Veille Juridique
               </TabsTrigger>
@@ -102,7 +102,7 @@ const VeillePage = () => {
                   placeholder="Rechercher dans le contenu..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 bg-gray-800/50 border-gray-600 text-white placeholder-gray-400"
                 />
               </div>
             </div>
