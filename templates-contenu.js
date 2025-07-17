@@ -8,7 +8,7 @@ export const nouveauProjetTemplate = {
   category: "Web", // ou "Mobile", "Desktop", "API", etc.
   date: "2024-01-01",
   image: "/images/projects/votre-image.jpg",
-  technologies: ["React", "Node.js", "MongoDB"], // Technologies utilisées
+  technologies: ["React", "Node.js", "PostgreSQL"], // Technologies utilisées
   highlights: [
     "Première réalisation importante",
     "Deuxième point fort",
