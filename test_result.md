@@ -103,7 +103,11 @@
 #====================================================================================================
 
 ## user_problem_statement: |
-  "L'utilisateur a fait face à des problèmes de dépendances npm (conflits entre date-fns 4.1.0 et react-day-picker, et React 19.0.0 incompatible), nécessitant une correction des dépendances. Il y a également une URL Git incorrecte dans le guide de déploiement, des problèmes de navigation vers les sous-menus (/tcs /bts-sio), et un problème avec le formulaire de contact qui fait remonter la page vers le haut lors de la saisie. L'utilisateur veut déployer sur Ubuntu Server 24.04 et s'assurer que tout fonctionne correctement."
+  "L'utilisateur fait face à plusieurs problèmes sur son site portfolio :
+  1. Le titre de l'onglet du navigateur doit être changé en 'Portfolio IRATNI Hocine' (actuellement 'Emergent | Fullstack App')
+  2. Il y a un problème avec la structure du site - quand on accède à la page d'accueil, on peut que scroller et tout est sur la même page, mais l'utilisateur veut séparer les sections (tcs, accueil, projets...) avec chacune sa propre URL
+  3. Le formulaire de contact fait remonter la page vers le haut lors de la saisie d'un caractère
+  4. Demande de tests poussés pour détecter le moindre problème"
 
 ## backend:
   - task: "Configuration et test PostgreSQL"
