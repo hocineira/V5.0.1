@@ -322,6 +322,10 @@ curl http://localhost:8001/api/health
 
 - [x] **Migration MongoDB → PostgreSQL** réussie
 - [x] **Compatibilité Ubuntu 24.04.2** validée
+- [x] **Mise à jour de sécurité majeure** (Juillet 2025)
+- [x] **FastAPI 0.116.1** + **Starlette 0.46.2** (sécurisés)
+- [x] **Suppression pymongo** (vulnérabilité éliminée)
+- [x] **React Router 7.5.2** (vulnérabilité corrigée)
 - [x] **Guides mis à jour** pour PostgreSQL
 - [x] **Scripts de test** créés et validés
 - [x] **API fonctionnelle** avec PostgreSQL
