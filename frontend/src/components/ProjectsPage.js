@@ -259,12 +259,16 @@ const ProjectsPage = () => {
                   N'hésitez pas à me contacter pour discuter de mes réalisations ou d'une éventuelle collaboration.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                    Me contacter
-                  </Button>
-                  <Button variant="outline">
-                    Voir mon CV
-                  </Button>
+                  <Link to="/contact">
+                    <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                      Me contacter
+                    </Button>
+                  </Link>
+                  <Link to="/about">
+                    <Button variant="outline">
+                      Voir mon CV
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
