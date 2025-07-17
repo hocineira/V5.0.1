@@ -42,10 +42,15 @@ const ProjectsPage = () => {
 
   const fetchProcedures = async () => {
     try {
+      setLoading(true);
       const response = await portfolioApi.getProcedures();
       setProcedures(response.data);
+      setError(null);
     } catch (error) {
       console.error('Error fetching procedures:', error);
+      setError('Failed to load procedures. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
