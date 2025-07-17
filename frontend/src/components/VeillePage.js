@@ -45,10 +45,10 @@ const VeillePage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 flex items-center justify-center">
         <div className="text-center">
-          <Loader2 className="h-12 w-12 animate-spin text-blue-600 mx-auto mb-4" />
-          <p className="text-xl text-gray-600">Chargement des contenus de veille...</p>
+          <Loader2 className="h-12 w-12 animate-spin text-blue-400 mx-auto mb-4" />
+          <p className="text-xl text-gray-300">Chargement des contenus de veille...</p>
         </div>
       </div>
     );
