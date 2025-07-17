@@ -13,7 +13,7 @@ import uuid
 import time
 
 # Backend URL from environment
-BACKEND_URL = "https://480e1067-9934-42f2-825d-d1520ef33e84.preview.emergentagent.com"
+BACKEND_URL = "https://0134f8e7-1984-421f-a44c-b6c1e74f1d73.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 class PortfolioAPITester:
