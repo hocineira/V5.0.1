@@ -71,11 +71,11 @@ const VeillePage = () => {
       
       <div className="relative z-30 container mx-auto px-4 py-20">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
             Veille Technologique et Juridique
           </h1>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto">
             Dans le domaine des systèmes et réseaux, la veille technologique et juridique est essentielle 
             pour rester informé des évolutions, innovations et réglementations qui impactent notre secteur.
           </p>
