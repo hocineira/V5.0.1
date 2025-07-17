@@ -8,8 +8,19 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from database import engine, SessionLocal
-from db_models import *
+from database import engine, SessionLocal, Base
+from db_models import (
+    PersonalInfo as PersonalInfoModel,
+    Education as EducationModel,
+    SkillCategory as SkillCategoryModel,
+    Project as ProjectModel,
+    Experience as ExperienceModel,
+    Certification as CertificationModel,
+    Testimonial as TestimonialModel,
+    ContactMessage as ContactMessageModel,
+    Procedure as ProcedureModel,
+    VeilleContent as VeilleContentModel
+)
 from sqlalchemy.orm import Session
 
 def init_database():
