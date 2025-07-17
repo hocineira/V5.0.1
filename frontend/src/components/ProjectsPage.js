@@ -104,7 +104,7 @@ const ProjectsPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="h-12 w-12 animate-spin text-blue-400 mx-auto mb-4" />
-          <p className="text-xl text-gray-300">Chargement des projets...</p>
+          <p className="text-xl text-gray-300">Chargement des procédures...</p>
         </div>
       </div>
     );
@@ -123,64 +123,6 @@ const ProjectsPage = () => {
       </div>
     );
   }
-
-  const { projects } = data;
-
-  const getStatusColor = (status) => {
-    switch (status?.toLowerCase()) {
-      case 'completed':
-      case 'terminé':
-        return 'bg-green-500/20 text-green-300 border-green-400';
-      case 'in_progress':
-      case 'en_cours':
-        return 'bg-yellow-500/20 text-yellow-300 border-yellow-400';
-      case 'planning':
-      case 'planification':
-        return 'bg-blue-500/20 text-blue-300 border-blue-400';
-      default:
-        return 'bg-gray-500/20 text-gray-300 border-gray-400';
-    }
-  };
-
-  const getStatusLabel = (status) => {
-    switch (status?.toLowerCase()) {
-      case 'completed':
-        return 'Terminé';
-      case 'in_progress':
-        return 'En cours';
-      case 'planning':
-        return 'Planification';
-      default:
-        return status;
-    }
-  };
-
-  const getTechIcon = (tech) => {
-    switch (tech.toLowerCase()) {
-      case 'react':
-      case 'javascript':
-      case 'js':
-        return <Code className="w-4 h-4 text-blue-400" />;
-      case 'node':
-      case 'nodejs':
-      case 'express':
-        return <Server className="w-4 h-4 text-green-400" />;
-      case 'python':
-      case 'django':
-      case 'flask':
-        return <Code className="w-4 h-4 text-yellow-400" />;
-      default:
-        return <Code className="w-4 h-4 text-gray-400" />;
-    }
-  };
-
-  // Get unique categories
-  const projectCategories = ['all', ...new Set(projects?.map(p => p.category).filter(Boolean))];
-
-  // Filter projects by category
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
-    : projects?.filter(p => p.category === selectedCategory);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
