@@ -66,6 +66,18 @@ const Portfolio = () => {
     }));
   };
 
+  // Prevent scroll on form interaction
+  const handleFormFocus = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleFormInput = (e, field) => {
+    e.preventDefault();
+    e.stopPropagation();
+    handleContactChange(field, e.target.value);
+  };
+
   // Loading state
   if (loading) {
     return (
