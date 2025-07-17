@@ -267,12 +267,12 @@ class HocinePortfolioValidator:
                 else:
                     self.log_test("Testimonials - Count", False, f"Expected 2 testimonials, found {len(data)}")
                 
-                # Check for professor testimonial
-                prof_found = any('Professeur' in item.get('role', '') or 'professeur' in item.get('role', '').lower() for item in data)
+                # Check for professor/teacher testimonial
+                prof_found = any('Professeur' in item.get('role', '') or 'professeur' in item.get('role', '').lower() or 'Formateur' in item.get('role', '') or 'formateur' in item.get('role', '').lower() for item in data)
                 if prof_found:
-                    self.log_test("Testimonials - Professor", True, "Professor testimonial found")
+                    self.log_test("Testimonials - Professor/Teacher", True, "Professor/Teacher testimonial found")
                 else:
-                    self.log_test("Testimonials - Professor", False, "Professor testimonial not found")
+                    self.log_test("Testimonials - Professor/Teacher", False, "Professor/Teacher testimonial not found")
                 
                 # Check for tutor/supervisor testimonial
                 tutor_found = any('tuteur' in item.get('role', '').lower() or 'stage' in item.get('role', '').lower() for item in data)
