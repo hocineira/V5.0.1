@@ -118,7 +118,7 @@ EOF
     if [ ! -f "$PROJECT_DIR/backend/.env" ]; then
         print_info "Création du fichier .env backend..."
         cat > "$PROJECT_DIR/backend/.env" << EOF
-MONGO_URL=mongodb://localhost:27017
+DATABASE_URL="postgresql://portfolio_user:portfolio_password@localhost/portfolio_db"
 DB_NAME=portfolio_db
 EOF
         print_success "Fichier .env backend créé"
