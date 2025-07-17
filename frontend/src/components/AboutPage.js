@@ -43,16 +43,8 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background with Tech Image */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxJVCUyMGluZnJhc3RydWN0dXJlfGVufDB8fHx8MTc1Mjc3NDk2Mnww&ixlib=rb-4.1.0&q=85')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      />
+      {/* Modern gradient background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
       
       {/* Tech Grid Pattern */}
       <div className="absolute inset-0 tech-grid-bg opacity-20 z-10"></div>
@@ -68,6 +60,19 @@ const AboutPage = () => {
         <div className="absolute bottom-40 left-20 animate-float delay-2000">
           <Network className="w-10 h-10 text-cyan-400/30 animate-tech-glow" />
         </div>
+        <div className="absolute top-60 left-1/2 animate-float delay-3000">
+          <Shield className="w-7 h-7 text-green-400/30 animate-tech-glow" />
+        </div>
+        <div className="absolute bottom-60 right-10 animate-float delay-4000">
+          <Server className="w-9 h-9 text-pink-400/30 animate-tech-glow" />
+        </div>
+      </div>
+      
+      {/* Animated geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+        <div className="absolute top-1/4 left-1/4 w-20 h-20 bg-blue-500/10 rounded-full animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-16 h-16 bg-purple-500/10 rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-24 h-24 bg-cyan-500/10 rounded-full animate-pulse delay-2000"></div>
       </div>
       
       <div className="relative z-30 container mx-auto px-4 py-20">
