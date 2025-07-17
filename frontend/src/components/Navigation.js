@@ -57,12 +57,7 @@ const Navigation = () => {
       icon: BookOpen,
       description: 'Présentation de la formation'
     },
-    { 
-      path: '/projets-scolaires', 
-      label: 'Projets Scolaires', 
-      icon: FolderOpen,
-      description: 'Procédures et documentations'
-    },
+
     { 
       path: '/veille', 
       label: 'Veille', 
