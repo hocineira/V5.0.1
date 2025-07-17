@@ -139,7 +139,7 @@ const SkillsPage = () => {
                               {getCategoryIcon(category)}
                             </div>
                             <Badge variant="secondary" className="text-sm">
-                              {skill.level}%
+                              {skill.level || 0}%
                             </Badge>
                           </div>
                           <CardTitle className="text-lg">{skill.name}</CardTitle>
