@@ -253,9 +253,9 @@ const VeillePage = () => {
 
               {/* Additional Legal Topics */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 dark-glass-effect neon-border">
                   <CardHeader>
-                    <CardTitle className="text-lg flex items-center gap-2">
+                    <CardTitle className="text-lg flex items-center gap-2 text-white">
                       <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                         <Scale className="w-4 h-4 text-white" />
                       </div>
@@ -263,15 +263,15 @@ const VeillePage = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       Mise en conformité, obligations légales et bonnes pratiques pour la protection des données.
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 dark-glass-effect neon-border">
                   <CardHeader>
-                    <CardTitle className="text-lg flex items-center gap-2">
+                    <CardTitle className="text-lg flex items-center gap-2 text-white">
                       <div className="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
                         <Scale className="w-4 h-4 text-white" />
                       </div>
@@ -279,15 +279,15 @@ const VeillePage = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       Aspects légaux de la cybersécurité, responsabilités et obligations des entreprises.
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 dark-glass-effect neon-border">
                   <CardHeader>
-                    <CardTitle className="text-lg flex items-center gap-2">
+                    <CardTitle className="text-lg flex items-center gap-2 text-white">
                       <div className="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
                         <Scale className="w-4 h-4 text-white" />
                       </div>
@@ -295,7 +295,7 @@ const VeillePage = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       Droits d'auteur, brevets et protection de la propriété intellectuelle dans l'IT.
                     </p>
                   </CardContent>
