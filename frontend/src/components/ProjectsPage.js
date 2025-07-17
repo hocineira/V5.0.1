@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Github, Calendar, Code, Server, Shield, Loader2, Eye, Star, BookOpen, Search, Filter, Tag, FileText } from 'lucide-react';
+import { Calendar, Loader2, Eye, Search, Tag, FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Input } from './ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
-import { usePortfolioData } from '../hooks/usePortfolioData';
 import { portfolioApi } from '../services/api';
 
 const ProjectsPage = () => {
