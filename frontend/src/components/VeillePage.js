@@ -155,9 +155,9 @@ const VeillePage = () => {
 
               {/* Additional Technology Topics */}
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 dark-glass-effect neon-border">
                   <CardHeader>
-                    <CardTitle className="text-lg flex items-center gap-2">
+                    <CardTitle className="text-lg flex items-center gap-2 text-white">
                       <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                         <Monitor className="w-4 h-4 text-white" />
                       </div>
@@ -165,15 +165,15 @@ const VeillePage = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       Évolution des services cloud, nouvelles plateformes et impact sur l'infrastructure IT.
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 dark-glass-effect neon-border">
                   <CardHeader>
-                    <CardTitle className="text-lg flex items-center gap-2">
+                    <CardTitle className="text-lg flex items-center gap-2 text-white">
                       <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                         <Monitor className="w-4 h-4 text-white" />
                       </div>
@@ -181,15 +181,15 @@ const VeillePage = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       Nouvelles technologies de virtualisation et optimisation des ressources.
                     </p>
                   </CardContent>
                 </Card>
 
-                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 dark-glass-effect neon-border">
                   <CardHeader>
-                    <CardTitle className="text-lg flex items-center gap-2">
+                    <CardTitle className="text-lg flex items-center gap-2 text-white">
                       <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
                         <Monitor className="w-4 h-4 text-white" />
                       </div>
@@ -197,7 +197,7 @@ const VeillePage = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-300 text-sm">
                       Nouvelles menaces, outils de protection et bonnes pratiques sécuritaires.
                     </p>
                   </CardContent>
