@@ -13,7 +13,7 @@ import sys
 from datetime import datetime
 
 # Backend URL from environment
-BACKEND_URL = "https://453d7b75-8496-48cf-a1d3-d02e08912163.preview.emergentagent.com"
+BACKEND_URL = "https://dae5cecf-a4ec-40d6-a4c7-071d18533c17.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 class QuickValidationTester:
