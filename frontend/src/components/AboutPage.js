@@ -152,50 +152,52 @@ const AboutPage = () => {
 
             {/* Education & Certifications */}
             <div className="space-y-8">
-              <Card className="shadow-xl border-0 bg-white/90 backdrop-blur-sm">
+              <Card className="shadow-xl border-0 dark-glass-effect neon-border">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                    <Award className="w-6 h-6 text-blue-500" />
+                  <CardTitle className="text-2xl font-bold text-white flex items-center gap-2">
+                    <Award className="w-6 h-6 text-blue-400" />
                     Formation
                   </CardTitle>
-                  <CardDescription>Mon parcours académique</CardDescription>
+                  <CardDescription className="text-gray-300">Mon parcours académique</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
                     {education?.map((edu, index) => (
-                      <div key={edu.id || index} className="border-l-4 border-blue-500 pl-6 relative">
-                        <div className="absolute w-3 h-3 bg-blue-500 rounded-full -left-2 top-2"></div>
+                      <div key={edu.id || index} className="border-l-4 border-blue-400 pl-6 relative">
+                        <div className="absolute w-3 h-3 bg-blue-400 rounded-full -left-2 top-2 animate-pulse"></div>
                         <div className="flex items-center gap-2 mb-2">
-                          <Calendar className="w-4 h-4 text-gray-500" />
-                          <span className="text-sm text-gray-500">{edu.period}</span>
+                          <Calendar className="w-4 h-4 text-gray-400" />
+                          <span className="text-sm text-gray-400">{edu.period}</span>
                         </div>
-                        <h3 className="font-semibold text-lg text-gray-800">{edu.degree}</h3>
-                        <p className="text-blue-600 font-medium">{edu.institution}</p>
-                        <p className="text-gray-600 mt-2">{edu.description}</p>
+                        <h3 className="font-semibold text-lg text-white">{edu.degree}</h3>
+                        <p className="text-blue-300 font-medium">{edu.institution || edu.school}</p>
+                        <p className="text-gray-300 mt-2">{edu.description}</p>
                       </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="shadow-xl border-0 bg-white/90 backdrop-blur-sm">
+              <Card className="shadow-xl border-0 dark-glass-effect neon-border">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                    <Award className="w-6 h-6 text-purple-500" />
+                  <CardTitle className="text-2xl font-bold text-white flex items-center gap-2">
+                    <Award className="w-6 h-6 text-purple-400" />
                     Certifications
                   </CardTitle>
-                  <CardDescription>Mes certifications professionnelles</CardDescription>
+                  <CardDescription className="text-gray-300">Mes certifications professionnelles</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-1 gap-4">
                     {certifications?.map((cert, index) => (
-                      <div key={cert.id || index} className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      <div key={cert.id || index} className="p-4 bg-gray-800/50 rounded-lg border border-gray-600 hover:border-purple-400 transition-colors">
                         <div className="flex items-center justify-between mb-2">
-                          <h3 className="font-semibold text-gray-800">{cert.name}</h3>
-                          <Badge variant="secondary">{cert.level}</Badge>
+                          <h3 className="font-semibold text-white">{cert.name}</h3>
+                          <Badge variant="secondary" className="bg-purple-500/20 text-purple-300 border-purple-400">
+                            {cert.status}
+                          </Badge>
                         </div>
-                        <p className="text-sm text-gray-600 mb-2">{cert.issuer}</p>
-                        <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <p className="text-sm text-gray-300 mb-2">{cert.issuer}</p>
+                        <div className="flex items-center gap-2 text-sm text-gray-400">
                           <Calendar className="w-4 h-4" />
                           <span>{cert.date}</span>
                         </div>
