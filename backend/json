@@ -1,0 +1,9 @@
+Name       Version ID                  Fix Versions
+---------- ------- ------------------- ------------
+pymongo    4.5.0   GHSA-m87m-mmvp-v9qm 4.6.3
+setuptools 65.5.0  PYSEC-2022-43012    65.5.1
+setuptools 65.5.0  PYSEC-2025-49       78.1.1
+starlette  0.37.2  GHSA-f96h-pmfr-66vw 0.40.0
+Name             Skip Reason
+---------------- -------------------------------------------------------------------------------
+emergent-plugins Dependency not found on PyPI and could not be audited: emergent-plugins (1.0.0)
