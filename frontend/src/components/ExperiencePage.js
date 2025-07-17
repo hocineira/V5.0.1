@@ -231,31 +231,26 @@ const ExperiencePage = () => {
             </Card>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <Card className="max-w-2xl mx-auto bg-gradient-to-r from-blue-50 to-purple-50 border-0 shadow-lg">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                  Prêt pour de nouveaux défis
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Fort de ces expériences, je suis motivé pour contribuer à de nouveaux projets et continuer à apprendre.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4">
-                  <Link to="/contact">
-                    <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                      Me contacter
-                    </Button>
-                  </Link>
-                  <Link to="/about">
-                    <Button variant="outline">
-                      Télécharger mon CV
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            {/* Call to Action */}
+            <div className="text-center mt-16">
+              <Card className="max-w-2xl mx-auto dark-glass-effect neon-border">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 text-white">
+                    Prêt pour de nouveaux défis
+                  </h3>
+                  <p className="text-gray-300 mb-6">
+                    Fort de ces expériences, je suis motivé pour contribuer à de nouveaux projets et continuer à apprendre.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <Link to="/contact">
+                      <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                        Me contacter
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
         </div>
       </div>
     </div>
