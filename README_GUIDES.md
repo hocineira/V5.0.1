@@ -85,7 +85,18 @@
 ./demo-procedures.sh
 ```
 
-### Étape 2 : Tester sur Ubuntu 24.04.2
+### Étape 2 : Tester sur Ubuntu 24.02.x (Sécurisé)
+```bash
+# Télécharger et exécuter le test automatique sécurisé
+chmod +x test-ubuntu-24.02.sh
+./test-ubuntu-24.02.sh
+
+# Ou validation complète post-installation
+chmod +x validate-ubuntu-24.02.sh
+./validate-ubuntu-24.02.sh
+```
+
+### Étape 2bis : Tester sur Ubuntu 24.04.2 (Alternatif)
 ```bash
 # Télécharger et exécuter le test automatique
 chmod +x test-ubuntu-24.04.sh
