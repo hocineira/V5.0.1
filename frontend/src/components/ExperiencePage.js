@@ -242,12 +242,16 @@ const ExperiencePage = () => {
                   Fort de ces expériences, je suis motivé pour contribuer à de nouveaux projets et continuer à apprendre.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                    Me contacter
-                  </Button>
-                  <Button variant="outline">
-                    Télécharger mon CV
-                  </Button>
+                  <Link to="/contact">
+                    <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                      Me contacter
+                    </Button>
+                  </Link>
+                  <Link to="/about">
+                    <Button variant="outline">
+                      Télécharger mon CV
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
