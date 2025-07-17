@@ -55,8 +55,21 @@ const VeillePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="container mx-auto px-4 py-20">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Modern gradient background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900"></div>
+      
+      {/* Tech Grid Pattern */}
+      <div className="absolute inset-0 tech-grid-bg opacity-20 z-10"></div>
+      
+      {/* Floating elements for tech theme */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-20">
+        <div className="absolute top-1/4 left-1/4 w-16 h-16 bg-blue-500/10 rounded-full animate-pulse"></div>
+        <div className="absolute top-3/4 right-1/4 w-12 h-12 bg-purple-500/10 rounded-full animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-cyan-500/10 rounded-full animate-pulse delay-2000"></div>
+      </div>
+      
+      <div className="relative z-30 container mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Veille Technologique et Juridique
