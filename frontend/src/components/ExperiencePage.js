@@ -320,6 +320,7 @@ export default ExperiencePage;
                 </CardContent>
               </Card>
             </div>
+          </div>
         </div>
       </div>
     </div>
