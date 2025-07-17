@@ -103,11 +103,13 @@
 #====================================================================================================
 
 ## user_problem_statement: |
-  "L'utilisateur fait face à plusieurs problèmes sur son site portfolio :
-  1. Le titre de l'onglet du navigateur doit être changé en 'Portfolio IRATNI Hocine' (actuellement 'Emergent | Fullstack App')
-  2. Il y a un problème avec la structure du site - quand on accède à la page d'accueil, on peut que scroller et tout est sur la même page, mais l'utilisateur veut séparer les sections (tcs, accueil, projets...) avec chacune sa propre URL
-  3. Le formulaire de contact fait remonter la page vers le haut lors de la saisie d'un caractère
-  4. Demande de tests poussés pour détecter le moindre problème"
+  "Tester le backend après la mise à jour de sécurité majeure. Objectifs spécifiques :
+  1. Tests de sécurité : Vérifier que toutes les vulnérabilités ont été corrigées
+  2. Tests de compatibilité : Confirmer que FastAPI 0.116.1 et Starlette 0.46.x fonctionnent correctement ensemble
+  3. Tests de régression : S'assurer que toutes les fonctionnalités existantes continuent de fonctionner après les mises à jour
+  4. Tests PostgreSQL : Confirmer que la base de données PostgreSQL fonctionne correctement (pas MongoDB)
+  
+  Contexte : Mise à jour de FastAPI 0.110.1 → 0.116.1, Starlette 0.37.2 → 0.46.x, setuptools 65.5.0 → 78.1.1+, suppression complète de pymongo et motor (vulnérabilités MongoDB), nettoyage de toutes les références MongoDB dans le code."
 
 ## backend:
   - task: "Configuration et test PostgreSQL"
