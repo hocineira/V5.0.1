@@ -214,7 +214,7 @@
   current_focus:
     - "Changement du titre de l'onglet du navigateur"
     - "Optimisation du formulaire de contact"
-    - "Analyse et vérification de la structure de navigation"
+    - "Refonte complète de la structure du site"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
