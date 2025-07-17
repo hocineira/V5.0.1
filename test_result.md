@@ -153,17 +153,17 @@
           comment: "URL Git corrigée dans GUIDE_SERVEUR_DOMESTIQUE.md : changé de https://github.com/hocineira/siteweb.git vers https://github.com/hocineira/V3.git"
 
 ## frontend:
-  - task: "Analyse et vérification de la structure de navigation"
+  - task: "Refonte complète de la structure du site"
     implemented: true
     working: true
-    file: "frontend/src/App.js, frontend/src/components/Navigation.js"
+    file: "frontend/src/components/HomePage.js, AboutPage.js, SkillsPage.js, ProjectsPage.js, ExperiencePage.js, ContactPage.js, App.js, Navigation.js"
     stuck_count: 0
     priority: "high"
     needs_retesting: true
     status_history:
         - working: true
           agent: "main"
-          comment: "Vérification de la structure de navigation: Les routes sont correctement définies dans App.js avec BrowserRouter (/tcs, /bts-sio, /projets-scolaires, /veille). Les composants de page sont bien implémentés avec des contenus distincts. Le 'problème' mentionné n'est pas un conflit entre versions mais la page Portfolio (/) qui est longue avec plusieurs sections scrollables (hero, about, skills, etc.)."
+          comment: "REFONTE MAJEURE TERMINÉE - Création d'une structure de site classique avec pages séparées au lieu d'une page unique avec scroll. Nouvelles pages créées : HomePage (accueil simple), AboutPage (à propos), SkillsPage (compétences), ProjectsPage (projets), ExperiencePage (expérience), ContactPage (contact). Navigation mise à jour avec tous les liens. Routes mises à jour dans App.js. Extraction du contenu de Portfolio.js vers les pages appropriées. Structure finale : / (accueil), /about, /skills, /projects, /experience, /contact, /tcs, /bts-sio, /projets-scolaires, /veille"
 
   - task: "Changement du titre de l'onglet du navigateur"
     implemented: true
