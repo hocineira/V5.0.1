@@ -87,6 +87,20 @@ export const portfolioApi = {
   createContactMessage: (data) => api.post('/contact-messages', data),
   markMessageAsRead: (id) => api.put(`/contact-messages/${id}/read`),
   deleteContactMessage: (id) => api.delete(`/contact-messages/${id}`),
+
+  // Procedures
+  getProcedures: () => api.get('/procedures'),
+  getProcedure: (id) => api.get(`/procedures/${id}`),
+  createProcedure: (data) => api.post('/procedures', data),
+  updateProcedure: (id, data) => api.put(`/procedures/${id}`, data),
+  deleteProcedure: (id) => api.delete(`/procedures/${id}`),
+
+  // Veille Content
+  getVeilleContent: () => api.get('/veille'),
+  getVeilleByType: (type) => api.get(`/veille/${type}`),
+  createVeilleContent: (data) => api.post('/veille', data),
+  updateVeilleContent: (id, data) => api.put(`/veille/${id}`, data),
+  deleteVeilleContent: (id) => api.delete(`/veille/${id}`),
 };
 
 export default portfolioApi;
