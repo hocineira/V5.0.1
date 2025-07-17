@@ -10,15 +10,15 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
 import { portfolioApi } from '../services/api';
 
 const ProjectsPage = () => {
-  const { data, loading, error } = usePortfolioData();
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('all');
   const [procedures, setProcedures] = useState([]);
   const [filteredProcedures, setFilteredProcedures] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [procedureCategory, setProcedureCategory] = useState('all');
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [selectedProcedure, setSelectedProcedure] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const categories = [
     { value: 'all', label: 'Toutes les catégories' },
