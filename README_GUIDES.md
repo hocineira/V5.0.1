@@ -13,12 +13,19 @@
 
 ---
 
-## 🔄 Changements importants (Migration PostgreSQL)
+## 🔄 Changements importants (Migration PostgreSQL + Sécurité)
 
 ### ✅ Ce qui a changé :
 - **Base de données** : MongoDB → PostgreSQL 15
 - **ORM** : Motor → SQLAlchemy
-- **Compatibilité** : Ubuntu 24.04.2 LTS
+- **Compatibilité** : Ubuntu 24.04.2 LTS (✅ Testée)
+- **Sécurité** : Mise à jour majeure (Juillet 2025)
+  - FastAPI : 0.110.1 → 0.116.1
+  - Starlette : 0.37.2 → 0.46.2
+  - setuptools : 65.5.0 → 80.9.0
+  - React Router : 7.5.1 → 7.5.2
+  - PostCSS : 8.4.49 → 8.5.6
+  - Suppression complète de pymongo (vulnérabilité)
 - **Performances** : Améliorées avec PostgreSQL
 - **Sauvegardes** : Simplifiées avec pg_dump
 - **Monitoring** : Outils PostgreSQL intégrés
