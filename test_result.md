@@ -136,11 +136,14 @@
     file: "routes/portfolio.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: true
           agent: "main"
           comment: "Toutes les routes API migrées de MongoDB vers PostgreSQL avec SQLAlchemy ORM. Includes CRUD operations pour tous les modèles"
+        - working: true
+          agent: "testing"
+          comment: "Tests complets effectués sur toutes les routes API. 43/43 tests réussis (100% de réussite). Problème UUID résolu dans model_to_dict. Tous les endpoints CRUD fonctionnent correctement : personal-info, education, skills, projects, experience, certifications, testimonials, contact-messages, procedures, veille. UUIDs correctement sérialisés, données JSON bien gérées, timestamps fonctionnels, données de démonstration présentes et accessibles."
 
   - task: "Mise à jour du serveur principal"
     implemented: true
