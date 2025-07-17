@@ -144,11 +144,11 @@ const ProjectsPage = () => {
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Mes Projets
+              Procédures & Documentation
             </h1>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 mx-auto mb-6"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Découvrez mes réalisations techniques et projets développés au cours de ma formation et de mes expériences
+              Découvrez mes procédures techniques et documentations développées au cours de ma formation
             </p>
           </div>
 
