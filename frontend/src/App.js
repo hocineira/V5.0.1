@@ -3,6 +3,12 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Portfolio from "./components/Portfolio";
+import TCSPage from "./components/TCSPage";
+import BTSSIOPage from "./components/BTSSIOPage";
+import ProjetScolairePage from "./components/ProjetScolairePage";
+import VeillePage from "./components/VeillePage";
+import Navigation from "./components/Navigation";
+import { Toaster } from "./components/ui/toaster";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -24,9 +30,15 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navigation />
         <Routes>
           <Route path="/" element={<Portfolio />} />
+          <Route path="/tcs" element={<TCSPage />} />
+          <Route path="/bts-sio" element={<BTSSIOPage />} />
+          <Route path="/projets-scolaires" element={<ProjetScolairePage />} />
+          <Route path="/veille" element={<VeillePage />} />
         </Routes>
+        <Toaster />
       </BrowserRouter>
     </div>
   );
