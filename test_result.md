@@ -291,10 +291,11 @@
 
 ## test_plan:
   current_focus:
-    - "Tests de sécurité post-mise à jour majeure"
-    - "Tests de compatibilité FastAPI 0.116.1 + Starlette 0.46.x"
-    - "Tests de régression post-mises à jour"
-    - "Validation PostgreSQL (migration MongoDB terminée)"
+    - "Migration PostgreSQL vers MariaDB - Connexion et configuration"
+    - "Test UUID String(36) - Remplacement UUID PostgreSQL"
+    - "Test sérialisation JSON MariaDB"
+    - "Test stabilité MariaDB - Requêtes consécutives"
+    - "Test endpoints CRUD complets MariaDB"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
