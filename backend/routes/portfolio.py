@@ -41,7 +41,14 @@ router = APIRouter()
 
 def model_to_dict(model):
     """Convert SQLAlchemy model to dictionary"""
-    return {c.name: getattr(model, c.name) for c in model.__table__.columns}
+    result = {}
+    for c in model.__table__.columns:
+        value = getattr(model, c.name)
+        # Convert UUID objects to strings for JSON serialization
+        if hasattr(value, 'hex'):  # UUID objects have a hex attribute
+            value = str(value)
+        result[c.name] = value
+    return result
 
 # Personal Info Routes
 @router.get("/personal-info", response_model=PersonalInfo)
