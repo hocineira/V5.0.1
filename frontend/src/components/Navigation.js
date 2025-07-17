@@ -11,9 +11,39 @@ const Navigation = () => {
   const navigationItems = [
     { 
       path: '/', 
-      label: 'Portfolio', 
+      label: 'Accueil', 
       icon: Home,
-      description: 'Accueil et présentation'
+      description: 'Page d\'accueil du portfolio'
+    },
+    { 
+      path: '/about', 
+      label: 'À propos', 
+      icon: FileText,
+      description: 'Mon parcours et mes informations'
+    },
+    { 
+      path: '/skills', 
+      label: 'Compétences', 
+      icon: BookOpen,
+      description: 'Mes compétences techniques'
+    },
+    { 
+      path: '/projects', 
+      label: 'Projets', 
+      icon: FolderOpen,
+      description: 'Mes réalisations et projets'
+    },
+    { 
+      path: '/experience', 
+      label: 'Expérience', 
+      icon: BookOpen,
+      description: 'Mon parcours professionnel'
+    },
+    { 
+      path: '/contact', 
+      label: 'Contact', 
+      icon: Search,
+      description: 'Me contacter'
     },
     { 
       path: '/tcs', 
