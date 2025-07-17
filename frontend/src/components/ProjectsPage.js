@@ -208,252 +208,102 @@ const ProjectsPage = () => {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <Tabs defaultValue="projects" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-8 bg-gray-800/50 border border-gray-700">
-                <TabsTrigger value="projects" className="flex items-center gap-2 data-[state=active]:bg-blue-500/20 data-[state=active]:text-blue-300">
-                  <Code className="w-4 h-4" />
-                  Projets Techniques
-                </TabsTrigger>
-                <TabsTrigger value="procedures" className="flex items-center gap-2 data-[state=active]:bg-purple-500/20 data-[state=active]:text-purple-300">
-                  <FileText className="w-4 h-4" />
-                  Procédures & Documentation
-                </TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="projects" className="space-y-8">
-                {/* Category Filter */}
-                <div className="flex flex-wrap justify-center gap-2 mb-8">
-                  {projectCategories.map((category) => (
-                    <Button
-                      key={category}
-                      variant={selectedCategory === category ? "default" : "outline"}
-                      onClick={() => setSelectedCategory(category)}
-                      className="capitalize"
-                    >
-                      {category === 'all' ? 'Tous' : category}
-                    </Button>
-                  ))}
+            {/* Filters and Search */}
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
+              <div className="flex flex-1 gap-4">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Input
+                    placeholder="Rechercher une procédure..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10 bg-gray-800/50 border-gray-600 text-white placeholder-gray-400"
+                  />
                 </div>
+                <Select value={procedureCategory} onValueChange={setProcedureCategory}>
+                  <SelectTrigger className="w-48 bg-gray-800/50 border-gray-600 text-white">
+                    <SelectValue placeholder="Catégorie" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-gray-800 border-gray-600">
+                    {categories.map(category => (
+                      <SelectItem key={category.value} value={category.value} className="text-white hover:bg-gray-700">
+                        {category.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
 
-                {/* Projects Grid */}
-                {filteredProjects?.length === 0 ? (
-                  <div className="text-center py-12">
-                    <div className="text-6xl mb-4">🚧</div>
-                    <h3 className="text-xl font-semibold text-gray-300 mb-2">Projets à venir</h3>
-                    <p className="text-gray-400">Cette section sera bientôt mise à jour avec mes projets.</p>
-                  </div>
-                ) : (
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredProjects?.map((project, index) => (
-                      <Card key={project.id || index} className="group shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 dark-glass-effect neon-border">
-                        {/* Project Image */}
-                        <div className="relative h-48 bg-gradient-to-br from-blue-500/30 to-purple-600/30 overflow-hidden rounded-t-lg">
-                          {project.image ? (
-                            <img 
-                              src={project.image} 
-                              alt={project.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center text-blue-400">
-                              <Code className="w-16 h-16 opacity-50" />
-                            </div>
-                          )}
-                          <div className="absolute top-4 right-4">
-                            <Badge className={getStatusColor(project.status)}>
-                              {getStatusLabel(project.status)}
-                            </Badge>
-                          </div>
+            {/* Procedures Grid */}
+            {filteredProcedures.length === 0 ? (
+              <div className="text-center py-12">
+                <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-gray-300 mb-2">
+                  {searchTerm || procedureCategory !== 'all' ? 'Aucune procédure trouvée' : 'Aucune procédure disponible'}
+                </h3>
+                <p className="text-gray-400">
+                  {searchTerm || procedureCategory !== 'all' 
+                    ? 'Essayez de modifier vos critères de recherche'
+                    : 'Les procédures seront bientôt disponibles'
+                  }
+                </p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProcedures.map((procedure) => (
+                  <Card key={procedure.id} className="shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 dark-glass-effect neon-border">
+                    <CardHeader className="pb-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className={`p-2 rounded-lg ${getCategoryColor(procedure.category)}`}>
+                          {getCategoryIcon(procedure.category)}
                         </div>
-
-                        <CardHeader className="pb-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <CardTitle className="text-lg line-clamp-1 text-white">{project.title}</CardTitle>
-                            {project.featured && (
-                              <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                            )}
-                          </div>
-                          <CardDescription className="line-clamp-2 text-sm text-gray-300">
-                            {project.description}
-                          </CardDescription>
-                        </CardHeader>
-
-                        <CardContent className="space-y-4">
-                          {/* Technologies */}
-                          <div>
-                            <p className="text-sm font-medium text-gray-300 mb-2">Technologies</p>
-                            <div className="flex flex-wrap gap-2">
-                              {project.technologies?.slice(0, 3).map((tech, techIndex) => (
-                                <Badge key={techIndex} variant="secondary" className="text-xs flex items-center gap-1 bg-gray-700/50 text-gray-300">
-                                  {getTechIcon(tech)}
-                                  {tech}
-                                </Badge>
-                              ))}
-                              {project.technologies?.length > 3 && (
-                                <Badge variant="secondary" className="text-xs bg-gray-700/50 text-gray-300">
-                                  +{project.technologies.length - 3}
-                                </Badge>
-                              )}
-                            </div>
-                          </div>
-
-                          {/* Project Details */}
-                          <div className="space-y-2">
-                            <div className="flex items-center gap-2 text-sm text-gray-400">
-                              <Calendar className="w-4 h-4" />
-                              <span>{project.date || 'Date non spécifiée'}</span>
-                            </div>
-                            {project.category && (
-                              <div className="flex items-center gap-2 text-sm text-gray-400">
-                                <Badge variant="outline" className="text-xs border-gray-600 text-gray-300">
-                                  {project.category}
-                                </Badge>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* Action Buttons */}
-                          <div className="flex gap-2 pt-4">
-                            {project.github && (
-                              <Button 
-                                variant="outline" 
-                                size="sm" 
-                                className="flex-1 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white"
-                                onClick={() => window.open(project.github, '_blank')}
-                              >
-                                <Github className="w-4 h-4 mr-1" />
-                                Code
-                              </Button>
-                            )}
-                            {project.demo && (
-                              <Button 
-                                variant="outline" 
-                                size="sm" 
-                                className="flex-1 border-green-400 text-green-400 hover:bg-green-400 hover:text-white"
-                                onClick={() => window.open(project.demo, '_blank')}
-                              >
-                                <ExternalLink className="w-4 h-4 mr-1" />
-                                Demo
-                              </Button>
-                            )}
-                            {!project.github && !project.demo && (
-                              <Button 
-                                variant="outline" 
-                                size="sm" 
-                                className="flex-1 border-gray-600 text-gray-400"
-                                disabled
-                              >
-                                <Eye className="w-4 h-4 mr-1" />
-                                Voir plus
-                              </Button>
-                            )}
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                )}
-              </TabsContent>
-
-              <TabsContent value="procedures" className="space-y-8">
-                {/* Filters and Search */}
-                <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-                  <div className="flex flex-1 gap-4">
-                    <div className="relative flex-1">
-                      <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                      <Input
-                        placeholder="Rechercher une procédure..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-10 bg-gray-800/50 border-gray-600 text-white placeholder-gray-400"
-                      />
-                    </div>
-                    <Select value={procedureCategory} onValueChange={setProcedureCategory}>
-                      <SelectTrigger className="w-48 bg-gray-800/50 border-gray-600 text-white">
-                        <SelectValue placeholder="Catégorie" />
-                      </SelectTrigger>
-                      <SelectContent className="bg-gray-800 border-gray-600">
-                        {categories.map(category => (
-                          <SelectItem key={category.value} value={category.value} className="text-white hover:bg-gray-700">
-                            {category.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                {/* Procedures Grid */}
-                {filteredProcedures.length === 0 ? (
-                  <div className="text-center py-12">
-                    <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-gray-300 mb-2">
-                      {searchTerm || procedureCategory !== 'all' ? 'Aucune procédure trouvée' : 'Aucune procédure disponible'}
-                    </h3>
-                    <p className="text-gray-400">
-                      {searchTerm || procedureCategory !== 'all' 
-                        ? 'Essayez de modifier vos critères de recherche'
-                        : 'Les procédures seront bientôt disponibles'
-                      }
-                    </p>
-                  </div>
-                ) : (
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredProcedures.map((procedure) => (
-                      <Card key={procedure.id} className="shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 dark-glass-effect neon-border">
-                        <CardHeader className="pb-4">
-                          <div className="flex items-center justify-between mb-2">
-                            <div className={`p-2 rounded-lg ${getCategoryColor(procedure.category)}`}>
-                              {getCategoryIcon(procedure.category)}
-                            </div>
-                            <div className="flex gap-2">
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={() => openViewModal(procedure)}
-                                className="text-blue-400 hover:text-blue-300"
-                              >
-                                <Eye className="w-4 h-4" />
-                              </Button>
-                            </div>
-                          </div>
-                          <CardTitle className="text-lg line-clamp-2 text-white">{procedure.title}</CardTitle>
-                          <CardDescription className="line-clamp-2 text-gray-300">{procedure.description}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="space-y-3">
-                            <div className="flex items-center gap-2 text-sm text-gray-400">
-                              <Calendar className="w-4 h-4" />
-                              <span>{new Date(procedure.created_at).toLocaleDateString('fr-FR')}</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-sm">
-                              <Tag className="w-4 h-4 text-gray-400" />
-                              <Badge variant="secondary" className={getCategoryColor(procedure.category)}>
-                                {procedure.category}
+                        <div className="flex gap-2">
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => openViewModal(procedure)}
+                            className="text-blue-400 hover:text-blue-300"
+                          >
+                            <Eye className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      </div>
+                      <CardTitle className="text-lg line-clamp-2 text-white">{procedure.title}</CardTitle>
+                      <CardDescription className="line-clamp-2 text-gray-300">{procedure.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2 text-sm text-gray-400">
+                          <Calendar className="w-4 h-4" />
+                          <span>{new Date(procedure.created_at).toLocaleDateString('fr-FR')}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Tag className="w-4 h-4 text-gray-400" />
+                          <Badge variant="secondary" className={getCategoryColor(procedure.category)}>
+                            {procedure.category}
+                          </Badge>
+                        </div>
+                        {procedure.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1">
+                            {procedure.tags.slice(0, 3).map((tag, index) => (
+                              <Badge key={index} variant="outline" className="text-xs border-gray-600 text-gray-300">
+                                {tag}
                               </Badge>
-                            </div>
-                            {procedure.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-1">
-                                {procedure.tags.slice(0, 3).map((tag, index) => (
-                                  <Badge key={index} variant="outline" className="text-xs border-gray-600 text-gray-300">
-                                    {tag}
-                                  </Badge>
-                                ))}
-                                {procedure.tags.length > 3 && (
-                                  <Badge variant="outline" className="text-xs border-gray-600 text-gray-300">
-                                    +{procedure.tags.length - 3}
-                                  </Badge>
-                                )}
-                              </div>
+                            ))}
+                            {procedure.tags.length > 3 && (
+                              <Badge variant="outline" className="text-xs border-gray-600 text-gray-300">
+                                +{procedure.tags.length - 3}
+                              </Badge>
                             )}
                           </div>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                )}
-              </TabsContent>
-            </Tabs>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Call to Action */}
