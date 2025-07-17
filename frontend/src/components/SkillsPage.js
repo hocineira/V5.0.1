@@ -151,9 +151,9 @@ const SkillsPage = () => {
                           <div className="space-y-2">
                             <div className="flex justify-between text-sm">
                               <span className="text-gray-600">Niveau</span>
-                              <span className="font-semibold">{skill.level}%</span>
+                              <span className="font-semibold">{skill.level || 0}%</span>
                             </div>
-                            <Progress value={skill.level} className="h-2" />
+                            <Progress value={skill.level || 0} className="h-2" />
                             <div className="flex justify-between text-xs text-gray-500">
                               <span>Débutant</span>
                               <span>Expert</span>
