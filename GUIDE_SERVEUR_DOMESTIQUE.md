@@ -11,8 +11,8 @@ sudo apt update && sudo apt upgrade -y
 # Installation des dépendances nécessaires
 sudo apt install -y curl wget gnupg software-properties-common
 
-# Installation de Node.js 18.x
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+# Installation de Node.js 20.x (LTS 2025)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # Installation de Python 3 et pip
