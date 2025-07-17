@@ -66,16 +66,17 @@ const Portfolio = () => {
     }));
   }, []);
 
-  // Prevent scroll on form interaction
-  const handleFormFocus = useCallback((e) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
+  // Stable input handlers
+  const handleNameChange = useCallback((e) => {
+    handleContactChange('name', e.target.value);
+  }, [handleContactChange]);
 
-  const handleFormInput = useCallback((e, field) => {
-    e.preventDefault();
-    e.stopPropagation();
-    handleContactChange(field, e.target.value);
+  const handleEmailChange = useCallback((e) => {
+    handleContactChange('email', e.target.value);
+  }, [handleContactChange]);
+
+  const handleMessageChange = useCallback((e) => {
+    handleContactChange('message', e.target.value);
   }, [handleContactChange]);
 
   // Loading state
