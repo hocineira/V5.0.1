@@ -58,25 +58,25 @@ const Portfolio = () => {
     setIsSubmitting(false);
   };
 
-  // Prevent unnecessary re-renders that could cause scroll issues
-  const handleContactChange = (field, value) => {
+  // Prevent unnecessary re-renders that could cause scroll issues - optimized with useCallback
+  const handleContactChange = useCallback((field, value) => {
     setContactForm(prev => ({
       ...prev,
       [field]: value
     }));
-  };
+  }, []);
 
   // Prevent scroll on form interaction
-  const handleFormFocus = (e) => {
+  const handleFormFocus = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
-  };
+  }, []);
 
-  const handleFormInput = (e, field) => {
+  const handleFormInput = useCallback((e, field) => {
     e.preventDefault();
     e.stopPropagation();
     handleContactChange(field, e.target.value);
-  };
+  }, [handleContactChange]);
 
   // Loading state
   if (loading) {
