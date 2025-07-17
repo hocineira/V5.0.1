@@ -98,120 +98,134 @@ const HomePage = () => {
               </div>
             </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
-                <CardTitle className="text-lg">À propos</CardTitle>
-                <CardDescription>Découvrez mon parcours et mes objectifs</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/about">
-                  <Button variant="outline" className="w-full group-hover:bg-blue-50">
-                    Découvrir <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gray-800/80 backdrop-blur-sm border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center gap-2">
+                    <Code className="w-5 h-5 text-blue-400" />
+                    À propos
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">Découvrez mon parcours et mes objectifs</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/about">
+                    <Button variant="outline" className="w-full group-hover:bg-blue-50 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
+                      Découvrir <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
-                <CardTitle className="text-lg">Compétences</CardTitle>
-                <CardDescription>Mes compétences techniques et professionnelles</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/skills">
-                  <Button variant="outline" className="w-full group-hover:bg-blue-50">
-                    Explorer <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+              <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gray-800/80 backdrop-blur-sm border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-purple-400" />
+                    Compétences
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">Mes compétences techniques et professionnelles</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/skills">
+                    <Button variant="outline" className="w-full group-hover:bg-purple-50 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white">
+                      Explorer <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
-                <CardTitle className="text-lg">Projets</CardTitle>
-                <CardDescription>Mes réalisations et projets techniques</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/projects">
-                  <Button variant="outline" className="w-full group-hover:bg-blue-50">
-                    Voir <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+              <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gray-800/80 backdrop-blur-sm border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center gap-2">
+                    <Server className="w-5 h-5 text-cyan-400" />
+                    Projets
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">Mes réalisations et projets techniques</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/projects">
+                    <Button variant="outline" className="w-full group-hover:bg-cyan-50 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-white">
+                      Voir <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
-                <CardTitle className="text-lg">Expérience</CardTitle>
-                <CardDescription>Mon parcours professionnel</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/experience">
-                  <Button variant="outline" className="w-full group-hover:bg-blue-50">
-                    Consulter <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+              <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gray-800/80 backdrop-blur-sm border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-green-400" />
+                    Expérience
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">Mon parcours professionnel</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/experience">
+                    <Button variant="outline" className="w-full group-hover:bg-green-50 border-green-400 text-green-400 hover:bg-green-400 hover:text-white">
+                      Consulter <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
-                <CardTitle className="text-lg">Formation</CardTitle>
-                <CardDescription>BTS SIO - Systèmes et Réseaux</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/bts-sio">
-                  <Button variant="outline" className="w-full group-hover:bg-blue-50">
-                    En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+              <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gray-800/80 backdrop-blur-sm border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center gap-2">
+                    <Monitor className="w-5 h-5 text-orange-400" />
+                    Formation
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">BTS SIO - Systèmes et Réseaux</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/bts-sio">
+                    <Button variant="outline" className="w-full group-hover:bg-orange-50 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white">
+                      En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
-                <CardTitle className="text-lg">Contact</CardTitle>
-                <CardDescription>Entrons en contact</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Link to="/contact">
-                  <Button variant="outline" className="w-full group-hover:bg-blue-50">
-                    Me contacter <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-gray-800">Accès rapide</h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact">
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                  Me contacter
-                </Button>
-              </Link>
-              <Link to="/about">
-                <Button variant="outline">
-                  Voir mon CV
-                </Button>
-              </Link>
+              <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-gray-800/80 backdrop-blur-sm border-gray-700">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center gap-2">
+                    <Network className="w-5 h-5 text-pink-400" />
+                    Contact
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">Entrons en contact</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link to="/contact">
+                    <Button variant="outline" className="w-full group-hover:bg-pink-50 border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white">
+                      Me contacter <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
             </div>
-          </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 mb-4">Retrouvez-moi sur :</p>
-            <div className="flex justify-center gap-4">
-              <Button variant="outline" size="icon" className="hover:bg-blue-50">
-                <Github className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" className="hover:bg-blue-50">
-                <Linkedin className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" className="hover:bg-blue-50">
-                <Mail className="h-5 w-5" />
-              </Button>
+            <div className="bg-gray-800/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-700">
+              <h2 className="text-2xl font-semibold mb-6 text-white">Accès rapide</h2>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/contact">
+                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
+                    Me contacter
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-gray-400 mb-4">Retrouvez-moi sur :</p>
+              <div className="flex justify-center gap-4">
+                <Button variant="outline" size="icon" className="hover:bg-blue-50 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
+                  <Github className="h-5 w-5" />
+                </Button>
+                <Button variant="outline" size="icon" className="hover:bg-blue-50 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
+                  <Linkedin className="h-5 w-5" />
+                </Button>
+                <Button variant="outline" size="icon" className="hover:bg-blue-50 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white">
+                  <Mail className="h-5 w-5" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>
