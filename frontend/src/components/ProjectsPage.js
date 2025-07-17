@@ -256,10 +256,10 @@ const ProjectsPage = () => {
             <Card className="max-w-2xl mx-auto dark-glass-effect neon-border">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-4 text-white">
-                  Intéressé par mes projets ?
+                  Intéressé par mes procédures ?
                 </h3>
                 <p className="text-gray-300 mb-6">
-                  N'hésitez pas à me contacter pour discuter de mes réalisations ou d'une éventuelle collaboration.
+                  N'hésitez pas à me contacter pour discuter de mes documentations ou d'une éventuelle collaboration.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link to="/contact">
