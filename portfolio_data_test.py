@@ -10,7 +10,7 @@ import sys
 from datetime import datetime
 
 # Backend URL from environment
-BACKEND_URL = "https://c464f1f9-4356-42e9-8896-63e3b0137cb3.preview.emergentagent.com"
+BACKEND_URL = "https://453d7b75-8496-48cf-a1d3-d02e08912163.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 class PortfolioDataTester:
