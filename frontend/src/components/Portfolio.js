@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Mail, Phone, MapPin, Download, Github, Linkedin, ExternalLink, Calendar, Award, Code, Server, Shield, Users, Loader2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
