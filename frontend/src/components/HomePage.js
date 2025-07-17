@@ -112,19 +112,14 @@ const HomePage = () => {
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg">
             <h2 className="text-2xl font-semibold mb-6 text-gray-800">Accès rapide</h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/tcs">
+              <Link to="/contact">
                 <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white">
-                  Tableaux de Compétences
+                  Me contacter
                 </Button>
               </Link>
-              <Link to="/projets-scolaires">
-                <Button className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white">
-                  Projets Scolaires
-                </Button>
-              </Link>
-              <Link to="/veille">
-                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
-                  Veille Technologique
+              <Link to="/about">
+                <Button variant="outline">
+                  Voir mon CV
                 </Button>
               </Link>
             </div>
