@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Comprehensive Backend API Testing for Portfolio Migration
-Tests all endpoints after MongoDB to PostgreSQL migration
+Tests all endpoints after PostgreSQL to MariaDB migration
+Focus on MariaDB-specific features: String(36) UUIDs, JSON serialization, stability
 """
 
 import requests
@@ -9,6 +10,7 @@ import json
 import sys
 from datetime import datetime
 import uuid
+import time
 
 # Backend URL from environment
 BACKEND_URL = "https://c31026ea-f7d5-41d4-88f9-2349e137ca9a.preview.emergentagent.com"
