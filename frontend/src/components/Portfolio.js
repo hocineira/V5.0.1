@@ -58,6 +58,14 @@ const Portfolio = () => {
     setIsSubmitting(false);
   };
 
+  // Prevent unnecessary re-renders that could cause scroll issues
+  const handleContactChange = (field, value) => {
+    setContactForm(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
   // Loading state
   if (loading) {
     return (
