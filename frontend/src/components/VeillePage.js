@@ -219,24 +219,24 @@ const VeillePage = () => {
                   </div>
                 ) : (
                   filteredContent.map((item) => (
-                    <Card key={item.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <CardHeader className="border-b border-gray-100">
+                    <Card key={item.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300 dark-glass-effect neon-border">
+                      <CardHeader className="border-b border-gray-600">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
                               <Scale className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                              <CardTitle className="text-2xl text-gray-800">{item.title}</CardTitle>
+                              <CardTitle className="text-2xl text-white">{item.title}</CardTitle>
                               <div className="flex items-center gap-2 mt-1">
-                                <Calendar className="w-4 h-4 text-gray-500" />
-                                <span className="text-sm text-gray-500">
+                                <Calendar className="w-4 h-4 text-gray-400" />
+                                <span className="text-sm text-gray-400">
                                   {new Date(item.created_at).toLocaleDateString('fr-FR')}
                                 </span>
                               </div>
                             </div>
                           </div>
-                          <Badge className="bg-purple-100 text-purple-800">
+                          <Badge className="bg-purple-100/20 text-purple-300 border-purple-400">
                             Juridique
                           </Badge>
                         </div>
