@@ -232,10 +232,10 @@ export default function ProjetsPage() {
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
-              Mes Projets SISR
+              Mes Projets & Procédures
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Découvrez mes réalisations techniques dans les domaines des systèmes et réseaux informatiques. 
+              Découvrez mes réalisations techniques et mes procédures dans les domaines des systèmes et réseaux informatiques. 
               Chaque projet reflète ma passion pour l'infrastructure IT et ma volonté d'apprendre les dernières technologies.
             </p>
             <div className="flex justify-center items-center gap-4 mb-8">
