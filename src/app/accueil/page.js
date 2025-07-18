@@ -73,7 +73,7 @@ export default function AccueilPage() {
     { icon: Network, label: 'Cisco', value: 'CCNA', color: 'from-blue-500 to-cyan-500' },
     { icon: Shield, label: 'Security', value: 'Wireshark', color: 'from-red-500 to-pink-500' },
     { icon: Database, label: 'Systems', value: 'Windows Server', color: 'from-green-500 to-emerald-500' },
-    { icon: Cpu, label: 'Proxmox', value: 'Hyperviseur', color: 'from-purple-500 to-indigo-500' }
+    { icon: Cpu, label: 'Hyperviseur', value: 'Proxmox', color: 'from-purple-500 to-indigo-500' }
   ]
 
   // Génération des particules pour l'animation réseau
