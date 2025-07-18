@@ -251,6 +251,10 @@ export default function ProjetsPage() {
                 <Network className="w-4 h-4 mr-2" />
                 Infrastructure
               </Badge>
+              <Badge className="bg-orange-100 text-orange-800 px-4 py-2">
+                <FileText className="w-4 h-4 mr-2" />
+                Procédures
+              </Badge>
             </div>
           </div>
         </div>
