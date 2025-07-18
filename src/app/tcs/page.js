@@ -37,9 +37,11 @@ export default function TCSPage() {
   }
 
   const handleDownloadPDF = () => {
-    // Fonction pour télécharger le PDF (à implémenter plus tard)
-    setPdfError(true)
-    setTimeout(() => setPdfError(false), 3000)
+    // Télécharger le PDF TCS
+    const link = document.createElement('a');
+    link.href = '/procedures/TCS.pdf';
+    link.download = 'TCS_IRATNI_Hocine.pdf';
+    link.click();
   }
 
   return (
