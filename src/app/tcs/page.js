@@ -7,29 +7,35 @@ import { Badge } from '../../components/ui/badge'
 
 export default function TCSPage() {
   const tcsInfo = {
-    title: 'Technicien en Cybersécurité',
-    description: 'Formation spécialisée en sécurité informatique, protection des données et défense contre les cyberattaques.',
+    title: 'Tableau De Compétences',
+    description: 'Évaluation et présentation des compétences acquises dans le cadre du BTS SIO option SISR (Solutions d\'Infrastructure, Systèmes et Réseaux).',
     duration: '2 ans',
     level: 'Niveau 5 (Bac+2)',
     objectives: [
-      'Sécuriser les systèmes d\'information',
-      'Détecter et analyser les menaces',
-      'Mettre en place des solutions de protection',
-      'Sensibiliser aux bonnes pratiques'
+      'Gérer le patrimoine informatique',
+      'Répondre aux incidents et aux demandes d\'assistance et d\'évolution',
+      'Développer la présence en ligne de l\'organisation',
+      'Travailler en mode projet',
+      'Mettre à disposition des utilisateurs un service informatique',
+      'Organiser son développement professionnel'
     ],
     skills: [
-      'Sécurité réseau',
-      'Analyse de vulnérabilités',
-      'Cryptographie',
-      'Forensique numérique',
-      'Gestion des incidents',
-      'Audits sécurité'
+      'Administration des systèmes',
+      'Gestion des réseaux',
+      'Virtualisation',
+      'Sécurité informatique',
+      'Support technique',
+      'Supervision et monitoring',
+      'Scripting et automatisation',
+      'Gestion de projets IT'
     ],
     opportunities: [
-      'Technicien en cybersécurité',
-      'Analyste sécurité',
-      'Consultant en sécurité',
-      'Administrateur sécurité'
+      'Administrateur systèmes et réseaux',
+      'Technicien infrastructure',
+      'Responsable informatique',
+      'Technicien de maintenance',
+      'Consultant en systèmes',
+      'Spécialiste sécurité'
     ]
   }
 
