@@ -13,7 +13,7 @@ import uuid
 import time
 
 # Backend URL from environment
-BACKEND_URL = "https://0134f8e7-1984-421f-a44c-b6c1e74f1d73.preview.emergentagent.com"
+BACKEND_URL = "https://8dd95000-1129-4675-a526-9eee011803f9.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 class MariaDBPortfolioTester:
