@@ -58,6 +58,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ TCS page working perfectly - title 'Technicien en Cybersécurité' found, PDF download button functional, competencies section visible"
+      - working: true
+        agent: "testing"
+        comment: "✅ MODIFICATIONS VERIFIED: TCS page successfully updated - title changed to 'Tableau De Compétences', content adapted to BTS SIO SISR with proper objectives, competencies and professional opportunities, 'Documentation complète' section removed as requested"
 
   - task: "Page BTS SIO (/bts-sio) with Tabs"
     implemented: true
