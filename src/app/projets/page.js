@@ -11,84 +11,6 @@ export default function ProjetsPage() {
 
   const projects = [
     {
-      id: 1,
-      title: 'Infrastructure réseau d\'entreprise',
-      description: 'Conception et mise en place d\'une infrastructure réseau complète pour une PME avec segmentation VLAN, routage inter-VLAN, et politique de sécurité avancée. Implémentation d\'un pare-feu pfSense et configuration d\'un serveur Windows Server 2022.',
-      category: 'sisr',
-      technologies: ['Windows Server 2022', 'pfSense', 'VLAN', 'Active Directory', 'DHCP', 'DNS'],
-      date: '2024',
-      status: 'completed',
-      image: '/api/placeholder/400/200',
-      github: '#',
-      demo: '#',
-      icon: Network
-    },
-    {
-      id: 2,
-      title: 'Serveur de virtualisation Hyper-V',
-      description: 'Installation et configuration d\'un serveur de virtualisation Hyper-V sur Windows Server 2022 pour optimiser les ressources informatiques. Mise en place de machines virtuelles avec différents rôles serveur et configuration des ressources.',
-      category: 'sisr',
-      technologies: ['Hyper-V', 'Windows Server 2022', 'PowerShell', 'System Center', 'Backup'],
-      date: '2024',
-      status: 'completed',
-      image: '/api/placeholder/400/200',
-      github: '#',
-      demo: '#',
-      icon: HardDrive
-    },
-    {
-      id: 3,
-      title: 'Solution de sauvegarde automatisée',
-      description: 'Mise en place d\'une solution de sauvegarde automatisée pour les données critiques de l\'entreprise avec Veeam Backup & Replication. Configuration de sauvegardes incrémentales et différentielles avec restauration granulaire.',
-      category: 'sisr',
-      technologies: ['Veeam Backup', 'PowerShell', 'Task Scheduler', 'Robocopy', 'NAS Synology'],
-      date: '2024',
-      status: 'completed',
-      image: '/api/placeholder/400/200',
-      github: '#',
-      demo: '#',
-      icon: Shield
-    },
-    {
-      id: 4,
-      title: 'Système de monitoring réseau',
-      description: 'Déploiement d\'une solution de monitoring réseau avec PRTG pour surveiller l\'état des équipements réseau, serveurs et services. Configuration d\'alertes et de rapports automatisés pour optimiser la maintenance préventive.',
-      category: 'sisr',
-      technologies: ['PRTG', 'SNMP', 'Windows Server', 'PowerShell', 'Grafana'],
-      date: '2024',
-      status: 'completed',
-      image: '/api/placeholder/400/200',
-      github: '#',
-      demo: '#',
-      icon: Monitor
-    },
-    {
-      id: 5,
-      title: 'Configuration réseau sécurisé Wi-Fi',
-      description: 'Implémentation d\'un réseau Wi-Fi d\'entreprise sécurisé avec authentification 802.1X, contrôleur Wi-Fi et segmentation réseau. Configuration de politiques d\'accès et de sécurité pour différents profils utilisateurs.',
-      category: 'sisr',
-      technologies: ['802.1X', 'RADIUS', 'WPA3', 'Cisco Controller', 'Active Directory'],
-      date: '2023',
-      status: 'completed',
-      image: '/api/placeholder/400/200',
-      github: '#',
-      demo: '#',
-      icon: Wifi
-    },
-    {
-      id: 6,
-      title: 'Migration et modernisation AD',
-      description: 'Migration d\'Active Directory vers Windows Server 2022 avec modernisation des services de domaine. Implémentation d\'Azure AD Connect pour l\'intégration hybrid cloud et amélioration des politiques de sécurité.',
-      category: 'sisr',
-      technologies: ['Active Directory', 'Azure AD', 'Windows Server 2022', 'PowerShell', 'Group Policy'],
-      date: '2023',
-      status: 'completed',
-      image: '/api/placeholder/400/200',
-      github: '#',
-      demo: '#',
-      icon: Server
-    },
-    {
       id: 7,
       title: 'Procédure VLAN Interco',
       description: 'Procédure détaillée pour la création de VLAN sur Switch et Routeur. Configuration de l\'interconnexion entre différents réseaux virtuels avec gestion des politiques de routage.',
@@ -98,6 +20,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/VLAN_Interco.pdf',
+      image: '/images/procedures/vlan_image.png',
       icon: Network
     },
     {
@@ -110,6 +33,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/Zabbix.pdf',
+      image: '/images/procedures/zabbix_image.jpg',
       icon: Monitor
     },
     {
@@ -122,6 +46,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/Active_Directory.pdf',
+      image: '/images/procedures/ad_image.jpg',
       icon: Server
     },
     {
@@ -134,6 +59,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/GLPI.pdf',
+      image: '/images/procedures/glpi_image.webp',
       icon: FileText
     },
     {
@@ -146,6 +72,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/Proxmox.pdf',
+      image: '/images/procedures/proxmox_image.png',
       icon: HardDrive
     },
     {
@@ -158,6 +85,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/GPO.pdf',
+      image: '/images/procedures/gpo_image.jpg',
       icon: Shield
     },
     {
@@ -170,6 +98,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/MITM_Ettercap.pdf',
+      image: '/images/procedures/kali_image.jpg',
       icon: Shield
     },
     {
@@ -182,6 +111,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/MITM_DNS_Spoofing.pdf',
+      image: '/images/procedures/kali_image.jpg',
       icon: Shield
     }
   ]
