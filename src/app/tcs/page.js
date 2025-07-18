@@ -87,12 +87,6 @@ export default function TCSPage() {
               <Download className="mr-2 w-5 h-5" />
               Télécharger la plaquette PDF
             </Button>
-            
-            {pdfError && (
-              <p className="text-red-600 mt-4 text-sm">
-                PDF non disponible pour le moment. Intégration en cours...
-              </p>
-            )}
           </div>
         </div>
       </section>
