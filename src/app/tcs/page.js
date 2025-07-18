@@ -150,7 +150,7 @@ export default function TCSPage() {
             <div className="w-20 h-1 bg-red-600 mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {tcsInfo.opportunities.map((opportunity, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
@@ -161,47 +161,6 @@ export default function TCSPage() {
                 </CardHeader>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PDF Preview Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              Documentation complète
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-              Téléchargez la plaquette complète de la formation TCS pour découvrir le programme détaillé, les modalités d'inscription et les perspectives d'avenir.
-            </p>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <Card className="shadow-lg">
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FileText className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Plaquette TCS</CardTitle>
-                <CardDescription>
-                  Document PDF complet de la formation
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <Button 
-                  size="lg"
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200"
-                  onClick={handleDownloadPDF}
-                >
-                  <Download className="mr-2 w-5 h-5" />
-                  Télécharger le PDF
-                </Button>
-                <p className="text-sm text-gray-500 mt-4">
-                  Plaquette TCS complète - Format PDF
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
