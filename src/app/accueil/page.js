@@ -262,11 +262,24 @@ export default function AccueilPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-slate-800 to-slate-900 relative">
+        {/* Background Network Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="https://images.unsplash.com/photo-1664526937033-fe2c11f1be25?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxuZXR3b3JraW5nfGVufDB8fHxibHVlfDE3NTI4NzA1NDR8MA&ixlib=rb-4.1.0&q=85"
+            alt="Network diagram"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div className="relative container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              Explorez mon parcours
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+              <Network className="w-4 h-4 text-blue-400" />
+              <span className="text-sm text-blue-300">Architecture Système</span>
+            </div>
+            <h2 className="text-4xl font-bold mb-4 text-white">
+              Explorez mon <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Infrastructure</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
@@ -277,21 +290,24 @@ export default function AccueilPage() {
               return (
                 <Card 
                   key={index} 
-                  className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-lg cursor-pointer"
+                  className="group bg-slate-800/50 backdrop-blur-sm border-slate-700/50 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
                   onClick={feature.action}
                 >
                   <CardHeader className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${feature.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-600 text-center">
+                    <CardDescription className="text-gray-300 text-center">
                       {feature.description}
                     </CardDescription>
+                    <div className="mt-4 flex justify-center">
+                      <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full group-hover:w-16 transition-all duration-300"></div>
+                    </div>
                   </CardContent>
                 </Card>
               )
@@ -300,11 +316,60 @@ export default function AccueilPage() {
         </div>
       </section>
 
+      {/* Tech Stats Section */}
+      <section className="py-20 bg-slate-900 relative">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-white">
+              Monitoring <span className="text-gradient bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Système</span>
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Aperçu en temps réel de mes compétences techniques
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {techStats.map((stat, index) => {
+              const Icon = stat.icon
+              return (
+                <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/50 transition-all duration-300 group">
+                  <div className="flex items-center justify-between mb-4">
+                    <Icon className="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform" />
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                  <div className="mt-3 bg-slate-700 rounded-full h-2 overflow-hidden">
+                    <div 
+                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-full rounded-full transition-all duration-1000"
+                      style={{ width: stat.value }}
+                    ></div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 relative">
+        {/* Network visualization background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src="https://images.unsplash.com/photo-1664527184222-420bb0fec61a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwzfHxuZXR3b3JraW5nfGVufDB8fHxibHVlfDE3NTI4NzA1NDR8MA&ixlib=rb-4.1.0&q=85"
+            alt="Network connectivity"
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        
+        <div className="relative container mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span className="text-sm text-blue-100">Prêt à connecter</span>
+          </div>
           <h2 className="text-4xl font-bold mb-6 text-white">
-            Prêt à découvrir mon travail ?
+            Prêt à découvrir mon <span className="text-yellow-300">infrastructure</span> ?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Explorez mes projets, mes compétences et mon parcours dans le domaine des systèmes et réseaux informatiques.
@@ -312,10 +377,11 @@ export default function AccueilPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-white/20"
               onClick={handleProjectsClick}
             >
-              Voir mes projets
+              <Database className="mr-2 w-5 h-5" />
+              Accéder aux projets
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
@@ -324,8 +390,8 @@ export default function AccueilPage() {
               className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
               onClick={handleContactClick}
             >
-              Me contacter
-              <Mail className="ml-2 w-5 h-5" />
+              <Mail className="mr-2 w-5 h-5" />
+              Établir une connexion
             </Button>
           </div>
         </div>
