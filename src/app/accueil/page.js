@@ -87,6 +87,7 @@ export default function AccueilPage() {
                 <Button 
                   size="lg" 
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105"
+                  onClick={handleProjectsClick}
                 >
                   Découvrir mes projets
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -95,6 +96,7 @@ export default function AccueilPage() {
                   variant="outline" 
                   size="lg"
                   className="border-blue-300 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105"
+                  onClick={handleContactClick}
                 >
                   Me contacter
                 </Button>
