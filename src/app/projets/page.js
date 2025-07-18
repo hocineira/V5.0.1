@@ -7,8 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { Badge } from '../../components/ui/badge'
 
 export default function ProjetsPage() {
-  const [selectedCategory, setSelectedCategory] = useState('all')
-
   const projects = [
     {
       id: 1,
