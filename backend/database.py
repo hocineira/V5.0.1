@@ -141,7 +141,6 @@ def get_connection_stats():
             "checked_in": engine.pool.checkedin(),
             "checked_out": engine.pool.checkedout(),
             "overflow": engine.pool.overflow(),
-            "invalid": engine.pool.invalidated(),
         }
     return {"error": "Pool not available"}
 
