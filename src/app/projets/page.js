@@ -397,15 +397,15 @@ export default function ProjetsPage() {
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
               <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-                {projects.length}
+                {projects.filter(p => p.category === 'sisr').length}
               </div>
               <div className="text-gray-600">Projets SISR réalisés</div>
             </div>
             <div className="space-y-2">
               <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
-                {projects.filter(p => p.status === 'completed').length}
+                {projects.filter(p => p.category === 'procedure').length}
               </div>
-              <div className="text-gray-600">Projets terminés</div>
+              <div className="text-gray-600">Procédures techniques</div>
             </div>
             <div className="space-y-2">
               <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
