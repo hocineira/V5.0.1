@@ -94,6 +94,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ Projects page working perfectly - title 'Mes Projets' found, all 3 filters functional (Tous les projets, SISR, SLAM), 3 project cards visible, hover effects working"
+      - working: true
+        agent: "testing"
+        comment: "✅ MODIFICATIONS VERIFIED: Projets page successfully updated - filter buttons 'Toutes les procédures' and 'Procédures Techniques' removed as requested, all 20 project cards displayed without filters, page now shows 'Mes Procédures Techniques' with all projects visible"
 
   - task: "Page Veilles (/veilles) with Search and Filters"
     implemented: true
