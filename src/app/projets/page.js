@@ -87,6 +87,102 @@ export default function ProjetsPage() {
       github: '#',
       demo: '#',
       icon: Server
+    },
+    {
+      id: 7,
+      title: 'Procédure VLAN Interco',
+      description: 'Procédure détaillée pour la création de VLAN sur Switch et Routeur. Configuration de l\'interconnexion entre différents réseaux virtuels avec gestion des politiques de routage.',
+      category: 'procedure',
+      technologies: ['VLAN', 'Switch', 'Routeur', 'Cisco', 'Networking'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/VLAN_Interco.pdf',
+      icon: Network
+    },
+    {
+      id: 8,
+      title: 'Procédure ZABBIX',
+      description: 'Procédure complète d\'installation et de configuration de ZABBIX sur Debian pour la supervision et monitoring des infrastructures réseau et serveurs.',
+      category: 'procedure',
+      technologies: ['ZABBIX', 'Debian', 'Monitoring', 'SNMP', 'MySQL'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/Zabbix.pdf',
+      icon: Monitor
+    },
+    {
+      id: 9,
+      title: 'Procédure Active Directory',
+      description: 'Procédure détaillée d\'installation et de configuration de l\'Active Directory avec gestion des utilisateurs, groupes et GPO (Group Policy Objects).',
+      category: 'procedure',
+      technologies: ['Active Directory', 'Windows Server', 'GPO', 'Users', 'Groups'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/Active_Directory.pdf',
+      icon: Server
+    },
+    {
+      id: 10,
+      title: 'Procédure GLPI',
+      description: 'Procédure complète d\'installation et de configuration de GLPI sur Ubuntu pour la gestion des services informatiques et helpdesk.',
+      category: 'procedure',
+      technologies: ['GLPI', 'Ubuntu', 'ITSM', 'Helpdesk', 'Apache', 'MySQL'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/GLPI.pdf',
+      icon: FileText
+    },
+    {
+      id: 11,
+      title: 'Procédure Proxmox',
+      description: 'Procédure d\'installation et de configuration de Proxmox pour la virtualisation et gestion des machines virtuelles dans un environnement d\'entreprise.',
+      category: 'procedure',
+      technologies: ['Proxmox', 'Virtualisation', 'KVM', 'LXC', 'Cluster'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/Proxmox.pdf',
+      icon: HardDrive
+    },
+    {
+      id: 12,
+      title: 'Procédure GPO',
+      description: 'Procédure de création et gestion des GPO (Group Policy Objects) pour la configuration centralisée des environnements Windows.',
+      category: 'procedure',
+      technologies: ['GPO', 'Active Directory', 'Windows Server', 'Policy', 'Configuration'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/GPO.pdf',
+      icon: Shield
+    },
+    {
+      id: 13,
+      title: 'Attaque MITM - ARP Poisoning',
+      description: 'Réalisation d\'attaques Man-in-the-Middle avec ARP Poisoning et test de la sécurité des réseaux avec Ettercap sur Kali Linux.',
+      category: 'procedure',
+      technologies: ['Kali Linux', 'Ettercap', 'ARP Poisoning', 'MITM', 'Sécurité'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/MITM_Ettercap.pdf',
+      icon: Shield
+    },
+    {
+      id: 14,
+      title: 'Attaque MITM - DNS Spoofing',
+      description: 'Réalisation d\'une attaque Man-in-the-Middle avec DNS Spoofing et ARP Poisoning, évaluation de la sécurité des réseaux via l\'ingénierie sociale.',
+      category: 'procedure',
+      technologies: ['Kali Linux', 'DNS Spoofing', 'ARP Poisoning', 'Social Engineering', 'MITM'],
+      date: '2024',
+      status: 'completed',
+      type: 'procedure',
+      pdfUrl: '/procedures/MITM_DNS_Spoofing.pdf',
+      icon: Shield
     }
   ]
 
