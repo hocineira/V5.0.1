@@ -98,7 +98,7 @@ def check_database_health():
     try:
         start_time = time.time()
         with engine.connect() as conn:
-            result = conn.execute("SELECT 1 as health_check")
+            result = conn.execute(text("SELECT 1 as health_check"))
             response_time = time.time() - start_time
             
             return {
