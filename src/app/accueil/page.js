@@ -70,10 +70,10 @@ export default function AccueilPage() {
   ]
 
   const techStats = [
-    { icon: Network, label: 'Réseaux', value: '95%' },
-    { icon: Shield, label: 'Sécurité', value: '88%' },
-    { icon: Database, label: 'Systèmes', value: '92%' },
-    { icon: Cpu, label: 'Performance', value: '90%' }
+    { icon: Network, label: 'Cisco', value: 'CCNA', color: 'from-blue-500 to-cyan-500' },
+    { icon: Shield, label: 'Security', value: 'Wireshark', color: 'from-red-500 to-pink-500' },
+    { icon: Database, label: 'Systems', value: 'Windows Server', color: 'from-green-500 to-emerald-500' },
+    { icon: Cpu, label: 'Virtualisation', value: 'VMware', color: 'from-purple-500 to-indigo-500' }
   ]
 
   // Génération des particules pour l'animation réseau
