@@ -1,17 +1,32 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import localFont from "next/font/local";
+import "./globals.css";
+import Navigation from "@/components/Navigation";
 
-const inter = Inter({ subsets: ['latin'] })
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff2",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff2",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata = {
-  title: 'Portfolio IRATNI Hocine',
-  description: 'Portfolio professionnel de Hocine IRATNI - Étudiant en BTS SIO SISR',
-}
+  title: "Portfolio - Hocine IRATNI",
+  description: "Portfolio professionnel - BTS SIO SISR",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className={inter.className}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navigation />
+        <main className="pt-16">
+          {children}
+        </main>
+      </body>
     </html>
-  )
+  );
 }
