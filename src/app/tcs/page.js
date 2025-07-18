@@ -88,7 +88,7 @@ export default function TCSPage() {
               onClick={handleDownloadPDF}
             >
               <Download className="mr-2 w-5 h-5" />
-              Télécharger la plaquette PDF
+              Télécharger le tableau de compétences
             </Button>
           </div>
         </div>
