@@ -196,16 +196,12 @@ async def health_check():
 async def get_metrics():
     """Get application metrics and statistics."""
     try:
-        middleware = None
-        for middleware_item in app.user_middleware:
-            if isinstance(middleware_item[0], type) and issubclass(middleware_item[0], DatabaseHealthMiddleware):
-                middleware = middleware_item[0]
-                break
-        
         metrics = {
             "database": check_database_health(),
             "connection_pool": get_connection_stats(),
-            "timestamp": time.time()
+            "timestamp": time.time(),
+            "service": "portfolio-api",
+            "version": "2.0.0"
         }
         
         return metrics
