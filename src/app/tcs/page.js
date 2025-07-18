@@ -195,7 +195,7 @@ export default function TCSPage() {
                   Télécharger le PDF
                 </Button>
                 <p className="text-sm text-gray-500 mt-4">
-                  Intégration PDF en cours de développement
+                  Plaquette TCS complète - Format PDF
                 </p>
               </CardContent>
             </Card>
