@@ -129,14 +129,7 @@ export default function ProjetsPage() {
     }
   ]
 
-  const categories = [
-    { id: 'all', name: 'Toutes les procédures', icon: FolderOpen },
-    { id: 'procedure', name: 'Procédures Techniques', icon: FileText }
-  ]
-
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory)
+  const filteredProjects = projects
 
   const getStatusColor = (status) => {
     switch (status) {
