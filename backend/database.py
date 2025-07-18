@@ -107,7 +107,7 @@ def check_database_health():
                 "pool_size": engine.pool.size(),
                 "checked_in": engine.pool.checkedin(),
                 "checked_out": engine.pool.checkedout(),
-                "invalid": engine.pool.invalidated(),
+                "overflow": engine.pool.overflow(),
             }
     except Exception as e:
         logger.error(f"Database health check failed: {e}")
