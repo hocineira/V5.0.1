@@ -7,8 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { Badge } from '../../components/ui/badge'
 
 export default function TCSPage() {
-  const [pdfError, setPdfError] = useState(false)
-
   const tcsInfo = {
     title: 'Technicien en Cybersécurité',
     description: 'Formation spécialisée en sécurité informatique, protection des données et défense contre les cyberattaques.',
