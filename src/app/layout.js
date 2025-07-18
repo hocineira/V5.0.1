@@ -1,17 +1,5 @@
-import localFont from "next/font/local";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff2",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff2",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Navigation from "../components/Navigation";
 
 export const metadata = {
   title: "Portfolio - Hocine IRATNI",
