@@ -10,7 +10,7 @@ import sys
 from datetime import datetime
 
 # Backend URL from environment
-BACKEND_URL = "https://66424d3a-9758-4952-8d63-59ac332a7fdf.preview.emergentagent.com"
+BACKEND_URL = "http://localhost:8001"
 API_BASE = f"{BACKEND_URL}/api"
 
 class HocinePortfolioValidator:
