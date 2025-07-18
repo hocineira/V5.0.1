@@ -151,8 +151,8 @@ frontend:
 
 metadata:
   created_by: "testing_agent"
-  version: "1.0"
-  test_sequence: 1
+  version: "2.0"
+  test_sequence: 2
 
 test_plan:
   current_focus: []
@@ -165,3 +165,5 @@ agent_communication:
     message: "Starting comprehensive testing of Next.js 15 portfolio for Hocine IRATNI. Will test all sections, animations, responsive design, and functionality."
   - agent: "testing"
     message: "✅ TESTING COMPLETED SUCCESSFULLY! All major functionality working perfectly. Portfolio is fully functional with excellent user experience. Minor issues: React prop warnings (non-critical), external image loading blocked in test environment. Ready for production use."
+  - agent: "testing"
+    message: "✅ MULTI-PAGE RESTRUCTURE TESTING COMPLETED! Successfully tested the new Next.js 15 multi-page architecture. All 5 pages working perfectly: Accueil, TCS, BTS SIO, Projets, Veilles. Navigation system functional, responsive design working, filters and search operational, tabs system working, animations and effects functional. Text visibility issues resolved. Portfolio ready for production."
