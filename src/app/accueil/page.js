@@ -8,10 +8,19 @@ import { useRouter } from 'next/navigation'
 
 export default function AccueilPage() {
   const [isVisible, setIsVisible] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  const handleContactClick = () => {
+    window.location.href = `mailto:${personalInfo.email}`
+  }
+
+  const handleProjectsClick = () => {
+    router.push('/projets')
+  }
 
   const personalInfo = {
     name: 'Hocine IRATNI',
