@@ -334,24 +334,54 @@ export default function ProjetsPage() {
                     </div>
                     
                     <div className="flex gap-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
-                        onClick={() => window.open(project.github, '_blank')}
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
-                        onClick={() => window.open(project.demo, '_blank')}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Démo
-                      </Button>
+                      {project.type === 'procedure' ? (
+                        <>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            onClick={() => window.open(project.pdfUrl, '_blank')}
+                          >
+                            <Eye className="w-4 h-4 mr-2" />
+                            Voir
+                          </Button>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            onClick={() => {
+                              const link = document.createElement('a');
+                              link.href = project.pdfUrl;
+                              link.download = project.pdfUrl.split('/').pop();
+                              link.click();
+                            }}
+                          >
+                            <Download className="w-4 h-4 mr-2" />
+                            Télécharger
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            onClick={() => window.open(project.github, '_blank')}
+                          >
+                            <Github className="w-4 h-4 mr-2" />
+                            Code
+                          </Button>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            onClick={() => window.open(project.demo, '_blank')}
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Démo
+                          </Button>
+                        </>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
