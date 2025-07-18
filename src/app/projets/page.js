@@ -117,8 +117,7 @@ export default function ProjetsPage() {
   ]
 
   const categories = [
-    { id: 'all', name: 'Tous les projets', icon: FolderOpen },
-    { id: 'sisr', name: 'SISR - Systèmes & Réseaux', icon: Server },
+    { id: 'all', name: 'Toutes les procédures', icon: FolderOpen },
     { id: 'procedure', name: 'Procédures Techniques', icon: FileText }
   ]
 
