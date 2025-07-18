@@ -316,33 +316,32 @@ export default function AccueilPage() {
         </div>
       </section>
 
-      {/* Tech Stats Section */}
+      {/* Tech Stack Section */}
       <section className="py-20 bg-slate-900 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">
-              Monitoring <span className="text-gradient bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Système</span>
+              Stack <span className="text-gradient bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Technologique</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Aperçu en temps réel de mes compétences techniques
+              Technologies et outils que j'utilise dans mes projets
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-6">
-            {techStats.map((stat, index) => {
-              const Icon = stat.icon
+            {techStats.map((tech, index) => {
+              const Icon = tech.icon
               return (
                 <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/50 transition-all duration-300 group">
                   <div className="flex items-center justify-between mb-4">
                     <Icon className="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform" />
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                   </div>
-                  <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
-                  <div className="text-sm text-gray-300">{stat.label}</div>
+                  <div className="text-lg font-bold text-white mb-2">{tech.value}</div>
+                  <div className="text-sm text-gray-300">{tech.label}</div>
                   <div className="mt-3 bg-slate-700 rounded-full h-2 overflow-hidden">
                     <div 
-                      className="bg-gradient-to-r from-blue-500 to-purple-500 h-full rounded-full transition-all duration-1000"
-                      style={{ width: stat.value }}
+                      className={`bg-gradient-to-r ${tech.color} h-full rounded-full w-full transition-all duration-1000`}
                     ></div>
                   </div>
                 </div>
