@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { ArrowRight, Github, Linkedin, Mail, MapPin, Phone, GraduationCap, User, Target } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
+import { useRouter } from 'next/navigation'
 
 export default function AccueilPage() {
   const [isVisible, setIsVisible] = useState(false)
