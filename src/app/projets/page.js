@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { FolderOpen, Github, ExternalLink, Calendar, Star, Code, Server, Network, Shield, HardDrive, Monitor, Wifi, FileText, Download, Eye } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
