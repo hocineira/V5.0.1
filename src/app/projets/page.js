@@ -195,32 +195,6 @@ export default function ProjetsPage() {
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="py-8 bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => {
-              const Icon = category.icon
-              return (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? 'default' : 'outline'}
-                  className={`flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                    selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700'
-                      : 'text-gray-700 hover:bg-purple-50 hover:text-purple-600'
-                  }`}
-                  onClick={() => setSelectedCategory(category.id)}
-                >
-                  <Icon className="w-4 h-4 mr-2" />
-                  {category.name}
-                </Button>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Projects Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
