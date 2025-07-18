@@ -421,10 +421,10 @@ export default function ProjetsPage() {
       <section className="py-20 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 text-white">
-            Intéressé par mes réalisations ?
+            Intéressé par mes réalisations et procédures ?
           </h2>
           <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-            N'hésitez pas à me contacter pour discuter de vos projets d'infrastructure IT ou pour en savoir plus sur mes compétences.
+            N'hésitez pas à me contacter pour discuter de vos projets d'infrastructure IT ou pour en savoir plus sur mes compétences techniques.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
