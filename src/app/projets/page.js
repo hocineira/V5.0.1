@@ -223,10 +223,18 @@ export default function ProjetsPage() {
               const ProjectIcon = project.icon
               return (
                 <Card key={project.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 overflow-hidden border-0 shadow-lg">
-                  <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center">
-                    <div className="text-6xl text-purple-400 group-hover:text-purple-600 transition-colors duration-300">
-                      <ProjectIcon className="w-16 h-16" />
-                    </div>
+                  <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center overflow-hidden">
+                    {project.image ? (
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="text-6xl text-purple-400 group-hover:text-purple-600 transition-colors duration-300">
+                        <ProjectIcon className="w-16 h-16" />
+                      </div>
+                    )}
                     <div className="absolute top-4 left-4">
                       <Badge className={getStatusColor(project.status)}>
                         {getStatusText(project.status)}
