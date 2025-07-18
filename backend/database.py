@@ -83,7 +83,7 @@ def get_db():
     db = SessionLocal()
     try:
         # Test connection before yielding
-        db.execute("SELECT 1")
+        db.execute(text("SELECT 1"))
         yield db
     except Exception as e:
         logger.error(f"Database connection error: {e}")
