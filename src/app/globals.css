@@ -2,28 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Variables CSS pour le thème clair et sombre */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Couleurs principales */
+  --primary-50: 239 246 255;
+  --primary-100: 219 234 254;
+  --primary-500: 59 130 246;
+  --primary-600: 37 99 235;
+  --primary-700: 29 78 216;
+
+  /* Couleurs de fond */
+  --background: 255 255 255;
+  --background-secondary: 248 250 252;
+  --background-tertiary: 241 245 249;
+  
+  /* Couleurs de texte */
+  --foreground: 15 23 42;
+  --foreground-secondary: 71 85 105;
+  --foreground-muted: 148 163 184;
+  
+  /* Couleurs des bordures */
+  --border: 226 232 240;
+  --border-secondary: 203 213 225;
+  
+  /* Couleurs des cartes et surfaces */
+  --card-background: 255 255 255;
+  --card-border: 226 232 240;
+  
+  /* Couleurs de navigation */
+  --nav-background: 255 255 255;
+  --nav-text: 71 85 105;
+  --nav-text-hover: 59 130 246;
+  
+  /* Couleurs d'accent */
+  --accent-blue: 59 130 246;
+  --accent-purple: 139 92 246;
+  --accent-cyan: 6 182 212;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  /* Couleurs de fond mode sombre */
+  --background: 15 23 42;
+  --background-secondary: 30 41 59;
+  --background-tertiary: 51 65 85;
+  
+  /* Couleurs de texte mode sombre */
+  --foreground: 248 250 252;
+  --foreground-secondary: 203 213 225;
+  --foreground-muted: 148 163 184;
+  
+  /* Couleurs des bordures mode sombre */
+  --border: 51 65 85;
+  --border-secondary: 71 85 105;
+  
+  /* Couleurs des cartes et surfaces mode sombre */
+  --card-background: 30 41 59;
+  --card-border: 51 65 85;
+  
+  /* Couleurs de navigation mode sombre */
+  --nav-background: 15 23 42;
+  --nav-text: 203 213 225;
+  --nav-text-hover: 96 165 250;
+  
+  /* Couleurs d'accent légèrement ajustées pour le mode sombre */
+  --accent-blue: 96 165 250;
+  --accent-purple: 167 139 250;
+  --accent-cyan: 34 211 238;
 }
 
+/* Transitions fluides pour tous les éléments */
+* {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Body avec variables CSS */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
 }
 
 @layer utilities {
