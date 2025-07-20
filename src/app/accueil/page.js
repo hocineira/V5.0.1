@@ -68,19 +68,6 @@ export default function AccueilPage() {
     { icon: Cpu, label: 'Hyperviseur', value: 'Proxmox', color: 'from-purple-500 to-indigo-500' }
   ]
 
-  // Génération des particules pour l'animation réseau
-  const generateParticles = () => {
-    return Array.from({ length: particleCount }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      delay: Math.random() * 5,
-      duration: 3 + Math.random() * 2
-    }))
-  }
-
-  const particles = generateParticles()
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
       {/* Animated Network Background */}
