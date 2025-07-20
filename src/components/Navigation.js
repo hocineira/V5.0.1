@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Home, GraduationCap, ShieldCheck, FolderOpen, Eye, Code, Server } from 'lucide-react'
+import { Menu, X, Home, GraduationCap, ShieldCheck, FolderOpen, Eye, Server, Network } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
