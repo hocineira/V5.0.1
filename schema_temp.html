@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>INFRA S4P2 - IRATNI Hocine</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1200px;
+            height: 800px;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        
+        .header-left {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e0e0e0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 150px;
+            height: 50px;
+            text-align: center;
+        }
+        
+        .header-left h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .header-left p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+        }
+        
+        .header-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e0e0e0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 200px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #3498db, #e74c3c);
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .pfsense {
+            position: absolute;
+            top: 120px;
+            left: 500px;
+            width: 200px;
+            height: 80px;
+            background: #ff6b35;
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .pfsense-logo {
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b35;
+            font-size: 20px;
+        }
+        
+        .pfsense-ports {
+            position: absolute;
+            bottom: -20px;
+            display: flex;
+            gap: 20px;
+            font-size: 10px;
+            color: #333;
+        }
+        
+        .wan {
+            position: absolute;
+            top: 250px;
+            left: 80px;
+            width: 150px;
+            height: 50px;
+            background: #87ceeb;
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .switch {
+            position: absolute;
+            top: 350px;
+            left: 450px;
+            width: 300px;
+            height: 60px;
+            background: #4a90e2;
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .dmz {
+            position: absolute;
+            top: 120px;
+            right: 50px;
+            width: 280px;
+            height: 300px;
+            background: rgba(144, 238, 144, 0.3);
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .dmz-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .server {
+            width: 70px;
+            height: 40px;
+            background: #ddd;
+            border: 1px solid #333;
+            border-radius: 3px;
+            margin: 5px;
+            display: inline-block;
+            text-align: center;
+            font-size: 8px;
+            line-height: 20px;
+            vertical-align: top;
+        }
+        
+        .proxmox {
+            position: absolute;
+            bottom: 200px;
+            left: 50px;
+            width: 300px;
+            height: 150px;
+            background: rgba(255, 228, 181, 0.3);
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .proxmox-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .vm {
+            width: 50px;
+            height: 30px;
+            background: white;
+            border: 1px solid #333;
+            border-radius: 3px;
+            margin: 3px;
+            display: inline-block;
+            text-align: center;
+            font-size: 7px;
+            line-height: 15px;
+            vertical-align: top;
+        }
+        
+        .vlan-wifi {
+            position: absolute;
+            bottom: 200px;
+            left: 450px;
+            width: 200px;
+            height: 100px;
+            background: rgba(230, 230, 250, 0.3);
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .wifi-ap {
+            width: 40px;
+            height: 40px;
+            background: #4169e1;
+            border: 2px solid #333;
+            border-radius: 50%;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .pc-admin {
+            position: absolute;
+            bottom: 80px;
+            right: 50px;
+            width: 120px;
+            height: 60px;
+            background: #d3d3d3;
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #333;
+        }
+        
+        .dhcp-box {
+            position: absolute;
+            bottom: 50px;
+            left: 450px;
+            width: 300px;
+            height: 40px;
+            background: #fff8dc;
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .connection {
+            position: absolute;
+            background: #333;
+            z-index: -1;
+        }
+        
+        .version {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .ip-text {
+            font-size: 8px;
+            color: #333;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-left">
+        <h3>INFRA S4P2</h3>
+        <p>IRATNI Hocine</p>
+    </div>
+    
+    <div class="header-right">
+        <div class="logo">VP</div>
+        <div>
+            <div style="font-size: 10px; margin: 0;">Made with</div>
+            <div style="font-size: 10px; margin: 0; font-weight: bold;">Visual Paradigm</div>
+            <div style="font-size: 8px; margin: 0; color: #666;">For non-commercial use</div>
+        </div>
+    </div>
+    
+    <!-- pfSense -->
+    <div class="pfsense">
+        <div class="pfsense-logo">🔥</div>
+        <div>pfSense</div>
+        <div style="font-size: 8px; margin-top: 5px;">
+            <div>Re0 (LAN): 10.4.2.1/29</div>
+            <div>Re1 (DMZ): 192.168.42.2/29</div>
+        </div>
+        <div class="pfsense-ports">
+            <span>EM0</span>
+            <span>RE0</span>
+            <span>RE1</span>
+        </div>
+    </div>
+    
+    <!-- WAN -->
+    <div class="wan">
+        <div>WAN</div>
+        <div class="ip-text">IP: 192.168.100.107/24</div>
+    </div>
+    
+    <!-- Switch -->
+    <div class="switch">
+        <div>NETGEAR GS 308E v4</div>
+        <div style="font-size: 10px;">LAN: 10.4.2.0/29</div>
+        <div style="font-size: 8px;">Switch GS 308E v4</div>
+    </div>
+    
+    <!-- DMZ -->
+    <div class="dmz">
+        <div class="dmz-title">DMZ: 192.168.42.1/29</div>
+        <div class="server">WEB1<br><span style="font-size: 6px;">192.168.42.3/29</span></div>
+        <div class="server">WEB2<br><span style="font-size: 6px;">192.168.42.4/29</span></div>
+        <div class="server">SRV1<br><span style="font-size: 6px;">192.168.42.5/29</span></div>
+        <br>
+        <div class="server" style="background: #b0c4de; width: 100px;">Windows Target<br><span style="font-size: 6px;">192.168.42.4/29</span></div>
+    </div>
+    
+    <!-- Proxmox -->
+    <div class="proxmox">
+        <div class="proxmox-title">Proxmox<br><span style="font-size: 10px;">192.168.17.253/24</span></div>
+        <div class="vm">AD-1<br><span style="font-size: 5px;">192.168.17.1/24</span></div>
+        <div class="vm">AD-2<br><span style="font-size: 5px;">192.168.17.2/24</span></div>
+        <div class="vm">GLPI<br><span style="font-size: 5px;">192.168.17.3/24</span></div>
+        <div class="vm">ZABBIX<br><span style="font-size: 5px;">192.168.17.4/24</span></div>
+    </div>
+    
+    <!-- VLAN 27 WiFi -->
+    <div class="vlan-wifi">
+        <div style="font-weight: bold;">VLAN 27 (WiFi)</div>
+        <div style="font-size: 9px;">192.168.27.100-150/24</div>
+        <div class="wifi-ap">📶</div>
+        <div style="font-size: 8px;">DAP-1350<br>192.168.27.1/24</div>
+    </div>
+    
+    <!-- PC Administration -->
+    <div class="pc-admin">
+        <div style="font-weight: bold;">PC Administration</div>
+        <div>10.4.2.3/29</div>
+    </div>
+    
+    <!-- DHCP -->
+    <div class="dhcp-box">
+        DHCP: 192.168.27.100-150/24
+    </div>
+    
+    <!-- Connections -->
+    <div class="connection" style="top: 280px; left: 230px; width: 270px; height: 3px; transform: rotate(-15deg);"></div>
+    <div class="connection" style="top: 200px; left: 600px; width: 3px; height: 150px;"></div>
+    <div class="connection" style="top: 170px; left: 700px; width: 180px; height: 3px;"></div>
+    <div class="connection" style="top: 410px; left: 350px; width: 100px; height: 3px; transform: rotate(45deg);"></div>
+    <div class="connection" style="top: 410px; left: 600px; width: 3px; height: 90px;"></div>
+    <div class="connection" style="top: 420px; left: 750px; width: 180px; height: 3px; transform: rotate(25deg);"></div>
+    
+    <!-- Version -->
+    <div class="version">Version : 1.6</div>
+</body>
+</html>
