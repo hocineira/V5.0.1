@@ -17,7 +17,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/VLAN_Interco.pdf',
-      image: 'https://images.unsplash.com/photo-1615146198235-769c1c3d3ae4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHw2fHxyb3V0ZXJ8ZW58MHx8fHwxNzUzMDI5MzIzfDA&ixlib=rb-4.1.0&q=85',
+      image: 'https://images.pexels.com/photos/17323801/pexels-photo-17323801.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       icon: Network
     },
     {
