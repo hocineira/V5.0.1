@@ -470,3 +470,50 @@ body {
   background: rgb(var(--card-background) / 0.1);
   border: 1px solid rgb(var(--border) / 0.2);
 }
+
+/* Overrides pour le mode sombre - transforme les couleurs existantes */
+.dark {
+  /* Transforme les arrière-plans sombres en arrière-plans plus clairs pour le mode sombre */
+  --tw-bg-opacity: 1;
+}
+
+.dark .bg-gradient-to-br.from-blue-900 {
+  background: linear-gradient(to bottom right, rgb(30 58 138), rgb(67 56 202)) !important;
+}
+
+.dark .from-slate-800 {
+  --tw-gradient-from: rgb(71 85 105) !important;
+}
+
+.dark .to-slate-900 {
+  --tw-gradient-to: rgb(51 65 85) !important;
+}
+
+.dark .bg-slate-800 {
+  background-color: rgb(71 85 105) !important;
+}
+
+.dark .bg-slate-700 {
+  background-color: rgb(100 116 139) !important;
+}
+
+/* Ajustements pour les textes en mode sombre */
+.dark .text-white {
+  color: rgb(241 245 249) !important;
+}
+
+.dark .text-gray-300 {
+  color: rgb(203 213 225) !important;
+}
+
+.dark .text-blue-100 {
+  color: rgb(219 234 254) !important;
+}
+
+.dark .text-blue-200 {
+  color: rgb(191 219 254) !important;
+}
+
+.dark .text-blue-300 {
+  color: rgb(147 197 253) !important;
+}
