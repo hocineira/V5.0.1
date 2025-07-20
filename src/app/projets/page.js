@@ -277,7 +277,7 @@ export default function ProjetsPage() {
                         <Button 
                           variant="outline"
                           className="flex-1 border-2 border-amber-500 text-amber-600 hover:bg-amber-50 font-bold py-3 px-6 rounded-xl transform hover:scale-105 transition-all duration-200"
-                          onClick={() => openImageModal('/images/procedures/schema_reseau_infra_original.png', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
+                          onClick={() => openImageModal('/images/procedures/schema_reseau_infra_original.svg', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
                         >
                           <Network className="w-5 h-5 mr-2" />
                           Architecture Détaillée
