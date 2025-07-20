@@ -1,112 +1,133 @@
 'use client'
 
-import { useState } from 'react'
-import { Eye, Calendar, Tag, ExternalLink, Search, TrendingUp, Shield, Server, Code, Globe } from 'lucide-react'
+import { Monitor, Shield, Calendar, ExternalLink, TrendingUp, Download, Eye, Server, FileText } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
 import { Badge } from '../../components/ui/badge'
-import { Input } from '../../components/ui/input'
 
 export default function VeillesPage() {
-  const [selectedCategory, setSelectedCategory] = useState('all')
-  const [searchTerm, setSearchTerm] = useState('')
-
-  const veilles = [
+  const windowsVersions = [
     {
       id: 1,
-      title: 'L\'évolution de la cybersécurité en 2024',
-      description: 'Analyse des nouvelles menaces et des solutions de sécurité émergentes. Focus sur l\'intelligence artificielle appliquée à la détection d\'intrusions.',
-      category: 'security',
-      date: '2024-01-15',
-      tags: ['IA', 'Sécurité', 'Détection', 'Menaces'],
-      readTime: '5 min',
-      source: 'ANSSI',
-      link: '#'
+      version: 'Windows 11 24H2',
+      releaseDate: '2024-10-01',
+      description: 'La dernière mise à jour majeure de Windows 11 apportant de nouvelles fonctionnalités de sécurité et de productivité.',
+      features: [
+        'Nouvelles options de sécurité avancées',
+        'Interface utilisateur améliorée',
+        'Copilot intégré',
+        'Performances optimisées'
+      ],
+      support: 'Jusqu\'en octobre 2029',
+      status: 'Stable',
+      category: 'Major'
     },
     {
       id: 2,
-      title: 'Containers et orchestration : Docker vs Kubernetes',
-      description: 'Comparaison des technologies de containerisation et d\'orchestration. Avantages et inconvénients pour les infrastructures modernes.',
-      category: 'infrastructure',
-      date: '2024-01-10',
-      tags: ['Docker', 'Kubernetes', 'DevOps', 'Virtualisation'],
-      readTime: '8 min',
-      source: 'Red Hat',
-      link: '#'
+      version: 'Windows Server 2025',
+      releaseDate: '2024-11-01',
+      description: 'La nouvelle version de Windows Server avec des fonctionnalités cloud natives et une sécurité renforcée.',
+      features: [
+        'Containers Windows améliorés',
+        'Sécurité Zero Trust native',
+        'Azure Arc intégré',
+        'Gestion hybride avancée'
+      ],
+      support: 'Support étendu jusqu\'en 2034',
+      status: 'Stable',
+      category: 'Server'
     },
     {
       id: 3,
-      title: 'Frameworks JavaScript : Tendances 2024',
-      description: 'État des lieux des frameworks JavaScript les plus populaires. Next.js, React, Vue.js et les nouvelles technologies émergentes.',
-      category: 'development',
-      date: '2024-01-05',
-      tags: ['JavaScript', 'React', 'Next.js', 'Vue.js'],
-      readTime: '6 min',
-      source: 'Stack Overflow',
-      link: '#'
+      version: 'Windows 10 22H2',
+      releaseDate: '2022-10-18',
+      description: 'Dernière version de Windows 10 avant la fin du support principal.',
+      features: [
+        'Améliorations de sécurité',
+        'Optimisations de performance',
+        'Corrections de bugs',
+        'Compatibilité étendue'
+      ],
+      support: 'Fin de support : octobre 2025',
+      status: 'Fin de vie programmée',
+      category: 'Legacy'
     },
     {
       id: 4,
-      title: 'Windows Server 2025 : Nouvelles fonctionnalités',
-      description: 'Découverte des nouvelles fonctionnalités de Windows Server 2025 et leur impact sur l\'administration système.',
-      category: 'infrastructure',
-      date: '2023-12-20',
-      tags: ['Windows Server', 'Administration', 'Nouveautés'],
-      readTime: '7 min',
-      source: 'Microsoft',
-      link: '#'
-    },
-    {
-      id: 5,
-      title: 'Zero Trust : Architecture de sécurité moderne',
-      description: 'Comprendre les principes du Zero Trust et son implémentation dans les environnements d\'entreprise.',
-      category: 'security',
-      date: '2023-12-15',
-      tags: ['Zero Trust', 'Architecture', 'Sécurité', 'Entreprise'],
-      readTime: '10 min',
-      source: 'NIST',
-      link: '#'
-    },
-    {
-      id: 6,
-      title: 'Intelligence Artificielle et développement',
-      description: 'Impact de l\'IA sur le développement logiciel : outils, GitHub Copilot, et nouvelles méthodologies.',
-      category: 'development',
-      date: '2023-12-10',
-      tags: ['IA', 'Développement', 'GitHub Copilot', 'Outils'],
-      readTime: '9 min',
-      source: 'GitHub',
-      link: '#'
+      version: 'Windows 11 23H2',
+      releaseDate: '2023-10-31',
+      description: 'Version précédente de Windows 11 avec stabilité éprouvée.',
+      features: [
+        'Copilot en version bêta',
+        'Améliorations du menu Démarrer',
+        'Nouvelles applications natives',
+        'Gestion des widgets optimisée'
+      ],
+      support: 'Support jusqu\'en 2026',
+      status: 'Stable',
+      category: 'Stable'
     }
   ]
 
-  const categories = [
-    { id: 'all', name: 'Toutes les veilles', icon: Eye, color: 'gray' },
-    { id: 'security', name: 'Cybersécurité', icon: Shield, color: 'red' },
-    { id: 'infrastructure', name: 'Infrastructure', icon: Server, color: 'blue' },
-    { id: 'development', name: 'Développement', icon: Code, color: 'green' }
+  const rgpdTopics = [
+    {
+      id: 1,
+      title: 'RGPD et Cybersécurité : Obligations en 2025',
+      description: 'Les nouvelles exigences du RGPD concernant la cybersécurité et la protection des données personnelles.',
+      content: [
+        'Notification des violations dans les 72h',
+        'Analyses d\'impact obligatoires',
+        'Mesures de sécurité par défaut',
+        'Formation du personnel aux risques'
+      ],
+      lastUpdate: '2025-01-15',
+      importance: 'Critique',
+      sector: 'Toutes entreprises'
+    },
+    {
+      id: 2,
+      title: 'Droits des utilisateurs et conformité',
+      description: 'Guide complet sur les droits des utilisateurs et les obligations des entreprises.',
+      content: [
+        'Droit à l\'oubli numérique',
+        'Portabilité des données',
+        'Consentement explicite requis',
+        'Délégué à la protection des données (DPO)'
+      ],
+      lastUpdate: '2024-12-20',
+      importance: 'Élevée',
+      sector: 'Services numériques'
+    },
+    {
+      id: 3,
+      title: 'Sanctions et amendes RGPD',
+      description: 'Évolution des sanctions appliquées par la CNIL et les autorités européennes.',
+      content: [
+        'Amendes jusqu\'à 4% du chiffre d\'affaires',
+        'Sanctions administratives renforcées',
+        'Contrôles inopinés plus fréquents',
+        'Coopération entre autorités nationales'
+      ],
+      lastUpdate: '2024-11-30',
+      importance: 'Critique',
+      sector: 'Toutes entreprises'
+    }
   ]
 
-  const filteredVeilles = veilles.filter(veille => {
-    const matchesCategory = selectedCategory === 'all' || veille.category === selectedCategory
-    const matchesSearch = veille.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         veille.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         veille.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-    return matchesCategory && matchesSearch
-  })
-
-  const getCategoryColor = (category) => {
-    const categoryObj = categories.find(cat => cat.id === category)
-    return categoryObj ? categoryObj.color : 'gray'
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Stable': return 'bg-green-100 text-green-800'
+      case 'Fin de vie programmée': return 'bg-red-100 text-red-800'
+      default: return 'bg-blue-100 text-blue-800'
+    }
   }
 
-  const getCategoryIcon = (category) => {
-    const categoryObj = categories.find(cat => cat.id === category)
-    if (categoryObj) {
-      const Icon = categoryObj.icon
-      return <Icon className="w-4 h-4" />
+  const getImportanceColor = (importance) => {
+    switch (importance) {
+      case 'Critique': return 'bg-red-100 text-red-800'
+      case 'Élevée': return 'bg-orange-100 text-orange-800'
+      default: return 'bg-blue-100 text-blue-800'
     }
-    return <Eye className="w-4 h-4" />
   }
 
   const formatDate = (dateString) => {
