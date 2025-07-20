@@ -5,6 +5,7 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class', // Activation du mode sombre avec classe CSS
   theme: {
     extend: {
       backgroundImage: {
@@ -22,6 +23,21 @@ module.exports = {
           '50%': { transform: 'translateY(-10px)' },
         },
       },
+      colors: {
+        // Couleurs personnalisées basées sur les variables CSS
+        theme: {
+          bg: 'rgb(var(--background))',
+          'bg-secondary': 'rgb(var(--background-secondary))',
+          'bg-tertiary': 'rgb(var(--background-tertiary))',
+          text: 'rgb(var(--foreground))',
+          'text-secondary': 'rgb(var(--foreground-secondary))',
+          'text-muted': 'rgb(var(--foreground-muted))',
+          border: 'rgb(var(--border))',
+          'border-secondary': 'rgb(var(--border-secondary))',
+          card: 'rgb(var(--card-background))',
+          'card-border': 'rgb(var(--card-border))',
+        }
+      }
     },
   },
   plugins: [],
