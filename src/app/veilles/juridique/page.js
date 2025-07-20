@@ -214,7 +214,7 @@ export default function VeilleJuridiquePage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <Card 
               className="text-center hover:shadow-lg transition-shadow border border-slate-200 cursor-pointer transform hover:-translate-y-1"
-              onClick={() => window.open('https://www.cnil.fr/fr/professionnels', '_blank')}
+              onClick={() => window.open('https://www.cnil.fr/fr/RGPD-le-nouveau-cadre-de-la-protection-des-donnees-personnelles', '_blank')}
             >
               <CardHeader>
                 <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -244,7 +244,7 @@ export default function VeilleJuridiquePage() {
 
             <Card 
               className="text-center hover:shadow-lg transition-shadow border border-slate-200 cursor-pointer transform hover:-translate-y-1"
-              onClick={() => window.open('https://www.cnil.fr/fr/sanctions', '_blank')}
+              onClick={() => window.open('https://www.cnil.fr/fr/les-sanctions-prononcees-par-la-cnil', '_blank')}
             >
               <CardHeader>
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
