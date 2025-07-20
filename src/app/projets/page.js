@@ -218,7 +218,7 @@ export default function ProjetsPage() {
                   {/* Image Section */}
                   <div className="lg:w-1/2 h-96 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                     <img 
-                      src="/images/procedures/schema_reseau_infra_original.svg" 
+                      src="/images/procedures/schema_reseau_infra_original.jpg" 
                       alt="Architecture Réseau d'Entreprise - INFRA S4P2"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                     />
