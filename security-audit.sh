@@ -47,11 +47,14 @@ cd "$PROJECT_DIR"
 
 if command -v yarn &> /dev/null; then
     log_info "Lancement de yarn audit..."
-    YARN_AUDIT_RESULT=$(yarn audit --json 2>/dev/null | tail -1)
-    if echo "$YARN_AUDIT_RESULT" | grep -q '"vulnerabilities":0'; then
+    YARN_AUDIT_OUTPUT=$(yarn audit 2>&1)
+    if echo "$YARN_AUDIT_OUTPUT" | grep -q "0 vulnerabilities found"; then
         log_success "Aucune vulnérabilité détectée dans les dépendances"
+        VULN_COUNT="0"
     else
         log_error "Vulnérabilités détectées ! Exécutez 'yarn audit' pour plus de détails"
+        VULN_COUNT=$(echo "$YARN_AUDIT_OUTPUT" | grep -o '[0-9]* vulnerabilities found' | head -1 | grep -o '[0-9]*' || echo "Inconnu")
+        echo "$YARN_AUDIT_OUTPUT"
         exit 1
     fi
 else
