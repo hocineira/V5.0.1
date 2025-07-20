@@ -8,18 +8,10 @@ import { useRouter } from 'next/navigation'
 
 export default function AccueilPage() {
   const [isVisible, setIsVisible] = useState(false)
-  const [particleCount, setParticleCount] = useState(20)
   const router = useRouter()
 
   useEffect(() => {
     setIsVisible(true)
-    // Ajuster le nombre de particules selon la taille de l'écran
-    const handleResize = () => {
-      setParticleCount(window.innerWidth < 768 ? 10 : 20)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const handleContactClick = () => {
