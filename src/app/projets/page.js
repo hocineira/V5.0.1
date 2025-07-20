@@ -8,19 +8,6 @@ import { Badge } from '../../components/ui/badge'
 export default function ProjetsPage() {
   const projects = [
     {
-      id: 1,
-      title: 'TCS - Technicien en Cybersécurité',
-      description: 'Plaquette complète de la formation TCS détaillant le programme, les compétences développées et les débouchés professionnels dans le domaine de la cybersécurité.',
-      category: 'procedure',
-      technologies: ['Cybersécurité', 'Analyse des vulnérabilités', 'Sécurité réseau', 'Audit sécurité', 'Forensique'],
-      date: '2025',
-      status: 'completed',
-      type: 'procedure',
-      pdfUrl: '/procedures/TCS.pdf',
-      image: '/images/procedures/tcs_image.png',
-      icon: Shield
-    },
-    {
       id: 7,
       title: 'Procédure VLAN Interco',
       description: 'Procédure détaillée pour la création de VLAN sur Switch et Routeur. Configuration de l\'interconnexion entre différents réseaux virtuels avec gestion des politiques de routage.',
