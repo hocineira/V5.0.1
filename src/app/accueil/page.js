@@ -93,37 +93,7 @@ export default function AccueilPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
       {/* Animated Network Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Ligne de connexion réseau animées */}
-        <div className="absolute inset-0">
-          {particles.map((particle, index) => (
-            <div key={particle.id} className="absolute">
-              <div 
-                className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"
-                style={{
-                  left: `${particle.x}%`,
-                  top: `${particle.y}%`,
-                  animationDelay: `${particle.delay}s`,
-                  animationDuration: `${particle.duration}s`
-                }}
-              />
-              {index < particles.length - 1 && (
-                <div 
-                  className="absolute border-t border-blue-300/30 animate-pulse"
-                  style={{
-                    left: `${particle.x}%`,
-                    top: `${particle.y}%`,
-                    width: `${Math.abs(particles[index + 1].x - particle.x)}%`,
-                    transform: `rotate(${Math.atan2(particles[index + 1].y - particle.y, particles[index + 1].x - particle.x) * 180 / Math.PI}deg)`,
-                    transformOrigin: 'left center',
-                    animationDelay: `${particle.delay + 1}s`
-                  }}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Floating tech elements */}
+        {/* Floating tech elements - removed particle animation */}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
