@@ -18,7 +18,7 @@ export default function ProjetsPage() {
       type: 'project',
       githubUrl: '/projets',
       demoUrl: '/projets',
-      image: '/images/architecture-reseau.jpg',
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHw0fHxuZXR3b3JrJTIwZGlhZ3JhbXxlbnwwfHx8fDE3NTMwMzEyNTV8MA&ixlib=rb-4.1.0&q=85',
       icon: Server
     },
     {
