@@ -160,7 +160,7 @@ cat > "$REPORT_FILE" << EOF
 ## Résultats:
 
 ### Dépendances
-- Vulnérabilités NPM/Yarn: $(yarn audit --json 2>/dev/null | tail -1 | grep -o '"vulnerabilities":[0-9]*' | cut -d':' -f2)
+- Vulnérabilités NPM/Yarn: ${VULN_COUNT:-0}
 
 ### Configuration
 - Next.js headers: $(grep -q "headers()" next.config.js && echo "✅ Configurés" || echo "❌ Manquants")
