@@ -215,7 +215,10 @@ export default function VeilleTechnologiquePage() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center hover:shadow-lg transition-shadow border border-slate-200">
+            <Card 
+              className="text-center hover:shadow-lg transition-shadow border border-slate-200 cursor-pointer transform hover:-translate-y-1"
+              onClick={() => window.open('https://docs.microsoft.com/fr-fr/windows/', '_blank')}
+            >
               <CardHeader>
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="w-6 h-6 text-blue-600" />
@@ -227,7 +230,10 @@ export default function VeilleTechnologiquePage() {
               </CardHeader>
             </Card>
 
-            <Card className="text-center hover:shadow-lg transition-shadow border border-slate-200">
+            <Card 
+              className="text-center hover:shadow-lg transition-shadow border border-slate-200 cursor-pointer transform hover:-translate-y-1"
+              onClick={() => window.open('https://docs.microsoft.com/fr-fr/lifecycle/', '_blank')}
+            >
               <CardHeader>
                 <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Monitor className="w-6 h-6 text-indigo-600" />
@@ -239,7 +245,10 @@ export default function VeilleTechnologiquePage() {
               </CardHeader>
             </Card>
 
-            <Card className="text-center hover:shadow-lg transition-shadow border border-slate-200">
+            <Card 
+              className="text-center hover:shadow-lg transition-shadow border border-slate-200 cursor-pointer transform hover:-translate-y-1"
+              onClick={() => window.open('https://support.microsoft.com/fr-fr/windows', '_blank')}
+            >
               <CardHeader>
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <ExternalLink className="w-6 h-6 text-green-600" />
