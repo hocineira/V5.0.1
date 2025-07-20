@@ -151,7 +151,13 @@ export default function BTSSIOPage() {
   }
 
   const toggleSection = (section) => {
-    setExpandedSection(expandedSection === section ? null : section)
+    // Si on clique sur la même section qui est déjà ouverte, on la ferme
+    // Sinon, on ouvre la nouvelle section
+    if (expandedSection === section) {
+      setExpandedSection(null)
+    } else {
+      setExpandedSection(section)
+    }
   }
 
   return (
