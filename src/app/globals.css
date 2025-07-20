@@ -534,6 +534,7 @@ body {
 }
 
 /* Classes utilitaires personnalisées pour le thème */
+/* Classes utilitaires personnalisées pour le thème */
 @layer utilities {
   .bg-theme {
     background-color: rgb(var(--background));
@@ -548,15 +549,15 @@ body {
   }
   
   .text-theme {
-    color: rgb(var(--foreground));
+    color: rgb(var(--text-primary));
   }
   
   .text-theme-secondary {
-    color: rgb(var(--foreground-secondary));
+    color: rgb(var(--text-secondary));
   }
   
   .text-theme-muted {
-    color: rgb(var(--foreground-muted));
+    color: rgb(var(--text-muted));
   }
   
   .border-theme {
@@ -568,24 +569,37 @@ body {
   }
   
   .bg-card {
-    background-color: rgb(var(--card-background));
+    background-color: rgb(var(--background-card));
   }
   
   .border-card {
-    border-color: rgb(var(--card-border));
+    border-color: rgb(var(--border));
   }
   
-  .nav-bg {
-    background-color: rgb(var(--nav-background) / 0.9);
+  .shadow-theme {
+    box-shadow: var(--shadow);
   }
   
-  .nav-text {
-    color: rgb(var(--nav-text));
+  .shadow-theme-lg {
+    box-shadow: var(--shadow-lg);
   }
-  
-  .nav-text-hover:hover {
-    color: rgb(var(--nav-text-hover));
-  }
+}
+
+/* Composants spécifiques redesignés pour le mode sombre */
+.dark-mode-card {
+  @apply bg-theme-card border-theme shadow-theme-lg;
+}
+
+.dark-mode-text {
+  @apply text-theme;
+}
+
+.dark-mode-text-secondary {
+  @apply text-theme-secondary;
+}
+
+.dark-mode-button {
+  @apply bg-theme-card border-theme text-theme hover:bg-theme-tertiary;
 }
 
 /* Amélioration de la scrollbar pour le mode sombre */
