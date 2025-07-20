@@ -23,16 +23,15 @@ export default function ProjetsPage() {
   const projects = [
     {
       id: 1,
-      title: 'Architecture Réseau d\'Entreprise',
-      description: 'Infrastructure complète mise en place avec pfSense, VLANs, Active Directory, et outils de monitoring. Schéma détaillé de mon environnement de test incluant la segmentation réseau, la sécurité périmétrique et la supervision.',
+      title: 'Architecture Réseau d\'Entreprise - INFRA S4P2',
+      description: 'Infrastructure complète mise en place avec pfSense, VLANs, Active Directory, et outils de monitoring. Schéma détaillé de mon environnement de test incluant la segmentation réseau, la sécurité périmétrique et la supervision avec configurations IP détaillées.',
       category: 'architecture',
       technologies: ['pfSense', 'VLANs', 'Active Directory', 'GLPI', 'Zabbix', 'Windows Server', 'Proxmox'],
       date: '2025',
       status: 'completed',
       type: 'project',
-      githubUrl: '/projets',
-      demoUrl: '/projets',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHw0fHxuZXR3b3JrJTIwZGlhZ3JhbXxlbnwwfHx8fDE3NTMwMzEyNTV8MA&ixlib=rb-4.1.0&q=85',
+      schemaUrl: '/images/procedures/schema_reseau_infra.png',
+      image: '/images/procedures/schema_reseau_infra.png',
       icon: Server
     },
     {
