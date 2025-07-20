@@ -240,7 +240,7 @@ export default function ProjetsPage() {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
                             onClick={() => window.open(project.pdfUrl, '_blank')}
                           >
                             <Eye className="w-4 h-4 mr-2" />
@@ -249,7 +249,7 @@ export default function ProjetsPage() {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
                             onClick={() => {
                               const link = document.createElement('a');
                               link.href = project.pdfUrl;
@@ -266,7 +266,7 @@ export default function ProjetsPage() {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
                             onClick={() => window.open(project.github, '_blank')}
                           >
                             <Github className="w-4 h-4 mr-2" />
@@ -275,7 +275,7 @@ export default function ProjetsPage() {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="flex-1 hover:bg-purple-50 hover:text-purple-600 transition-all duration-200"
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
                             onClick={() => window.open(project.demo, '_blank')}
                           >
                             <ExternalLink className="w-4 h-4 mr-2" />
