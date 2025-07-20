@@ -1,5 +1,7 @@
 import "./globals.css";
 import Navigation from "../components/Navigation";
+import { ThemeProvider } from "../contexts/ThemeContext";
+import ThemeToggle from "../components/ThemeToggle";
 
 export const metadata = {
   title: "Portfolio - Hocine IRATNI",
@@ -9,11 +11,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className="antialiased">
-        <Navigation />
-        <main className="pt-16">
-          {children}
-        </main>
+      <body className="antialiased bg-theme text-theme">
+        <ThemeProvider>
+          <Navigation />
+          <ThemeToggle />
+          <main className="pt-16">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
