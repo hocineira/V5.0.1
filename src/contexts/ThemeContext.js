@@ -10,14 +10,14 @@ export function ThemeProvider({ children }) {
 
   // Initialiser le thème au montage du composant
   useEffect(() => {
-    // Récupérer la préférence sauvegardée ou détecter la préférence système
+    // Récupérer la préférence sauvegardée - MODE CLAIR PAR DÉFAUT
     const savedTheme = localStorage.getItem('theme')
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    if (savedTheme === 'dark') {
       setIsDark(true)
       document.documentElement.classList.add('dark')
     } else {
+      // Mode clair par défaut - même si pas de préférence sauvegardée
       setIsDark(false)
       document.documentElement.classList.remove('dark')
     }
