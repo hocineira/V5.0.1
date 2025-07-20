@@ -74,7 +74,7 @@ export default function VeilleTechnologiquePage() {
       support: 'Support jusqu\'en octobre 2026',
       status: 'Stable',
       category: 'Previous Stable',
-      icon: Desktop
+      icon: Monitor
     }
   ]
 
