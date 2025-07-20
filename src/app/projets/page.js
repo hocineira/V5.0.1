@@ -8,6 +8,18 @@ import { Badge } from '../../components/ui/badge'
 import ImageModal from '../../components/ImageModal'
 
 export default function ProjetsPage() {
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  
+  const openImageModal = (imageSrc, title) => {
+    setSelectedImage({ src: imageSrc, title })
+    setIsModalOpen(true)
+  }
+  
+  const closeImageModal = () => {
+    setIsModalOpen(false)
+    setSelectedImage(null)
+  }
   const projects = [
     {
       id: 1,
