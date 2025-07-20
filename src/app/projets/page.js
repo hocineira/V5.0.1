@@ -30,8 +30,8 @@ export default function ProjetsPage() {
       date: '2025',
       status: 'completed',
       type: 'project',
-      schemaUrl: '/images/procedures/schema_reseau_infra.png',
-      image: '/images/procedures/schema_reseau_infra.png',
+      schemaUrl: '/images/procedures/schema_reseau_infra.svg',
+      image: '/images/procedures/schema_reseau_infra.svg',
       icon: Server
     },
     {
