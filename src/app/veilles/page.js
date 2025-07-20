@@ -135,10 +135,10 @@ export default function VeillesPage() {
                       
                       <div className={`bg-${veille.color}-50 p-4 rounded-lg group-hover:bg-${veille.color}-100 transition-colors duration-300`}>
                         <div className="flex items-center justify-between">
-                          <span className={`text-${veille.color}-700 font-medium text-sm`}>
+                          <span className={`text-${veille.color}-800 font-medium text-sm`}>
                             Accéder à la veille
                           </span>
-                          <ArrowRight className={`w-4 h-4 text-${veille.color}-600 group-hover:transform group-hover:translate-x-1 transition-all duration-300`} />
+                          <ArrowRight className={`w-4 h-4 text-${veille.color}-700 group-hover:transform group-hover:translate-x-1 transition-all duration-300`} />
                         </div>
                       </div>
                     </CardContent>
