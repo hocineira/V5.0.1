@@ -202,6 +202,80 @@ export default function AccueilPage() {
         </div>
       </section>
 
+      {/* Architecture Highlight Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="relative container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
+                <Network className="w-4 h-4 text-blue-400" />
+                <span className="text-sm text-blue-300">Infrastructure Personnelle</span>
+              </div>
+              <h2 className="text-4xl font-bold mb-6 text-white">
+                Mon <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Architecture Réseau</span>
+              </h2>
+              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+                Découvrez l'infrastructure complète que j'ai mise en place : pfSense pour la sécurité, 
+                VLANs pour la segmentation, Active Directory pour la gestion des utilisateurs, 
+                et des outils de monitoring comme GLPI et Zabbix.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                {['pfSense', 'VLANs', 'Active Directory', 'GLPI', 'Zabbix'].map((tech, index) => (
+                  <span key={index} className="px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-sm text-blue-200">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+                onClick={() => router.push('/projets')}
+              >
+                <Server className="mr-2 w-5 h-5" />
+                Voir l'architecture complète
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6 shadow-2xl">
+                <div className="text-center mb-4">
+                  <h3 className="text-xl font-semibold text-white mb-2">Infrastructure Active</h3>
+                  <p className="text-blue-300 text-sm">Schéma de mon environnement de test</p>
+                </div>
+                <div className="bg-slate-700/50 rounded-lg p-4 mb-4">
+                  <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">pfSense Firewall</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">VLANs Configurés</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">Active Directory</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">Monitoring Zabbix</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <span className="text-xs text-blue-400">Cliquez pour voir le schéma détaillé</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-gradient-to-br from-slate-800 to-slate-900 relative">
         {/* Background Network Pattern */}
