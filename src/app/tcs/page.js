@@ -26,7 +26,7 @@ export default function TCSPage() {
       'Sécurité informatique',
       'Support technique',
       'Supervision et monitoring',
-      'Scripting et automatisation',
+      'Configuration des équipements réseau',
       'Gestion de projets IT'
     ],
     opportunities: [
