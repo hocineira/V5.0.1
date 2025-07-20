@@ -57,7 +57,7 @@ export default function VeilleTechnologiquePage() {
       support: 'Fin de support : octobre 2025',
       status: 'End of Life',
       category: 'Legacy Version',
-      icon: Desktop
+      icon: Monitor
     },
     {
       id: 4,
