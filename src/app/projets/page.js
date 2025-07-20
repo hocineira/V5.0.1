@@ -398,6 +398,14 @@ export default function ProjetsPage() {
           </div>
         </div>
       </section>
+      
+      {/* Image Modal */}
+      <ImageModal 
+        isOpen={isModalOpen} 
+        onClose={closeImageModal} 
+        imageSrc={selectedImage?.src} 
+        title={selectedImage?.title} 
+      />
     </div>
   )
 }
