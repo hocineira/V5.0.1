@@ -8,6 +8,7 @@ import { Badge } from '../../components/ui/badge'
 
 export default function BTSSIOPage() {
   const [expandedSection, setExpandedSection] = useState(null)
+  const [clickTimeout, setClickTimeout] = useState(null)
 
   const btsInfo = {
     title: 'BTS SIO - Services Informatiques aux Organisations',
