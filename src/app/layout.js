@@ -11,11 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <body className="antialiased bg-white dark:bg-slate-900 text-gray-900 dark:text-slate-100">
+      <body className="antialiased bg-theme text-theme">
         <ThemeProvider>
           <Navigation />
           <ThemeToggle />
-          <main className="pt-16 bg-white dark:bg-slate-900 min-h-screen">
+          <main className="pt-16 bg-theme min-h-screen">
             {children}
           </main>
         </ThemeProvider>
