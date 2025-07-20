@@ -140,171 +140,237 @@ export default function VeillesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-green-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="relative container mx-auto px-4">
           <div className="text-center">
             <div className="flex justify-center mb-8">
-              <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
                 <Eye className="w-10 h-10 text-white" />
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
               Veilles Technologiques
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Suivez mes recherches et analyses sur les dernières tendances technologiques. 
-              Cybersécurité, infrastructure, développement : restez à jour avec les innovations du secteur.
+              Ma veille technologique spécialisée sur les versions de Windows et les évolutions du RGPD. 
+              Restez informé sur les dernières mises à jour et réglementations importantes.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Search and Filter Section */}
-      <section className="py-8 bg-white border-b">
+      {/* Section 1: Veille Technologique Windows */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-            {/* Search Bar */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <Input
-                type="text"
-                placeholder="Rechercher une veille..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 pr-4 py-2 w-full border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-              />
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-6">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
+                <Monitor className="w-8 h-8 text-white" />
+              </div>
             </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Une Veille Technologique
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Suivi des versions de Windows et de leurs évolutions techniques
+            </p>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mt-6"></div>
+          </div>
 
-            {/* Category Filters */}
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => {
-                const Icon = category.icon
-                return (
-                  <Button
-                    key={category.id}
-                    variant={selectedCategory === category.id ? 'default' : 'outline'}
-                    className={`flex items-center px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                      selectedCategory === category.id
-                        ? 'bg-green-600 text-white hover:bg-green-700'
-                        : 'text-gray-700 hover:bg-green-50 hover:text-green-600'
-                    }`}
-                    onClick={() => setSelectedCategory(category.id)}
-                  >
-                    <Icon className="w-4 h-4 mr-2" />
-                    {category.name}
-                  </Button>
-                )
-              })}
-            </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {windowsVersions.map((version) => (
+              <Card key={version.id} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-4">
+                    <Badge className={getStatusColor(version.status)}>
+                      {version.status}
+                    </Badge>
+                    <div className="text-sm text-gray-500 flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {formatDate(version.releaseDate)}
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                    {version.version}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600 mb-4">
+                    {version.description}
+                  </CardDescription>
+                  <Badge variant="outline" className="w-fit">
+                    {version.category}
+                  </Badge>
+                </CardHeader>
+                
+                <CardContent>
+                  <div className="mb-6">
+                    <h4 className="font-semibold text-gray-900 mb-3">Fonctionnalités principales :</h4>
+                    <ul className="space-y-2">
+                      {version.features.map((feature, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                          <span className="text-gray-700 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">Support :</span>
+                      <span className="font-medium text-gray-900">{version.support}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Veilles Grid */}
-      <section className="py-20">
+      {/* Section 2: RGPD */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          {filteredVeilles.length === 0 ? (
-            <div className="text-center py-20">
-              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Search className="w-8 h-8 text-gray-400" />
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-6">
+              <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center">
+                <Shield className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Aucune veille trouvée</h3>
-              <p className="text-gray-600">Essayez de modifier vos critères de recherche.</p>
             </div>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredVeilles.map((veille) => (
-                <Card key={veille.id} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                  <CardHeader>
-                    <div className="flex items-start justify-between mb-2">
-                      <Badge className={`bg-${getCategoryColor(veille.category)}-100 text-${getCategoryColor(veille.category)}-800`}>
-                        {getCategoryIcon(veille.category)}
-                        <span className="ml-1 capitalize">{veille.category}</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Veille RGPD
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Évolutions et obligations du Règlement Général sur la Protection des Données
+            </p>
+            <div className="w-20 h-1 bg-indigo-600 mx-auto mt-6"></div>
+          </div>
+
+          <div className="space-y-8">
+            {rgpdTopics.map((topic) => (
+              <Card key={topic.id} className="group hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                    <div className="flex items-center gap-3 mb-3 md:mb-0">
+                      <Badge className={getImportanceColor(topic.importance)}>
+                        {topic.importance}
                       </Badge>
-                      <div className="text-sm text-gray-500 flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
-                        {formatDate(veille.date)}
+                      <Badge variant="outline" className="bg-indigo-50 text-indigo-800">
+                        {topic.sector}
+                      </Badge>
+                    </div>
+                    <div className="text-sm text-gray-500 flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      Mis à jour le {formatDate(topic.lastUpdate)}
+                    </div>
+                  </div>
+                  <CardTitle className="text-2xl text-gray-900 group-hover:text-indigo-600 transition-colors mb-2">
+                    {topic.title}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600 mb-6">
+                    {topic.description}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-4">Points clés :</h4>
+                      <ul className="space-y-3">
+                        {topic.content.map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="w-2 h-2 bg-indigo-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <span className="text-gray-700">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-indigo-50 p-6 rounded-lg">
+                      <h5 className="font-semibold text-indigo-900 mb-3">Informations utiles</h5>
+                      <div className="space-y-2 text-sm">
+                        <p><span className="font-medium">Importance :</span> {topic.importance}</p>
+                        <p><span className="font-medium">Secteur concerné :</span> {topic.sector}</p>
+                        <p><span className="font-medium">Dernière mise à jour :</span> {formatDate(topic.lastUpdate)}</p>
                       </div>
                     </div>
-                    <CardTitle className="text-xl text-gray-900 group-hover:text-green-600 transition-colors">
-                      {veille.title}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600">
-                      {veille.description}
-                    </CardDescription>
-                  </CardHeader>
-                  
-                  <CardContent>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {veille.tags.map((tag, index) => (
-                        <Badge key={index} variant="secondary" className="bg-green-100 text-green-800 text-xs">
-                          <Tag className="w-3 h-3 mr-1" />
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                    
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                      <span>📖 {veille.readTime} de lecture</span>
-                      <span>Source: {veille.source}</span>
-                    </div>
-                    
-                    <Button 
-                      className="w-full bg-green-600 hover:bg-green-700 text-white"
-                      onClick={() => window.open(veille.link, '_blank')}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Lire la veille
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Statistiques de veille
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Statistiques de Veille
             </h2>
-            <div className="w-20 h-1 bg-green-600 mx-auto"></div>
+            <div className="w-20 h-1 bg-white mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600">{veilles.length}</div>
-              <div className="text-gray-600">Veilles publiées</div>
+              <div className="text-4xl font-bold text-white">{windowsVersions.length}</div>
+              <div className="text-blue-100">Versions Windows suivies</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600">
-                {veilles.filter(v => v.category === 'security').length}
+              <div className="text-4xl font-bold text-white">
+                {windowsVersions.filter(v => v.status === 'Stable').length}
               </div>
-              <div className="text-gray-600">Cybersécurité</div>
+              <div className="text-blue-100">Versions stables</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600">
-                {veilles.filter(v => v.category === 'infrastructure').length}
-              </div>
-              <div className="text-gray-600">Infrastructure</div>
+              <div className="text-4xl font-bold text-white">{rgpdTopics.length}</div>
+              <div className="text-blue-100">Sujets RGPD</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-green-600">
-                {veilles.filter(v => v.category === 'development').length}
+              <div className="text-4xl font-bold text-white">
+                {rgpdTopics.filter(t => t.importance === 'Critique').length}
               </div>
-              <div className="text-gray-600">Développement</div>
+              <div className="text-blue-100">Points critiques</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6 text-gray-900">
+            Besoin d'accompagnement ?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Pour toute question sur ces veilles technologiques ou pour discuter de vos besoins en matière de mise à jour système et conformité RGPD.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg"
+              className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+              onClick={() => window.location.href = 'mailto:hocineira@gmail.com'}
+            >
+              Me contacter
+              <ExternalLink className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              variant="outline"
+              size="lg"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+              onClick={() => window.open('/projets', '_self')}
+            >
+              Voir mes procédures
+              <FileText className="ml-2 w-5 h-5" />
+            </Button>
           </div>
         </div>
       </section>
