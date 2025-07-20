@@ -478,19 +478,58 @@ body {
   background-color: rgb(15 23 42) !important; /* slate-900 */
 }
 
+/* Force tous les conteneurs principaux en mode sombre */
+.dark *,
+.dark *::before,
+.dark *::after {
+  border-color: rgb(71 85 105) !important;
+}
+
 /* Transforme tous les arrière-plans blancs en sombres */
 .dark .bg-white,
 .dark .bg-gray-50,
-.dark .bg-gray-100 {
+.dark .bg-gray-100,
+.dark section,
+.dark div:not([class*="gradient"]):not([class*="blue"]):not([class*="purple"]):not([class*="red"]) {
   background-color: rgb(30 41 59) !important; /* slate-800 */
 }
 
+/* Forcer les sections et containers principaux */
+.dark .container,
+.dark .max-w-7xl,
+.dark .max-w-6xl,
+.dark .max-w-5xl,
+.dark .max-w-4xl,
+.dark .max-w-3xl,
+.dark .max-w-2xl,
+.dark .max-w-xl {
+  background-color: transparent !important;
+}
+
+/* Sections spécifiques */
+.dark section:not([class*="gradient"]),
+.dark .py-16,
+.dark .py-20,
+.dark .py-12,
+.dark .py-8 {
+  background-color: rgb(15 23 42) !important;
+}
+
+/* Backgrounds avec transparence */
 .dark .bg-gray-200 {
   background-color: rgb(51 65 85) !important; /* slate-700 */
 }
 
 .dark .bg-gray-300 {
   background-color: rgb(71 85 105) !important; /* slate-600 */
+}
+
+/* Containers et wrappers */
+.dark .min-h-screen,
+.dark .h-screen,
+.dark main,
+.dark .relative:not([class*="gradient"]) {
+  background-color: rgb(15 23 42) !important;
 }
 
 /* Arrière-plans spécifiques */
@@ -518,7 +557,14 @@ body {
 .dark .text-black,
 .dark .text-gray-900,
 .dark .text-gray-800,
-.dark .text-gray-700 {
+.dark .text-gray-700,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark p:not([class*="blue"]):not([class*="purple"]):not([class*="gradient"]) {
   color: rgb(241 245 249) !important; /* slate-100 */
 }
 
@@ -567,6 +613,14 @@ body {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 10px 10px -5px rgb(0 0 0 / 0.1) !important;
 }
 
+/* Cards spécifiques */
+.dark .rounded-lg,
+.dark .rounded-xl,
+.dark .rounded-2xl {
+  background-color: rgb(30 41 59) !important;
+  border-color: rgb(71 85 105) !important;
+}
+
 /* Inputs et formulaires */
 .dark input,
 .dark textarea,
@@ -584,7 +638,7 @@ body {
 }
 
 /* Boutons par défaut */
-.dark button:not(.bg-gradient-to-r):not(.bg-blue-600):not(.bg-red-600) {
+.dark button:not(.bg-gradient-to-r):not(.bg-blue-600):not(.bg-red-600):not([class*="gradient"]) {
   background-color: rgb(51 65 85) !important;
   color: rgb(241 245 249) !important;
 }
@@ -609,7 +663,7 @@ body {
 }
 
 /* Cas spéciaux pour les éléments avec classes très spécifiques */
-.dark [class*="bg-white"] {
+.dark [class*="bg-white"]:not([class*="gradient"]) {
   background-color: rgb(30 41 59) !important;
 }
 
@@ -619,4 +673,24 @@ body {
 
 .dark [class*="text-gray-900"] {
   color: rgb(241 245 249) !important;
+}
+
+/* Grids et flex containers */
+.dark .grid,
+.dark .flex:not([class*="gradient"]) {
+  background-color: transparent !important;
+}
+
+/* Éléments spécifiques pour éviter les conflits */
+.dark .space-y-8 > *,
+.dark .space-y-6 > *,
+.dark .space-y-4 > * {
+  background-color: transparent !important;
+}
+
+/* Override pour les éléments qui ne devraient pas avoir de background */
+.dark .text-center,
+.dark .flex.items-center,
+.dark .flex.justify-center {
+  background-color: transparent !important;
 }
