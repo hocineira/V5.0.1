@@ -102,7 +102,7 @@ export default function VeillesPage() {
                     
                     <CardHeader className="pb-4">
                       <div className="flex items-center justify-between mb-2">
-                        <Badge className={`bg-${veille.color}-100 text-${veille.color}-800 text-sm`}>
+                        <Badge className={`${veille.color === 'blue' ? 'bg-blue-100 text-blue-800' : 'bg-indigo-100 text-indigo-800'} text-sm`}>
                           {veille.stats}
                         </Badge>
                         <div className="text-sm text-slate-500 flex items-center">
