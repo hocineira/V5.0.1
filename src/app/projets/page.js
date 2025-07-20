@@ -8,6 +8,20 @@ import { Badge } from '../../components/ui/badge'
 export default function ProjetsPage() {
   const projects = [
     {
+      id: 1,
+      title: 'Architecture Réseau d\'Entreprise',
+      description: 'Infrastructure complète mise en place avec pfSense, VLANs, Active Directory, et outils de monitoring. Schéma détaillé de mon environnement de test incluant la segmentation réseau, la sécurité périmétrique et la supervision.',
+      category: 'architecture',
+      technologies: ['pfSense', 'VLANs', 'Active Directory', 'GLPI', 'Zabbix', 'Windows Server', 'Proxmox'],
+      date: '2025',
+      status: 'completed',
+      type: 'project',
+      githubUrl: '/projets',
+      demoUrl: '/projets',
+      image: '/images/architecture-reseau.jpg',
+      icon: Server
+    },
+    {
       id: 7,
       title: 'Procédure VLAN Interco',
       description: 'Procédure détaillée pour la création de VLAN sur Switch et Routeur. Configuration de l\'interconnexion entre différents réseaux virtuels avec gestion des politiques de routage.',
