@@ -207,8 +207,8 @@ export default function AccueilPage() {
         {/* Background Network Pattern */}
         <div className="absolute inset-0 opacity-10">
           <img 
-            src="https://images.unsplash.com/photo-1664526937033-fe2c11f1be25?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxuZXR3b3JraW5nfGVufDB8fHxibHVlfDE3NTI4NzA1NDR8MA&ixlib=rb-4.1.0&q=85"
-            alt="Network diagram"
+            src="https://images.unsplash.com/photo-1597733336794-12d05021d510?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDF8MHwxfHNlYXJjaHwxfHxuZXR3b3JrfGVufDB8fHxibHVlfDE3NTMwMjkxMjZ8MA&ixlib=rb-4.1.0&q=85"
+            alt="Datacenter Infrastructure"
             className="w-full h-full object-cover"
           />
         </div>
