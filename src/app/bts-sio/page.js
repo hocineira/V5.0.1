@@ -152,13 +152,17 @@ export default function BTSSIOPage() {
   }
 
   const toggleSection = (section) => {
-    // Si on clique sur la même section qui est déjà ouverte, on la ferme
-    // Sinon, on ouvre la nouvelle section
-    if (expandedSection === section) {
-      setExpandedSection(null)
-    } else {
-      setExpandedSection(section)
+    // Clear any existing timeout
+    if (clickTimeout) {
+      clearTimeout(clickTimeout)
     }
+    
+    // Set new timeout to prevent rapid clicking issues
+    const timeout = setTimeout(() => {
+      setExpandedSection(expandedSection === section ? null : section)
+    }, 100)
+    
+    setClickTimeout(timeout)
   }
 
   return (
