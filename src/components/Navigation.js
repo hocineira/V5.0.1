@@ -67,7 +67,7 @@ export default function Navigation() {
           <div className="flex-shrink-0">
             <Link href="/accueil" className="flex items-center space-x-2 group">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                <Code className="w-4 h-4 text-white" />
+                <Network className="w-4 h-4 text-white" />
               </div>
               <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
                 Hocine IRATNI
