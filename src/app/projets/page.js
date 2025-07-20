@@ -288,7 +288,30 @@ export default function ProjetsPage() {
                             Télécharger
                           </Button>
                         </>
+                      ) : project.schemaUrl ? (
+                        // For architecture projects with schema
+                        <>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
+                            onClick={() => openImageModal(project.schemaUrl, project.title)}
+                          >
+                            <Eye className="w-4 h-4 mr-2" />
+                            Voir Schéma
+                          </Button>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
+                            onClick={() => openImageModal(project.schemaUrl, project.title)}
+                          >
+                            <Network className="w-4 h-4 mr-2" />
+                            Architecture
+                          </Button>
+                        </>
                       ) : (
+                        // For regular projects
                         <>
                           <Button 
                             variant="outline" 
