@@ -206,11 +206,105 @@ export default function ProjetsPage() {
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* Hero Project - Architecture Réseau */}
       <section className="py-20">
         <div className="container mx-auto px-4">
+          {/* Projet Principal - Architecture Réseau */}
+          <div className="mb-16">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 p-1 shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 animate-pulse"></div>
+              <div className="relative bg-white rounded-3xl overflow-hidden">
+                <div className="flex flex-col lg:flex-row">
+                  {/* Image Section */}
+                  <div className="lg:w-1/2 h-96 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                    <img 
+                      src="/images/procedures/schema_reseau_infra_original.png" 
+                      alt="Architecture Réseau d'Entreprise - INFRA S4P2"
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <div className="flex items-center gap-2">
+                        <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 text-xs font-bold animate-bounce">
+                          🏆 PROJET PRINCIPAL
+                        </Badge>
+                        <Badge className="bg-green-500 text-white px-2 py-1 text-xs">
+                          Terminé
+                        </Badge>
+                      </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  
+                  {/* Content Section */}
+                  <div className="lg:w-1/2 p-8">
+                    <div className="h-full flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                            <Server className="w-6 h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-2xl font-bold text-gray-900 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                              Architecture Réseau d'Entreprise
+                            </h3>
+                            <p className="text-amber-600 font-semibold">INFRA S4P2 - Hocine IRATNI</p>
+                          </div>
+                        </div>
+                        
+                        <p className="text-gray-700 mb-6 leading-relaxed">
+                          Infrastructure complète mise en place avec pfSense, VLANs, Active Directory, et outils de monitoring. 
+                          Schéma détaillé de mon environnement de test incluant la segmentation réseau, la sécurité périmétrique 
+                          et la supervision avec configurations IP détaillées.
+                        </p>
+                        
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {['pfSense', 'VLANs', 'Active Directory', 'GLPI', 'Zabbix', 'Windows Server', 'Proxmox'].map((tech, index) => (
+                            <Badge key={index} className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 text-xs hover:from-amber-200 hover:to-orange-200 transition-all duration-200 border border-amber-300">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div className="flex gap-3">
+                        <Button 
+                          className="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
+                          onClick={() => openImageModal('/images/procedures/schema_reseau_infra_original.png', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
+                        >
+                          <Eye className="w-5 h-5 mr-2" />
+                          Voir Schéma Complet
+                        </Button>
+                        <Button 
+                          variant="outline"
+                          className="flex-1 border-2 border-amber-500 text-amber-600 hover:bg-amber-50 font-bold py-3 px-6 rounded-xl transform hover:scale-105 transition-all duration-200"
+                          onClick={() => openImageModal('/images/procedures/schema_reseau_infra_original.png', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
+                        >
+                          <Network className="w-5 h-5 mr-2" />
+                          Architecture Détaillée
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Separator */}
+          <div className="flex items-center justify-center mb-12">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+            <div className="px-6">
+              <Badge className="bg-gray-100 text-gray-600 px-4 py-2">
+                <FileText className="w-4 h-4 mr-2" />
+                Procédures Techniques
+              </Badge>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+          </div>
+          
+          {/* Regular Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => {
+            {filteredProjects.slice(1).map((project) => {
               const ProjectIcon = project.icon
               return (
                 <Card key={project.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 overflow-hidden border-0 shadow-lg">
