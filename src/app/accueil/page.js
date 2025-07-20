@@ -203,14 +203,6 @@ export default function AccueilPage() {
                   variant="outline" 
                   size="icon" 
                   className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110"
-                  onClick={() => window.open(personalInfo.social.github, '_blank')}
-                >
-                  <Github className="w-5 h-5" />
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110"
                   onClick={() => window.open(personalInfo.social.linkedin, '_blank')}
                 >
                   <Linkedin className="w-5 h-5" />
