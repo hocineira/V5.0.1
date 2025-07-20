@@ -602,6 +602,48 @@ body {
   @apply bg-theme-card border-theme text-theme hover:bg-theme-tertiary;
 }
 
+/* Corrections spécifiques pour les badges en mode sombre */
+.dark .bg-red-100 {
+  background-color: rgb(185 28 28 / 0.2) !important; /* red-700 avec transparence */
+}
+
+.dark .text-red-800 {
+  color: rgb(252 165 165) !important; /* red-300 pour un meilleur contraste */
+}
+
+.dark .bg-blue-100 {
+  background-color: rgb(29 78 216 / 0.2) !important; /* blue-700 avec transparence */
+}
+
+.dark .text-blue-800 {
+  color: rgb(147 197 253) !important; /* blue-300 pour un meilleur contraste */
+}
+
+.dark .bg-indigo-100 {
+  background-color: rgb(67 56 202 / 0.2) !important; /* indigo-700 avec transparence */
+}
+
+.dark .text-indigo-800 {
+  color: rgb(165 180 252) !important; /* indigo-300 pour un meilleur contraste */
+}
+
+.dark .bg-purple-100 {
+  background-color: rgb(126 34 206 / 0.2) !important; /* purple-700 avec transparence */
+}
+
+.dark .text-purple-800 {
+  color: rgb(196 181 253) !important; /* purple-300 pour un meilleur contraste */
+}
+
+/* Badge génériques avec classes secondary pour le mode sombre */
+.dark .bg-gray-100 {
+  background-color: rgb(55 65 81) !important; /* gray-700 */
+}
+
+.dark .bg-gray-200 {
+  background-color: rgb(75 85 99) !important; /* gray-600 */
+}
+
 /* Amélioration de la scrollbar pour le mode sombre */
 ::-webkit-scrollbar {
   width: 8px;
