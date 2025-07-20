@@ -23,7 +23,7 @@ export default function VeilleTechnologiquePage() {
       support: 'Jusqu\'en octobre 2029',
       status: 'Stable',
       category: 'Major Update',
-      icon: Desktop
+      icon: Monitor
     },
     {
       id: 2,
