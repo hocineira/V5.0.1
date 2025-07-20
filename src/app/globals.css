@@ -612,6 +612,103 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgb(59 130 246), rgb(139 92 246));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgb(37 99 235), rgb(124 58 237));
+}
+
+/* Effet de verre moderne */
+.dark .glass-effect,
+.dark .backdrop-blur-sm,
+.dark .backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  background: rgb(var(--background-card) / 0.8) !important;
+  border: 1px solid rgb(var(--border) / 0.5) !important;
+}
+
+/* Corrections spécifiques pour les zones blanches/grises problématiques */
+
+/* Sections générales avec fonds clairs */
+.dark section:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]) {
+  background-color: rgb(var(--background)) !important;
+}
+
+/* Containers et wrappers avec fonds blancs/gris */
+.dark .py-16:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]),
+.dark .py-20:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]),
+.dark .py-12:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]) {
+  background-color: rgb(var(--background)) !important;
+}
+
+/* Divs avec fonds blancs ou gris */
+.dark .bg-gray-50,
+.dark .bg-gray-100,
+.dark .bg-white:not([class*="gradient"]) {
+  background-color: rgb(var(--background)) !important;
+}
+
+.dark .bg-gray-200 {
+  background-color: rgb(var(--background-secondary)) !important;
+}
+
+/* Cards et containers blancs */
+.dark .rounded-lg:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]):not([class*="bg-red"]),
+.dark .rounded-xl:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]):not([class*="bg-red"]),
+.dark .rounded-2xl:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]):not([class*="bg-red"]) {
+  background-color: rgb(var(--background-card)) !important;
+  border-color: rgb(var(--border)) !important;
+}
+
+/* Grids et flex containers génériques */
+.dark .grid:not([class*="gradient"]):not([class*="bg-"]),
+.dark .flex:not([class*="gradient"]):not([class*="bg-"]) {
+  background-color: transparent !important;
+}
+
+/* Espacement et containers de contenu */
+.dark .container:not([class*="gradient"]):not([class*="bg-"]),
+.dark .max-w-7xl:not([class*="gradient"]):not([class*="bg-"]),
+.dark .max-w-6xl:not([class*="gradient"]):not([class*="bg-"]),
+.dark .max-w-5xl:not([class*="gradient"]):not([class*="bg-"]),
+.dark .max-w-4xl:not([class*="gradient"]):not([class*="bg-"]) {
+  background-color: transparent !important;
+}
+
+/* Corrections pour les éléments de page spécifiques */
+.dark .space-y-16 > *:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]),
+.dark .space-y-12 > *:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]),
+.dark .space-y-8 > *:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]) {
+  background-color: transparent !important;
+}
+
+/* Sections avec classes de padding génériques */
+.dark div[class*="py-"]:not([class*="gradient"]):not([class*="bg-blue"]):not([class*="bg-purple"]):not([class*="bg-red"]) {
+  background-color: rgb(var(--background)) !important;
+}
+
+/* Main et body */
+.dark main:not([class*="gradient"]),
+.dark body {
+  background-color: rgb(var(--background)) !important;
+}
+
+/* Zones de contenu génériques */
+.dark article:not([class*="gradient"]):not([class*="bg-"]),
+.dark .content:not([class*="gradient"]):not([class*="bg-"]) {
+  background-color: rgb(var(--background)) !important;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background-secondary));
+}
+
+::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, rgb(var(--accent-blue)), rgb(var(--accent-purple)));
   border-radius: 4px;
 }
