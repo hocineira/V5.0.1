@@ -390,3 +390,83 @@ body {
   position: relative;
   z-index: 1;
 }
+
+/* Classes utilitaires personnalisées pour le thème */
+@layer utilities {
+  .bg-theme {
+    background-color: rgb(var(--background));
+  }
+  
+  .bg-theme-secondary {
+    background-color: rgb(var(--background-secondary));
+  }
+  
+  .bg-theme-tertiary {
+    background-color: rgb(var(--background-tertiary));
+  }
+  
+  .text-theme {
+    color: rgb(var(--foreground));
+  }
+  
+  .text-theme-secondary {
+    color: rgb(var(--foreground-secondary));
+  }
+  
+  .text-theme-muted {
+    color: rgb(var(--foreground-muted));
+  }
+  
+  .border-theme {
+    border-color: rgb(var(--border));
+  }
+  
+  .border-theme-secondary {
+    border-color: rgb(var(--border-secondary));
+  }
+  
+  .bg-card {
+    background-color: rgb(var(--card-background));
+  }
+  
+  .border-card {
+    border-color: rgb(var(--card-border));
+  }
+  
+  .nav-bg {
+    background-color: rgb(var(--nav-background) / 0.9);
+  }
+  
+  .nav-text {
+    color: rgb(var(--nav-text));
+  }
+  
+  .nav-text-hover:hover {
+    color: rgb(var(--nav-text-hover));
+  }
+}
+
+/* Amélioration de la scrollbar pour le mode sombre */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background-secondary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgb(var(--accent-blue)), rgb(var(--accent-purple)));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgb(var(--primary-600)), rgb(var(--accent-purple)));
+}
+
+/* Mise à jour des effets de verre pour le mode sombre */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgb(var(--card-background) / 0.1);
+  border: 1px solid rgb(var(--border) / 0.2);
+}
