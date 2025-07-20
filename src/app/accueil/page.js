@@ -171,8 +171,8 @@ export default function AccueilPage() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1606778303077-3780ea8d5420?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxkYXRhY2VudGVyfGVufDB8fHxibHVlfDE3NTMwMjkxMDR8MA&ixlib=rb-4.1.0&q=85" 
-                  alt="Infrastructure Réseau - Fibres Optiques" 
+                  src="https://images.unsplash.com/photo-1543953589-18ab987d605f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxuZXR3b3JraW5nfGVufDB8fHxibHVlfDE3NTI4NzA1NDR8MA&ixlib=rb-4.1.0&q=85" 
+                  alt="Infrastructure IT" 
                   className="w-full h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
