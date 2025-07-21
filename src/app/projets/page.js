@@ -407,7 +407,6 @@ export default function ProjetsPage() {
                             <span className="hidden sm:inline">Voir Schéma</span>
                             <span className="sm:hidden">Schema</span>
                           </Button>
-                          </Button>
                           <Button 
                             variant="outline" 
                             size="sm" 
