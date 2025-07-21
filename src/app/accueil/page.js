@@ -5,13 +5,6 @@ import { ArrowRight, Github, Linkedin, Mail, MapPin, Phone, GraduationCap, User,
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
 import { useRouter } from 'next/navigation'
-import dynamic from 'next/dynamic'
-
-// Lazy load du composant Image optimisé
-const OptimizedImage = dynamic(() => import('../../components/ui/OptimizedImage'), {
-  loading: () => <div className="bg-gray-200 dark:bg-gray-700 animate-pulse rounded-lg" />,
-  ssr: false
-})
 
 // Memoization des données statiques pour éviter les re-créations
 const StaticData = {
