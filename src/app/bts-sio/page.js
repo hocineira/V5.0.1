@@ -408,28 +408,28 @@ export default function BTSSIOPage() {
             </div>
             
             <div className="bg-black rounded-b-xl p-4 sm:p-8 font-mono text-left">
-              <div className="text-green-400 text-lg">
+              <div className="text-green-400 text-sm sm:text-lg">
                 $ <span className="text-cyan-300">{typedText}</span>
                 <span className="animate-pulse">|</span>
               </div>
               
-              <div className="mt-6 text-center">
-                <div className="text-4xl md:text-6xl font-bold mb-4">
+              <div className="mt-4 sm:mt-6 text-center">
+                <div className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
                     BTS SIO
                   </span>
                 </div>
-                <p className="text-xl text-slate-300 mb-6">
+                <p className="text-lg sm:text-xl text-slate-300 mb-4 sm:mb-6 px-2">
                   Services Informatiques aux Organisations
                 </p>
-                <div className="flex justify-center items-center gap-4 mb-8">
-                  <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50 px-4 py-2">
-                    <Terminal className="w-4 h-4 mr-2" />
-                    Niveau 5 (Bac+2)
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+                  <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50 px-3 py-2 sm:px-4">
+                    <Terminal className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                    <span className="text-xs sm:text-sm">Niveau 5 (Bac+2)</span>
                   </Badge>
-                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50 px-4 py-2">
-                    <Clock className="w-4 h-4 mr-2" />
-                    2 années
+                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50 px-3 py-2 sm:px-4">
+                    <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                    <span className="text-xs sm:text-sm">2 années</span>
                   </Badge>
                 </div>
               </div>
