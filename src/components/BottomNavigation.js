@@ -48,10 +48,10 @@ export default function BottomNavigation() {
     // Navigation
     router.push(href)
     
-    // Reset après un délai
+    // Reset après un délai plus court
     setTimeout(() => {
       setNavigating(null)
-    }, 2000)
+    }, 800)
   }
 
   return (
