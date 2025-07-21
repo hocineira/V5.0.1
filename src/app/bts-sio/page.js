@@ -466,9 +466,9 @@ export default function BTSSIOPage() {
         </div>
       </section>
 
-      {/* Tab Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      {/* Tab Content - Mobile Optimized */}
+      <section className="py-8 sm:py-16">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="animate-fade-in">
             {renderTabContent()}
           </div>
