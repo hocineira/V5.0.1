@@ -1,6 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuration sécurisée des images
+  // Optimisations de performance
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+  },
+
+  // Optimisations compilation et bundling
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  // Configuration optimisée des images pour performance mobile
   images: {
     remotePatterns: [
       {
@@ -10,8 +29,12 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    // Empêche le chargement d'images depuis des domaines non autorisés
-    dangerouslyAllowSVG: false,
+    // Optimisations spécifiques mobile
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 jours
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
