@@ -288,18 +288,18 @@ export default function AccueilPage() {
         </div>
         
         <div className="relative container mx-auto px-3 sm:px-4">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-              <Network className="w-4 h-4 text-blue-400" />
-              <span className="text-sm text-blue-300">Architecture Système</span>
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 sm:mb-6">
+              <Network className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+              <span className="text-xs sm:text-sm text-blue-300">Architecture Système</span>
             </div>
-            <h2 className="text-4xl font-bold mb-4 text-white">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4 text-white leading-tight">
               Explorez mon <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Infrastructure</span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => {
               const Icon = feature.icon
               return (
@@ -309,15 +309,15 @@ export default function AccueilPage() {
                   onClick={feature.action}
                 >
                   <CardHeader className="text-center">
-                    <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${feature.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <Icon className="w-8 h-8 text-white" />
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-r ${feature.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl text-white group-hover:text-blue-400 transition-colors">
+                    <CardTitle className="text-lg sm:text-xl text-white group-hover:text-blue-400 transition-colors">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-gray-300 text-center">
+                    <CardDescription className="text-gray-300 text-center text-sm sm:text-base">
                       {feature.description}
                     </CardDescription>
                     <div className="mt-4 flex justify-center">
