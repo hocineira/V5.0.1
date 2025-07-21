@@ -322,33 +322,33 @@ export default function BTSSIOPage() {
         ))}
       </div>
       
-      {/* Salaires et évolution */}
+      {/* Salaires et évolution - Mobile Optimized */}
       <Card className="border-0 shadow-xl bg-gradient-to-r from-green-50 to-emerald-50">
-        <CardContent className="p-8">
-          <div className="grid lg:grid-cols-2 gap-8">
+        <CardContent className="p-4 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <div>
-              <h4 className="text-xl font-bold mb-4 flex items-center">
+              <h4 className="text-lg sm:text-xl font-bold mb-4 flex items-center">
                 <TrendingUp className="w-5 h-5 mr-2 text-green-600" />
                 Évolution salariale
               </h4>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                  <span>Débutant (0-2 ans)</span>
-                  <Badge className="bg-green-100 text-green-800">25-30k€</Badge>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 bg-white rounded-lg gap-2 sm:gap-0">
+                  <span className="text-sm sm:text-base font-medium">Débutant (0-2 ans)</span>
+                  <Badge className="bg-green-100 text-green-800 self-start sm:self-center">25-30k€</Badge>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                  <span>Confirmé (3-5 ans)</span>
-                  <Badge className="bg-blue-100 text-blue-800">32-40k€</Badge>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 bg-white rounded-lg gap-2 sm:gap-0">
+                  <span className="text-sm sm:text-base font-medium">Confirmé (3-5 ans)</span>
+                  <Badge className="bg-blue-100 text-blue-800 self-start sm:self-center">32-40k€</Badge>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-                  <span>Senior (5+ ans)</span>
-                  <Badge className="bg-purple-100 text-purple-800">40-55k€</Badge>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-3 bg-white rounded-lg gap-2 sm:gap-0">
+                  <span className="text-sm sm:text-base font-medium">Senior (5+ ans)</span>
+                  <Badge className="bg-purple-100 text-purple-800 self-start sm:self-center">40-55k€</Badge>
                 </div>
               </div>
             </div>
             
             <div>
-              <h4 className="text-xl font-bold mb-4 flex items-center">
+              <h4 className="text-lg sm:text-xl font-bold mb-4 flex items-center">
                 <Rocket className="w-5 h-5 mr-2 text-blue-600" />
                 Poursuites d'études
               </h4>
@@ -359,9 +359,9 @@ export default function BTSSIOPage() {
                   'Bachelor spécialisé',
                   'Master en alternance'
                 ].map((option, index) => (
-                  <li key={index} className="flex items-center p-3 bg-white rounded-lg">
-                    <ArrowRight className="w-4 h-4 mr-3 text-blue-500" />
-                    <span>{option}</span>
+                  <li key={index} className="flex items-start sm:items-center p-3 bg-white rounded-lg">
+                    <ArrowRight className="w-4 h-4 mr-3 text-blue-500 flex-shrink-0 mt-0.5 sm:mt-0" />
+                    <span className="text-sm sm:text-base">{option}</span>
                   </li>
                 ))}
               </ul>
