@@ -3,18 +3,12 @@ const nextConfig = {
   // Optimisations de performance
   experimental: {
     optimizePackageImports: ['lucide-react'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
 
-  // Optimisations compilation et bundling
-  swcMinify: true,
+  // Configuration Turbo (remplace turbo deprecated)
+  turbopack: {},
+
+  // Optimisations compilation et bundling 
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
