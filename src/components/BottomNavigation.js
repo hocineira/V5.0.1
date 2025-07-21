@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { Home, ShieldCheck, GraduationCap, FolderOpen, Eye } from 'lucide-react'
 
 export default function BottomNavigation() {
+  const router = useRouter()
   const pathname = usePathname()
 
   const navigation = [
@@ -38,6 +38,11 @@ export default function BottomNavigation() {
 
   const isActive = (href) => pathname === href
 
+  const handleNavigation = (href) => {
+    // Feedback visuel immédiat
+    router.push(href)
+  }
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden mobile-nav-optimized">
       {/* Safe area padding pour les smartphones avec encoche */}
@@ -48,10 +53,9 @@ export default function BottomNavigation() {
               const Icon = item.icon
               const active = isActive(item.href)
               return (
-                <Link
+                <button
                   key={item.name}
-                  href={item.href}
-                  prefetch={true}  // Force le prefetch pour une navigation plus rapide
+                  onClick={() => handleNavigation(item.href)}
                   className={`bottom-nav-item touch-target-large flex flex-col items-center justify-center px-2 py-2 rounded-xl ${
                     active
                       ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
@@ -71,11 +75,11 @@ export default function BottomNavigation() {
                     {item.name}
                   </span>
                   
-                  {/* Indicateur actif - simplifié */}
+                  {/* Indicateur actif */}
                   {active && (
                     <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
                   )}
-                </Link>
+                </button>
               )
             })}
           </div>
