@@ -66,8 +66,8 @@ export default function BTSSIOPage() {
 
   const renderOverview = () => (
     <div className="space-y-12">
-      {/* Stats Cards */}
-      <div className="grid md:grid-cols-4 gap-6">
+      {/* Stats Cards - Mobile Optimized */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
         {[
           { label: 'Durée', value: '2 ans', icon: Clock, color: 'bg-gradient-to-r from-cyan-500 to-blue-600' },
           { label: 'Niveau', value: 'Bac+2', icon: GraduationCap, color: 'bg-gradient-to-r from-purple-500 to-pink-600' },
@@ -76,14 +76,14 @@ export default function BTSSIOPage() {
         ].map((stat, index) => (
           <Card key={index} className="relative overflow-hidden group hover:scale-105 transition-all duration-300 border-0 shadow-lg">
             <div className={`absolute inset-0 ${stat.color} opacity-10`}></div>
-            <CardContent className="p-6 relative">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
-                  <div className="text-gray-600 text-sm">{stat.label}</div>
+            <CardContent className="p-3 sm:p-6 relative">
+              <div className="flex flex-col sm:flex-row items-center sm:justify-between text-center sm:text-left">
+                <div className="mb-2 sm:mb-0">
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900">{stat.value}</div>
+                  <div className="text-gray-600 text-xs sm:text-sm">{stat.label}</div>
                 </div>
-                <div className={`w-12 h-12 rounded-full ${stat.color} flex items-center justify-center`}>
-                  <stat.icon className="w-6 h-6 text-white" />
+                <div className={`w-8 h-8 sm:w-12 sm:h-12 rounded-full ${stat.color} flex items-center justify-center`}>
+                  <stat.icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
             </CardContent>
