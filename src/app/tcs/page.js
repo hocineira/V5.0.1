@@ -98,11 +98,11 @@ export default function TCSPage() {
       <section className="py-12 sm:py-20 bg-white">
         <div className="container mx-auto px-3 sm:px-4">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-            {/* Objectifs */}
+            {/* Objectifs - Mobile Optimized */}
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900 flex items-center">
-                  <FileText className="w-6 h-6 mr-2 text-red-600" />
+                <CardTitle className="text-xl sm:text-2xl text-gray-900 flex items-center">
+                  <FileText className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-red-600" />
                   Objectifs de formation
                 </CardTitle>
               </CardHeader>
@@ -111,25 +111,25 @@ export default function TCSPage() {
                   {tcsInfo.objectives.map((objective, index) => (
                     <li key={index} className="flex items-start">
                       <div className="w-2 h-2 bg-red-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-700">{objective}</span>
+                      <span className="text-gray-700 text-sm sm:text-base">{objective}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Compétences */}
+            {/* Compétences - Mobile Optimized */}
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900 flex items-center">
-                  <Shield className="w-6 h-6 mr-2 text-red-600" />
+                <CardTitle className="text-xl sm:text-2xl text-gray-900 flex items-center">
+                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-red-600" />
                   Compétences développées
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid gap-2 sm:gap-3 sm:grid-cols-2">
                   {tcsInfo.skills.map((skill, index) => (
-                    <Badge key={index} variant="outline" className="border-red-200 text-red-700 justify-center py-2">
+                    <Badge key={index} variant="outline" className="border-red-200 text-red-700 justify-center py-2 text-xs sm:text-sm">
                       {skill}
                     </Badge>
                   ))}
