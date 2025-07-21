@@ -307,13 +307,13 @@ export default function ProjetsPage() {
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
           </div>
           
-          {/* Regular Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Regular Projects Grid - Mobile Optimized */}
+          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.slice(1).map((project) => {
               const ProjectIcon = project.icon
               return (
-                <Card key={project.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 overflow-hidden border-0 shadow-lg">
-                  <div className="relative h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center overflow-hidden">
+                <Card key={project.id} className="group mobile-card touch-feedback hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 active:translate-y-0 overflow-hidden border-0 shadow-lg">
+                  <div className="relative h-40 sm:h-48 bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center overflow-hidden">
                     {project.image ? (
                       <img 
                         src={project.image} 
@@ -322,10 +322,10 @@ export default function ProjetsPage() {
                       />
                     ) : (
                       <div className="text-6xl text-purple-400 group-hover:text-purple-600 transition-colors duration-300">
-                        <ProjectIcon className="w-16 h-16" />
+                        <ProjectIcon className="w-14 h-14 sm:w-16 sm:h-16" />
                       </div>
                     )}
-                    <div className="absolute top-4 left-4">
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
                       <Badge className={getStatusColor(project.status)}>
                         {getStatusText(project.status)}
                       </Badge>
@@ -333,31 +333,36 @@ export default function ProjetsPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   
-                  <CardHeader>
+                  <CardHeader className="pb-4">
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="text-xl text-gray-900 group-hover:text-purple-600 transition-colors">
+                        <CardTitle className="text-lg sm:text-xl text-gray-900 group-hover:text-purple-600 transition-colors leading-snug">
                           {project.title}
                         </CardTitle>
-                        <CardDescription className="flex items-center text-gray-500 mt-2">
-                          <Calendar className="w-4 h-4 mr-1" />
+                        <CardDescription className="flex items-center text-gray-500 mt-2 text-sm">
+                          <Calendar className="w-4 h-4 mr-1 flex-shrink-0" />
                           {project.date}
                         </CardDescription>
                       </div>
                     </div>
                   </CardHeader>
                   
-                  <CardContent>
-                    <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+                  <CardContent className="pt-0">
+                    <p className="text-gray-700 mb-4 text-sm leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, index) => (
+                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
+                      {project.technologies.slice(0, 4).map((tech, index) => (
                         <Badge key={index} variant="secondary" className="bg-purple-100 text-purple-800 text-xs hover:bg-purple-200 transition-colors">
                           {tech}
                         </Badge>
                       ))}
+                      {project.technologies.length > 4 && (
+                        <Badge variant="secondary" className="bg-gray-100 text-gray-600 text-xs">
+                          +{project.technologies.length - 4}
+                        </Badge>
+                      )}
                     </div>
                     
                     <div className="flex gap-2">
@@ -366,16 +371,17 @@ export default function ProjetsPage() {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
+                            className="touch-target flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100 py-2 text-xs sm:text-sm"
                             onClick={() => window.open(project.pdfUrl, '_blank')}
                           >
-                            <Eye className="w-4 h-4 mr-2" />
-                            Voir
+                            <Eye className="w-4 h-4 mr-1 sm:mr-2" />
+                            <span className="hidden sm:inline">Voir</span>
+                            <span className="sm:hidden">PDF</span>
                           </Button>
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
+                            className="touch-target flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100 py-2 text-xs sm:text-sm"
                             onClick={() => {
                               const link = document.createElement('a');
                               link.href = project.pdfUrl;
@@ -383,8 +389,9 @@ export default function ProjetsPage() {
                               link.click();
                             }}
                           >
-                            <Download className="w-4 h-4 mr-2" />
-                            Télécharger
+                            <Download className="w-4 h-4 mr-1 sm:mr-2" />
+                            <span className="hidden sm:inline">Télécharger</span>
+                            <span className="sm:hidden">DL</span>
                           </Button>
                         </>
                       ) : project.schemaUrl ? (
@@ -393,11 +400,13 @@ export default function ProjetsPage() {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100"
+                            className="touch-target flex-1 border-gray-300 text-gray-700 hover:bg-purple-50 hover:text-purple-600 hover:border-purple-300 transition-all duration-200 opacity-100 py-2 text-xs sm:text-sm"
                             onClick={() => openImageModal(project.schemaUrl, project.title)}
                           >
-                            <Eye className="w-4 h-4 mr-2" />
-                            Voir Schéma
+                            <Eye className="w-4 h-4 mr-1 sm:mr-2" />
+                            <span className="hidden sm:inline">Voir Schéma</span>
+                            <span className="sm:hidden">Schema</span>
+                          </Button>
                           </Button>
                           <Button 
                             variant="outline" 
