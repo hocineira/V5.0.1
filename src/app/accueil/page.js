@@ -129,25 +129,25 @@ export default function AccueilPage() {
                   className="border-blue-400 text-blue-400 hover:bg-blue-500/10 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto"
                   onClick={handleContactClick}
                 >
-                  <Mail className="mr-2 w-5 h-5" />
-                  Me contacter
+                  <Mail className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">Me contacter</span>
                 </Button>
               </div>
 
-              {/* Contact Info */}
-              <div className="flex flex-col sm:flex-row gap-6 items-start text-gray-300 mb-8">
+              {/* Contact Info - Mobile Optimized */}
+              <div className="flex flex-col gap-4 sm:gap-6 sm:flex-row items-start text-gray-300 mb-6 sm:mb-8">
                 <div className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleContactClick}>
-                  <Mail className="w-5 h-5" />
-                  <span>{personalInfo.email}</span>
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">{personalInfo.email}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  <span>{personalInfo.location}</span>
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">{personalInfo.location}</span>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="flex gap-4">
+              {/* Social Links - Mobile Optimized */}
+              <div className="flex gap-3 sm:gap-4">
                 <Button 
                   variant="outline" 
                   size="icon" 
