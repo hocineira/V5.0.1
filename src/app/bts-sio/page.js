@@ -500,8 +500,8 @@ export default function BTSSIOPage() {
                 className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto"
                 onClick={() => window.open('/tcs', '_self')}
               >
-                <ExternalLink className="mr-2 w-5 h-5" />
-                Voir mon parcours
+                <ExternalLink className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-sm sm:text-base">Voir mon parcours</span>
               </Button>
             </div>
           </div>
