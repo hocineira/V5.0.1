@@ -136,33 +136,33 @@ export default function AccueilPage() {
 
               {/* Contact Info - Mobile Optimized */}
               <div className="flex flex-col gap-4 sm:gap-6 sm:flex-row items-start text-gray-300 mb-6 sm:mb-8">
-                <div className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer" onClick={handleContactClick}>
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base">{personalInfo.email}</span>
+                <div className="touch-feedback flex items-center gap-3 hover:text-blue-400 transition-colors cursor-pointer p-2 -m-2 rounded-lg" onClick={handleContactClick}>
+                  <Mail className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-base sm:text-base">{personalInfo.email}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base">{personalInfo.location}</span>
+                <div className="flex items-center gap-3 p-2 -m-2">
+                  <MapPin className="w-5 h-5 flex-shrink-0" />
+                  <span className="text-base sm:text-base">{personalInfo.location}</span>
                 </div>
               </div>
 
               {/* Social Links - Mobile Optimized */}
-              <div className="flex gap-3 sm:gap-4">
+              <div className="flex gap-4 sm:gap-4">
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110 w-10 h-10 sm:w-11 sm:h-11"
+                  className="touch-target mobile-ripple border-2 border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 active:bg-blue-500/20 transition-all duration-200 transform hover:scale-110 active:scale-95 w-12 h-12 sm:w-11 sm:h-11 rounded-xl"
                   onClick={() => window.open(personalInfo.social.linkedin, '_blank')}
                 >
-                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Linkedin className="w-5 h-5" />
                 </Button>
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110 w-10 h-10 sm:w-11 sm:h-11"
+                  className="touch-target mobile-ripple border-2 border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 active:bg-blue-500/20 transition-all duration-200 transform hover:scale-110 active:scale-95 w-12 h-12 sm:w-11 sm:h-11 rounded-xl"
                   onClick={() => window.open(personalInfo.social.email, '_blank')}
                 >
-                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Mail className="w-5 h-5" />
                 </Button>
               </div>
             </div>
