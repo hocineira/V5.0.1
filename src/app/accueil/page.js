@@ -151,18 +151,18 @@ export default function AccueilPage() {
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110"
+                  className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110 w-10 h-10 sm:w-11 sm:h-11"
                   onClick={() => window.open(personalInfo.social.linkedin, '_blank')}
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110"
+                  className="border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-200 transform hover:scale-110 w-10 h-10 sm:w-11 sm:h-11"
                   onClick={() => window.open(personalInfo.social.email, '_blank')}
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
               </div>
             </div>
