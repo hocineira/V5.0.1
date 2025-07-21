@@ -85,7 +85,8 @@ export default function Navigation() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className={`relative group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      prefetch={true}
+                      className={`relative group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
                         isActive(item.href)
                           ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg'
                           : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-gray-800/50'
