@@ -1,535 +1,501 @@
 'use client'
 
-import { useState } from 'react'
-import { GraduationCap, BookOpen, Target, Users, Award, CheckCircle, ArrowRight, Building, Briefcase, TrendingUp, Calendar, Star, Code, Server, Database, Network, Shield, Monitor } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { GraduationCap, BookOpen, Target, Users, Award, CheckCircle, ArrowRight, Building, Briefcase, TrendingUp, Calendar, Star, Code, Server, Database, Network, Shield, Monitor, Terminal, Cpu, Globe, Cloud, Zap, Play, ExternalLink, ChevronRight, Clock, MapPin, Lightbulb, Brain, Trophy, Rocket, Settings, FileCode } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
 import { Badge } from '../../components/ui/badge'
 
 export default function BTSSIOPage() {
-  const [expandedSection, setExpandedSection] = useState(null)
-  const [clickTimeout, setClickTimeout] = useState(null)
+  const [activeTab, setActiveTab] = useState('overview')
+  const [typedText, setTypedText] = useState('')
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [selectedSpecialization, setSelectedSpecialization] = useState(null)
 
-  const btsInfo = {
-    title: 'BTS SIO - Services Informatiques aux Organisations',
-    subtitle: 'Brevet de Technicien Supérieur niveau 5 (Bac+2)',
-    description: 'Le BTS SIO forme des professionnels capables de gérer et maintenir l\'infrastructure informatique d\'une organisation, de développer des applications et d\'accompagner les utilisateurs.',
-    duration: '2 ans',
-    level: 'Niveau 5 (Bac+2)',
-    admission: 'Baccalauréat ou équivalent',
-    
-    presentation: {
-      title: 'Présentation de la formation',
-      content: [
-        'Le BTS Services Informatiques aux Organisations s\'adresse à ceux qui s\'intéressent à la réalisation de services informatiques aux organisations, que ce soit au niveau de la création d\'applications ou de l\'administration et la gestion du parc informatique.',
-        'Cette formation polyvalente permet d\'acquérir les compétences nécessaires pour exercer dans tous les secteurs d\'activité, car toutes les organisations ont des besoins en services informatiques.',
-        'Le diplômé peut travailler dans une entreprise utilisatrice (service informatique intégré), dans une SSII (Société de Services en Ingénierie Informatique), ou encore dans une société éditrice de logiciels.'
-      ]
-    },
+  const fullText = "BTS SIO_2025 > Formez-vous aux métiers du numérique_"
 
-    competences: {
-      title: 'Compétences développées',
-      communes: [
-        'Support et mise à disposition de services informatiques',
-        'Administration des systèmes et des réseaux',
-        'Gestion du patrimoine informatique',
-        'Réponse aux incidents et aux demandes d\'assistance',
-        'Développement, adaptation et maintenance des applications',
-        'Gestion de projets informatiques',
-        'Veille technologique et cybersécurité'
-      ],
-      sisr: [
-        'Installation et configuration des équipements et services',
-        'Administration et surveillance des réseaux et des domaines',
-        'Déploiement et maintenance des services informatiques',
-        'Assistance aux utilisateurs et résolution des incidents',
-        'Participation à la gestion du parc informatique'
-      ],
-      slam: [
-        'Développement d\'applications informatiques',
-        'Maintenance et évolution des applications existantes',
-        'Gestion des données et des bases de données',
-        'Conception et réalisation de services en ligne',
-        'Développement d\'applications mobiles'
-      ]
-    },
-
-    options: {
-      sisr: {
-        name: 'SISR - Solutions d\'Infrastructure, Systèmes et Réseaux',
-        description: 'L\'option SISR est destinée aux étudiants qui s\'orientent vers la gestion d\'infrastructure réseau, l\'administration des systèmes et la maintenance du parc informatique.',
-        objectifs: [
-          'Installer, intégrer, administrer et faire évoluer des systèmes et réseaux',
-          'Exploiter, dépanner et superviser des réseaux et des services',
-          'Assurer la sécurité et la disponibilité des équipements et des services'
-        ],
-        matieres: [
-          'Administration des systèmes',
-          'Gestion des réseaux informatiques',
-          'Cybersécurité',
-          'Virtualisation et cloud computing',
-          'Supervision et monitoring',
-          'Support technique niveau 2'
-        ],
-        debouches: [
-          'Administrateur systèmes et réseaux',
-          'Technicien infrastructure',
-          'Technicien de maintenance informatique',
-          'Responsable du parc informatique',
-          'Consultant en systèmes et réseaux',
-          'Technicien sécurité'
-        ]
-      },
-      slam: {
-        name: 'SLAM - Solutions Logicielles et Applications Métiers',
-        description: 'L\'option SLAM s\'adresse aux étudiants qui s\'intéressent à la programmation et au développement d\'applications informatiques.',
-        objectifs: [
-          'Développer, adapter et maintenir des solutions applicatives',
-          'Gérer des données et garantir leur sécurité',
-          'Travailler dans le cadre d\'un projet informatique'
-        ],
-        matieres: [
-          'Programmation orientée objet',
-          'Développement web et mobile',
-          'Gestion de bases de données',
-          'Frameworks et architectures',
-          'Gestion de projet agile',
-          'Qualité logicielle et tests'
-        ],
-        debouches: [
-          'Développeur d\'applications informatiques',
-          'Développeur web/mobile',
-          'Analyste programmeur',
-          'Technicien d\'études informatiques',
-          'Consultant en développement',
-          'Chef de projet junior'
-        ]
-      }
-    },
-
-    programme: {
-      title: 'Programme de formation',
-      enseignements: [
-        { matiere: 'Support et mise à disposition de services informatiques', heures: '13h' },
-        { matiere: 'Solutions d\'infrastructure, systèmes et réseaux (SISR)', heures: '12h' },
-        { matiere: 'Solutions logicielles et applications métiers (SLAM)', heures: '12h' },
-        { matiere: 'Mathématiques pour l\'informatique', heures: '3h' },
-        { matiere: 'Algorithmique appliquée', heures: '2h' },
-        { matiere: 'Analyse économique, managériale et juridique', heures: '5h' },
-        { matiere: 'Anglais', heures: '2h' },
-        { matiere: 'Expression et communication', heures: '2h' }
-      ],
-      stages: [
-        { nom: 'Stage de première année', duree: '5 semaines minimum' },
-        { nom: 'Stage de deuxième année', duree: '5 semaines minimum' },
-        { nom: 'Projets personnalisés encadrés', duree: '120 heures' }
-      ]
-    },
-
-    modalites: {
-      title: 'Modalités d\'évaluation',
-      controle: [
-        'Contrôle continu pour les matières générales',
-        'Épreuves ponctuelles pour les matières professionnelles',
-        'Projet personnalisé encadré (PPE)',
-        'Stages en entreprise avec rapport et soutenance',
-        'Épreuve E4 : Conception et maintenance de solutions informatiques',
-        'Épreuve E5 : Production et fourniture de services informatiques'
-      ]
-    },
-
-    poursuite: {
-      title: 'Poursuites d\'études',
-      formations: [
-        'Licence professionnelle en informatique',
-        'École d\'ingénieurs (admissions parallèles)',
-        'Bachelor informatique',
-        'Licence générale en informatique',
-        'Master en alternance (après licence)',
-        'Certificats professionnels spécialisés'
-      ]
+  // Animation de frappe pour le hero
+  useEffect(() => {
+    if (currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setTypedText(fullText.slice(0, currentIndex + 1))
+        setCurrentIndex(currentIndex + 1)
+      }, 100)
+      return () => clearTimeout(timeout)
     }
-  }
+  }, [currentIndex])
 
-  const toggleSection = (section) => {
-    // Clear any existing timeout
-    if (clickTimeout) {
-      clearTimeout(clickTimeout)
+  const tabs = [
+    { id: 'overview', label: 'Vue d\'ensemble', icon: Globe },
+    { id: 'specializations', label: 'Spécialisations', icon: Target },
+    { id: 'program', label: 'Programme', icon: BookOpen },
+    { id: 'career', label: 'Débouchés', icon: Rocket }
+  ]
+
+  const specializations = [
+    {
+      id: 'sisr',
+      name: 'SISR',
+      fullName: 'Solutions d\'Infrastructure, Systèmes et Réseaux',
+      color: 'from-cyan-500 to-blue-600',
+      icon: Server,
+      description: 'Administration systèmes, gestion des réseaux et infrastructure IT',
+      focus: 'Infrastructure & Sécurité',
+      skills: ['Administration Systèmes', 'Réseaux & Télécoms', 'Virtualisation', 'Cybersécurité', 'Cloud Computing', 'Supervision'],
+      careers: ['Administrateur systèmes/réseaux', 'Technicien infrastructure', 'Consultant IT', 'Responsable sécurité'],
+      tools: ['VMware', 'Cisco', 'Windows Server', 'Linux', 'pfSense', 'Zabbix']
+    },
+    {
+      id: 'slam',
+      name: 'SLAM',
+      fullName: 'Solutions Logicielles et Applications Métiers',
+      color: 'from-purple-500 to-pink-600',
+      icon: Code,
+      description: 'Développement d\'applications et solutions logicielles métier',
+      focus: 'Développement & Innovation',
+      skills: ['Programmation Objet', 'Développement Web/Mobile', 'Bases de Données', 'DevOps', 'Architecture Logicielle', 'Tests & Qualité'],
+      careers: ['Développeur full-stack', 'Développeur mobile', 'Analyste-programmeur', 'Chef de projet technique'],
+      tools: ['JavaScript', 'Python', 'Java', 'React', 'Node.js', 'MySQL', 'Git']
     }
-    
-    // Set new timeout to prevent rapid clicking issues
-    const timeout = setTimeout(() => {
-      setExpandedSection(expandedSection === section ? null : section)
-    }, 100)
-    
-    setClickTimeout(timeout)
-  }
+  ]
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 lg:py-32">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+  const timelineData = [
+    { year: 'Année 1', title: 'Fondamentaux', items: ['Base de l\'informatique', 'Première spécialisation', 'Stage 5 semaines'] },
+    { year: 'Année 2', title: 'Expertise', items: ['Approfondissement technique', 'Projet professionnel', 'Stage 5 semaines'] }
+  ]
 
-        <div className="relative container mx-auto px-4">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="flex justify-center mb-8">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
-                <GraduationCap className="w-10 h-10 text-white" />
-              </div>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-900">
-              {btsInfo.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-600 font-semibold mb-6">
-              {btsInfo.subtitle}
-            </p>
-            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              {btsInfo.description}
-            </p>
-            
-            <div className="flex flex-wrap gap-4 justify-center mb-8">
-              <Badge className="bg-blue-100 text-blue-800 px-4 py-2">
-                <Calendar className="w-4 h-4 mr-2" />
-                {btsInfo.duration}
-              </Badge>
-              <Badge className="bg-indigo-100 text-indigo-800 px-4 py-2">
-                <Award className="w-4 h-4 mr-2" />
-                {btsInfo.level}
-              </Badge>
-              <Badge className="bg-purple-100 text-purple-800 px-4 py-2">
-                <BookOpen className="w-4 h-4 mr-2" />
-                {btsInfo.admission}
-              </Badge>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Options Overview */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              Deux spécialisations au choix
-            </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* SISR Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                      <Server className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl">Option SISR</CardTitle>
-                    <CardDescription className="text-blue-100">
-                      Solutions d'Infrastructure, Systèmes et Réseaux
-                    </CardDescription>
-                  </div>
+  const renderOverview = () => (
+    <div className="space-y-12">
+      {/* Stats Cards */}
+      <div className="grid md:grid-cols-4 gap-6">
+        {[
+          { label: 'Durée', value: '2 ans', icon: Clock, color: 'bg-gradient-to-r from-cyan-500 to-blue-600' },
+          { label: 'Niveau', value: 'Bac+2', icon: GraduationCap, color: 'bg-gradient-to-r from-purple-500 to-pink-600' },
+          { label: 'Spécialisations', value: '2', icon: Target, color: 'bg-gradient-to-r from-green-500 to-teal-600' },
+          { label: 'Débouchés', value: '15+', icon: Rocket, color: 'bg-gradient-to-r from-orange-500 to-red-600' }
+        ].map((stat, index) => (
+          <Card key={index} className="relative overflow-hidden group hover:scale-105 transition-all duration-300 border-0 shadow-lg">
+            <div className={`absolute inset-0 ${stat.color} opacity-10`}></div>
+            <CardContent className="p-6 relative">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+                  <div className="text-gray-600 text-sm">{stat.label}</div>
                 </div>
-              </CardHeader>
-              <CardContent className="p-6">
-                <p className="text-gray-700 mb-4">
-                  {btsInfo.options.sisr.description}
-                </p>
-                <div className="space-y-3 mb-6">
-                  {btsInfo.options.sisr.objectifs.map((objectif, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{objectif}</span>
-                    </div>
-                  ))}
+                <div className={`w-12 h-12 rounded-full ${stat.color} flex items-center justify-center`}>
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
-                <Button 
-                  className="w-full bg-blue-600 hover:bg-blue-700"
-                  onClick={() => toggleSection('sisr')}
-                >
-                  Découvrir SISR
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* SLAM Card */}
-            <Card className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                      <Code className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl">Option SLAM</CardTitle>
-                    <CardDescription className="text-indigo-100">
-                      Solutions Logicielles et Applications Métiers
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="p-6">
-                <p className="text-gray-700 mb-4">
-                  {btsInfo.options.slam.description}
-                </p>
-                <div className="space-y-3 mb-6">
-                  {btsInfo.options.slam.objectifs.map((objectif, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{objectif}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button 
-                  className="w-full bg-indigo-600 hover:bg-indigo-700"
-                  onClick={() => toggleSection('slam')}
-                >
-                  Découvrir SLAM
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Expanded Sections */}
-      {expandedSection && (
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              {expandedSection === 'sisr' && (
-                <div className="space-y-8">
-                  <div className="text-center">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                      Option SISR - Solutions d'Infrastructure, Systèmes et Réseaux
-                    </h3>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-                  </div>
-                  
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-blue-600">
-                          <Target className="w-5 h-5 mr-2" />
-                          Matières principales
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-3">
-                          {btsInfo.options.sisr.matieres.map((matiere, index) => (
-                            <div key={index} className="flex items-center">
-                              <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                              <span className="text-gray-700">{matiere}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-blue-600">
-                          <Briefcase className="w-5 h-5 mr-2" />
-                          Débouchés professionnels
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="grid gap-3">
-                          {btsInfo.options.sisr.debouches.map((debouche, index) => (
-                            <Badge key={index} variant="outline" className="border-blue-200 text-blue-700 justify-center py-2">
-                              {debouche}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              )}
-
-              {expandedSection === 'slam' && (
-                <div className="space-y-8">
-                  <div className="text-center">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                      Option SLAM - Solutions Logicielles et Applications Métiers
-                    </h3>
-                    <div className="w-20 h-1 bg-indigo-600 mx-auto"></div>
-                  </div>
-                  
-                  <div className="grid lg:grid-cols-2 gap-8">
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-indigo-600">
-                          <Target className="w-5 h-5 mr-2" />
-                          Matières principales
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-3">
-                          {btsInfo.options.slam.matieres.map((matiere, index) => (
-                            <div key={index} className="flex items-center">
-                              <div className="w-2 h-2 bg-indigo-600 rounded-full mr-3"></div>
-                              <span className="text-gray-700">{matiere}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    <Card>
-                      <CardHeader>
-                        <CardTitle className="flex items-center text-indigo-600">
-                          <Briefcase className="w-5 h-5 mr-2" />
-                          Débouchés professionnels
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="grid gap-3">
-                          {btsInfo.options.slam.debouches.map((debouche, index) => (
-                            <Badge key={index} variant="outline" className="border-indigo-200 text-indigo-700 justify-center py-2">
-                              {debouche}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Programme Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              Programme et organisation
-            </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-blue-600">
-                  <BookOpen className="w-5 h-5 mr-2" />
-                  Enseignements hebdomadaires
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {btsInfo.programme.enseignements.map((enseignement, index) => (
-                    <div key={index} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                      <span className="text-gray-700 font-medium">{enseignement.matiere}</span>
-                      <Badge variant="secondary">{enseignement.heures}</Badge>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-blue-600">
-                  <Building className="w-5 h-5 mr-2" />
-                  Stages et projets
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {btsInfo.programme.stages.map((stage, index) => (
-                    <div key={index} className="p-4 bg-blue-50 rounded-lg">
-                      <h4 className="font-semibold text-blue-900">{stage.nom}</h4>
-                      <p className="text-blue-700">{stage.duree}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Compétences Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              Compétences développées
-            </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          </div>
-
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="text-center text-2xl text-blue-600">
-                Compétences communes aux deux options
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-4">
-                {btsInfo.competences.communes.map((competence, index) => (
-                  <div key={index} className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{competence}</span>
-                  </div>
-                ))}
               </div>
             </CardContent>
           </Card>
+        ))}
+      </div>
+
+      {/* Description moderne */}
+      <Card className="border-0 shadow-xl bg-gradient-to-r from-slate-50 to-blue-50">
+        <CardContent className="p-8">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Une formation d'excellence</h3>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                Le BTS SIO forme des professionnels polyvalents capables de répondre aux enjeux numériques 
+                des organisations modernes. Entre infrastructure et développement, trouvez votre voie.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Innovation', 'Polyvalence', 'Excellence', 'Avenir'].map((tag) => (
+                  <Badge key={tag} className="bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Brain, label: 'Apprentissage', desc: 'Pédagogie active' },
+                { icon: Lightbulb, label: 'Innovation', desc: 'Technologies récentes' },
+                { icon: Users, label: 'Accompagnement', desc: 'Suivi personnalisé' },
+                { icon: Trophy, label: 'Réussite', desc: 'Taux d\'insertion élevé' }
+              ].map((item, index) => (
+                <div key={index} className="text-center p-4 rounded-lg bg-white/50 hover:bg-white transition-colors">
+                  <item.icon className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                  <div className="font-semibold text-gray-900">{item.label}</div>
+                  <div className="text-sm text-gray-600">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+
+  const renderSpecializations = () => (
+    <div className="space-y-8">
+      <div className="text-center mb-8">
+        <h3 className="text-3xl font-bold mb-4">Choisissez votre spécialisation</h3>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Deux parcours distincts pour répondre à vos aspirations professionnelles
+        </p>
+      </div>
+      
+      <div className="grid lg:grid-cols-2 gap-8">
+        {specializations.map((spec) => (
+          <Card 
+            key={spec.id} 
+            className={`group cursor-pointer border-0 shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-500 ${
+              selectedSpecialization === spec.id ? 'ring-4 ring-blue-300' : ''
+            }`}
+            onClick={() => setSelectedSpecialization(selectedSpecialization === spec.id ? null : spec.id)}
+          >
+            <div className={`h-2 bg-gradient-to-r ${spec.color}`}></div>
+            <CardHeader className="pb-4">
+              <div className="flex items-center gap-4">
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${spec.color} flex items-center justify-center`}>
+                  <spec.icon className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <CardTitle className="text-2xl text-gray-900">{spec.name}</CardTitle>
+                  <CardDescription className="text-gray-600 mt-1">{spec.focus}</CardDescription>
+                </div>
+                <ChevronRight className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${
+                  selectedSpecialization === spec.id ? 'rotate-90' : ''
+                }`} />
+              </div>
+            </CardHeader>
+            
+            <CardContent>
+              <p className="text-gray-700 mb-4">{spec.description}</p>
+              
+              {selectedSpecialization === spec.id && (
+                <div className="space-y-6 animate-slide-in-up">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                      <Settings className="w-4 h-4 mr-2" />
+                      Compétences développées
+                    </h4>
+                    <div className="grid grid-cols-2 gap-2">
+                      {spec.skills.map((skill, index) => (
+                        <Badge key={index} variant="outline" className="justify-start text-xs">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                      <Briefcase className="w-4 h-4 mr-2" />
+                      Débouchés principaux
+                    </h4>
+                    <ul className="space-y-1">
+                      {spec.careers.map((career, index) => (
+                        <li key={index} className="text-sm text-gray-700 flex items-center">
+                          <ArrowRight className="w-3 h-3 mr-2 text-gray-400" />
+                          {career}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                      <FileCode className="w-4 h-4 mr-2" />
+                      Outils & Technologies
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {spec.tools.map((tool, index) => (
+                        <Badge key={index} className="bg-gray-100 text-gray-700 hover:bg-gray-200">
+                          {tool}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  )
+
+  const renderProgram = () => (
+    <div className="space-y-8">
+      <div className="text-center mb-8">
+        <h3 className="text-3xl font-bold mb-4">Programme de formation</h3>
+        <p className="text-gray-600">Un cursus progressif sur 2 années</p>
+      </div>
+      
+      {/* Timeline */}
+      <div className="relative">
+        <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-cyan-500 to-purple-600"></div>
+        
+        {timelineData.map((year, index) => (
+          <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'} mb-8`}>
+            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                      {index + 1}
+                    </div>
+                    {year.year}
+                  </CardTitle>
+                  <CardDescription className="text-lg font-semibold text-gray-900">
+                    {year.title}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {year.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center text-gray-700">
+                        <CheckCircle className="w-4 h-4 mr-3 text-green-500" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Timeline dot */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-4 border-cyan-500 rounded-full z-10"></div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Matières communes */}
+      <Card className="border-0 shadow-xl">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-3 text-2xl">
+            <BookOpen className="w-6 h-6 text-blue-600" />
+            Enseignements transversaux
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              'Support et mise à disposition de services informatiques',
+              'Mathématiques pour l\'informatique',
+              'Algorithmique appliquée',
+              'Analyse économique et managériale',
+              'Expression et communication',
+              'Anglais professionnel'
+            ].map((subject, index) => (
+              <div key={index} className="p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border-l-4 border-blue-500">
+                <span className="text-gray-800 font-medium">{subject}</span>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+
+  const renderCareer = () => (
+    <div className="space-y-8">
+      <div className="text-center mb-8">
+        <h3 className="text-3xl font-bold mb-4">Votre avenir professionnel</h3>
+        <p className="text-gray-600">De nombreuses opportunités dans le secteur du numérique</p>
+      </div>
+      
+      {/* Secteurs d'activité */}
+      <div className="grid md:grid-cols-3 gap-6 mb-12">
+        {[
+          { icon: Building, title: 'Entreprises', desc: 'Services informatiques intégrés', color: 'from-blue-500 to-cyan-600' },
+          { icon: Cloud, title: 'SSII/ESN', desc: 'Sociétés de services numériques', color: 'from-purple-500 to-pink-600' },
+          { icon: Zap, title: 'Start-ups', desc: 'Innovation et nouvelles technologies', color: 'from-orange-500 to-red-600' }
+        ].map((sector, index) => (
+          <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <CardContent className="p-6 text-center">
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-r ${sector.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <sector.icon className="w-8 h-8 text-white" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">{sector.title}</h4>
+              <p className="text-gray-600 text-sm">{sector.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      
+      {/* Salaires et évolution */}
+      <Card className="border-0 shadow-xl bg-gradient-to-r from-green-50 to-emerald-50">
+        <CardContent className="p-8">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-xl font-bold mb-4 flex items-center">
+                <TrendingUp className="w-5 h-5 mr-2 text-green-600" />
+                Évolution salariale
+              </h4>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                  <span>Débutant (0-2 ans)</span>
+                  <Badge className="bg-green-100 text-green-800">25-30k€</Badge>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                  <span>Confirmé (3-5 ans)</span>
+                  <Badge className="bg-blue-100 text-blue-800">32-40k€</Badge>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+                  <span>Senior (5+ ans)</span>
+                  <Badge className="bg-purple-100 text-purple-800">40-55k€</Badge>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="text-xl font-bold mb-4 flex items-center">
+                <Rocket className="w-5 h-5 mr-2 text-blue-600" />
+                Poursuites d'études
+              </h4>
+              <ul className="space-y-3">
+                {[
+                  'Licence professionnelle Informatique',
+                  'École d\'ingénieurs (admissions parallèles)',
+                  'Bachelor spécialisé',
+                  'Master en alternance'
+                ].map((option, index) => (
+                  <li key={index} className="flex items-center p-3 bg-white rounded-lg">
+                    <ArrowRight className="w-4 h-4 mr-3 text-blue-500" />
+                    <span>{option}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+
+  const renderTabContent = () => {
+    switch(activeTab) {
+      case 'overview': return renderOverview()
+      case 'specializations': return renderSpecializations()
+      case 'program': return renderProgram()
+      case 'career': return renderCareer()
+      default: return renderOverview()
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
+      {/* Hero Section - Style Terminal */}
+      <section className="relative overflow-hidden py-20 lg:py-32">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 opacity-95"></div>
+        
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        </div>
+
+        <div className="relative container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Terminal Window */}
+            <div className="bg-slate-800 rounded-t-xl p-4 mb-0">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="text-slate-400 text-sm ml-4">formation_info.sh</span>
+              </div>
+            </div>
+            
+            <div className="bg-black rounded-b-xl p-8 font-mono text-left">
+              <div className="text-green-400 text-lg">
+                $ <span className="text-cyan-300">{typedText}</span>
+                <span className="animate-pulse">|</span>
+              </div>
+              
+              <div className="mt-6 text-center">
+                <div className="text-4xl md:text-6xl font-bold mb-4">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
+                    BTS SIO
+                  </span>
+                </div>
+                <p className="text-xl text-slate-300 mb-6">
+                  Services Informatiques aux Organisations
+                </p>
+                <div className="flex justify-center items-center gap-4 mb-8">
+                  <Badge className="bg-cyan-500/20 text-cyan-300 border-cyan-500/50 px-4 py-2">
+                    <Terminal className="w-4 h-4 mr-2" />
+                    Niveau 5 (Bac+2)
+                  </Badge>
+                  <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50 px-4 py-2">
+                    <Clock className="w-4 h-4 mr-2" />
+                    2 années
+                  </Badge>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Poursuites et modalités */}
-      <section className="py-20 bg-white">
+      {/* Navigation Tabs */}
+      <section className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-blue-600">
-                  <TrendingUp className="w-5 h-5 mr-2" />
-                  Poursuites d'études
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {btsInfo.poursuite.formations.map((formation, index) => (
-                    <div key={index} className="flex items-center">
-                      <ArrowRight className="w-4 h-4 text-blue-600 mr-3" />
-                      <span className="text-gray-700">{formation}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+          <div className="flex justify-center">
+            <nav className="flex space-x-1 p-2">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg scale-105'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                  }`}
+                >
+                  <tab.icon className="w-4 h-4" />
+                  {tab.label}
+                </button>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </section>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-blue-600">
-                  <Star className="w-5 h-5 mr-2" />
-                  Modalités d'évaluation
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  {btsInfo.modalites.controle.map((modalite, index) => (
-                    <div key={index} className="flex items-start">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700 text-sm">{modalite}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+      {/* Tab Content */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="animate-fade-in">
+            {renderTabContent()}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-cyan-900">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold mb-6 text-white">
+              Prêt à rejoindre l'aventure BTS SIO ?
+            </h2>
+            <p className="text-xl text-slate-300 mb-8">
+              Transformez votre passion pour l'informatique en expertise professionnelle
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+                onClick={() => window.location.href = 'mailto:hocineira@gmail.com'}
+              >
+                <Play className="mr-2 w-5 h-5" />
+                Commencer maintenant
+              </Button>
+              <Button 
+                variant="outline"
+                size="lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+                onClick={() => window.open('/tcs', '_self')}
+              >
+                <ExternalLink className="mr-2 w-5 h-5" />
+                Voir mon parcours
+              </Button>
+            </div>
           </div>
         </div>
       </section>
