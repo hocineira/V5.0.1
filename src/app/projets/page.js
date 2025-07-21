@@ -206,25 +206,25 @@ export default function ProjetsPage() {
         </div>
       </section>
 
-      {/* Hero Project - Architecture Réseau */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      {/* Hero Project - Architecture Réseau - Mobile Optimized */}
+      <section className="py-12 sm:py-20">
+        <div className="container mx-auto px-3 sm:px-4">
           {/* Projet Principal - Architecture Réseau */}
-          <div className="mb-16">
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 p-1 shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
+          <div className="mb-12 sm:mb-16">
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 p-1 shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
               <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 animate-pulse"></div>
-              <div className="relative bg-white rounded-3xl overflow-hidden">
+              <div className="relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden">
                 <div className="flex flex-col lg:flex-row">
-                  {/* Image Section */}
-                  <div className="lg:w-1/2 h-96 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                  {/* Image Section - Mobile Optimized */}
+                  <div className="lg:w-1/2 h-64 sm:h-80 lg:h-96 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                     <img 
                       src="/images/procedures/schema_reseau_infra_original.jpg" 
                       alt="Architecture Réseau d'Entreprise - INFRA S4P2"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute top-4 left-4">
-                      <div className="flex items-center gap-2">
-                        <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 text-xs font-bold animate-bounce">
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                        <Badge className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2 py-1 sm:px-3 text-xs font-bold animate-bounce">
                           🏆 PROJET PRINCIPAL
                         </Badge>
                         <Badge className="bg-green-500 text-white px-2 py-1 text-xs">
@@ -235,19 +235,19 @@ export default function ProjetsPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   
-                  {/* Content Section */}
-                  <div className="lg:w-1/2 p-8">
+                  {/* Content Section - Mobile Optimized */}
+                  <div className="lg:w-1/2 p-4 sm:p-8">
                     <div className="h-full flex flex-col justify-between">
                       <div>
                         <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
-                            <Server className="w-6 h-6 text-white" />
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                            <Server className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                           </div>
                           <div>
-                            <h3 className="text-2xl font-bold text-gray-900 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+                            <h3 className="text-lg sm:text-2xl font-bold text-gray-900 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent leading-tight">
                               Architecture Réseau d'Entreprise
                             </h3>
-                            <p className="text-amber-600 font-semibold">INFRA S4P2 - Hocine IRATNI</p>
+                            <p className="text-amber-600 font-semibold text-sm sm:text-base">INFRA S4P2 - Hocine IRATNI</p>
                           </div>
                         </div>
                         
