@@ -1048,4 +1048,39 @@ body {
   body:has(.fixed.bottom-0) main {
     margin-bottom: 80px;
   }
+
+  /* Mobile skeleton animations */
+  .mobile-skeleton {
+    background: transparent;
+  }
+  
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+  
+  .animate-skeleton-shimmer {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  }
+  
+  .dark .animate-skeleton-shimmer {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
 }
