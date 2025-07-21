@@ -25,8 +25,14 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 touch-target mobile-ripple w-12 h-12 sm:w-12 sm:h-12 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95 group"
+      className="fixed top-4 right-4 z-50 touch-target mobile-ripple mobile-press-effect w-14 h-14 sm:w-12 sm:h-12 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 group"
       aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
+      onTouchStart={() => {
+        // Vibration légère sur mobile
+        if (window.navigator && window.navigator.vibrate) {
+          window.navigator.vibrate(30)
+        }
+      }}
     >
       <div className="relative w-6 h-6">
         {/* Icône Soleil */}
