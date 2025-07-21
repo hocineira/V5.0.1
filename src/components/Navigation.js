@@ -87,9 +87,7 @@ export default function Navigation() {
                       href={item.href}
                       prefetch={true}
                       className={`relative group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 glass-nav-item glass-shine ${
-                        isActive(item.href)
-                          ? 'nav-active'
-                          : ''
+                        isActive(item.href) ? 'nav-active' : ''
                       }`}
                     >
                       <Icon className="w-4 h-4 mr-2" />
