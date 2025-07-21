@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { FolderOpen, Github, ExternalLink, Calendar, Star, Code, Server, Network, Shield, HardDrive, Monitor, Wifi, FileText, Download, Eye } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
@@ -20,7 +20,9 @@ export default function ProjetsPage() {
     setIsModalOpen(false)
     setSelectedImage(null)
   }
-  const projects = [
+
+  // Memoize projects data to prevent re-creation on every render
+  const projects = useMemo(() => [
     {
       id: 1,
       title: 'Architecture Réseau d\'Entreprise - INFRA S4P2',
