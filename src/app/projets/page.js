@@ -140,7 +140,7 @@ export default function ProjetsPage() {
       image: '/images/procedures/kali_image.jpg',
       icon: Shield
     }
-  ]
+  ], []) // Fermeture du useMemo
 
   const filteredProjects = projects
 
