@@ -25,7 +25,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 w-12 h-12 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-full shadow-lg hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center transition-all duration-500 hover:scale-110 group"
+      className="fixed top-4 right-4 z-50 touch-target mobile-ripple w-12 h-12 sm:w-12 sm:h-12 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-xl shadow-lg hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95 group"
       aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
     >
       <div className="relative w-6 h-6">
@@ -44,8 +44,8 @@ export default function ThemeToggle() {
         />
       </div>
 
-      {/* Effet de glow au hover */}
-      <div className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 ${
+      {/* Effet de glow au hover - Plus visible sur mobile */}
+      <div className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 group-active:opacity-40 transition-opacity duration-300 ${
         isDark ? 'bg-blue-400' : 'bg-yellow-500'
       }`} />
     </button>
