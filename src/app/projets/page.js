@@ -160,44 +160,44 @@ export default function ProjetsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative overflow-hidden py-12 sm:py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-80 h-80 bg-cyan-400/10 rounded-full blur-3xl animate-pulse delay-3000"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 sm:w-80 sm:h-80 bg-cyan-400/10 rounded-full blur-3xl animate-pulse delay-3000"></div>
         </div>
 
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto px-3 sm:px-4">
           <div className="text-center">
-            <div className="flex justify-center mb-8">
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
-                <FolderOpen className="w-10 h-10 text-white" />
+            <div className="flex justify-center mb-6 sm:mb-8">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                <FolderOpen className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600 leading-tight">
               Mes Procédures Techniques
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
               Découvrez mes procédures techniques détaillées dans les domaines des systèmes et réseaux informatiques. 
               Chaque procédure reflète ma passion pour l'infrastructure IT et ma volonté d'apprendre les dernières technologies.
             </p>
-            <div className="flex justify-center items-center gap-4 mb-8">
-              <Badge className="bg-purple-100 text-purple-800 px-4 py-2">
-                <Server className="w-4 h-4 mr-2" />
+            <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 mb-6 sm:mb-8 px-4">
+              <Badge className="bg-purple-100 text-purple-800 px-3 py-2 sm:px-4 text-xs sm:text-sm">
+                <Server className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Systèmes & Réseaux
               </Badge>
-              <Badge className="bg-blue-100 text-blue-800 px-4 py-2">
-                <Shield className="w-4 h-4 mr-2" />
+              <Badge className="bg-blue-100 text-blue-800 px-3 py-2 sm:px-4 text-xs sm:text-sm">
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Sécurité
               </Badge>
-              <Badge className="bg-green-100 text-green-800 px-4 py-2">
-                <Network className="w-4 h-4 mr-2" />
+              <Badge className="bg-green-100 text-green-800 px-3 py-2 sm:px-4 text-xs sm:text-sm">
+                <Network className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                 Infrastructure
               </Badge>
-              <Badge className="bg-orange-100 text-orange-800 px-4 py-2">
+              <Badge className="bg-orange-100 text-orange-800 px-3 py-2 sm:px-4 text-xs sm:text-sm">
                 <FileText className="w-4 h-4 mr-2" />
                 Procédures
               </Badge>
