@@ -86,10 +86,10 @@ export default function Navigation() {
                       key={item.name}
                       href={item.href}
                       prefetch={true}
-                      className={`relative group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
+                      className={`relative group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 glass-nav-item glass-shine ${
                         isActive(item.href)
-                          ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg'
-                          : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-gray-800/50'
+                          ? 'text-white bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg shadow-blue-500/25'
+                          : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
                       }`}
                     >
                       <Icon className="w-4 h-4 mr-2" />
