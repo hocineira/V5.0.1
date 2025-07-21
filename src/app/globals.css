@@ -70,37 +70,35 @@ body {
 }
 
 /* ========================================
-   ANIMATIONS PERFORMANCE-OPTIMISÉES MOBILE
+   ANIMATIONS PERFORMANCE-OPTIMISÉES MAIS VISIBLES
    ======================================== */
 
-/* Animation GPU accélérée pour les flottements */
+/* Animation GPU accélérée pour les flottements - RESTAURÉE */
 @keyframes float-optimized {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -15px, 0); }
 }
 
-/* Animations uniquement pour desktop */
-@media (min-width: 768px) {
-  .animate-float {
-    animation: float-optimized 4s ease-in-out infinite;
-    will-change: transform;
-  }
-  
-  .animate-float-delay {
-    animation: float-optimized 5s ease-in-out infinite;
-    animation-delay: 1s;
-    will-change: transform;
-  }
-  
-  .animate-float-delay-2 {
-    animation: float-optimized 6s ease-in-out infinite;
-    animation-delay: 2s;
-    will-change: transform;
-  }
+/* Animations TOUJOURS ACTIVES pour l'esthétique */
+.animate-float {
+  animation: float-optimized 4s ease-in-out infinite;
+  will-change: transform;
 }
 
-/* Pulse optimisé pour mobile */
-.animate-pulse-glow, .animate-pulse {
+.animate-float-delay {
+  animation: float-optimized 5s ease-in-out infinite;
+  animation-delay: 1s;
+  will-change: transform;
+}
+
+.animate-float-delay-2 {
+  animation: float-optimized 6s ease-in-out infinite;
+  animation-delay: 2s;
+  will-change: transform;
+}
+
+/* Pulse optimisé mais toujours visible */
+.animate-pulse-glow, .animate-pulse, .animate-pulse-fast {
   animation: pulse-mobile 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -109,18 +107,56 @@ body {
   50% { opacity: 0.7; }
 }
 
-/* Gradients animés - limités sur mobile */
-@media (min-width: 768px) {
-  .animate-gradient-shift {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
+/* Gradients animés - RESTAURÉS mais optimisés */
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
 }
 
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* ========================================
+   RESTAURATION DES EFFETS VISUELS CRITIQUES
+   ======================================== */
+
+/* Effets de hover RESTAURÉS - essentiels pour l'UX */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Text gradient - RENFORCÉ */
+.text-gradient {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Backgrounds gradients - RESTAURÉS */
+.bg-gradient-animated {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4, #ec4899);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
 }
 
 /* ========================================
@@ -183,14 +219,9 @@ body {
     -webkit-touch-callout: none;
   }
   
-  /* Simplification des ombres sur mobile pour performance */
+  /* Simplification des ombres sur mobile MAIS GARDÉES pour l'esthétique */
   .shadow-lg, .shadow-xl, .shadow-2xl {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  }
-  
-  /* Réduction complexité gradients sur mobile */
-  .bg-gradient-to-br {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   }
   
   /* Cards mobiles optimisées */
@@ -199,6 +230,7 @@ body {
     padding: 16px;
     margin-bottom: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
   .mobile-card:active {
@@ -273,7 +305,7 @@ body {
 }
 
 /* ========================================
-   UTILITAIRES DE PERFORMANCE
+   UTILITAIRES DE PERFORMANCE + ESTHÉTIQUE
    ======================================== */
 
 /* Line clamp pour performance */
@@ -339,29 +371,72 @@ body {
   font-size: clamp(1.5rem, 5vw, 3rem);
 }
 
-/* Hover effects optimisés - desktop seulement */
-@media (min-width: 768px) {
-  .hover-lift {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-hover {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .card-hover:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  }
-}
-
 /* Classes no-scroll pour modals */
 .no-scroll {
   overflow: hidden;
   touch-action: none;
+}
+
+/* ========================================
+   EFFETS VISUELS RESTAURÉS - OPTIMISÉS
+   ======================================== */
+
+/* Effet de verre moderne - RESTAURÉ */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgb(var(--background-card) / 0.8);
+  border: 1px solid rgb(var(--border) / 0.5);
+}
+
+/* Boutons modernes - RESTAURÉS */
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+/* Bordures animées - OPTIMISÉES mais PRÉSENTES */
+.border-animated {
+  position: relative;
+  overflow: hidden;
+}
+
+.border-animated::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4, #ec4899);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+}
+
+.border-animated > * {
+  position: relative;
+  z-index: 1;
 }
