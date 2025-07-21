@@ -23,6 +23,35 @@ export default function SwipeNavigation() {
   const minSwipeDistance = 50
 
   const onTouchStart = (e) => {
+    // Vérifier si le touch commence sur un élément interactif qu'il faut exclure
+    const target = e.target
+    const excludedElements = [
+      // Onglets et boutons
+      'button', 'a', '[role="tab"]', '[role="tablist"]', 
+      // Éléments avec classes spécifiques
+      '.tab', '.tabs', '.tab-button', '.tab-content',
+      // Sliders et carousels
+      '.slider', '.carousel', '.swiper',
+      // Éléments scrollables
+      '.scroll', '.overflow-scroll', '.overflow-x-scroll'
+    ]
+    
+    // Vérifier si l'élément ou un parent correspond aux exclusions
+    const isExcluded = excludedElements.some(selector => {
+      try {
+        return target.closest && target.closest(selector)
+      } catch (e) {
+        return false
+      }
+    })
+    
+    // Exclure aussi si c'est un élément avec data-swipe-ignore
+    const hasSwipeIgnore = target.closest && target.closest('[data-swipe-ignore]')
+    
+    if (isExcluded || hasSwipeIgnore) {
+      return // Ignorer ce touch
+    }
+    
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
   }
