@@ -49,55 +49,55 @@ export default function TCSPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative overflow-hidden py-12 sm:py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-red-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-red-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-orange-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto px-3 sm:px-4">
           <div className="text-center">
-            <div className="flex justify-center mb-8">
-              <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center">
-                <Shield className="w-10 h-10 text-white" />
+            <div className="flex justify-center mb-6 sm:mb-8">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full flex items-center justify-center">
+                <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
               {tcsInfo.title}
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
               {tcsInfo.description}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Badge variant="secondary" className="bg-red-100 text-red-800 px-4 py-2">
-                <Clock className="w-4 h-4 mr-2" />
-                {tcsInfo.duration}
+            <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row justify-center items-center mb-6 sm:mb-8">
+              <Badge variant="secondary" className="bg-red-100 text-red-800 px-3 py-2 sm:px-4">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                <span className="text-sm sm:text-base">{tcsInfo.duration}</span>
               </Badge>
-              <Badge variant="secondary" className="bg-red-100 text-red-800 px-4 py-2">
-                <Award className="w-4 h-4 mr-2" />
-                {tcsInfo.level}
+              <Badge variant="secondary" className="bg-red-100 text-red-800 px-3 py-2 sm:px-4">
+                <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+                <span className="text-sm sm:text-base">{tcsInfo.level}</span>
               </Badge>
             </div>
 
             <Button 
               size="lg" 
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200"
+              className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 w-full sm:w-auto max-w-md sm:max-w-none"
               onClick={handleDownloadPDF}
             >
-              <Download className="mr-2 w-5 h-5" />
-              Télécharger le tableau de compétences
+              <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="text-sm sm:text-base">Télécharger le tableau de compétences</span>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Content Sections */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+      {/* Content Sections - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Objectifs */}
             <Card className="shadow-lg">
               <CardHeader>
