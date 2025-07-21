@@ -113,24 +113,24 @@ export default function AccueilPage() {
                 </p>
               </div>
               
-              <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row mb-6 sm:mb-8">
+              <div className="flex flex-col gap-4 sm:gap-4 sm:flex-row mb-6 sm:mb-8">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 w-full sm:w-auto"
+                  className="touch-target-large mobile-ripple bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-4 sm:py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-blue-500/25 w-full sm:w-auto text-base sm:text-base"
                   onClick={handleProjectsClick}
                 >
-                  <Server className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base">Découvrir mes projets</span>
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                  <Server className="mr-2 w-5 h-5" />
+                  <span>Découvrir mes projets</span>
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-blue-400 text-blue-400 hover:bg-blue-500/10 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto"
+                  className="touch-target-large mobile-ripple border-2 border-blue-400 text-blue-400 hover:bg-blue-500/10 active:bg-blue-500/20 px-6 sm:px-8 py-4 sm:py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg w-full sm:w-auto text-base sm:text-base"
                   onClick={handleContactClick}
                 >
-                  <Mail className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base">Me contacter</span>
+                  <Mail className="mr-2 w-5 h-5" />
+                  <span>Me contacter</span>
                 </Button>
               </div>
 
