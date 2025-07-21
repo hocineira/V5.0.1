@@ -47,16 +47,21 @@ export default function BottomNavigation() {
   const handleNavigation = (href, name) => {
     if (href === pathname) return // Déjà sur la page
     
+    // Feedback haptique pour mobile
+    if (window.navigator && window.navigator.vibrate) {
+      window.navigator.vibrate(50) // Vibration légère
+    }
+    
     // Feedback visuel immédiat
     setNavigating(name)
     
-    // Navigation
+    // Navigation avec animation fluide
     router.push(href)
     
-    // Reset après un délai plus court
+    // Reset avec délai optimisé
     setTimeout(() => {
       setNavigating(null)
-    }, 800)
+    }, 600)
   }
 
   return (
