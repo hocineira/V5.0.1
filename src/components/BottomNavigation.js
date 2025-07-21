@@ -1,12 +1,13 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { Home, ShieldCheck, GraduationCap, FolderOpen, Eye } from 'lucide-react'
 
 export default function BottomNavigation() {
   const router = useRouter()
   const pathname = usePathname()
+  const [navigating, setNavigating] = useState(null)
 
   const navigation = [
     {
@@ -38,9 +39,19 @@ export default function BottomNavigation() {
 
   const isActive = (href) => pathname === href
 
-  const handleNavigation = (href) => {
+  const handleNavigation = (href, name) => {
+    if (href === pathname) return // Déjà sur la page
+    
     // Feedback visuel immédiat
+    setNavigating(name)
+    
+    // Navigation
     router.push(href)
+    
+    // Reset après un délai
+    setTimeout(() => {
+      setNavigating(null)
+    }, 2000)
   }
 
   return (
@@ -52,13 +63,18 @@ export default function BottomNavigation() {
             {navigation.map((item) => {
               const Icon = item.icon
               const active = isActive(item.href)
+              const isNavigatingToThis = navigating === item.name
+              
               return (
                 <button
                   key={item.name}
-                  onClick={() => handleNavigation(item.href)}
-                  className={`bottom-nav-item touch-target-large flex flex-col items-center justify-center px-2 py-2 rounded-xl ${
+                  onClick={() => handleNavigation(item.href, item.name)}
+                  disabled={isNavigatingToThis}
+                  className={`bottom-nav-item touch-target-large flex flex-col items-center justify-center px-2 py-2 rounded-xl relative ${
                     active
                       ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                      : isNavigatingToThis
+                      ? 'text-blue-500 dark:text-blue-300 bg-blue-25 dark:bg-blue-900/10'
                       : 'text-gray-600 dark:text-gray-400'
                   }`}
                   style={{ 
@@ -67,10 +83,18 @@ export default function BottomNavigation() {
                   }}
                 >
                   <Icon className={`w-6 h-6 mb-1 ${
-                    active ? 'scale-110' : ''
+                    active 
+                      ? 'scale-110' 
+                      : isNavigatingToThis 
+                      ? 'animate-pulse scale-105' 
+                      : ''
                   }`} />
                   <span className={`text-xs font-medium ${
-                    active ? 'text-blue-600 dark:text-blue-400' : ''
+                    active 
+                      ? 'text-blue-600 dark:text-blue-400' 
+                      : isNavigatingToThis
+                      ? 'text-blue-500 dark:text-blue-300'
+                      : ''
                   }`}>
                     {item.name}
                   </span>
@@ -78,6 +102,13 @@ export default function BottomNavigation() {
                   {/* Indicateur actif */}
                   {active && (
                     <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
+                  )}
+                  
+                  {/* Loading spinner pour navigation */}
+                  {isNavigatingToThis && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-3 h-3 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                    </div>
                   )}
                 </button>
               )
