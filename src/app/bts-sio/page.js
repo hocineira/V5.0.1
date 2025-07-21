@@ -226,40 +226,44 @@ export default function BTSSIOPage() {
         <p className="text-gray-600">Un cursus progressif sur 2 années</p>
       </div>
       
-      {/* Timeline */}
+      {/* Timeline - Mobile Optimized */}
       <div className="relative">
-        <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-cyan-500 to-purple-600"></div>
+        {/* Desktop: Center line, Mobile: Left line */}
+        <div className="absolute left-8 sm:left-1/2 sm:transform sm:-translate-x-px h-full w-0.5 bg-gradient-to-b from-cyan-500 to-purple-600"></div>
         
         {timelineData.map((year, index) => (
-          <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'} mb-8`}>
-            <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                      {index + 1}
-                    </div>
-                    {year.year}
-                  </CardTitle>
-                  <CardDescription className="text-lg font-semibold text-gray-900">
-                    {year.title}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {year.items.map((item, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700">
-                        <CheckCircle className="w-4 h-4 mr-3 text-green-500" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+          <div key={index} className="relative mb-8">
+            {/* Mobile: Full width, Desktop: Alternating sides */}
+            <div className="sm:flex sm:items-center sm:justify-start lg:justify-start xl:justify-start">
+              <div className={`w-full sm:w-1/2 pl-16 sm:pl-0 ${index % 2 === 0 ? 'sm:pr-8 lg:pr-8' : 'sm:pl-8 lg:pl-8'}`}>
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardHeader className="pb-3 sm:pb-4">
+                    <CardTitle className="flex items-center gap-3 text-lg sm:text-xl">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base">
+                        {index + 1}
+                      </div>
+                      <span className="text-base sm:text-xl">{year.year}</span>
+                    </CardTitle>
+                    <CardDescription className="text-base sm:text-lg font-semibold text-gray-900 ml-11 sm:ml-0">
+                      {year.title}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {year.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start text-gray-700 text-sm sm:text-base">
+                          <CheckCircle className="w-4 h-4 mr-3 mt-0.5 text-green-500 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
             
-            {/* Timeline dot */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-4 border-cyan-500 rounded-full z-10"></div>
+            {/* Timeline dot - Mobile: Left aligned, Desktop: Center */}
+            <div className="absolute left-6 top-6 sm:left-1/2 sm:top-8 sm:transform sm:-translate-x-1/2 w-4 h-4 bg-white border-4 border-cyan-500 rounded-full z-10"></div>
           </div>
         ))}
       </div>
