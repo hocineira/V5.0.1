@@ -110,7 +110,7 @@ export default function Navigation() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-3 inline-flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 active:scale-95"
+                className="relative glass-nav-item glass-shine rounded-xl p-3 inline-flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all duration-300 active:scale-95"
                 style={{ minWidth: '48px', minHeight: '48px' }}
                 aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               >
