@@ -807,25 +807,30 @@ body {
   }
 }
 
-/* Animations mobiles optimisées */
+/* Animations mobiles optimisées - Performances améliorées */
 @media (max-width: 768px) {
   /* Réduire les animations sur mobile pour les performances */
   *, *::before, *::after {
-    animation-duration: 0.25s !important;
-    animation-delay: 0.1s !important;
-    transition-duration: 0.25s !important;
+    animation-duration: 0.15s !important;  /* Plus rapide */
+    animation-delay: 0.05s !important;     /* Delay réduit */
+    transition-duration: 0.15s !important; /* Transitions plus rapides */
+  }
+  
+  /* Navigation optimisée */
+  .bottom-nav-item {
+    transition: color 0.1s ease, background-color 0.1s ease, transform 0.1s ease;
   }
   
   /* Animation de slide pour la navigation mobile */
   .mobile-slide-in {
-    animation: mobileSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: mobileSlideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
   .mobile-slide-out {
-    animation: mobileSlideOut 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: mobileSlideOut 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  /* Effet de ripple pour les boutons */
+  /* Effet de ripple pour les boutons - Réduit */
   .mobile-ripple {
     position: relative;
     overflow: hidden;
@@ -839,14 +844,14 @@ body {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
+    transition: width 0.15s ease, height 0.15s ease; /* Plus rapide */
   }
   
   .mobile-ripple:active::after {
-    width: 200px;
-    height: 200px;
+    width: 100px; /* Plus petit */
+    height: 100px;
   }
 }
 
