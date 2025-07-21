@@ -138,7 +138,7 @@ export default function VeillesPage() {
                           <span className={`${veille.color === 'blue' ? 'text-blue-800' : 'text-indigo-800'} font-medium text-xs sm:text-sm`}>
                             Accéder à la veille
                           </span>
-                          <ArrowRight className={`w-4 h-4 ${veille.color === 'blue' ? 'text-blue-700' : 'text-indigo-700'} group-hover:transform group-hover:translate-x-1 transition-all duration-300`} />
+                          <ArrowRight className={`w-3 h-3 sm:w-4 sm:h-4 ${veille.color === 'blue' ? 'text-blue-700' : 'text-indigo-700'} group-hover:transform group-hover:translate-x-1 transition-all duration-300`} />
                         </div>
                       </div>
                     </CardContent>
@@ -150,32 +150,32 @@ export default function VeillesPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+      {/* Stats Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-white">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
               Aperçu de mes veilles
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+            <div className="w-16 sm:w-20 h-1 bg-blue-600 mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-4 gap-8 text-center max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 text-center max-w-4xl mx-auto">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">2</div>
-              <div className="text-slate-600 text-sm">Types de veilles</div>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600">2</div>
+              <div className="text-slate-600 text-xs sm:text-sm">Types de veilles</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">4</div>
-              <div className="text-slate-600 text-sm">Versions Windows</div>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600">4</div>
+              <div className="text-slate-600 text-xs sm:text-sm">Versions Windows</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">3</div>
-              <div className="text-slate-600 text-sm">Sujets RGPD</div>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600">3</div>
+              <div className="text-slate-600 text-xs sm:text-sm">Sujets RGPD</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">7</div>
-              <div className="text-slate-600 text-sm">Total contenus</div>
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600">7</div>
+              <div className="text-slate-600 text-xs sm:text-sm">Total contenus</div>
             </div>
           </div>
         </div>
