@@ -993,4 +993,14 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  
+  /* Bottom navigation safe area */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Ajustement des margins pour la bottom nav */
+  body:has(.fixed.bottom-0) main {
+    margin-bottom: 80px;
+  }
 }
