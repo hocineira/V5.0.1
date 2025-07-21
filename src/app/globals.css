@@ -813,16 +813,47 @@ body {
   .bottom-nav-item {
     transition: color 0.15s ease, background-color 0.15s ease, transform 0.1s ease !important;
     will-change: transform; /* GPU acceleration */
+    backface-visibility: hidden; /* Fix flickering */
   }
   
   .bottom-nav-item:active {
     transform: scale(0.95);
   }
   
+  /* Animation tactile améliorée */
+  .bottom-nav-item:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Effet de pression mobile */
+  .mobile-press-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .mobile-press-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(59, 130, 246, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+  
+  .mobile-press-effect:active::before {
+    width: 120px;
+    height: 120px;
+  }
+  
   /* Optimisations de rendu - SEULEMENT pour la navigation */
   .mobile-nav-optimized {
     contain: layout style paint; /* Containment API */
     transform: translateZ(0); /* Force GPU layer */
+    backface-visibility: hidden;
   }
   
   /* Navigation top mobile - optimisée */
