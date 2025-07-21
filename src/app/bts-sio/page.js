@@ -303,19 +303,19 @@ export default function BTSSIOPage() {
         <p className="text-gray-600">De nombreuses opportunités dans le secteur du numérique</p>
       </div>
       
-      {/* Secteurs d'activité */}
-      <div className="grid md:grid-cols-3 gap-6 mb-12">
+      {/* Secteurs d'activité - Mobile Optimized */}
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8 sm:mb-12">
         {[
           { icon: Building, title: 'Entreprises', desc: 'Services informatiques intégrés', color: 'from-blue-500 to-cyan-600' },
           { icon: Cloud, title: 'SSII/ESN', desc: 'Sociétés de services numériques', color: 'from-purple-500 to-pink-600' },
           { icon: Zap, title: 'Start-ups', desc: 'Innovation et nouvelles technologies', color: 'from-orange-500 to-red-600' }
         ].map((sector, index) => (
           <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-            <CardContent className="p-6 text-center">
-              <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-r ${sector.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                <sector.icon className="w-8 h-8 text-white" />
+            <CardContent className="p-4 sm:p-6 text-center">
+              <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-r ${sector.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <sector.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h4 className="font-bold text-gray-900 mb-2">{sector.title}</h4>
+              <h4 className="font-bold text-gray-900 mb-2 text-base sm:text-lg">{sector.title}</h4>
               <p className="text-gray-600 text-sm">{sector.desc}</p>
             </CardContent>
           </Card>
