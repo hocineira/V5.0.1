@@ -44,35 +44,35 @@ export default function VeillesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative overflow-hidden py-12 sm:py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto px-3 sm:px-4">
           <div className="text-center">
-            <div className="flex justify-center mb-8">
-              <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
-                <TrendingUp className="w-10 h-10 text-white" />
+            <div className="flex justify-center mb-6 sm:mb-8">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+                <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-slate-900 leading-tight">
               Mes Veilles
             </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
               Découvrez mes veilles spécialisées dans les domaines technologique et juridique. 
               Restez informé sur les dernières évolutions et réglementations importantes.
             </p>
-            <div className="flex justify-center items-center gap-4 mb-8">
-              <Badge className="bg-blue-100 text-blue-800 px-4 py-2 text-sm">
-                <Monitor className="w-4 h-4 mr-2" />
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+              <Badge className="bg-blue-100 text-blue-800 px-3 py-2 sm:px-4 text-xs sm:text-sm">
+                <Monitor className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 Technologique
               </Badge>
-              <Badge className="bg-indigo-100 text-indigo-800 px-4 py-2 text-sm">
-                <Shield className="w-4 h-4 mr-2" />
+              <Badge className="bg-indigo-100 text-indigo-800 px-3 py-2 sm:px-4 text-xs sm:text-sm">
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 Juridique
               </Badge>
             </div>
@@ -80,17 +80,17 @@ export default function VeillesPage() {
         </div>
       </section>
 
-      {/* Veilles Cards Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {/* Veilles Cards Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 max-w-6xl mx-auto">
             {veillesCategories.map((veille) => {
               const Icon = veille.icon
               return (
                 <Link key={veille.id} href={veille.link}>
                   <Card className="group cursor-pointer hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 overflow-hidden border-0 shadow-lg h-full">
-                    {/* Header with Gradient */}
-                    <div className={`relative h-32 bg-gradient-to-r ${veille.bgGradient} flex items-center justify-center overflow-hidden`}>
+                    {/* Header with Gradient - Mobile Optimized */}
+                    <div className={`relative h-24 sm:h-32 bg-gradient-to-r ${veille.bgGradient} flex items-center justify-center overflow-hidden`}>
                       <div className="absolute inset-0 bg-black/10"></div>
                       <div className="relative z-10">
                         <Icon className="w-12 h-12 text-white drop-shadow-lg" />
