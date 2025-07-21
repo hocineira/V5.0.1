@@ -276,8 +276,8 @@ export default function AccueilPage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-800 to-slate-900 relative">
+      {/* Features Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-slate-800 to-slate-900 relative">
         {/* Background Network Pattern */}
         <div className="absolute inset-0 opacity-10">
           <img 
@@ -287,7 +287,7 @@ export default function AccueilPage() {
           />
         </div>
         
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto px-3 sm:px-4">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
               <Network className="w-4 h-4 text-blue-400" />
