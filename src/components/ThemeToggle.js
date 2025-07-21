@@ -6,6 +6,14 @@ import { useTheme } from '../contexts/ThemeContext'
 
 export default function ThemeToggle() {
   const { isDark, toggleTheme, mounted } = useTheme()
+  
+  // Flag pour activer/désactiver le mode sombre
+  const isDarkModeEnabled = process.env.NEXT_PUBLIC_ENABLE_DARK_MODE === 'true'
+  
+  // Si le mode sombre est désactivé, ne pas afficher le bouton
+  if (!isDarkModeEnabled) {
+    return null
+  }
 
   // Éviter le flash de contenu non stylé pendant le chargement
   if (!mounted) {
