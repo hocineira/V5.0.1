@@ -1,7 +1,6 @@
 import "./globals.css";
 import Navigation from "../components/Navigation";
 import BottomNavigation from "../components/BottomNavigation";
-import SwipeNavigation from "../components/SwipeNavigation";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import ThemeToggle from "../components/ThemeToggle";
 
@@ -29,7 +28,6 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <BottomNavigation />
-          <SwipeNavigation />
         </ThemeProvider>
       </body>
     </html>
