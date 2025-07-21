@@ -277,7 +277,7 @@ export default function BTSSIOPage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               'Support et mise à disposition de services informatiques',
               'Mathématiques pour l\'informatique',
@@ -286,8 +286,8 @@ export default function BTSSIOPage() {
               'Expression et communication',
               'Anglais professionnel'
             ].map((subject, index) => (
-              <div key={index} className="p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border-l-4 border-blue-500">
-                <span className="text-gray-800 font-medium">{subject}</span>
+              <div key={index} className="p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg border-l-4 border-blue-500">
+                <span className="text-gray-800 font-medium text-sm sm:text-base break-words">{subject}</span>
               </div>
             ))}
           </div>
