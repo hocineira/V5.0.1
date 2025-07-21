@@ -816,9 +816,20 @@ body {
     transition-duration: 0.15s !important; /* Transitions plus rapides */
   }
   
-  /* Navigation optimisée */
+  /* Navigation bottom optimisée pour performance */
   .bottom-nav-item {
-    transition: color 0.1s ease, background-color 0.1s ease, transform 0.1s ease;
+    transition: color 0.1s ease, background-color 0.1s ease, transform 0.08s ease !important;
+    will-change: transform; /* GPU acceleration */
+  }
+  
+  .bottom-nav-item:active {
+    transform: scale(0.95);
+  }
+  
+  /* Optimisations de rendu */
+  .mobile-nav-optimized {
+    contain: layout style paint; /* Containment API */
+    transform: translateZ(0); /* Force GPU layer */
   }
   
   /* Animation de slide pour la navigation mobile */
