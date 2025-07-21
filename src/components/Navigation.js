@@ -148,7 +148,7 @@ export default function Navigation() {
         />
         
         {/* Menu Panel */}
-        <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-l border-gray-200/50 dark:border-gray-700/50 shadow-2xl transition-transform duration-500 ease-out ${
+        <div className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] mobile-glass-menu shadow-2xl transition-transform duration-500 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           {/* Header */}
