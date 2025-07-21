@@ -8,6 +8,9 @@ module.exports = {
   darkMode: 'class', // Activation du mode sombre avec classe CSS
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',  // Breakpoint pour très petits écrans
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
