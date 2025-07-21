@@ -16,9 +16,10 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <Navigation />
           <ThemeToggle />
-          <main className="pt-16 bg-theme min-h-screen">
+          <main className="pt-16 pb-20 md:pb-0 bg-theme min-h-screen">
             {children}
           </main>
+          <BottomNavigation />
         </ThemeProvider>
       </body>
     </html>
