@@ -74,7 +74,7 @@ export default function BottomNavigation() {
                     active
                       ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
                       : isNavigatingToThis
-                      ? 'text-blue-500 dark:text-blue-300 bg-blue-25 dark:bg-blue-900/10'
+                      ? 'text-blue-500 dark:text-blue-300 bg-blue-50/50 dark:bg-blue-900/10'
                       : 'text-gray-600 dark:text-gray-400'
                   }`}
                   style={{ 
