@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { Home, ShieldCheck, GraduationCap, FolderOpen, Eye } from 'lucide-react'
 
@@ -8,6 +8,11 @@ export default function BottomNavigation() {
   const router = useRouter()
   const pathname = usePathname()
   const [navigating, setNavigating] = useState(null)
+
+  // Reset navigation state when pathname changes
+  useEffect(() => {
+    setNavigating(null)
+  }, [pathname])
 
   const navigation = [
     {
