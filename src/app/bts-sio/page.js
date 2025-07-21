@@ -384,30 +384,30 @@ export default function BTSSIOPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
-      {/* Hero Section - Style Terminal */}
-      <section className="relative overflow-hidden py-20 lg:py-32">
+      {/* Hero Section - Mobile Optimized Terminal Style */}
+      <section className="relative overflow-hidden py-12 sm:py-20 lg:py-32">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 opacity-95"></div>
         
-        {/* Animated background elements */}
+        {/* Animated background elements - Reduced on mobile for performance */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 w-48 h-48 sm:w-64 sm:h-64 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
         </div>
 
-        <div className="relative container mx-auto px-4">
+        <div className="relative container mx-auto px-3 sm:px-4">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Terminal Window */}
-            <div className="bg-slate-800 rounded-t-xl p-4 mb-0">
+            {/* Terminal Window - Mobile Optimized */}
+            <div className="bg-slate-800 rounded-t-xl p-3 sm:p-4 mb-0">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-slate-400 text-sm ml-4">formation_info.sh</span>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+                <span className="text-slate-400 text-xs sm:text-sm ml-2 sm:ml-4">formation_info.sh</span>
               </div>
             </div>
             
-            <div className="bg-black rounded-b-xl p-8 font-mono text-left">
+            <div className="bg-black rounded-b-xl p-4 sm:p-8 font-mono text-left">
               <div className="text-green-400 text-lg">
                 $ <span className="text-cyan-300">{typedText}</span>
                 <span className="animate-pulse">|</span>
