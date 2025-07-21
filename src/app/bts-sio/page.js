@@ -138,7 +138,7 @@ export default function BTSSIOPage() {
         </p>
       </div>
       
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
         {specializations.map((spec) => (
           <Card 
             key={spec.id} 
@@ -149,33 +149,33 @@ export default function BTSSIOPage() {
           >
             <div className={`h-2 bg-gradient-to-r ${spec.color}`}></div>
             <CardHeader className="pb-4">
-              <div className="flex items-center gap-4">
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${spec.color} flex items-center justify-center`}>
-                  <spec.icon className="w-8 h-8 text-white" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-r ${spec.color} flex items-center justify-center flex-shrink-0`}>
+                  <spec.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                 </div>
-                <div className="flex-1">
-                  <CardTitle className="text-2xl text-gray-900">{spec.name}</CardTitle>
-                  <CardDescription className="text-gray-600 mt-1">{spec.focus}</CardDescription>
+                <div className="flex-1 min-w-0">
+                  <CardTitle className="text-lg sm:text-2xl text-gray-900">{spec.name}</CardTitle>
+                  <CardDescription className="text-gray-600 mt-1 text-sm sm:text-base">{spec.focus}</CardDescription>
                 </div>
-                <ChevronRight className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${
+                <ChevronRight className={`w-5 h-5 sm:w-6 sm:h-6 text-gray-400 transition-transform duration-300 flex-shrink-0 ${
                   selectedSpecialization === spec.id ? 'rotate-90' : ''
                 }`} />
               </div>
             </CardHeader>
             
             <CardContent>
-              <p className="text-gray-700 mb-4">{spec.description}</p>
+              <p className="text-gray-700 mb-4 text-sm sm:text-base">{spec.description}</p>
               
               {selectedSpecialization === spec.id && (
                 <div className="space-y-6 animate-slide-in-up">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                    <h4 className="font-semibold text-gray-900 mb-3 flex items-center text-sm sm:text-base">
                       <Settings className="w-4 h-4 mr-2" />
                       Compétences développées
                     </h4>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {spec.skills.map((skill, index) => (
-                        <Badge key={index} variant="outline" className="justify-start text-xs">
+                        <Badge key={index} variant="outline" className="justify-start text-xs w-full">
                           {skill}
                         </Badge>
                       ))}
