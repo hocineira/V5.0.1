@@ -202,42 +202,42 @@ export default function AccueilPage() {
         </div>
       </section>
 
-      {/* Architecture Highlight Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 relative">
+      {/* Architecture Highlight Section - Mobile Optimized */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 relative">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="relative container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative container mx-auto px-3 sm:px-4">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-                <Network className="w-4 h-4 text-blue-400" />
-                <span className="text-sm text-blue-300">Infrastructure Personnelle</span>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 sm:mb-6">
+                <Network className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                <span className="text-xs sm:text-sm text-blue-300">Infrastructure Personnelle</span>
               </div>
-              <h2 className="text-4xl font-bold mb-6 text-white">
+              <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white leading-tight">
                 Mon <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Architecture Réseau</span>
               </h2>
-              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 leading-relaxed">
                 Découvrez l'infrastructure complète que j'ai mise en place : pfSense pour la sécurité, 
                 VLANs pour la segmentation, Active Directory pour la gestion des utilisateurs, 
                 et des outils de monitoring comme GLPI et Zabbix.
               </p>
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
                 {['pfSense', 'VLANs', 'Active Directory', 'GLPI', 'Zabbix'].map((tech, index) => (
-                  <span key={index} className="px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-sm text-blue-200">
+                  <span key={index} className="px-2 sm:px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs sm:text-sm text-blue-200">
                     {tech}
                   </span>
                 ))}
               </div>
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 w-full sm:w-auto"
                 onClick={() => router.push('/projets')}
               >
-                <Server className="mr-2 w-5 h-5" />
-                Voir l'architecture complète
+                <Server className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-sm sm:text-base">Voir l'architecture complète</span>
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
