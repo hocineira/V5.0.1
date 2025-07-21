@@ -167,28 +167,28 @@ export default function AccueilPage() {
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="relative">
+            {/* Right Image - Mobile Optimized */}
+            <div className="relative mt-8 lg:mt-0">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1543953589-18ab987d605f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxuZXR3b3JraW5nfGVufDB8fHxibHVlfDE3NTI4NzA1NDR8MA&ixlib=rb-4.1.0&q=85" 
                   alt="Infrastructure IT" 
-                  className="w-full h-96 object-cover"
+                  className="w-full h-64 sm:h-80 lg:h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-black/20 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
+                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                  <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-blue-500/20">
                     <div className="flex items-center gap-2 text-blue-300 mb-2">
-                      <Server className="w-4 h-4" />
-                      <span className="text-sm">Infrastructure Active</span>
+                      <Server className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span className="text-xs sm:text-sm">Infrastructure Active</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-2 sm:gap-4">
                       {techStats.map((stat, index) => {
                         const Icon = stat.icon
                         return (
-                          <div key={index} className="flex items-center gap-2">
-                            <Icon className="w-4 h-4 text-blue-400" />
-                            <span className="text-xs text-gray-300">{stat.label}</span>
+                          <div key={index} className="flex items-center gap-1 sm:gap-2">
+                            <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                            <span className="text-xs text-gray-300 truncate">{stat.label}</span>
                             <span className="text-xs text-green-400 font-mono">{stat.value}</span>
                           </div>
                         )
