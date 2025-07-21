@@ -475,29 +475,29 @@ export default function BTSSIOPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-cyan-900">
+      {/* CTA Section - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-gradient-to-r from-slate-900 via-blue-900 to-cyan-900">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6 text-white">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white leading-tight">
               Prêt à rejoindre l'aventure BTS SIO ?
             </h2>
-            <p className="text-xl text-slate-300 mb-8">
+            <p className="text-lg sm:text-xl text-slate-300 mb-6 sm:mb-8">
               Transformez votre passion pour l'informatique en expertise professionnelle
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row justify-center">
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto"
                 onClick={() => window.location.href = 'mailto:hocineira@gmail.com'}
               >
-                <Play className="mr-2 w-5 h-5" />
-                Commencer maintenant
+                <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-sm sm:text-base">Commencer maintenant</span>
               </Button>
               <Button 
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto"
                 onClick={() => window.open('/tcs', '_self')}
               >
                 <ExternalLink className="mr-2 w-5 h-5" />
