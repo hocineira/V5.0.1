@@ -382,61 +382,66 @@ body {
    ======================================== */
 
 /* ========================================
-   EFFETS DE VERRE (GLASSMORPHISM) PREMIUM
+   EFFETS DE VERRE (GLASSMORPHISM) PREMIUM - CORRIGÉ
    ======================================== */
 
-/* Effet de verre moderne - RESTAURÉ et AMÉLIORÉ */
+/* Effet de verre moderne - Version corrigée */
 .glass-effect {
-  backdrop-filter: blur(16px) saturate(180%);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37) !important;
+  border-radius: 0 !important;
 }
 
 .glass-effect-strong {
-  backdrop-filter: blur(20px) saturate(200%);
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(20px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(200%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.5) !important;
+  border-radius: 0 !important;
 }
 
 /* Mode sombre - Effet de verre adapté */
 .dark .glass-effect {
-  background: rgba(15, 23, 42, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(15, 23, 42, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
 }
 
 .dark .glass-effect-strong {
-  background: rgba(15, 23, 42, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(15, 23, 42, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Effet de verre pour les boutons de navigation */
 .glass-nav-item {
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .glass-nav-item:hover {
-  background: rgba(59, 130, 246, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
-  transform: translateY(-1px);
+  background: rgba(59, 130, 246, 0.2) !important;
+  border: 1px solid rgba(59, 130, 246, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3) !important;
+  transform: translateY(-1px) !important;
 }
 
 .dark .glass-nav-item {
-  background: rgba(30, 41, 59, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .dark .glass-nav-item:hover {
-  background: rgba(59, 130, 246, 0.2);
-  border: 1px solid rgba(59, 130, 246, 0.4);
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.25) !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4) !important;
 }
 
 /* Effet de brillance sur le verre */
@@ -455,10 +460,11 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.15),
     transparent
   );
   transition: left 0.8s ease;
+  pointer-events: none;
 }
 
 .glass-shine:hover::before {
@@ -467,16 +473,17 @@ body {
 
 /* Effet de verre pour mobile menu */
 .mobile-glass-menu {
-  backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(255, 255, 255, 0.1);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: -10px 0 50px rgba(31, 38, 135, 0.4) !important;
 }
 
 .dark .mobile-glass-menu {
-  background: rgba(15, 23, 42, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.4);
+  background: rgba(15, 23, 42, 0.25) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Boutons modernes - RESTAURÉS */
