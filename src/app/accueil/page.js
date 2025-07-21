@@ -250,8 +250,8 @@ export default function AccueilPage() {
       {/* Architecture Highlight Section - Mobile Optimized */}
       <section className="py-12 sm:py-16 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 relative">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse-fast"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/10 rounded-full blur-3xl animate-pulse-fast delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/10 rounded-full blur-3xl animate-float-delay"></div>
         </div>
 
         <div className="relative container mx-auto px-3 sm:px-4">
