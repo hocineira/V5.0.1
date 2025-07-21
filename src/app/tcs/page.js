@@ -140,24 +140,24 @@ export default function TCSPage() {
         </div>
       </section>
 
-      {/* Débouchés */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
+      {/* Débouchés - Mobile Optimized */}
+      <section className="py-12 sm:py-20 bg-gray-50">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4 text-gray-900">
               Débouchés professionnels
             </h2>
-            <div className="w-20 h-1 bg-red-600 mx-auto"></div>
+            <div className="w-16 sm:w-20 h-1 bg-red-600 mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {tcsInfo.opportunities.map((opportunity, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-6 h-6 text-white" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Users className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <CardTitle className="text-lg text-gray-900">{opportunity}</CardTitle>
+                  <CardTitle className="text-base sm:text-lg text-gray-900 leading-tight px-2">{opportunity}</CardTitle>
                 </CardHeader>
               </Card>
             ))}
