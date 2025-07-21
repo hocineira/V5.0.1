@@ -305,22 +305,22 @@ export default function AccueilPage() {
               return (
                 <Card 
                   key={index} 
-                  className="group bg-slate-800/50 backdrop-blur-sm border-slate-700/50 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+                  className="group mobile-card touch-feedback bg-slate-800/50 backdrop-blur-sm border-slate-700/50 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-2 active:translate-y-0 cursor-pointer p-4 sm:p-6"
                   onClick={feature.action}
                 >
-                  <CardHeader className="text-center">
-                    <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-gradient-to-r ${feature.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <CardHeader className="text-center pb-4 sm:pb-6">
+                    <div className={`w-16 h-16 sm:w-16 sm:h-16 mx-auto mb-4 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <Icon className="w-8 h-8 sm:w-8 sm:h-8 text-white" />
                     </div>
-                    <CardTitle className="text-lg sm:text-xl text-white group-hover:text-blue-400 transition-colors">
+                    <CardTitle className="text-xl sm:text-xl text-white group-hover:text-blue-400 transition-colors">
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-gray-300 text-center text-sm sm:text-base">
+                  <CardContent className="pt-0">
+                    <CardDescription className="text-gray-300 text-center text-base sm:text-base leading-relaxed">
                       {feature.description}
                     </CardDescription>
-                    <div className="mt-4 flex justify-center">
+                    <div className="mt-6 flex justify-center">
                       <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full group-hover:w-16 transition-all duration-300"></div>
                     </div>
                   </CardContent>
