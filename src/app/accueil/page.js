@@ -86,47 +86,47 @@ export default function AccueilPage() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="relative py-20 lg:py-32">
-        <div className="relative container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative py-12 sm:py-20 lg:py-32">
+        <div className="relative container mx-auto px-3 sm:px-4">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Content - Mobile Optimized */}
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <div className="mb-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4">
+                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-blue-300">Système en ligne</span>
+                  <span className="text-xs sm:text-sm text-blue-300">Système en ligne</span>
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-white leading-tight">
                   <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     {personalInfo.name}
                   </span>
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-blue-300">
+                <h2 className="text-lg sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4 text-blue-300">
                   {personalInfo.title}
                 </h2>
-                <p className="text-xl text-blue-200 mb-8">
+                <p className="text-lg sm:text-xl text-blue-200 mb-4 sm:mb-8">
                   {personalInfo.subtitle}
                 </p>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
                   {personalInfo.description}
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row mb-6 sm:mb-8">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 w-full sm:w-auto"
                   onClick={handleProjectsClick}
                 >
-                  <Server className="mr-2 w-5 h-5" />
-                  Découvrir mes projets
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <Server className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-sm sm:text-base">Découvrir mes projets</span>
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-blue-400 text-blue-400 hover:bg-blue-500/10 px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg"
+                  className="border-blue-400 text-blue-400 hover:bg-blue-500/10 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg w-full sm:w-auto"
                   onClick={handleContactClick}
                 >
                   <Mail className="mr-2 w-5 h-5" />
