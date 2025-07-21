@@ -439,17 +439,16 @@ export default function BTSSIOPage() {
       </section>
 
       {/* Navigation Tabs - Mobile Optimized */}
-      <section className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b" data-swipe-ignore>
+      <section className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b">
         <div className="container mx-auto px-2 sm:px-4">
           <div className="flex justify-center">
             {/* Mobile: Scrollable horizontal tabs */}
-            <nav className="flex space-x-1 p-2 overflow-x-auto scrollbar-hide w-full max-w-full sm:w-auto" data-swipe-ignore>
+            <nav className="flex space-x-1 p-2 overflow-x-auto scrollbar-hide w-full max-w-full sm:w-auto">
               <div className="flex space-x-1 min-w-max sm:min-w-0">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    data-swipe-ignore
                     className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-sm sm:text-base ${
                       activeTab === tab.id
                         ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg scale-105'
