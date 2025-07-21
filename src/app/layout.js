@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navigation from "../components/Navigation";
+import BottomNavigation from "../components/BottomNavigation";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import ThemeToggle from "../components/ThemeToggle";
 
