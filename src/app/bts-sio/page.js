@@ -109,17 +109,17 @@ export default function BTSSIOPage() {
                 ))}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { icon: Brain, label: 'Apprentissage', desc: 'Pédagogie active' },
                 { icon: Lightbulb, label: 'Innovation', desc: 'Technologies récentes' },
                 { icon: Users, label: 'Accompagnement', desc: 'Suivi personnalisé' },
                 { icon: Trophy, label: 'Réussite', desc: 'Taux d\'insertion élevé' }
               ].map((item, index) => (
-                <div key={index} className="text-center p-4 rounded-lg bg-white/50 hover:bg-white transition-colors">
-                  <item.icon className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <div className="font-semibold text-gray-900">{item.label}</div>
-                  <div className="text-sm text-gray-600">{item.desc}</div>
+                <div key={index} className="text-center p-3 sm:p-4 rounded-lg bg-white/50 hover:bg-white transition-colors">
+                  <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 mx-auto mb-2" />
+                  <div className="font-semibold text-gray-900 text-sm sm:text-base">{item.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{item.desc}</div>
                 </div>
               ))}
             </div>
