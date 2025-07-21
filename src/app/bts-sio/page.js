@@ -434,25 +434,29 @@ export default function BTSSIOPage() {
         </div>
       </section>
 
-      {/* Navigation Tabs */}
+      {/* Navigation Tabs - Mobile Optimized */}
       <section className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-2 sm:px-4">
           <div className="flex justify-center">
-            <nav className="flex space-x-1 p-2">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg scale-105'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  <tab.icon className="w-4 h-4" />
-                  {tab.label}
-                </button>
-              ))}
+            {/* Mobile: Scrollable horizontal tabs */}
+            <nav className="flex space-x-1 p-2 overflow-x-auto scrollbar-hide w-full max-w-full sm:w-auto">
+              <div className="flex space-x-1 min-w-max sm:min-w-0">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 whitespace-nowrap text-sm sm:text-base ${
+                      activeTab === tab.id
+                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg scale-105'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                    }`}
+                  >
+                    <tab.icon className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                    <span className="hidden xs:inline sm:inline">{tab.label}</span>
+                    <span className="xs:hidden sm:hidden">{tab.label.split(' ')[0]}</span>
+                  </button>
+                ))}
+              </div>
             </nav>
           </div>
         </div>
