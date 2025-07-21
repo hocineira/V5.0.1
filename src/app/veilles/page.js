@@ -93,49 +93,49 @@ export default function VeillesPage() {
                     <div className={`relative h-24 sm:h-32 bg-gradient-to-r ${veille.bgGradient} flex items-center justify-center overflow-hidden`}>
                       <div className="absolute inset-0 bg-black/10"></div>
                       <div className="relative z-10">
-                        <Icon className="w-12 h-12 text-white drop-shadow-lg" />
+                        <Icon className="w-10 h-10 sm:w-12 sm:h-12 text-white drop-shadow-lg" />
                       </div>
-                      <div className="absolute top-4 right-4">
-                        <ArrowRight className="w-6 h-6 text-white/80 group-hover:text-white group-hover:transform group-hover:translate-x-1 transition-all duration-300" />
+                      <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-white/80 group-hover:text-white group-hover:transform group-hover:translate-x-1 transition-all duration-300" />
                       </div>
                     </div>
                     
-                    <CardHeader className="pb-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <Badge className={`${veille.color === 'blue' ? 'bg-blue-100 text-blue-800' : 'bg-indigo-100 text-indigo-800'} text-sm`}>
+                    <CardHeader className="pb-3 sm:pb-4 p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-2 sm:gap-0">
+                        <Badge className={`${veille.color === 'blue' ? 'bg-blue-100 text-blue-800' : 'bg-indigo-100 text-indigo-800'} text-xs sm:text-sm w-fit`}>
                           {veille.stats}
                         </Badge>
-                        <div className="text-sm text-slate-500 flex items-center">
-                          <Calendar className="w-4 h-4 mr-1" />
+                        <div className="text-xs sm:text-sm text-slate-500 flex items-center">
+                          <Calendar className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                           2025
                         </div>
                       </div>
-                      <CardTitle className="text-2xl text-slate-900 group-hover:text-blue-600 transition-colors mb-3">
+                      <CardTitle className="text-xl sm:text-2xl text-slate-900 group-hover:text-blue-600 transition-colors mb-2 sm:mb-3">
                         {veille.title}
                       </CardTitle>
-                      <CardDescription className="text-slate-600 leading-relaxed">
+                      <CardDescription className="text-slate-600 leading-relaxed text-sm sm:text-base">
                         {veille.description}
                       </CardDescription>
                     </CardHeader>
                     
-                    <CardContent className="pt-0">
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-slate-900 mb-3 text-sm uppercase tracking-wide">
+                    <CardContent className="pt-0 p-4 sm:p-6">
+                      <div className="mb-4 sm:mb-6">
+                        <h4 className="font-semibold text-slate-900 mb-3 text-xs sm:text-sm uppercase tracking-wide">
                           Contenus disponibles :
                         </h4>
                         <ul className="space-y-2">
                           {veille.items.map((item, index) => (
                             <li key={index} className="flex items-start">
-                              <div className={`w-2 h-2 ${veille.color === 'blue' ? 'bg-blue-600' : 'bg-indigo-600'} rounded-full mt-2 mr-3 flex-shrink-0`}></div>
-                              <span className="text-slate-700 text-sm">{item}</span>
+                              <div className={`w-2 h-2 ${veille.color === 'blue' ? 'bg-blue-600' : 'bg-indigo-600'} rounded-full mt-1.5 sm:mt-2 mr-3 flex-shrink-0`}></div>
+                              <span className="text-slate-700 text-xs sm:text-sm">{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                       
-                      <div className={`${veille.color === 'blue' ? 'bg-blue-50 group-hover:bg-blue-100' : 'bg-indigo-50 group-hover:bg-indigo-100'} p-4 rounded-lg transition-colors duration-300`}>
+                      <div className={`${veille.color === 'blue' ? 'bg-blue-50 group-hover:bg-blue-100' : 'bg-indigo-50 group-hover:bg-indigo-100'} p-3 sm:p-4 rounded-lg transition-colors duration-300`}>
                         <div className="flex items-center justify-between">
-                          <span className={`${veille.color === 'blue' ? 'text-blue-800' : 'text-indigo-800'} font-medium text-sm`}>
+                          <span className={`${veille.color === 'blue' ? 'text-blue-800' : 'text-indigo-800'} font-medium text-xs sm:text-sm`}>
                             Accéder à la veille
                           </span>
                           <ArrowRight className={`w-4 h-4 ${veille.color === 'blue' ? 'text-blue-700' : 'text-indigo-700'} group-hover:transform group-hover:translate-x-1 transition-all duration-300`} />
