@@ -8,8 +8,19 @@ export function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(false)
   const [mounted, setMounted] = useState(false)
 
+  // Flag pour activer/désactiver le mode sombre
+  const isDarkModeEnabled = process.env.NEXT_PUBLIC_ENABLE_DARK_MODE === 'true'
+
   // Initialiser le thème au montage du composant
   useEffect(() => {
+    // Si le mode sombre est désactivé, forcer le mode clair
+    if (!isDarkModeEnabled) {
+      setIsDark(false)
+      document.documentElement.classList.remove('dark')
+      setMounted(true)
+      return
+    }
+
     // Récupérer la préférence sauvegardée - MODE CLAIR PAR DÉFAUT
     const savedTheme = localStorage.getItem('theme')
 
@@ -23,11 +34,11 @@ export function ThemeProvider({ children }) {
     }
     
     setMounted(true)
-  }, [])
+  }, [isDarkModeEnabled])
 
   // Écouter les changements de préférence système
   useEffect(() => {
-    if (!mounted) return
+    if (!mounted || !isDarkModeEnabled) return
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const handleChange = (e) => {
@@ -45,9 +56,12 @@ export function ThemeProvider({ children }) {
 
     mediaQuery.addListener(handleChange)
     return () => mediaQuery.removeListener(handleChange)
-  }, [mounted])
+  }, [mounted, isDarkModeEnabled])
 
   const toggleTheme = () => {
+    // Ne pas permettre le basculement si le mode sombre est désactivé
+    if (!isDarkModeEnabled) return
+    
     const newTheme = !isDark
     setIsDark(newTheme)
     
@@ -61,9 +75,10 @@ export function ThemeProvider({ children }) {
   }
 
   const value = {
-    isDark,
+    isDark: isDarkModeEnabled ? isDark : false, // Force false si désactivé
     toggleTheme,
-    mounted
+    mounted,
+    isDarkModeEnabled // Exposer le flag pour les composants qui en ont besoin
   }
 
   return (
