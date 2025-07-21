@@ -1083,4 +1083,38 @@ body {
       transparent
     );
   }
+
+  /* Optimisations touch et performance mobile */
+  .mobile-touch-optimization {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Smooth scrolling pour mobile */
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimisation des transitions pour mobile */
+  .mobile-transition {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, opacity;
+  }
+  
+  /* Effet de pression pour tous les éléments interactifs */
+  .mobile-interactive:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+  
+  /* Safe areas pour devices avec encoches */
+  .safe-area-inset {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 }
