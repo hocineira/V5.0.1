@@ -82,18 +82,18 @@ export default function BottomNavigation() {
                     minHeight: '56px' 
                   }}
                 >
-                  <Icon className={`w-6 h-6 mb-1 ${
+                  <Icon className={`w-6 h-6 mb-1 transition-all duration-200 ${
                     active 
                       ? 'scale-110' 
                       : isNavigatingToThis 
-                      ? 'animate-pulse scale-105' 
+                      ? 'scale-105 opacity-50' 
                       : ''
                   }`} />
-                  <span className={`text-xs font-medium ${
+                  <span className={`text-xs font-medium transition-all duration-200 ${
                     active 
                       ? 'text-blue-600 dark:text-blue-400' 
                       : isNavigatingToThis
-                      ? 'text-blue-500 dark:text-blue-300'
+                      ? 'text-blue-500 dark:text-blue-300 opacity-50'
                       : ''
                   }`}>
                     {item.name}
@@ -104,10 +104,10 @@ export default function BottomNavigation() {
                     <div className="absolute -top-0.5 left-1/2 transform -translate-x-1/2 w-8 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
                   )}
                   
-                  {/* Loading spinner pour navigation */}
+                  {/* Loading indicator plus élégant */}
                   {isNavigatingToThis && (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-3 h-3 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                      <div className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-pulse" />
                     </div>
                   )}
                 </button>
