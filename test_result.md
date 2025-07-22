@@ -280,6 +280,8 @@ test_plan:
 agent_communication:
   - agent: "testing"
     message: "Starting comprehensive testing of Next.js 15 portfolio for Hocine IRATNI. Will test all sections, animations, responsive design, and functionality."
+  - agent: "main_agent"
+    message: "BTS SIO TIMELINE LAYOUT BUG FIX: Fixed the timeline layout issue in Programme de formation section. Problem was that both timeline cards (Année 1 and Année 2) were aligned to the left on PC, which looked unprofessional. Fixed by implementing alternating layout - Année 1 on left, Année 2 on right for desktop while maintaining mobile-friendly single-side alignment. Changes made to justify-content classes in /app/src/app/bts-sio/page.js line 237."
   - agent: "testing"
     message: "✅ TESTING COMPLETED SUCCESSFULLY! All major functionality working perfectly. Portfolio is fully functional with excellent user experience. Minor issues: React prop warnings (non-critical), external image loading blocked in test environment. Ready for production use."
   - agent: "testing"
