@@ -7,6 +7,10 @@ import ThemeToggle from "../components/ThemeToggle";
 export const metadata = {
   title: "Portfolio - Hocine IRATNI",
   description: "Portfolio professionnel - BTS SIO SISR",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.png',
+  },
 };
 
 export const viewport = {
