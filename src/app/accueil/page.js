@@ -96,10 +96,29 @@ const FeatureCard = memo(({ feature, index, onAction }) => {
 
 export default function AccueilPage() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isLowEndDevice, setIsLowEndDevice] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Détection d'appareil faible pour optimiser les performances
+    const checkDeviceCapability = () => {
+      const isMobile = window.innerWidth <= 768
+      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4
+      const hasSlowConnection = navigator.connection && 
+        (navigator.connection.effectiveType === 'slow-2g' || 
+         navigator.connection.effectiveType === '2g' ||
+         navigator.connection.effectiveType === '3g')
+      
+      if (isMobile && (hasLowMemory || hasSlowConnection)) {
+        setIsLowEndDevice(true)
+        // Ajoute une classe CSS pour désactiver certaines animations
+        document.body.classList.add('low-end-device')
+      }
+    }
+    
+    checkDeviceCapability()
   }, [])
 
   // Memoisation des handlers
