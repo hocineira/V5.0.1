@@ -322,7 +322,22 @@ export default function AccueilPage() {
       </section>
 
       {/* Features Section - Mobile Optimized avec Lazy Loading */}
-      <section className="py-12 sm:py-20 bg-gradient-to-br from-slate-800 to-slate-900 relative">
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-slate-800 via-blue-900/20 to-slate-900 relative overflow-hidden">
+        {/* Background Elements Décoratifs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float-delay"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl animate-float-delay-2"></div>
+          
+          {/* Patterns géométriques */}
+          <div className="absolute top-10 right-10 w-32 h-32 border border-blue-500/10 rotate-45 animate-pulse"></div>
+          <div className="absolute bottom-20 left-10 w-24 h-24 border border-purple-500/10 rotate-12 animate-pulse-delay"></div>
+          
+          {/* Grille de fond subtile */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent opacity-30"></div>
+        </div>
+
         <div className="relative container mx-auto px-3 sm:px-4">
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 sm:mb-6">
