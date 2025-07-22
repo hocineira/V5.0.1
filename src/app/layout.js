@@ -26,9 +26,6 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
-      <head>
-        <link rel="manifest" href="/manifest.json" />
-      </head>
       <body className="antialiased bg-theme text-theme">
         <ThemeProvider>
           <Navigation />
