@@ -281,8 +281,8 @@ export default function ProjetsPage() {
                           className="flex-1 border-2 border-amber-500 text-amber-600 hover:bg-amber-50 font-bold py-3 px-6 rounded-xl transform hover:scale-105 transition-all duration-200"
                           onClick={() => {
                             const link = document.createElement('a');
-                            link.href = '/images/procedures/schema_reseau_infra_original.png';
-                            link.download = 'Architecture_Reseau_Entreprise_INFRA_S4P2.png';
+                            link.href = '/images/procedures/mon_schema_reseau_personnel.jpg';
+                            link.download = 'Mon_Schema_Reseau_Personnel_INFRA_S4P2.jpg';
                             link.click();
                           }}
                         >
