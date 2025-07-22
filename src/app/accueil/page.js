@@ -294,17 +294,22 @@ export default function AccueilPage() {
                 </div>
                 <div className="bg-slate-700/50 rounded-lg p-4 mb-4">
                   <div className="grid grid-cols-2 gap-4 text-sm">
-                    {[
-                      { label: 'pfSense Firewall', color: 'green' },
-                      { label: 'VLANs Configurés', color: 'blue' },
-                      { label: 'Active Directory', color: 'purple' },
-                      { label: 'Monitoring Zabbix', color: 'orange' }
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <div className={`w-2 h-2 bg-${item.color}-400 rounded-full animate-pulse-fast`}></div>
-                        <span className="text-gray-300">{item.label}</span>
-                      </div>
-                    ))}
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">pfSense Firewall</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">VLANs Configurés</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">Active Directory</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+                      <span className="text-gray-300">Monitoring Zabbix</span>
+                    </div>
                   </div>
                 </div>
                 <div className="text-center">
