@@ -436,8 +436,8 @@ body {
   
   /* TEXTE TOUJOURS LISIBLE */
   color: #1e293b !important; /* Gris foncé par défaut */
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8) !important; /* Ombre claire */
-  font-weight: 600 !important;
+  text-shadow: none !important; /* Suppression de l'ombre qui épaissit le texte */
+  font-weight: 500 !important; /* Réduit l'épaisseur du texte */
 }
 
 .glass-nav-item:hover {
