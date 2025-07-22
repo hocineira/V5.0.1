@@ -176,6 +176,39 @@ body {
     animation: none;
     background-position: 50% 50%;
   }
+  
+  /* Optimisations supplémentaires pour mobiles faibles */
+  @media (max-width: 768px) and (max-device-memory: 4GB) {
+    .animate-float, .animate-float-delay, .animate-float-delay-2 {
+      animation: none !important;
+      transform: translateZ(0); /* Force GPU layer mais pas d'animation */
+    }
+    
+    .animate-pulse, .animate-pulse-fast, .animate-pulse-delay {
+      animation-duration: 4s; /* Plus lent sur appareils faibles */
+    }
+  }
+  
+  /* Préférences utilisateur - respeter les animations réduites */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float, .animate-float-delay, .animate-float-delay-2,
+    .animate-pulse, .animate-pulse-fast, .animate-pulse-delay,
+    .animate-gradient-shift {
+      animation: none !important;
+    }
+  }
+  
+  /* Optimisation pour les appareils avec moins de 4GB RAM */
+  @media (max-device-memory: 4GB) {
+    .blur-3xl, .blur-2xl {
+      filter: none !important; /* Désactive complètement les blurs */
+    }
+    
+    .backdrop-blur-sm {
+      backdrop-filter: none !important;
+      background-color: rgba(0, 0, 0, 0.5) !important; /* Fallback */
+    }
+  }
 }
 
 /* ========================================
