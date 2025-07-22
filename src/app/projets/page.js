@@ -367,7 +367,7 @@ export default function ProjetsPage() {
                       )}
                     </div>
                     
-                    <div className="flex gap-2">
+                    <div className="flex gap-1 sm:gap-2">
                       {project.type === 'procedure' ? (
                         <>
                           <Button 
@@ -380,6 +380,18 @@ export default function ProjetsPage() {
                             <span className="hidden sm:inline">Voir</span>
                             <span className="sm:hidden">PDF</span>
                           </Button>
+                          {project.image && (
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="touch-target flex-1 border-blue-300 text-blue-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-400 transition-all duration-200 opacity-100 py-2 text-xs sm:text-sm"
+                              onClick={() => openImageModal(project.image, project.title)}
+                            >
+                              <Network className="w-4 h-4 mr-1 sm:mr-2" />
+                              <span className="hidden sm:inline">Schéma</span>
+                              <span className="sm:hidden">IMG</span>
+                            </Button>
+                          )}
                           <Button 
                             variant="outline" 
                             size="sm" 
