@@ -355,14 +355,14 @@ export default function ProjetsPage() {
                     </p>
                     
                     <div className="flex flex-wrap gap-1 sm:gap-2 mb-4">
-                      {project.technologies.slice(0, 4).map((tech, index) => (
+                      {project.technologies.slice(0, 6).map((tech, index) => (
                         <Badge key={index} variant="secondary" className="bg-purple-100 text-purple-800 text-xs hover:bg-purple-200 transition-colors">
                           {tech}
                         </Badge>
                       ))}
-                      {project.technologies.length > 4 && (
+                      {project.technologies.length > 6 && (
                         <Badge variant="secondary" className="bg-gray-100 text-gray-600 text-xs">
-                          +{project.technologies.length - 4}
+                          +{project.technologies.length - 6}
                         </Badge>
                       )}
                     </div>
