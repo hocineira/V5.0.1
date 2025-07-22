@@ -10,7 +10,9 @@ export const metadata = {
   icons: {
     icon: '/favicon.ico',
     apple: '/favicon.png',
+    shortcut: '/favicon.ico',
   },
+  manifest: '/manifest.json',
 };
 
 export const viewport = {
