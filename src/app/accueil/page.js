@@ -241,7 +241,7 @@ export default function AccueilPage() {
             <div className="relative mt-8 lg:mt-0">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 sm:h-80 lg:h-96">
                 <img 
-                  src="/images/procedures/accueil_infrastructure_image.png" 
+                  src="/images/procedures/schema_reseau_infra_original.jpg" 
                   alt="Infrastructure réseau et routeurs" 
                   className="w-full h-full object-cover"
                   loading="eager"
