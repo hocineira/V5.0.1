@@ -70,16 +70,21 @@ body {
 }
 
 /* ========================================
-   ANIMATIONS PERFORMANCE-OPTIMISÉES MAIS VISIBLES
+   ANIMATIONS & TRANSITIONS OPTIMISÉES MOBILE
    ======================================== */
 
-/* Animation GPU accélérée pour les flottements - RESTAURÉE */
+/* Animation GPU accélérée pour les flottements - OPTIMISÉE MOBILE */
 @keyframes float-optimized {
   0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -15px, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
 }
 
-/* Animations TOUJOURS ACTIVES pour l'esthétique */
+@keyframes float-subtle {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -5px, 0); }
+}
+
+/* Animations adaptatives selon l'écran */
 .animate-float {
   animation: float-optimized 4s ease-in-out infinite;
   will-change: transform;
@@ -97,7 +102,40 @@ body {
   will-change: transform;
 }
 
-/* Pulse optimisé mais toujours visible */
+/* Optimisations mobiles - Réduction des animations */
+@media (max-width: 768px) {
+  .animate-float {
+    animation: float-subtle 6s ease-in-out infinite;
+    will-change: auto; /* Désactive will-change sur mobile */
+  }
+  
+  .animate-float-delay {
+    animation: float-subtle 7s ease-in-out infinite;
+    animation-delay: 1s;
+    will-change: auto;
+  }
+  
+  .animate-float-delay-2 {
+    animation: float-subtle 8s ease-in-out infinite;
+    animation-delay: 2s;
+    will-change: auto;
+  }
+  
+  /* Réduire les blurs sur mobile qui sont coûteux */
+  .blur-3xl {
+    filter: blur(20px) !important;
+  }
+  
+  .blur-2xl {
+    filter: blur(15px) !important;
+  }
+  
+  .backdrop-blur-sm {
+    backdrop-filter: blur(2px) !important;
+  }
+}
+
+/* Pulse optimisé */
 .animate-pulse-glow, .animate-pulse, .animate-pulse-fast {
   animation: pulse-mobile 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -109,10 +147,18 @@ body {
 
 @keyframes pulse-mobile {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  50% { opacity: 0.8; }
 }
 
-/* Gradients animés - RESTAURÉS mais optimisés */
+/* Mobile: Pulse plus subtil */
+@media (max-width: 768px) {
+  @keyframes pulse-mobile {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.9; }
+  }
+}
+
+/* Gradients animés - OPTIMISÉS */
 .animate-gradient-shift {
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
@@ -122,6 +168,14 @@ body {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Mobile: Gradients statiques pour performance */
+@media (max-width: 768px) {
+  .animate-gradient-shift {
+    animation: none;
+    background-position: 50% 50%;
+  }
 }
 
 /* ========================================
