@@ -47,10 +47,7 @@ export default function BottomNavigation() {
   const handleNavigation = (href, name) => {
     if (href === pathname) return // Déjà sur la page
     
-    // Feedback haptique pour mobile
-    if (window.navigator && window.navigator.vibrate) {
-      window.navigator.vibrate(50) // Vibration légère
-    }
+    // Feedback haptique pour mobile supprimé pour optimisation
     
     // Feedback visuel immédiat
     setNavigating(name)
