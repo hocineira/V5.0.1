@@ -211,6 +211,21 @@ body {
   }
 }
 
+/* Classe pour appareils faibles détectés par JavaScript */
+.low-end-device .animate-float,
+.low-end-device .animate-float-delay,
+.low-end-device .animate-float-delay-2 {
+  animation: none !important;
+  transform: translateZ(0);
+}
+
+.low-end-device .blur-3xl,
+.low-end-device .blur-2xl,
+.low-end-device .backdrop-blur-sm {
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
 /* ========================================
    RESTAURATION DES EFFETS VISUELS CRITIQUES
    ======================================== */
