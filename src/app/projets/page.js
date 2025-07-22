@@ -271,7 +271,7 @@ export default function ProjetsPage() {
                       <div className="flex gap-3">
                         <Button 
                           className="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
-                          onClick={() => openImageModal('/images/procedures/schema_reseau_infra_original.jpg', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
+                          onClick={() => openImageModal('/images/procedures/schema_reseau_infra_original.png', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
                         >
                           <Eye className="w-5 h-5 mr-2" />
                           Voir Schéma Complet
