@@ -86,7 +86,7 @@ export default function Navigation() {
                       key={item.name}
                       href={item.href}
                       prefetch={true}
-                      className={`relative group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 glass-nav-item glass-shine ${
+                      className={`relative group flex items-center px-4 py-2 rounded-lg text-sm font-normal transition-all duration-300 glass-nav-item glass-shine ${
                         isActive(item.href) ? 'nav-active' : ''
                       }`}
                     >
