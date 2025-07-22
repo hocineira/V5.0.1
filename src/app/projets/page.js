@@ -220,7 +220,7 @@ export default function ProjetsPage() {
                   {/* Image Section - Mobile Optimized */}
                   <div className="lg:w-1/2 h-64 sm:h-80 lg:h-96 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                     <img 
-                      src="/images/procedures/schema_reseau_infra_original.jpg" 
+                      src="/images/procedures/schema_reseau_infra_original.png" 
                       alt="Architecture Réseau d'Entreprise - INFRA S4P2"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                     />
