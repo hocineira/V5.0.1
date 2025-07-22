@@ -234,8 +234,8 @@ export default function BTSSIOPage() {
         {timelineData.map((year, index) => (
           <div key={index} className="relative mb-8">
             {/* Mobile: Full width, Desktop: Alternating sides */}
-            <div className="sm:flex sm:items-center sm:justify-start lg:justify-start xl:justify-start">
-              <div className={`w-full sm:w-1/2 pl-16 sm:pl-0 ${index % 2 === 0 ? 'sm:pr-8 lg:pr-8' : 'sm:pl-8 lg:pl-8'}`}>
+            <div className={`sm:flex sm:items-center ${index % 2 === 0 ? 'sm:justify-start' : 'sm:justify-end'}`}>
+              <div className={`w-full sm:w-1/2 pl-16 sm:pl-0 ${index % 2 === 0 ? 'sm:pr-8' : 'sm:pl-8'}`}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="pb-3 sm:pb-4">
                     <CardTitle className="flex items-center gap-3 text-lg sm:text-xl">
