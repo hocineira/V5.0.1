@@ -79,10 +79,10 @@ export default function BottomNavigation() {
                   disabled={isNavigatingToThis}
                   className={`bottom-nav-item touch-target-large flex flex-col items-center justify-center px-2 py-2 rounded-xl relative transition-all duration-200 transform ${
                     active
-                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 scale-105'
+                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50/60 dark:bg-blue-900/40 backdrop-blur-sm scale-105 shadow-lg'
                       : isNavigatingToThis
-                      ? 'text-blue-500 dark:text-blue-300 bg-blue-50/50 dark:bg-blue-900/10 scale-95'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 active:scale-95'
+                      ? 'text-blue-500 dark:text-blue-300 bg-blue-50/40 dark:bg-blue-900/20 backdrop-blur-sm scale-95'
+                      : 'text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-white/20 dark:hover:bg-white/10 backdrop-blur-sm active:scale-95'
                   }`}
                   style={{ 
                     minWidth: '60px', 
