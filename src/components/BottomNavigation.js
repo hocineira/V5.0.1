@@ -64,7 +64,7 @@ export default function BottomNavigation() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 block mobile-nav-optimized">{/* Force visible pour test */}
       {/* Safe area padding pour les smartphones avec encoche */}
-      <div className="safe-area-bottom bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-t border-gray-200/50 dark:border-gray-700/50">
+      <div className="safe-area-bottom mobile-glass-menu border-t border-white/30 dark:border-gray-700/30">{/* Effet glass appliqué */}
         <div className="px-2 py-1">
           <div className="flex items-center justify-around">
             {navigation.map((item) => {
