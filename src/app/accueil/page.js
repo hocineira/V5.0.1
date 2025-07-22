@@ -264,13 +264,19 @@ export default function AccueilPage() {
             </div>
           </div>
         </div>
+        
+        {/* Transition fluide vers la section suivante */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-blue-900/30 pointer-events-none"></div>
       </section>
 
-      {/* Architecture Highlight Section - Mobile Optimized */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 relative">
+      {/* Architecture Highlight Section - Mobile Optimized avec fond unifié */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-blue-900/30 via-indigo-900/40 to-purple-900/30 relative">
+        {/* Transition fluide depuis la section précédente */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-blue-900/30 to-transparent pointer-events-none"></div>
+        
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/10 rounded-full blur-3xl animate-float-delay"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/8 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/8 rounded-full blur-3xl animate-float-delay"></div>
         </div>
 
         <div className="relative container mx-auto px-3 sm:px-4">
@@ -306,12 +312,12 @@ export default function AccueilPage() {
               </Button>
             </div>
             <div className="relative">
-              <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6 shadow-2xl">
+              <div className="bg-slate-800/30 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6 shadow-2xl">
                 <div className="text-center mb-4">
                   <h3 className="text-xl font-semibold text-white mb-2">Infrastructure Active</h3>
                   <p className="text-blue-300 text-sm">Schéma de mon environnement de test</p>
                 </div>
-                <div className="bg-slate-700/50 rounded-lg p-4 mb-4">
+                <div className="bg-slate-700/30 rounded-lg p-4 mb-4">
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -338,23 +344,29 @@ export default function AccueilPage() {
             </div>
           </div>
         </div>
+        
+        {/* Transition fluide vers la section suivante */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-slate-800/30 pointer-events-none"></div>
       </section>
 
-      {/* Features Section - Mobile Optimized avec Lazy Loading */}
-      <section className="py-12 sm:py-20 bg-gradient-to-br from-slate-800 via-blue-900/20 to-slate-900 relative overflow-hidden">
-        {/* Background Elements Décoratifs */}
+      {/* Features Section - Mobile Optimized avec transition harmonieuse */}
+      <section className="py-12 sm:py-20 bg-gradient-to-br from-slate-800/30 via-blue-900/10 to-slate-900/40 relative overflow-hidden">
+        {/* Transition fluide depuis la section précédente */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-800/30 to-transparent pointer-events-none"></div>
+        
+        {/* Background Elements Décoratifs avec opacité réduite */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float-delay"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl animate-float-delay-2"></div>
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/6 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/6 rounded-full blur-3xl animate-float-delay"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/6 rounded-full blur-2xl animate-float-delay-2"></div>
           
-          {/* Patterns géométriques */}
-          <div className="absolute top-10 right-10 w-32 h-32 border border-blue-500/10 rotate-45 animate-pulse"></div>
-          <div className="absolute bottom-20 left-10 w-24 h-24 border border-purple-500/10 rotate-12 animate-pulse-delay"></div>
+          {/* Patterns géométriques subtils */}
+          <div className="absolute top-10 right-10 w-32 h-32 border border-blue-500/5 rotate-45 animate-pulse"></div>
+          <div className="absolute bottom-20 left-10 w-24 h-24 border border-purple-500/5 rotate-12 animate-pulse-delay"></div>
           
           {/* Grille de fond subtile */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent opacity-50"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent opacity-30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/3 to-transparent opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent opacity-30"></div>
         </div>
 
         <div className="relative container mx-auto px-3 sm:px-4">
@@ -380,10 +392,16 @@ export default function AccueilPage() {
             ))}
           </div>
         </div>
+        
+        {/* Transition fluide vers la section suivante */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-slate-900/60 pointer-events-none"></div>
       </section>
 
-      {/* Tech Stack Section - Performance optimisée */}
-      <section className="py-20 bg-slate-900 relative">
+      {/* Tech Stack Section - Performance optimisée avec fond harmonisé */}
+      <section className="py-20 bg-gradient-to-br from-slate-900/60 via-slate-800/40 to-slate-900 relative">
+        {/* Transition fluide depuis la section précédente */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-900/60 to-transparent pointer-events-none"></div>
+        
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="responsive-heading font-bold mb-4 text-white">
@@ -398,14 +416,14 @@ export default function AccueilPage() {
             {StaticData.techStats.map((tech, index) => {
               const Icon = tech.icon
               return (
-                <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-6 hover:border-blue-500/50 interactive group">
+                <div key={index} className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/40 rounded-lg p-6 hover:border-blue-500/50 interactive group">
                   <div className="flex items-center justify-between mb-4">
                     <Icon className="w-8 h-8 text-blue-400 group-hover:scale-110 interactive" />
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse-fast"></div>
                   </div>
                   <div className="text-lg font-bold text-white mb-2">{tech.value}</div>
                   <div className="text-sm text-gray-300">{tech.label}</div>
-                  <div className="mt-3 bg-slate-700 rounded-full h-2 overflow-hidden">
+                  <div className="mt-3 bg-slate-700/60 rounded-full h-2 overflow-hidden">
                     <div className={`bg-gradient-to-r ${tech.color} h-full rounded-full w-full interactive`}></div>
                   </div>
                 </div>
@@ -413,10 +431,16 @@ export default function AccueilPage() {
             })}
           </div>
         </div>
+        
+        {/* Transition fluide vers la section suivante */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-blue-600 pointer-events-none"></div>
       </section>
 
-      {/* CTA Section - Optimisée pour mobile */}
+      {/* CTA Section - Optimisée pour mobile avec transition harmonieuse */}
       <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 relative">
+        {/* Transition fluide depuis la section précédente */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-blue-600 to-transparent pointer-events-none"></div>
+        
         <div className="relative container mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse-fast"></div>
