@@ -241,8 +241,8 @@ export default function AccueilPage() {
             <div className="relative mt-8 lg:mt-0">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 sm:h-80 lg:h-96">
                 <img 
-                  src="https://images.unsplash.com/photo-1543953589-18ab987d605f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxuZXR3b3JraW5nfGVufDB8fHxibHVlfDE3NTI4NzA1NDR8MA&ixlib=rb-4.1.0&q=85" 
-                  alt="Infrastructure IT" 
+                  src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=85&w=1000" 
+                  alt="Infrastructure réseau et routeurs" 
                   className="w-full h-full object-cover"
                   loading="eager"
                 />
