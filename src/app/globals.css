@@ -469,7 +469,7 @@ body {
   background: rgba(30, 41, 59, 0.6) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   color: #e2e8f0 !important; /* Gris clair pour mode sombre */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important; /* Ombre sombre */
+  text-shadow: none !important; /* Suppression de l'ombre qui épaissit le texte */
 }
 
 .dark .glass-nav-item:hover {
