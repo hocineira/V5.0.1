@@ -310,9 +310,9 @@ export default function AccueilPage() {
                     <div className="grid grid-cols-2 gap-3">
                       {StaticData.infrastructure.map((item, index) => (
                         <div key={index} className="flex items-center gap-2">
-                          <div className="relative flex items-center justify-center">
-                            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                            <div className="absolute w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
+                          <div className="relative w-2 h-2">
+                            <div className="absolute inset-0 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                            <div className="absolute inset-0 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
                           </div>
                           <span className="text-xs text-slate-300">{item.name}</span>
                         </div>
