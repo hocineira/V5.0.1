@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
 Backend API Testing for Next.js Portfolio Application
-Tests the PDF API endpoint functionality
+Tests the PDF API endpoint functionality and root redirect
 """
 
 import requests
 import json
 import sys
 import os
+import time
 from urllib.parse import urljoin
 
 # Configuration
