@@ -238,14 +238,19 @@ export default function AccueilPage() {
               </div>
             </div>
 
-            {/* Right Image - Mobile Optimized avec image standard */}
+            {/* Right Image - Mobile Optimized avec Next.js Image optimisé */}
             <div className="relative mt-8 lg:mt-0">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 sm:h-80 lg:h-96">
-                <img 
+                <Image 
                   src="/images/procedures/schema_reseau_infra_original.jpg" 
                   alt="Infrastructure réseau et routeurs" 
-                  className="w-full h-full object-cover"
-                  loading="eager"
+                  fill
+                  className="object-cover"
+                  priority
+                  quality={75}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAKAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGBkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
                 <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
