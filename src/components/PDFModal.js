@@ -1,13 +1,16 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { X, Download, ExternalLink, RotateCw, ZoomIn, ZoomOut, Maximize2 } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { X, Download, ExternalLink, RotateCw, ZoomIn, ZoomOut, Maximize2, AlertCircle } from 'lucide-react'
 import { Button } from './ui/button'
 
 export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
   const [isLoading, setIsLoading] = useState(true)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [error, setError] = useState(false)
+  const [usePDFJS, setUsePDFJS] = useState(false)
+  const [loadTimeout, setLoadTimeout] = useState(null)
+  const iframeRef = useRef(null)
 
   useEffect(() => {
     if (isOpen) {
