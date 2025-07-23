@@ -102,6 +102,8 @@ const nextConfig = {
               "img-src 'self' data: https://images.unsplash.com",
               "font-src 'self' data:",
               "connect-src 'self'",
+              "frame-src 'self' blob: data:", // Pour permettre les PDF dans iframe
+              "object-src 'self'", // Pour les PDF
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'"
