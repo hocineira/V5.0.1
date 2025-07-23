@@ -23,26 +23,58 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    // Optimisations spécifiques mobile
+    // Optimisations spécifiques mobile et WebP
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 jours
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Optimisations supplémentaires pour Core Web Vitals
+    quality: 75,
+    loader: 'default',
   },
 
-  // Headers de sécurité
+  // Compression et optimisations de bundle
+  compress: true,
+  
+  // Optimisation du build pour performance
+  ...(process.env.NODE_ENV === 'production' && {
+    swcMinify: true,
+    webpack: (config, { dev, isServer }) => {
+      // Optimisations de bundle pour la production
+      if (!dev && !isServer) {
+        config.optimization.splitChunks = {
+          chunks: 'all',
+          cacheGroups: {
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              chunks: 'all',
+            },
+          },
+        };
+      }
+      return config;
+    },
+  }),
+
+  // Headers de sécurité et performance
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
-          // Sécurité générale
+          // Performance headers
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
           },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
+          // Sécurité générale
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=31536000; includeSubDomains; preload'
@@ -87,6 +119,16 @@ const nextConfig = {
               'geolocation=()',
               'interest-cohort=()'
             ].join(', ')
+          }
+        ],
+      },
+      // Headers spécifiques pour les ressources statiques
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
           }
         ],
       },
