@@ -210,11 +210,11 @@ export default function AccueilPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-10rem)]">
             {/* Contenu principal */}
             <div className="space-y-8">
-              {/* Badge status avec couleurs technologiques bleu/violet */}
+              {/* Badge status avec couleurs technologiques bleu/violet - POINT CORRIGÉ */}
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-800/60 backdrop-blur-sm border border-blue-400/40 rounded-full shadow-lg shadow-blue-500/20">
-                <div className="relative">
+                <div className="relative flex items-center justify-center">
                   <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
-                  <div className="absolute inset-0 w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-ping opacity-75"></div>
+                  <div className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-ping opacity-75"></div>
                 </div>
                 <span className="text-sm text-blue-300 font-medium">Infrastructure Active</span>
               </div>
