@@ -107,26 +107,22 @@ export default function AccueilPage() {
   useEffect(() => {
     setIsVisible(true)
     
-    // Détection d'appareil améliorée pour inclure les appareils haute résolution
+    // Détection d'appareils simplifiée - CORRIGÉE pour éviter de pénaliser les appareils performants
     const checkDeviceCapability = () => {
       const isMobile = window.innerWidth <= 768
-      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4
+      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 2 // Seuil réduit à 2GB
       const hasSlowConnection = navigator.connection && 
         (navigator.connection.effectiveType === 'slow-2g' || 
-         navigator.connection.effectiveType === '2g' ||
-         navigator.connection.effectiveType === '3g')
+         navigator.connection.effectiveType === '2g')
       
-      // Nouvelle détection pour appareils haute résolution (Samsung S22 Ultra type)
-      const isHighResolution = window.devicePixelRatio >= 3
-      const hasHighDensityScreen = window.screen.width * window.devicePixelRatio >= 3000
-      
-      if (isMobile && (hasLowMemory || hasSlowConnection || (isHighResolution && hasHighDensityScreen))) {
+      // NE PAS pénaliser les appareils haute résolution comme Samsung S22 Ultra
+      if (isMobile && (hasLowMemory || hasSlowConnection)) {
         setIsLowEndDevice(true)
         document.body.classList.add('low-end-device')
       }
     }
     
-    // Gestionnaire de scroll optimisé avec throttling
+    // Gestionnaire de scroll SIMPLIFIÉ
     const handleScroll = () => {
       if (!isScrolling) {
         setIsScrolling(true)
@@ -142,28 +138,8 @@ export default function AccueilPage() {
       scrollTimer = setTimeout(() => {
         setIsScrolling(false)
         document.body.classList.remove('scrolling')
-      }, 150)
+      }, 200) // Augmenté à 200ms pour éviter les basculements fréquents
     }
-    
-    // Intersection Observer pour optimiser les animations selon la visibilité
-    const observerOptions = {
-      rootMargin: '50px',
-      threshold: 0.1
-    }
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('scroll-optimized')
-        } else {
-          entry.target.classList.remove('scroll-optimized')
-        }
-      })
-    }, observerOptions)
-    
-    // Observer les éléments animés
-    const animatedElements = document.querySelectorAll('.animate-float, .animate-float-delay, .animate-float-delay-2')
-    animatedElements.forEach(el => observer.observe(el))
     
     checkDeviceCapability()
     
@@ -172,7 +148,6 @@ export default function AccueilPage() {
     
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      observer.disconnect()
       if (scrollTimer) {
         clearTimeout(scrollTimer)
       }
