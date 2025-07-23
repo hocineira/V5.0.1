@@ -113,26 +113,54 @@ body {
   contain: layout style;
 }
 
-/* Optimisations mobiles - Réduction des animations */
+/* Optimisations mobiles - Réduction progressive des animations selon performance */
 @media (max-width: 768px) {
   .animate-float {
     animation: float-subtle 6s ease-in-out infinite;
     will-change: auto; /* Désactive will-change sur mobile */
+    contain: layout style paint; /* Containment plus strict sur mobile */
   }
   
   .animate-float-delay {
     animation: float-subtle 7s ease-in-out infinite;
     animation-delay: 1s;
     will-change: auto;
+    contain: layout style paint;
   }
   
   .animate-float-delay-2 {
     animation: float-subtle 8s ease-in-out infinite;
     animation-delay: 2s;
     will-change: auto;
+    contain: layout style paint;
   }
   
-  /* Réduire les blurs sur mobile qui sont coûteux */
+  /* Réduire les blurs sur mobile qui sont coûteux - SCROLL OPTIMISÉ */
+  .blur-3xl {
+    backdrop-filter: blur(15px) !important; /* Réduit de 24px à 15px */
+    transform: translateZ(0); /* Force GPU layer isolation */
+  }
+  
+  .blur-2xl {
+    backdrop-filter: blur(12px) !important; /* Réduit de 16px à 12px */
+    transform: translateZ(0);
+  }
+  
+  /* Optimisations spécifiques pour écrans haute résolution (Samsung S22 Ultra) */
+  @media (min-resolution: 3dppx) {
+    .animate-float, .animate-float-delay, .animate-float-delay-2 {
+      animation-duration: 8s, 9s, 10s; /* Ralentit les animations */
+    }
+    
+    .blur-3xl {
+      backdrop-filter: blur(10px) !important; /* Plus réduit sur haute résolution */
+    }
+    
+    .blur-2xl {
+      backdrop-filter: blur(8px) !important;
+    }
+  }
+}
   .blur-3xl {
     filter: blur(20px) !important;
   }
