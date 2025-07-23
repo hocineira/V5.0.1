@@ -90,9 +90,9 @@ const StaticData = {
   ],
   infrastructure: [
     { name: 'pfSense Firewall', status: 'active', type: 'security' },
-    { name: 'Switch Managé', status: 'active', type: 'network' },
+    { name: 'Switch Cisco Managé', status: 'active', type: 'network' },
     { name: 'Serveur AD', status: 'active', type: 'system' },
-    { name: 'Proxmox Cluster', status: 'active', type: 'virtualization' }
+    { name: 'Virtualisation Proxmox/Hyper-V', status: 'active', type: 'virtualization' }
   ]
 }
 
