@@ -20,22 +20,31 @@ export default function TCSPage() {
       'Organiser son développement professionnel'
     ],
     skills: [
-      'Administration des systèmes',
-      'Gestion des réseaux',
-      'Virtualisation',
-      'Sécurité informatique',
-      'Support technique',
-      'Supervision et monitoring',
-      'Configuration des équipements réseau',
-      'Gestion de projets IT'
+      { name: 'Administration des systèmes', level: 85, icon: Server },
+      { name: 'Gestion des réseaux', level: 90, icon: Network },
+      { name: 'Virtualisation', level: 80, icon: Code },
+      { name: 'Sécurité informatique', level: 75, icon: Lock },
+      { name: 'Support technique', level: 88, icon: Users },
+      { name: 'Supervision et monitoring', level: 82, icon: TrendingUp },
+      { name: 'Configuration des équipements réseau', level: 85, icon: Network },
+      { name: 'Gestion de projets IT', level: 78, icon: Briefcase }
+    ],
+    timeline: [
+      { year: 'Année 1', period: '2023-2024', focus: 'Fondamentaux IT', achievements: ['Bases systèmes', 'Réseaux TCP/IP', 'Virtualisation'] },
+      { year: 'Année 2', period: '2024-2025', focus: 'Spécialisation SISR', achievements: ['Sécurité avancée', 'Projets infrastructure', 'Certifications'] }
+    ],
+    certifications: [
+      { name: 'Cisco CCNA', status: 'En cours', icon: Network },
+      { name: 'CompTIA Security+', status: 'Prévu', icon: Lock },
+      { name: 'VMware vSphere', status: 'Acquis', icon: Code }
     ],
     opportunities: [
-      'Administrateur systèmes et réseaux',
-      'Technicien infrastructure',
-      'Responsable informatique',
-      'Technicien de maintenance',
-      'Consultant en systèmes',
-      'Spécialiste sécurité'
+      { title: 'Administrateur systèmes et réseaux', icon: Server, description: 'Gestion complète de l\'infrastructure IT' },
+      { title: 'Technicien infrastructure', icon: Network, description: 'Maintenance et évolution des équipements' },
+      { title: 'Responsable informatique', icon: Briefcase, description: 'Management d\'équipe et stratégie IT' },
+      { title: 'Technicien de maintenance', icon: Users, description: 'Support et dépannage utilisateurs' },
+      { title: 'Consultant en systèmes', icon: TrendingUp, description: 'Expertise et conseils techniques' },
+      { title: 'Spécialiste sécurité', icon: Lock, description: 'Protection et sécurisation des systèmes' }
     ]
   }
 
@@ -47,24 +56,33 @@ export default function TCSPage() {
     link.click();
   }
 
+  const ProgressBar = ({ level, color = 'blue' }) => (
+    <div className="w-full bg-gray-200 rounded-full h-2">
+      <div 
+        className={`h-2 rounded-full bg-gradient-to-r from-${color}-400 to-${color}-600 transition-all duration-1000`}
+        style={{ width: `${level}%` }}
+      ></div>
+    </div>
+  )
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50">
-      {/* Hero Section - Mobile Optimized */}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Hero Section - Thème bleu/violet */}
       <section className="relative overflow-hidden py-12 sm:py-20 lg:py-32">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-red-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-orange-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
         <div className="relative container mx-auto px-3 sm:px-4">
           <div className="text-center">
             <div className="flex justify-center mb-6 sm:mb-8">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
                 <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
             </div>
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent leading-tight">
               {tcsInfo.title}
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
@@ -72,11 +90,11 @@ export default function TCSPage() {
             </p>
             
             <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row justify-center items-center mb-6 sm:mb-8">
-              <Badge variant="secondary" className="bg-red-100 text-red-800 px-3 py-2 sm:px-4">
+              <Badge variant="secondary" className="bg-blue-100 text-blue-800 px-3 py-2 sm:px-4">
                 <Clock className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 <span className="text-sm sm:text-base">{tcsInfo.duration}</span>
               </Badge>
-              <Badge variant="secondary" className="bg-red-100 text-red-800 px-3 py-2 sm:px-4">
+              <Badge variant="secondary" className="bg-purple-100 text-purple-800 px-3 py-2 sm:px-4">
                 <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
                 <span className="text-sm sm:text-base">{tcsInfo.level}</span>
               </Badge>
@@ -84,7 +102,7 @@ export default function TCSPage() {
 
             <Button 
               size="lg" 
-              className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-200 w-full sm:w-auto max-w-md sm:max-w-none"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30 w-full sm:w-auto max-w-md sm:max-w-none"
               onClick={handleDownloadPDF}
             >
               <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
@@ -94,15 +112,57 @@ export default function TCSPage() {
         </div>
       </section>
 
-      {/* Content Sections - Mobile Optimized */}
-      <section className="py-12 sm:py-20 bg-white">
+      {/* Timeline Section - Nouvelle section */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Parcours de formation
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-400 to-purple-400"></div>
+              
+              {tcsInfo.timeline.map((item, index) => (
+                <div key={index} className={`relative mb-8 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg"></div>
+                  
+                  <Card className={`inline-block w-full max-w-md hover:shadow-lg transition-all duration-300 hover:scale-105 ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
+                    <CardHeader>
+                      <CardTitle className="text-lg text-blue-600">{item.year}</CardTitle>
+                      <CardDescription className="text-purple-600">{item.period}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <h4 className="font-semibold text-gray-900 mb-2">{item.focus}</h4>
+                      <ul className="space-y-1">
+                        {item.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-center text-sm text-gray-600">
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Sections - Amélioré */}
+      <section className="py-12 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-3 sm:px-4">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-            {/* Objectifs - Mobile Optimized */}
-            <Card className="shadow-lg">
+            {/* Objectifs */}
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <CardHeader>
                 <CardTitle className="text-xl sm:text-2xl text-gray-900 flex items-center">
-                  <FileText className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-red-600" />
+                  <Target className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-blue-600" />
                   Objectifs de formation
                 </CardTitle>
               </CardHeader>
@@ -110,7 +170,7 @@ export default function TCSPage() {
                 <ul className="space-y-3">
                   {tcsInfo.objectives.map((objective, index) => (
                     <li key={index} className="flex items-start">
-                      <div className="w-2 h-2 bg-red-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-gray-700 text-sm sm:text-base">{objective}</span>
                     </li>
                   ))}
@@ -118,21 +178,31 @@ export default function TCSPage() {
               </CardContent>
             </Card>
 
-            {/* Compétences - Mobile Optimized */}
-            <Card className="shadow-lg">
+            {/* Compétences avec barres de progression */}
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <CardHeader>
                 <CardTitle className="text-xl sm:text-2xl text-gray-900 flex items-center">
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-red-600" />
+                  <Star className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-purple-600" />
                   Compétences développées
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid gap-2 sm:gap-3 sm:grid-cols-2">
-                  {tcsInfo.skills.map((skill, index) => (
-                    <Badge key={index} variant="outline" className="border-red-200 text-red-700 justify-center py-2 text-xs sm:text-sm">
-                      {skill}
-                    </Badge>
-                  ))}
+                <div className="space-y-4">
+                  {tcsInfo.skills.map((skill, index) => {
+                    const IconComponent = skill.icon;
+                    return (
+                      <div key={index} className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <IconComponent className="w-4 h-4 text-blue-600 mr-2" />
+                            <span className="text-sm font-medium text-gray-700">{skill.name}</span>
+                          </div>
+                          <span className="text-sm text-purple-600 font-semibold">{skill.level}%</span>
+                        </div>
+                        <ProgressBar level={skill.level} />
+                      </div>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
@@ -140,27 +210,75 @@ export default function TCSPage() {
         </div>
       </section>
 
-      {/* Débouchés - Mobile Optimized */}
+      {/* Certifications Section - Nouvelle section */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Certifications
+            </h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3 max-w-4xl mx-auto">
+            {tcsInfo.certifications.map((cert, index) => {
+              const IconComponent = cert.icon;
+              const getStatusColor = (status) => {
+                switch(status) {
+                  case 'Acquis': return 'bg-green-100 text-green-800';
+                  case 'En cours': return 'bg-blue-100 text-blue-800';
+                  case 'Prévu': return 'bg-purple-100 text-purple-800';
+                  default: return 'bg-gray-100 text-gray-800';
+                }
+              };
+              
+              return (
+                <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <CardTitle className="text-lg text-gray-900">{cert.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Badge className={getStatusColor(cert.status)}>
+                      {cert.status}
+                    </Badge>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Débouchés - Amélioré */}
       <section className="py-12 sm:py-20 bg-gray-50">
         <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-4xl font-bold mb-4 text-gray-900">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Débouchés professionnels
             </h2>
-            <div className="w-16 sm:w-20 h-1 bg-red-600 mx-auto"></div>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
           </div>
 
-          <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {tcsInfo.opportunities.map((opportunity, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                    <Users className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                  </div>
-                  <CardTitle className="text-base sm:text-lg text-gray-900 leading-tight px-2">{opportunity}</CardTitle>
-                </CardHeader>
-              </Card>
-            ))}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {tcsInfo.opportunities.map((opportunity, index) => {
+              const IconComponent = opportunity.icon;
+              return (
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+                  <CardHeader className="text-center">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <CardTitle className="text-lg text-gray-900 leading-tight">{opportunity.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-sm text-gray-600">{opportunity.description}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
