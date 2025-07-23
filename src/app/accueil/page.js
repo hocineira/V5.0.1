@@ -392,23 +392,23 @@ export default function AccueilPage() {
         {/* Transition fluide depuis la section précédente */}
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-800/30 to-transparent pointer-events-none"></div>
         
-        {/* Background Elements Décoratifs avec opacité réduite et optimisations */}
+        {/* Background Elements Décoratifs simplifiés */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/6 rounded-full blur-3xl animate-float scroll-optimized"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/6 rounded-full blur-3xl animate-float-delay scroll-optimized"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/6 rounded-full blur-2xl animate-float-delay-2 scroll-optimized"></div>
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/6 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/6 rounded-full blur-3xl animate-float-delay"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/6 rounded-full blur-2xl animate-float-delay-2"></div>
           
           {/* Patterns géométriques subtils - Conditionnels pour appareils faibles */}
           {!isLowEndDevice && (
             <>
-              <div className="absolute top-10 right-10 w-32 h-32 border border-blue-500/5 rotate-45 animate-pulse scroll-optimized"></div>
-              <div className="absolute bottom-20 left-10 w-24 h-24 border border-purple-500/5 rotate-12 animate-pulse-delay scroll-optimized"></div>
+              <div className="absolute top-10 right-10 w-32 h-32 border border-blue-500/5 rotate-45 animate-pulse"></div>
+              <div className="absolute bottom-20 left-10 w-24 h-24 border border-purple-500/5 rotate-12 animate-pulse-delay"></div>
             </>
           )}
           
-          {/* Grille de fond subtile - Optimisée */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/3 to-transparent opacity-50 scroll-optimized"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent opacity-30 scroll-optimized"></div>
+          {/* Grille de fond subtile - Simplifiée */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/3 to-transparent opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent opacity-30"></div>
         </div>
 
         <div className="relative container mx-auto px-3 sm:px-4">
