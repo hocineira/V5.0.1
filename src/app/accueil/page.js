@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
-// Memoization des données statiques pour une esthétique moderne et technologique
+// Données statiques modernes pour un design technologique unifié
 const StaticData = {
   personalInfo: {
     name: 'Hocine IRATNI',
@@ -162,141 +162,93 @@ const ModernFeatureCard = memo(({ feature, index, onAction }) => {
 
 export default function AccueilPage() {
   const [isVisible, setIsVisible] = useState(false)
-  const [isLowEndDevice, setIsLowEndDevice] = useState(false)
-  const [isScrolling, setIsScrolling] = useState(false)
   const router = useRouter()
-  
-  // Variables pour gérer le scroll throttling
-  let scrollTimer = null
 
   useEffect(() => {
     setIsVisible(true)
-    
-    // Détection d'appareils simplifiée - CORRIGÉE pour éviter de pénaliser les appareils performants
-    const checkDeviceCapability = () => {
-      const isMobile = window.innerWidth <= 768
-      const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 2 // Seuil réduit à 2GB
-      const hasSlowConnection = navigator.connection && 
-        (navigator.connection.effectiveType === 'slow-2g' || 
-         navigator.connection.effectiveType === '2g')
-      
-      // NE PAS pénaliser les appareils haute résolution comme Samsung S22 Ultra
-      if (isMobile && (hasLowMemory || hasSlowConnection)) {
-        setIsLowEndDevice(true)
-        document.body.classList.add('low-end-device')
-      }
-    }
-    
-    // Gestionnaire de scroll SIMPLIFIÉ
-    const handleScroll = () => {
-      if (!isScrolling) {
-        setIsScrolling(true)
-        document.body.classList.add('scrolling')
-      }
-      
-      // Clear previous timer
-      if (scrollTimer) {
-        clearTimeout(scrollTimer)
-      }
-      
-      // Set new timer to remove scrolling class
-      scrollTimer = setTimeout(() => {
-        setIsScrolling(false)
-        document.body.classList.remove('scrolling')
-      }, 200) // Augmenté à 200ms pour éviter les basculements fréquents
-    }
-    
-    checkDeviceCapability()
-    
-    // Ajouter le listener de scroll avec throttling
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (scrollTimer) {
-        clearTimeout(scrollTimer)
-      }
-    }
   }, [])
 
-  // Memoisation des handlers
-  const handleContactClick = useMemo(() => () => {
-    window.location.href = `mailto:${StaticData.personalInfo.email}`
-  }, [])
-
-  const handleProjectsClick = useMemo(() => () => {
-    router.push('/projets')
-  }, [router])
-
-  const handleFeatureAction = useMemo(() => (href) => {
-    router.push(href)
-  }, [router])
-
-  const handleSocialClick = useMemo(() => (url) => () => {
-    window.open(url, '_blank')
-  }, [])
+  const handleProjectsClick = () => router.push('/projets')
+  const handleContactClick = () => window.open('mailto:hocineira@gmail.com', '_blank')
+  const handleSocialClick = (url) => () => window.open(url, '_blank')
+  const handleFeatureAction = (href) => router.push(href)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
-      {/* Animated Network Background - Simplifié */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating tech elements - Animations simplifiées */}
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-float-delay"></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl animate-float-delay-2"></div>
+    <div className="min-h-screen bg-slate-900 text-white overflow-hidden">
+      {/* Hero Section Moderne */}
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        {/* Grille technologique en arrière-plan */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgb(30 41 59 / 0.5) 1px, transparent 1px),
+              linear-gradient(180deg, rgb(30 41 59 / 0.5) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
         
-        {/* Circuit pattern overlay - Optimisé */}
-        {!isLowEndDevice && (
-          <div className="absolute inset-0 opacity-5">
-            <div className="w-full h-full" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-              backgroundSize: '60px 60px'
-            }} />
-          </div>
-        )}
-      </div>
+        {/* Éléments décoratifs tech */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 border border-cyan-400/20 rotate-45 rounded-lg"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 border border-cyan-400/10 rotate-12 rounded-lg"></div>
+          <div className="absolute bottom-32 left-20 w-40 h-40 border border-cyan-400/15 rotate-[-30deg] rounded-lg"></div>
+          
+          {/* Circuit pattern subtil */}
+          <div className="absolute top-1/2 left-1/4 w-1 h-20 bg-cyan-400/10"></div>
+          <div className="absolute top-1/2 left-1/4 w-20 h-1 bg-cyan-400/10"></div>
+          <div className="absolute top-1/2 right-1/4 w-1 h-16 bg-cyan-400/10"></div>
+          <div className="absolute top-1/2 right-1/4 w-16 h-1 bg-cyan-400/10"></div>
+        </div>
 
-      {/* Hero Section - Mobile Optimisé */}
-      <section className="relative py-12 sm:py-20 lg:py-32">
-        <div className="relative container mx-auto px-3 sm:px-4">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left Content - Mobile Optimized */}
-            <div className={`interactive ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="mb-6">
-                <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse-fast"></div>
-                  <span className="text-xs sm:text-sm text-blue-300">Système en ligne</span>
+        <div className="relative container mx-auto px-4 py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-10rem)]">
+            {/* Contenu principal */}
+            <div className="space-y-8">
+              {/* Badge status moderne */}
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-800/50 backdrop-blur-sm border border-cyan-400/30 rounded-full">
+                <div className="relative">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
                 </div>
-                <h1 className="responsive-heading font-bold mb-4 sm:mb-6 text-white leading-tight">
-                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-sm text-cyan-300 font-medium">Infrastructure Active</span>
+              </div>
+
+              {/* Titre principal moderne */}
+              <div className="space-y-4">
+                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+                  <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
                     {StaticData.personalInfo.name}
                   </span>
                 </h1>
-                <h2 className="text-lg sm:text-2xl md:text-3xl font-semibold mb-3 sm:mb-4 text-blue-300">
+                <h2 className="text-2xl lg:text-3xl font-semibold text-cyan-300">
                   {StaticData.personalInfo.title}
                 </h2>
-                <p className="responsive-text text-blue-200 mb-4 sm:mb-8">
+                <p className="text-xl text-slate-300 font-light">
                   {StaticData.personalInfo.subtitle}
                 </p>
-                <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed line-clamp-3">
-                  {StaticData.personalInfo.description}
-                </p>
               </div>
-              
-              <div className="flex flex-col gap-4 sm:gap-4 sm:flex-row mb-6 sm:mb-8">
+
+              {/* Description */}
+              <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                {StaticData.personalInfo.description}
+              </p>
+
+              {/* Boutons d'action modernes */}
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="touch-target-large mobile-ripple bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-4 sm:py-3 rounded-xl font-semibold interactive shadow-lg hover:shadow-blue-500/25 w-full sm:w-auto text-base sm:text-base"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
                   onClick={handleProjectsClick}
                 >
                   <Server className="mr-2 w-5 h-5" />
-                  <span>Découvrir mes projets</span>
+                  <span>Explorer mes projets</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="touch-target-large mobile-ripple border-2 border-blue-400 text-blue-400 hover:bg-blue-500/10 active:bg-blue-500/20 px-6 sm:px-8 py-4 sm:py-3 rounded-xl font-semibold interactive shadow-lg w-full sm:w-auto text-base sm:text-base"
+                  className="border-2 border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/10 hover:border-cyan-400 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
                   onClick={handleContactClick}
                 >
                   <Mail className="mr-2 w-5 h-5" />
@@ -304,24 +256,24 @@ export default function AccueilPage() {
                 </Button>
               </div>
 
-              {/* Contact Info - Mobile Optimized */}
-              <div className="flex flex-col gap-4 sm:gap-6 sm:flex-row items-start text-gray-300 mb-6 sm:mb-8">
-                <div className="touch-feedback flex items-center gap-3 hover:text-blue-400 interactive cursor-pointer p-2 -m-2 rounded-lg" onClick={handleContactClick}>
-                  <Mail className="w-5 h-5 flex-shrink-0" />
-                  <span className="text-base sm:text-base">{StaticData.personalInfo.email}</span>
+              {/* Contact info moderne */}
+              <div className="flex flex-col sm:flex-row gap-6 pt-4">
+                <div className="flex items-center gap-3 text-slate-300 hover:text-cyan-300 transition-colors cursor-pointer" onClick={handleContactClick}>
+                  <Mail className="w-5 h-5" />
+                  <span>{StaticData.personalInfo.email}</span>
                 </div>
-                <div className="flex items-center gap-3 p-2 -m-2">
-                  <MapPin className="w-5 h-5 flex-shrink-0" />
-                  <span className="text-base sm:text-base">{StaticData.personalInfo.location}</span>
+                <div className="flex items-center gap-3 text-slate-300">
+                  <MapPin className="w-5 h-5" />
+                  <span>{StaticData.personalInfo.location}</span>
                 </div>
               </div>
 
-              {/* Social Links - Mobile Optimized */}
-              <div className="flex gap-4 sm:gap-4">
+              {/* Réseaux sociaux modernes */}
+              <div className="flex gap-4 pt-2">
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="touch-target mobile-ripple border-2 border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 active:bg-blue-500/20 interactive w-12 h-12 sm:w-11 sm:h-11 rounded-xl"
+                  className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:border-cyan-400 hover:text-cyan-300 w-12 h-12 rounded-xl transition-all duration-300"
                   onClick={handleSocialClick(StaticData.personalInfo.social.linkedin)}
                 >
                   <Linkedin className="w-5 h-5" />
@@ -329,7 +281,7 @@ export default function AccueilPage() {
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="touch-target mobile-ripple border-2 border-blue-400/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400 active:bg-blue-500/20 interactive w-12 h-12 sm:w-11 sm:h-11 rounded-xl"
+                  className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:border-cyan-400 hover:text-cyan-300 w-12 h-12 rounded-xl transition-all duration-300"
                   onClick={handleSocialClick(StaticData.personalInfo.social.email)}
                 >
                   <Mail className="w-5 h-5" />
@@ -337,28 +289,35 @@ export default function AccueilPage() {
               </div>
             </div>
 
-            {/* Right Image - Mobile Optimized avec Next.js Image optimisé */}
-            <div className="relative mt-8 lg:mt-0">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 sm:h-80 lg:h-96">
-                <Image 
-                  src="/images/procedures/optimized_hero_image_new.webp" 
-                  alt="Infrastructure réseau et routeurs" 
-                  fill
-                  className="object-cover"
-                  priority
-                  quality={85}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent"></div>
-                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
-                  <div className="bg-black/20 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-blue-500/20">
-                    <div className="flex items-center gap-2 text-blue-300 mb-2">
-                      <Server className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="text-xs sm:text-sm">Infrastructure Active</span>
+            {/* Section image avec infrastructure moderne */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <div className="aspect-[4/3] relative">
+                  <Image 
+                    src="/images/procedures/optimized_hero_image_new.webp" 
+                    alt="Infrastructure réseau moderne" 
+                    fill
+                    className="object-cover"
+                    priority
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent"></div>
+                </div>
+                
+                {/* Overlay avec infrastructure status */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-slate-800/90 backdrop-blur-sm rounded-xl p-4 border border-cyan-400/30">
+                    <div className="flex items-center gap-2 text-cyan-300 mb-3">
+                      <Network className="w-4 h-4" />
+                      <span className="text-sm font-medium">Infrastructure SISR</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                      {StaticData.techStats.map((stat, index) => (
-                        <TechStat key={index} stat={stat} index={index} />
+                    <div className="grid grid-cols-2 gap-3">
+                      {StaticData.infrastructure.map((item, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                          <span className="text-xs text-slate-300">{item.name}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -367,130 +326,68 @@ export default function AccueilPage() {
             </div>
           </div>
         </div>
-        
-        {/* Transition fluide vers la section suivante */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-blue-900/30 pointer-events-none"></div>
       </section>
 
-      {/* Architecture Highlight Section - Mobile Optimized avec fond unifié */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-blue-900/30 via-indigo-900/40 to-purple-900/30 relative">
-        {/* Transition fluide depuis la section précédente */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-blue-900/30 to-transparent pointer-events-none"></div>
-        
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/8 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/8 rounded-full blur-3xl animate-float-delay"></div>
-        </div>
-
-        <div className="relative container mx-auto px-3 sm:px-4">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 sm:mb-6">
-                <Network className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
-                <span className="text-xs sm:text-sm text-blue-300">Infrastructure Personnelle</span>
-              </div>
-              <h2 className="responsive-heading font-bold mb-4 sm:mb-6 text-white leading-tight">
-                Mon <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Architecture Réseau</span>
-              </h2>
-              <p className="responsive-text text-blue-100 mb-6 sm:mb-8 leading-relaxed line-clamp-3">
-                Découvrez l'infrastructure complète que j'ai mise en place : pfSense pour la sécurité, 
-                VLANs pour la segmentation, Active Directory pour la gestion des utilisateurs, 
-                et des outils de monitoring comme GLPI et Zabbix.
-              </p>
-              <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
-                {StaticData.techList.map((tech, index) => (
-                  <span key={index} className="px-2 sm:px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-xs sm:text-sm text-blue-200">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold interactive shadow-lg hover:shadow-blue-500/25 w-full sm:w-auto"
-                onClick={handleProjectsClick}
-              >
-                <Server className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="text-sm sm:text-base">Voir l'architecture complète</span>
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-            <div className="relative">
-              <div className="bg-slate-800/30 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6 shadow-2xl">
-                <div className="text-center mb-4">
-                  <h3 className="text-xl font-semibold text-white mb-2">Infrastructure Active</h3>
-                  <p className="text-blue-300 text-sm">Schéma de mon environnement de test</p>
-                </div>
-                <div className="bg-slate-700/30 rounded-lg p-4 mb-4">
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-gray-300">pfSense Firewall</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                      <span className="text-gray-300">VLANs Configurés</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                      <span className="text-gray-300">Active Directory</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                      <span className="text-gray-300">Monitoring Zabbix</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <span className="text-xs text-blue-400">Cliquez pour voir le schéma détaillé</span>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Section Compétences Techniques Moderne */}
+      <section className="py-20 bg-gradient-to-br from-slate-800/50 to-slate-900/80 relative">
+        {/* Fond technique subtil */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25px 25px, rgb(6 182 212 / 0.3) 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
         </div>
         
-        {/* Transition fluide vers la section suivante */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-slate-800/30 pointer-events-none"></div>
-      </section>
-
-      {/* Features Section - Mobile Optimized avec transition harmonieuse */}
-      <section className="py-12 sm:py-20 bg-gradient-to-br from-slate-800/30 via-blue-900/10 to-slate-900/40 relative overflow-hidden">
-        {/* Transition fluide depuis la section précédente */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-800/30 to-transparent pointer-events-none"></div>
-        
-        {/* Background Elements Décoratifs simplifiés */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/6 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/6 rounded-full blur-3xl animate-float-delay"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/6 rounded-full blur-2xl animate-float-delay-2"></div>
-          
-          {/* Patterns géométriques subtils - Conditionnels pour appareils faibles */}
-          {!isLowEndDevice && (
-            <>
-              <div className="absolute top-10 right-10 w-32 h-32 border border-blue-500/5 rotate-45 animate-pulse"></div>
-              <div className="absolute bottom-20 left-10 w-24 h-24 border border-purple-500/5 rotate-12 animate-pulse-delay"></div>
-            </>
-          )}
-          
-          {/* Grille de fond subtile - Simplifiée */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/3 to-transparent opacity-50"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent opacity-30"></div>
-        </div>
-
-        <div className="relative container mx-auto px-3 sm:px-4">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4 sm:mb-6">
-              <Network className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
-              <span className="text-xs sm:text-sm text-blue-300">Architecture Système</span>
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 backdrop-blur-sm border border-cyan-400/30 rounded-full mb-6">
+              <Code className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-cyan-300 font-medium">Stack Technologique</span>
             </div>
-            <h2 className="responsive-heading font-bold mb-4 text-white leading-tight">
-              Explorez mon <span className="text-gradient bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Infrastructure</span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                Compétences
+              </span>
+              <span className="text-cyan-300"> SISR</span>
             </h2>
-            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+              Technologies et outils maîtrisés dans le domaine des systèmes et réseaux informatiques
+            </p>
           </div>
 
-          <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {StaticData.techStack.map((skill, index) => (
+              <TechSkill key={index} skill={skill} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section Navigation des Services */}
+      <section className="py-20 bg-gradient-to-br from-slate-900/80 to-slate-800/50 relative">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-400/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 backdrop-blur-sm border border-cyan-400/30 rounded-full mb-6">
+              <Globe className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-cyan-300 font-medium">Portfolio</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                Explorez mon
+              </span>
+              <span className="text-cyan-300"> parcours</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full mb-8"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
             {StaticData.features.map((feature, index) => (
-              <FeatureCard 
+              <ModernFeatureCard 
                 key={index} 
                 feature={feature} 
                 index={index} 
@@ -499,84 +396,57 @@ export default function AccueilPage() {
             ))}
           </div>
         </div>
-        
-        {/* Transition fluide vers la section suivante */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-slate-900/60 pointer-events-none"></div>
       </section>
 
-      {/* Tech Stack Section - Performance optimisée avec fond harmonisé */}
-      <section className="py-20 bg-gradient-to-br from-slate-900/60 via-slate-800/40 to-slate-900 relative">
-        {/* Transition fluide depuis la section précédente */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-900/60 to-transparent pointer-events-none"></div>
-        
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="responsive-heading font-bold mb-4 text-white">
-              Stack <span className="text-gradient bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Technologique</span>
-            </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto responsive-text">
-              Technologies et outils que j'utilise dans mes projets
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {StaticData.techStats.map((tech, index) => {
-              const Icon = tech.icon
-              return (
-                <div key={index} className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/40 rounded-lg p-6 hover:border-blue-500/50 interactive group">
-                  <div className="flex items-center justify-between mb-4">
-                    <Icon className="w-8 h-8 text-blue-400 group-hover:scale-110 interactive" />
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse-fast"></div>
-                  </div>
-                  <div className="text-lg font-bold text-white mb-2">{tech.value}</div>
-                  <div className="text-sm text-gray-300">{tech.label}</div>
-                  <div className="mt-3 bg-slate-700/60 rounded-full h-2 overflow-hidden">
-                    <div className={`bg-gradient-to-r ${tech.color} h-full rounded-full w-full interactive`}></div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+      {/* Section CTA Finale Moderne */}
+      <section className="py-20 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 relative">
+        {/* Pattern technique */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(45deg, transparent 24%, rgb(6 182 212 / 0.1) 25%, rgb(6 182 212 / 0.1) 26%, transparent 27%, transparent 74%, rgb(6 182 212 / 0.1) 75%, rgb(6 182 212 / 0.1) 76%, transparent 77%),
+              linear-gradient(-45deg, transparent 24%, rgb(59 130 246 / 0.1) 25%, rgb(59 130 246 / 0.1) 26%, transparent 27%, transparent 74%, rgb(59 130 246 / 0.1) 75%, rgb(59 130 246 / 0.1) 76%, transparent 77%)
+            `,
+            backgroundSize: '40px 40px'
+          }}></div>
         </div>
         
-        {/* Transition fluide vers la section suivante */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-blue-600 pointer-events-none"></div>
-      </section>
-
-      {/* CTA Section - Optimisée pour mobile avec transition harmonieuse */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 relative">
-        {/* Transition fluide depuis la section précédente */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-blue-600 to-transparent pointer-events-none"></div>
-        
         <div className="relative container mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse-fast"></div>
-            <span className="text-sm text-blue-100">Prêt à connecter</span>
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-900/50 backdrop-blur-sm border border-cyan-400/30 rounded-full mb-8">
+            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+            <span className="text-sm text-cyan-300 font-medium">Prêt à collaborer</span>
           </div>
-          <h2 className="responsive-heading font-bold mb-6 text-white">
-            Prêt à découvrir mon <span className="text-yellow-300">infrastructure</span> ?
+          
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+              Créons ensemble votre
+            </span>
+            <span className="text-cyan-300"> infrastructure</span>
           </h2>
-          <p className="responsive-text text-blue-100 mb-8 max-w-2xl mx-auto line-clamp-3">
-            Explorez mes projets, mes compétences et mon parcours dans le domaine des systèmes et réseaux informatiques.
+          
+          <p className="text-xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Découvrez mes réalisations en systèmes et réseaux, mes compétences techniques 
+            et mon approche moderne de l'administration IT.
           </p>
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold interactive shadow-lg hover:shadow-white/20"
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
               onClick={handleProjectsClick}
             >
-              <Database className="mr-2 w-5 h-5" />
-              Accéder aux projets
+              <Server className="mr-2 w-5 h-5" />
+              <span>Voir mes projets</span>
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
-              variant="outline"
+              variant="outline" 
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold interactive shadow-lg"
+              className="border-2 border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/10 hover:border-cyan-400 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
               onClick={handleContactClick}
             >
               <Mail className="mr-2 w-5 h-5" />
-              Établir une connexion
+              <span>Établir une connexion</span>
             </Button>
           </div>
         </div>
