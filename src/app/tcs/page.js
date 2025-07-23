@@ -151,6 +151,8 @@ export default function TCSPage() {
                       </ul>
                     </CardContent>
                   </Card>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
