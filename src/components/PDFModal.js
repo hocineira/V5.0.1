@@ -208,9 +208,27 @@ export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
                 </Button>
               </div>
             </div>
+          ) : usePDFJS ? (
+            // PDF.js Fallback
+            <div className="w-full h-full">
+              <div className="absolute top-16 left-4 right-4 p-2 bg-blue-50 border border-blue-200 rounded-lg text-sm text-blue-800 mb-2 z-20">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4" />
+                  <span>Mode compatibilité activé pour une meilleure visualisation</span>
+                </div>
+              </div>
+              <iframe
+                src={getPDFJSUrl()}
+                className="w-full h-full border-0 mt-12"
+                title={title}
+                onLoad={() => console.log('PDF.js loaded')}
+                onError={() => setError(true)}
+              />
+            </div>
           ) : (
-            // PDF Iframe
+            // Standard PDF Iframe
             <iframe
+              ref={iframeRef}
               src={`${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1&zoom=fit`}
               className="w-full h-full border-0"
               title={title}
