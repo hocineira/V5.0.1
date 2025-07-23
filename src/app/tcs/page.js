@@ -126,13 +126,15 @@ export default function TCSPage() {
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-400 to-purple-400"></div>
+              {/* Desktop: Center line, Mobile: Left line */}
+              <div className="absolute left-8 sm:left-1/2 sm:transform sm:-translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-400 to-purple-400"></div>
               
               {tcsInfo.timeline.map((item, index) => (
-                <div key={index} className={`relative mb-8 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg"></div>
-                  
-                  <Card className={`block mx-auto md:mx-0 w-5/12 md:w-5/12 max-w-sm hover:shadow-lg transition-all duration-300 hover:scale-105 ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-0'}`}>
+                <div key={index} className="relative mb-8">
+                  {/* Mobile: Full width, Desktop: Alternating sides */}
+                  <div className={`sm:flex sm:items-center ${index % 2 === 0 ? 'sm:justify-start' : 'sm:justify-end'}`}>
+                    <div className={`w-full sm:w-1/2 pl-16 sm:pl-0 ${index % 2 === 0 ? 'sm:pr-8' : 'sm:pl-8'}`}>
+                      <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <CardHeader>
                       <CardTitle className="text-lg text-blue-600">{item.year}</CardTitle>
                       <CardDescription className="text-purple-600">{item.period}</CardDescription>
