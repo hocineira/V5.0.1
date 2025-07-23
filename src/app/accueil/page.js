@@ -7,13 +7,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
-// Memoization des données statiques pour éviter les re-créations
+// Memoization des données statiques pour une esthétique moderne et technologique
 const StaticData = {
   personalInfo: {
     name: 'Hocine IRATNI',
     title: 'Étudiant en BTS SIO SISR',
     subtitle: 'Spécialiste Systèmes et Réseaux Informatiques',
-    description: 'Passionné par l\'informatique et les nouvelles technologies, je me spécialise dans l\'administration des systèmes et réseaux. Mon objectif est de contribuer à la sécurité et à l\'efficacité des infrastructures IT.',
+    description: 'Passionné par l\'infrastructure IT et les nouvelles technologies, je développe des compétences en administration système, sécurité réseau et virtualisation.',
     email: 'hocineira@gmail.com',
     phone: '06 XX XX XX XX',
     location: 'Marseille, France',
@@ -27,32 +27,73 @@ const StaticData = {
     {
       icon: GraduationCap,
       title: 'Formation BTS SIO',
-      description: 'Découvrez les deux options du BTS Services Informatiques aux Organisations',
-      href: '/bts-sio',
-      gradient: 'from-blue-500 to-purple-600'
+      description: 'Découvrez le parcours BTS Services Informatiques aux Organisations',
+      href: '/bts-sio'
     },
     {
       icon: Server,
       title: 'Projets Techniques',
-      description: 'Consultez mes réalisations en systèmes et réseaux informatiques',
-      href: '/projets',
-      gradient: 'from-purple-500 to-indigo-600'
+      description: 'Explorez mes réalisations en infrastructure et réseaux',
+      href: '/projets'
     },
     {
       icon: Monitor,
       title: 'Veilles Technologiques',
-      description: 'Suivez mes analyses sur les dernières technologies IT',
-      href: '/veilles',
-      gradient: 'from-indigo-500 to-blue-600'
+      description: 'Suivez mes analyses des dernières innovations IT',
+      href: '/veilles'
     }
   ],
-  techStats: [
-    { icon: Network, label: 'Cisco', value: 'CCNA', color: 'from-blue-500 to-cyan-500' },
-    { icon: Shield, label: 'Security', value: 'Wireshark', color: 'from-red-500 to-pink-500' },
-    { icon: Database, label: 'Systems', value: 'Windows Server', color: 'from-green-500 to-emerald-500' },
-    { icon: Cpu, label: 'Hyperviseur', value: 'Proxmox', color: 'from-purple-500 to-indigo-500' }
+  // Stack technologique unifié avec design moderne
+  techStack: [
+    { 
+      icon: Network, 
+      name: 'Cisco CCNA', 
+      category: 'Réseaux',
+      description: 'Configuration et maintenance',
+      status: 'expert'
+    },
+    { 
+      icon: Shield, 
+      name: 'pfSense', 
+      category: 'Sécurité',
+      description: 'Firewall et VPN',
+      status: 'avancé'
+    },
+    { 
+      icon: Database, 
+      name: 'Active Directory', 
+      category: 'Systèmes',
+      description: 'Gestion d\'identités',
+      status: 'avancé'
+    },
+    { 
+      icon: Settings, 
+      name: 'Proxmox', 
+      category: 'Virtualisation',
+      description: 'Hyperviseur open-source',
+      status: 'intermédiaire'
+    },
+    { 
+      icon: Terminal, 
+      name: 'Linux/Windows', 
+      category: 'OS',
+      description: 'Administration système',
+      status: 'expert'
+    },
+    { 
+      icon: Wifi, 
+      name: 'VLANs', 
+      category: 'Réseaux',
+      description: 'Segmentation réseau',
+      status: 'avancé'
+    }
   ],
-  techList: ['pfSense', 'VLANs', 'Active Directory', 'GLPI', 'Zabbix']
+  infrastructure: [
+    { name: 'pfSense Firewall', status: 'active', type: 'security' },
+    { name: 'Switch Managé', status: 'active', type: 'network' },
+    { name: 'Serveur AD', status: 'active', type: 'system' },
+    { name: 'Proxmox Cluster', status: 'active', type: 'virtualization' }
+  ]
 }
 
 // Component memoizé pour les stats tech
