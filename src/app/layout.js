@@ -13,6 +13,11 @@ export const metadata = {
     shortcut: '/favicon.ico',
   },
   manifest: '/manifest.json',
+  other: {
+    // Préchargement des ressources critiques pour performance
+    'dns-prefetch': 'https://fonts.googleapis.com',
+    'preconnect': 'https://fonts.gstatic.com',
+  }
 };
 
 export const viewport = {
