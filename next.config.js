@@ -59,8 +59,8 @@ const nextConfig = {
               "img-src 'self' data: https://images.unsplash.com",
               "font-src 'self' data:",
               "connect-src 'self'",
-              "frame-src 'self' blob: data:",
-              "object-src 'self'",
+              "frame-src 'self' blob: data: *",
+              "object-src 'self' blob: data:",
               "frame-ancestors 'self'",
               "base-uri 'self'",
               "form-action 'self'"
