@@ -17,12 +17,29 @@ export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
       document.body.style.overflow = 'hidden'
       setIsLoading(true)
       setError(false)
+      setUsePDFJS(false)
+      
+      // Set up a timeout to detect if iframe fails to load
+      const timeout = setTimeout(() => {
+        console.log('PDF loading timeout, switching to PDF.js')
+        setIsLoading(false)
+        setUsePDFJS(true)
+      }, 8000) // 8 seconds timeout
+      
+      setLoadTimeout(timeout)
     } else {
       document.body.style.overflow = 'unset'
+      if (loadTimeout) {
+        clearTimeout(loadTimeout)
+        setLoadTimeout(null)
+      }
     }
 
     return () => {
       document.body.style.overflow = 'unset'
+      if (loadTimeout) {
+        clearTimeout(loadTimeout)
+      }
     }
   }, [isOpen])
 
