@@ -239,11 +239,11 @@ export default function AccueilPage() {
                 {StaticData.personalInfo.description}
               </p>
 
-              {/* Boutons d'action modernes */}
+              {/* Boutons d'action avec style technologique bleu/violet */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25"
+                  className="bg-gradient-to-r from-blue-600 via-purple-600 to-violet-600 hover:from-blue-700 hover:via-purple-700 hover:to-violet-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/30 border border-blue-400/20"
                   onClick={handleProjectsClick}
                 >
                   <Server className="mr-2 w-5 h-5" />
@@ -253,7 +253,7 @@ export default function AccueilPage() {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-2 border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/10 hover:border-cyan-400 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
+                  className="border-2 border-purple-400/60 text-purple-300 hover:bg-purple-500/20 hover:border-purple-400 hover:text-purple-200 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
                   onClick={handleContactClick}
                 >
                   <Mail className="mr-2 w-5 h-5" />
@@ -261,24 +261,24 @@ export default function AccueilPage() {
                 </Button>
               </div>
 
-              {/* Contact info moderne */}
+              {/* Contact info avec touches bleu/violet */}
               <div className="flex flex-col sm:flex-row gap-6 pt-4">
-                <div className="flex items-center gap-3 text-slate-300 hover:text-cyan-300 transition-colors cursor-pointer" onClick={handleContactClick}>
-                  <Mail className="w-5 h-5" />
+                <div className="flex items-center gap-3 text-slate-300 hover:text-blue-300 transition-colors cursor-pointer group" onClick={handleContactClick}>
+                  <Mail className="w-5 h-5 group-hover:text-blue-400" />
                   <span>{StaticData.personalInfo.email}</span>
                 </div>
-                <div className="flex items-center gap-3 text-slate-300">
-                  <MapPin className="w-5 h-5" />
+                <div className="flex items-center gap-3 text-slate-300 hover:text-purple-300 transition-colors group">
+                  <MapPin className="w-5 h-5 group-hover:text-purple-400" />
                   <span>{StaticData.personalInfo.location}</span>
                 </div>
               </div>
 
-              {/* Réseaux sociaux modernes */}
+              {/* Réseaux sociaux avec style bleu/violet */}
               <div className="flex gap-4 pt-2">
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:border-cyan-400 hover:text-cyan-300 w-12 h-12 rounded-xl transition-all duration-300"
+                  className="border-slate-600 text-slate-300 hover:bg-blue-500/20 hover:border-blue-400 hover:text-blue-300 w-12 h-12 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                   onClick={handleSocialClick(StaticData.personalInfo.social.linkedin)}
                 >
                   <Linkedin className="w-5 h-5" />
@@ -286,7 +286,7 @@ export default function AccueilPage() {
                 <Button 
                   variant="outline" 
                   size="icon" 
-                  className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:border-cyan-400 hover:text-cyan-300 w-12 h-12 rounded-xl transition-all duration-300"
+                  className="border-slate-600 text-slate-300 hover:bg-purple-500/20 hover:border-purple-400 hover:text-purple-300 w-12 h-12 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20"
                   onClick={handleSocialClick(StaticData.personalInfo.social.email)}
                 >
                   <Mail className="w-5 h-5" />
