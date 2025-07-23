@@ -153,7 +153,10 @@ export default function TCSPage() {
                   </Card>
                     </div>
                   </div>
-                </div>
+                
+                {/* Timeline dot - Mobile: Left aligned, Desktop: Center */}
+                <div className="absolute left-6 top-6 sm:left-1/2 sm:top-8 sm:transform sm:-translate-x-1/2 w-4 h-4 bg-white border-4 border-blue-500 rounded-full z-10"></div>
+              </div>
               ))}
             </div>
           </div>
