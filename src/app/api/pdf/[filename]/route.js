@@ -15,17 +15,12 @@ export async function GET(request, { params }) {
     // Lire le fichier PDF
     const fileBuffer = fs.readFileSync(filePath)
     
-    // Créer une réponse avec les bons en-têtes CORS
+    // Créer une réponse avec les bons en-têtes
     const response = new NextResponse(fileBuffer, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `inline; filename="${filename}"`,
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-        'X-Frame-Options': 'ALLOWALL',
-        'Content-Security-Policy': "frame-ancestors 'self' *",
         'Cache-Control': 'public, max-age=3600'
       }
     })
