@@ -528,6 +528,14 @@ export default function ProjetsPage() {
         imageSrc={selectedImage?.src} 
         title={selectedImage?.title} 
       />
+      
+      {/* PDF Modal */}
+      <PDFModal 
+        isOpen={isPDFModalOpen} 
+        onClose={closePDFModal} 
+        pdfUrl={selectedPDF?.url} 
+        title={selectedPDF?.title} 
+      />
     </div>
   )
 }
