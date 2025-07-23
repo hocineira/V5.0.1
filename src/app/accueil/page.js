@@ -109,20 +109,20 @@ const TechSkill = memo(({ skill, index }) => {
   }
   
   return (
-    <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-300 hover:translate-y-[-4px]">
+    <div className="group relative bg-slate-800/60 backdrop-blur-sm border border-purple-500/30 rounded-xl p-6 hover:border-blue-400/60 hover:bg-slate-800/80 transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl hover:shadow-blue-500/20">
       <div className="flex items-start justify-between mb-4">
-        <div className="p-3 bg-slate-700/50 rounded-lg group-hover:bg-cyan-400/10 transition-all duration-300">
-          <Icon className="w-6 h-6 text-cyan-400" />
+        <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg group-hover:from-blue-400/30 group-hover:to-purple-400/30 transition-all duration-300 border border-blue-400/20">
+          <Icon className="w-6 h-6 text-blue-300 group-hover:text-blue-200" />
         </div>
-        <div className={`w-2 h-2 rounded-full ${getStatusColor(skill.status)} opacity-75`}></div>
+        <div className={`w-3 h-3 rounded-full ${getStatusColor(skill.status)} opacity-80 animate-pulse`}></div>
       </div>
-      <h3 className="text-white font-semibold text-lg mb-1">{skill.name}</h3>
-      <p className="text-cyan-300 text-sm font-medium mb-2">{skill.category}</p>
-      <p className="text-slate-300 text-sm leading-relaxed">{skill.description}</p>
+      <h3 className="text-white font-semibold text-lg mb-1 group-hover:text-blue-100">{skill.name}</h3>
+      <p className="text-purple-300 text-sm font-medium mb-2 group-hover:text-purple-200">{skill.category}</p>
+      <p className="text-slate-300 text-sm leading-relaxed group-hover:text-slate-200">{skill.description}</p>
       
-      {/* Ligne de progression moderne */}
-      <div className="mt-4 h-1 bg-slate-700 rounded-full overflow-hidden">
-        <div className={`h-full bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full transition-all duration-1000 
+      {/* Ligne de progression avec dégradé bleu/violet */}
+      <div className="mt-4 h-2 bg-slate-700/50 rounded-full overflow-hidden">
+        <div className={`h-full bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400 rounded-full transition-all duration-1000 
           ${skill.status === 'expert' ? 'w-full' : skill.status === 'avancé' ? 'w-4/5' : 'w-3/5'}`}></div>
       </div>
     </div>
