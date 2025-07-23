@@ -819,7 +819,7 @@ body {
 
 @keyframes ping {
   75%, 100% {
-    transform: translate(-50%, -50%) scale(2);
+    transform: scale(2);
     opacity: 0;
   }
 }
