@@ -5,6 +5,7 @@ import { ArrowRight, Github, Linkedin, Mail, MapPin, Phone, GraduationCap, User,
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 // Memoization des données statiques pour éviter les re-créations
 const StaticData = {
