@@ -132,7 +132,7 @@ export default function TCSPage() {
                 <div key={index} className={`relative mb-8 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
                   <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg"></div>
                   
-                  <Card className={`block w-5/12 max-w-sm hover:shadow-lg transition-all duration-300 hover:scale-105 ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-0'}`}>
+                  <Card className={`block mx-auto md:mx-0 w-5/12 md:w-5/12 max-w-sm hover:shadow-lg transition-all duration-300 hover:scale-105 ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-0'}`}>
                     <CardHeader>
                       <CardTitle className="text-lg text-blue-600">{item.year}</CardTitle>
                       <CardDescription className="text-purple-600">{item.period}</CardDescription>
