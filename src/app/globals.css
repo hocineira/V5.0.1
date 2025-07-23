@@ -70,10 +70,10 @@ body {
 }
 
 /* ========================================
-   ANIMATIONS & TRANSITIONS OPTIMISÉES MOBILE
+   ANIMATIONS & TRANSITIONS OPTIMISÉES MOBILE AMÉLIORÉES
    ======================================== */
 
-/* Animation GPU accélérée pour les flottements - OPTIMISÉE MOBILE */
+/* Animation GPU accélérée pour les flottements - SCROLL OPTIMISÉE */
 @keyframes float-optimized {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(0, -10px, 0); }
@@ -84,22 +84,33 @@ body {
   50% { transform: translate3d(0, -5px, 0); }
 }
 
-/* Animations adaptatives selon l'écran */
+@keyframes float-micro {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -2px, 0); }
+}
+
+/* Animations adaptatives avec containment et optimisations scroll */
 .animate-float {
   animation: float-optimized 4s ease-in-out infinite;
   will-change: transform;
+  transform: translateZ(0); /* Force GPU layer isolation */
+  contain: layout style; /* Prévient la recomposition during scroll */
 }
 
 .animate-float-delay {
   animation: float-optimized 5s ease-in-out infinite;
   animation-delay: 1s;
   will-change: transform;
+  transform: translateZ(0);
+  contain: layout style;
 }
 
 .animate-float-delay-2 {
   animation: float-optimized 6s ease-in-out infinite;
   animation-delay: 2s;
   will-change: transform;
+  transform: translateZ(0);
+  contain: layout style;
 }
 
 /* Optimisations mobiles - Réduction des animations */
