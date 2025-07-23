@@ -1,16 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuration minimale pour debug
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  
-  // Désactiver les optimisations complexes temporairement
-  // experimental: {
-  //   optimizePackageImports: ['lucide-react'],
-  // },
+  // Configuration stable et optimisée
 
-  // Configuration basique des images
+  // Optimisations légères de performance
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+
+  // Configuration des images (conservée, elle fonctionne bien)
   images: {
     remotePatterns: [
       {
@@ -20,16 +17,39 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 jours
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    loader: 'default',
   },
 
-  // Headers simplifiés
+  // Compression de base
+  compress: true,
+  
+  // Headers de sécurité simplifiés mais complets
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
+          // Performance headers de base
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          // Sécurité essentielle
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          // CSP optimisé pour PDF et performance
           {
             key: 'Content-Security-Policy',
             value: [
@@ -47,13 +67,28 @@ const nextConfig = {
             ].join('; ')
           }
         ],
-      }
+      },
+      // Cache optimisé pour les images
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ],
+      },
     ]
   },
 
-  // Configuration de base
+  // Configuration de base sécurisée
   poweredByHeader: false,
-  compress: true,
+  generateEtags: false,
+  
+  // Pas de rewrites complexes
+  async rewrites() {
+    return []
+  }
 }
 
 module.exports = nextConfig
