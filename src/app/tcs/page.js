@@ -20,14 +20,16 @@ export default function TCSPage() {
       'Organiser son développement professionnel'
     ],
     skills: [
-      { name: 'Administration des systèmes', level: 85, icon: Server },
-      { name: 'Gestion des réseaux', level: 90, icon: Network },
-      { name: 'Virtualisation', level: 80, icon: Code },
-      { name: 'Sécurité informatique', level: 75, icon: Lock },
-      { name: 'Support technique', level: 88, icon: Users },
-      { name: 'Supervision et monitoring', level: 82, icon: TrendingUp },
-      { name: 'Configuration des équipements réseau', level: 85, icon: Network },
-      { name: 'Gestion de projets IT', level: 78, icon: Briefcase }
+      { name: 'Administration Active Directory', level: 90, icon: Server },
+      { name: 'Configuration VLAN et Switch', level: 85, icon: Network },
+      { name: 'Hyperviseur PROXMOX', level: 88, icon: Code },
+      { name: 'Déploiement GPO Windows', level: 82, icon: Lock },
+      { name: 'Installation GLPI et ZABBIX', level: 80, icon: TrendingUp },
+      { name: 'Configuration VPN Fortinet', level: 75, icon: Lock },
+      { name: 'Cisco Packet Tracer', level: 78, icon: Network },
+      { name: 'Maintenance et réparation PC', level: 85, icon: Users },
+      { name: 'Exchange Server', level: 76, icon: Server },
+      { name: 'Configuration WiFi D-Link', level: 70, icon: Network }
     ],
     timeline: [
       { year: 'Année 1', period: '2023-2024', focus: 'Fondamentaux IT', achievements: ['Bases systèmes', 'Réseaux TCP/IP', 'Virtualisation'] },
