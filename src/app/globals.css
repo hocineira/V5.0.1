@@ -3,8 +3,56 @@
 @tailwind utilities;
 
 /* ========================================
-   CONFIGURATION PERFORMANCE MOBILE OPTIMISÉE
+   OPTIMISATIONS SCROLL SPÉCIFIQUES
    ======================================== */
+
+/* Containment global pour améliorer les performances de scroll */
+html {
+  overscroll-behavior: contain; /* Prévient le scroll chaining */
+}
+
+/* Sections avec containment pour éviter la recomposition */
+section {
+  contain: layout style;
+}
+
+/* Éléments avec blur optimisés pour le scroll */
+.backdrop-blur-sm, .backdrop-blur-md, .backdrop-blur-lg {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+/* Optimisations pour les éléments animés pendant le scroll */
+.scroll-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+/* Classes pour la pause d'animations pendant le scroll */
+.scroll-paused .animate-float,
+.scroll-paused .animate-float-delay,
+.scroll-paused .animate-float-delay-2 {
+  animation-play-state: paused !important;
+}
+
+/* Réduction automatique des animations pendant le scroll */
+.scrolling .animate-float,
+.scrolling .animate-float-delay,
+.scrolling .animate-float-delay-2 {
+  animation: float-micro 4s ease-in-out infinite;
+}
+
+.scrolling .blur-3xl {
+  backdrop-filter: blur(8px) !important;
+  transition: backdrop-filter 0.1s ease;
+}
+
+.scrolling .blur-2xl {
+  backdrop-filter: blur(6px) !important;
+  transition: backdrop-filter 0.1s ease;
+}
 
 /* Variables CSS critiques uniquement */
 :root {
