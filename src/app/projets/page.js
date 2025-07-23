@@ -11,6 +11,8 @@ import PDFModal from '../../components/PDFModal'
 export default function ProjetsPage() {
   const [selectedImage, setSelectedImage] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedPDF, setSelectedPDF] = useState(null)
+  const [isPDFModalOpen, setIsPDFModalOpen] = useState(false)
   
   const openImageModal = (imageSrc, title) => {
     setSelectedImage({ src: imageSrc, title })
