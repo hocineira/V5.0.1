@@ -101,10 +101,10 @@ const TechSkill = memo(({ skill, index }) => {
   const Icon = skill.icon
   const getStatusColor = (status) => {
     switch (status) {
-      case 'expert': return 'bg-cyan-400'
-      case 'avancé': return 'bg-blue-400' 
-      case 'intermédiaire': return 'bg-slate-400'
-      default: return 'bg-slate-400'
+      case 'expert': return 'bg-gradient-to-r from-blue-400 to-purple-400'
+      case 'avancé': return 'bg-gradient-to-r from-purple-400 to-violet-400' 
+      case 'intermédiaire': return 'bg-gradient-to-r from-violet-400 to-blue-400'
+      default: return 'bg-gradient-to-r from-slate-400 to-slate-500'
     }
   }
   
