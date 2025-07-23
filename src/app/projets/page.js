@@ -46,7 +46,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/VLAN_Interco.pdf',
-      image: '/images/procedures/vlan_network_switch.jpg',
+      image: '/images/procedures/optimized_vlan_network_switch.webp',
       icon: Network
     },
     {
@@ -59,7 +59,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/Zabbix.pdf',
-      image: '/images/procedures/zabbix_image.jpg',
+      image: '/images/procedures/optimized_zabbix_image.webp',
       icon: Monitor
     },
     {
@@ -72,7 +72,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/Active_Directory.pdf',
-      image: '/images/procedures/ad_image.jpg',
+      image: '/images/procedures/optimized_ad_image.webp',
       icon: Server
     },
     {
@@ -98,7 +98,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/Proxmox.pdf',
-      image: '/images/procedures/proxmox_image.png',
+      image: '/images/procedures/optimized_proxmox_image.webp',
       icon: HardDrive
     },
     {
@@ -111,7 +111,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/GPO.pdf',
-      image: '/images/procedures/gpo_image.jpg',
+      image: '/images/procedures/optimized_gpo_image.webp',
       icon: Shield
     },
     {
@@ -124,7 +124,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/MITM_Ettercap.pdf',
-      image: '/images/procedures/kali_image.jpg',
+      image: '/images/procedures/optimized_kali_image.webp',
       icon: Shield
     },
     {
@@ -137,7 +137,7 @@ export default function ProjetsPage() {
       status: 'completed',
       type: 'procedure',
       pdfUrl: '/procedures/MITM_DNS_Spoofing.pdf',
-      image: '/images/procedures/kali_image.jpg',
+      image: '/images/procedures/optimized_kali_image.webp',
       icon: Shield
     }
   ], []) // Fermeture du useMemo
@@ -220,7 +220,7 @@ export default function ProjetsPage() {
                   {/* Image Section - Mobile Optimized */}
                   <div className="lg:w-1/2 h-64 sm:h-80 lg:h-96 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                     <img 
-                      src="/images/procedures/mon_schema_reseau_personnel.jpg" 
+                      src="/images/procedures/optimized_mon_schema_reseau_personnel.webp" 
                       alt="Architecture Réseau d'Entreprise - INFRA S4P2"
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                     />
@@ -271,7 +271,7 @@ export default function ProjetsPage() {
                       <div className="flex gap-3">
                         <Button 
                           className="flex-1 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200"
-                          onClick={() => openImageModal('/images/procedures/mon_schema_reseau_personnel.jpg', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
+                          onClick={() => openImageModal('/images/procedures/optimized_mon_schema_reseau_personnel.webp', 'Architecture Réseau d\'Entreprise - INFRA S4P2')}
                         >
                           <Eye className="w-5 h-5 mr-2" />
                           Voir Schéma Complet
@@ -281,7 +281,7 @@ export default function ProjetsPage() {
                           className="flex-1 border-2 border-amber-500 text-amber-600 hover:bg-amber-50 font-bold py-3 px-6 rounded-xl transform hover:scale-105 transition-all duration-200"
                           onClick={() => {
                             const link = document.createElement('a');
-                            link.href = '/images/procedures/mon_schema_reseau_personnel.jpg';
+                            link.href = '/images/procedures/optimized_mon_schema_reseau_personnel.webp';
                             link.download = 'Mon_Schema_Reseau_Personnel_INFRA_S4P2.jpg';
                             link.click();
                           }}
