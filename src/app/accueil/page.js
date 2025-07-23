@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, memo, useMemo } from 'react'
-import { ArrowRight, Github, Linkedin, Mail, MapPin, Phone, GraduationCap, User, Target, Server, Network, Monitor, Database, Shield, Cpu } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Mail, MapPin, Phone, GraduationCap, User, Target, Server, Network, Monitor, Database, Shield, Cpu, Zap, Globe, Lock, Settings, Code, Terminal, Wifi } from 'lucide-react'
 import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
 import { useRouter } from 'next/navigation'
