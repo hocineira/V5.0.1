@@ -497,8 +497,191 @@ body {
 }
 
 /* ========================================
-   STYLES MODERNES POUR REFONTE TECHNOLOGIQUE
+   COULEURS TECHNOLOGIQUES BLEU/VIOLET
    ======================================== */
+
+/* Animations technologiques avec couleurs bleu/violet */
+@keyframes tech-glow-blue-violet {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3), 0 0 10px rgba(139, 92, 246, 0.2); 
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(139, 92, 246, 0.4), 0 0 40px rgba(167, 139, 250, 0.3); 
+  }
+}
+
+@keyframes pulse-tech-violet {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float-tech-blue {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(6px) rotate(-1deg); }
+}
+
+/* Classes utilitaires technologiques bleu/violet */
+.tech-card-blue-violet {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-card-blue-violet:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+  border-color: rgba(147, 51, 234, 0.5);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2), 0 10px 20px rgba(139, 92, 246, 0.1);
+}
+
+.tech-gradient-blue-violet {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tech-border-glow {
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3)) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Effets de particules technologiques */
+.tech-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-particles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(167, 139, 250, 0.15) 1px, transparent 1px);
+  background-size: 60px 60px, 80px 80px, 100px 100px;
+  animation: float-tech-blue 20s ease-in-out infinite;
+}
+
+/* Boutons technologiques avec effet néon */
+.tech-button-neon {
+  position: relative;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.tech-button-neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.tech-button-neon:hover::before {
+  left: 100%;
+}
+
+.tech-button-neon:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(59, 130, 246, 0.4),
+    0 5px 15px rgba(139, 92, 246, 0.3),
+    0 0 0 1px rgba(167, 139, 250, 0.2);
+}
+
+/* Progress bars avec dégradé technologique */
+.tech-progress-violet {
+  height: 6px;
+  background: rgba(71, 85, 105, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tech-progress-violet::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #a855f7);
+  border-radius: 3px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* Glassmorphism avec teinte bleu/violet */
+.glass-tech-violet {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.1),
+    0 4px 16px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-tech-violet:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+  border-color: rgba(147, 51, 234, 0.4);
+  box-shadow: 
+    0 12px 40px rgba(59, 130, 246, 0.2),
+    0 6px 20px rgba(139, 92, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Circuit technologique avec couleurs bleu/violet */
+.circuit-tech-pattern {
+  background-image: 
+    linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Hover effects avec couleurs technologiques */
+.hover-tech-blue:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.1));
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+}
+
+.hover-tech-violet:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(167, 139, 250, 0.1));
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+}
+
+/* Responsive pour couleurs technologiques */
+@media (max-width: 768px) {
+  .tech-card-blue-violet {
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.08));
+  }
+  
+  .tech-button-neon {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .tech-progress-violet {
+    height: 4px;
+  }
+}
 
 /* Animations modernes pour éléments tech */
 @keyframes tech-glow {
