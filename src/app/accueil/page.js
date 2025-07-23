@@ -210,26 +210,26 @@ export default function AccueilPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-10rem)]">
             {/* Contenu principal */}
             <div className="space-y-8">
-              {/* Badge status moderne */}
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-800/50 backdrop-blur-sm border border-cyan-400/30 rounded-full">
+              {/* Badge status avec couleurs technologiques bleu/violet */}
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-800/60 backdrop-blur-sm border border-blue-400/40 rounded-full shadow-lg shadow-blue-500/20">
                 <div className="relative">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                  <div className="absolute inset-0 w-2 h-2 bg-cyan-400 rounded-full animate-ping opacity-75"></div>
+                  <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-ping opacity-75"></div>
                 </div>
-                <span className="text-sm text-cyan-300 font-medium">Infrastructure Active</span>
+                <span className="text-sm text-blue-300 font-medium">Infrastructure Active</span>
               </div>
 
-              {/* Titre principal moderne */}
+              {/* Titre principal avec dégradé bleu/violet */}
               <div className="space-y-4">
                 <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                  <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400 bg-clip-text text-transparent">
                     {StaticData.personalInfo.name}
                   </span>
                 </h1>
-                <h2 className="text-2xl lg:text-3xl font-semibold text-cyan-300">
+                <h2 className="text-2xl lg:text-3xl font-semibold text-transparent bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text">
                   {StaticData.personalInfo.title}
                 </h2>
-                <p className="text-xl text-slate-300 font-light">
+                <p className="text-xl text-blue-200 font-light">
                   {StaticData.personalInfo.subtitle}
                 </p>
               </div>
