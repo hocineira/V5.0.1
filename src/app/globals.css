@@ -220,7 +220,6 @@ body {
   .backdrop-blur-sm {
     backdrop-filter: blur(2px) !important;
   }
-}
 
 /* Pulse optimisé */
 .animate-pulse-glow, .animate-pulse, .animate-pulse-fast {
