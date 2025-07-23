@@ -38,7 +38,6 @@ const nextConfig = {
   
   // Optimisation du build pour performance
   ...(process.env.NODE_ENV === 'production' && {
-    swcMinify: true,
     webpack: (config, { dev, isServer }) => {
       // Optimisations de bundle pour la production
       if (!dev && !isServer) {
