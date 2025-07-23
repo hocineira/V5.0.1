@@ -6,7 +6,7 @@ import { Button } from '../../components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
 import { Badge } from '../../components/ui/badge'
 import ImageModal from '../../components/ImageModal'
-import PDFModalFinal from '../../components/PDFModalFinal'
+import PDFModalBlob from '../../components/PDFModalBlob'
 
 export default function ProjetsPage() {
   const [selectedImage, setSelectedImage] = useState(null)
