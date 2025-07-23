@@ -242,7 +242,7 @@ export default function AccueilPage() {
             <div className="relative mt-8 lg:mt-0">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-64 sm:h-80 lg:h-96">
                 <Image 
-                  src="/images/procedures/optimized_schema_reseau_infra_original.webp" 
+                  src="/images/procedures/optimized_hero_image_new.webp" 
                   alt="Infrastructure réseau et routeurs" 
                   fill
                   className="object-cover"
