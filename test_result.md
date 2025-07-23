@@ -28,6 +28,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ Root page redirect working perfectly - automatically redirects from / to /accueil"
+      - working: true
+        agent: "main"
+        comment: "🎯 BUG RÉSOLU: Page de redirection intermédiaire éliminée. Remplacé la redirection client-side (useEffect + 'Redirection...') par redirection server-side Next.js (redirect()). L'utilisateur va maintenant directement de / vers /accueil sans voir de contenu intermédiaire. Test confirmé: navigation en 1.09s directement vers /accueil avec titre 'Hocine IRATNI'."
 
   - task: "Page d'Accueil (/accueil)"
     implemented: true
