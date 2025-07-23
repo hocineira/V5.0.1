@@ -188,22 +188,22 @@ export default function AccueilPage() {
           }}></div>
         </div>
         
-        {/* Éléments décoratifs tech bleu/violet */}
+        {/* Éléments décoratifs tech bleu/violet - REPOSITIONNÉS pour éviter la gêne */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-400/30 rotate-45 rounded-lg shadow-lg shadow-blue-500/20"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-purple-400/30 rotate-12 rounded-lg shadow-lg shadow-purple-500/20"></div>
-          <div className="absolute bottom-32 left-20 w-40 h-40 border-2 border-violet-400/25 rotate-[-30deg] rounded-lg shadow-lg shadow-violet-500/15"></div>
+          <div className="absolute top-10 left-5 w-20 h-20 border border-blue-400/15 rotate-45 rounded-lg shadow-sm shadow-blue-500/10"></div>
+          <div className="absolute top-32 right-10 w-16 h-16 border border-purple-400/15 rotate-12 rounded-lg shadow-sm shadow-purple-500/10"></div>
+          <div className="absolute bottom-20 left-8 w-24 h-24 border border-violet-400/10 rotate-[-30deg] rounded-lg shadow-sm shadow-violet-500/5"></div>
           
-          {/* Circuit pattern technologique bleu/violet */}
-          <div className="absolute top-1/2 left-1/4 w-2 h-20 bg-gradient-to-b from-blue-400/30 to-purple-400/30 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/4 w-20 h-2 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full"></div>
-          <div className="absolute top-1/2 right-1/4 w-2 h-16 bg-gradient-to-b from-purple-400/30 to-violet-400/30 rounded-full"></div>
-          <div className="absolute top-1/2 right-1/4 w-16 h-2 bg-gradient-to-r from-purple-400/30 to-violet-400/30 rounded-full"></div>
+          {/* Circuit pattern technologique bleu/violet - REPOSITIONNÉ */}
+          <div className="absolute top-3/4 left-1/4 w-2 h-16 bg-gradient-to-b from-blue-400/20 to-purple-400/20 rounded-full"></div>
+          <div className="absolute top-3/4 left-1/4 w-16 h-2 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full"></div>
+          <div className="absolute top-3/4 right-1/4 w-2 h-12 bg-gradient-to-b from-purple-400/20 to-violet-400/20 rounded-full"></div>
+          <div className="absolute top-3/4 right-1/4 w-12 h-2 bg-gradient-to-r from-purple-400/20 to-violet-400/20 rounded-full"></div>
           
-          {/* Effets lumineux technologiques */}
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-2/3 left-1/2 w-48 h-48 bg-violet-500/8 rounded-full blur-2xl animate-pulse"></div>
+          {/* Effets lumineux technologiques - ATTÉNUÉS */}
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-2/3 left-1/2 w-48 h-48 bg-violet-500/3 rounded-full blur-2xl animate-pulse"></div>
         </div>
 
         <div className="relative container mx-auto px-4 py-20">
