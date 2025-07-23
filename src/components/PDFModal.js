@@ -266,7 +266,11 @@ export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
         {!isLoading && !error && (
           <div className="absolute bottom-4 left-4 right-4 sm:hidden">
             <div className="bg-black/70 text-white text-xs px-3 py-2 rounded-lg backdrop-blur-sm">
-              💡 Pincez pour zoomer, balayez pour naviguer dans le document
+              {usePDFJS ? (
+                <>🔧 Mode compatibilité : Utilisez les contrôles intégrés pour naviguer</>
+              ) : (
+                <>💡 Pincez pour zoomer, balayez pour naviguer dans le document</>
+              )}
             </div>
           </div>
         )}
