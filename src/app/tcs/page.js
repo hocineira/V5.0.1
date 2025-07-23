@@ -38,7 +38,7 @@ export default function TCSPage() {
     certifications: [
       { name: 'Cisco CCNA', status: 'En cours', icon: Network },
       { name: 'Stormshield Network Security', status: 'Prévu', icon: Lock },
-      { name: 'VMware vSphere', status: 'Acquis', icon: Code }
+      { name: 'VMware vSphere', status: 'Prévu', icon: Code }
     ],
     opportunities: [
       { title: 'Administrateur systèmes et réseaux', icon: Server, description: 'Gestion complète de l\'infrastructure IT' },
