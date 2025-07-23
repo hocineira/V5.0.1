@@ -96,40 +96,64 @@ const StaticData = {
   ]
 }
 
-// Component memoizé pour les stats tech
-const TechStat = memo(({ stat, index }) => {
-  const Icon = stat.icon
+// Component moderne pour les compétences tech
+const TechSkill = memo(({ skill, index }) => {
+  const Icon = skill.icon
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'expert': return 'bg-cyan-400'
+      case 'avancé': return 'bg-blue-400' 
+      case 'intermédiaire': return 'bg-slate-400'
+      default: return 'bg-slate-400'
+    }
+  }
+  
   return (
-    <div key={index} className="flex items-center gap-1 sm:gap-2">
-      <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
-      <span className="text-xs text-gray-300 truncate">{stat.label}</span>
-      <span className="text-xs text-green-400 font-mono">{stat.value}</span>
+    <div className="group relative bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:border-cyan-400/50 transition-all duration-300 hover:translate-y-[-4px]">
+      <div className="flex items-start justify-between mb-4">
+        <div className="p-3 bg-slate-700/50 rounded-lg group-hover:bg-cyan-400/10 transition-all duration-300">
+          <Icon className="w-6 h-6 text-cyan-400" />
+        </div>
+        <div className={`w-2 h-2 rounded-full ${getStatusColor(skill.status)} opacity-75`}></div>
+      </div>
+      <h3 className="text-white font-semibold text-lg mb-1">{skill.name}</h3>
+      <p className="text-cyan-300 text-sm font-medium mb-2">{skill.category}</p>
+      <p className="text-slate-300 text-sm leading-relaxed">{skill.description}</p>
+      
+      {/* Ligne de progression moderne */}
+      <div className="mt-4 h-1 bg-slate-700 rounded-full overflow-hidden">
+        <div className={`h-full bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full transition-all duration-1000 
+          ${skill.status === 'expert' ? 'w-full' : skill.status === 'avancé' ? 'w-4/5' : 'w-3/5'}`}></div>
+      </div>
     </div>
   )
 })
 
-// Component memoizé pour les features
-const FeatureCard = memo(({ feature, index, onAction }) => {
+// Component moderne pour les features
+const ModernFeatureCard = memo(({ feature, index, onAction }) => {
   const Icon = feature.icon
   return (
     <Card 
-      className="group mobile-card touch-feedback bg-slate-800/50 backdrop-blur-sm border-slate-700/50 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 interactive transform hover:-translate-y-2 active:translate-y-0 cursor-pointer p-4 sm:p-6"
+      className="group relative bg-slate-800/30 backdrop-blur-sm border border-slate-700/30 hover:border-cyan-400/50 hover:bg-slate-800/50 cursor-pointer transition-all duration-300 hover:translate-y-[-8px] overflow-hidden"
       onClick={() => onAction(feature.href)}
     >
-      <CardHeader className="text-center pb-4 sm:pb-6">
-        <div className={`w-16 h-16 sm:w-16 sm:h-16 mx-auto mb-4 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center group-hover:scale-110 interactive shadow-lg`}>
-          <Icon className="w-8 h-8 sm:w-8 sm:h-8 text-white" />
+      {/* Effet de lueur moderne */}
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/5 to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      
+      <CardHeader className="text-center pb-4 relative z-10">
+        <div className="w-16 h-16 mx-auto mb-4 bg-slate-700/50 rounded-2xl flex items-center justify-center group-hover:bg-cyan-400/10 transition-all duration-300 group-hover:scale-110">
+          <Icon className="w-8 h-8 text-cyan-400" />
         </div>
-        <CardTitle className="text-xl sm:text-xl text-white group-hover:text-blue-400 interactive">
+        <CardTitle className="text-xl text-white group-hover:text-cyan-300 transition-colors duration-300">
           {feature.title}
         </CardTitle>
       </CardHeader>
-      <CardContent className="pt-0">
-        <CardDescription className="text-gray-300 text-center text-base sm:text-base leading-relaxed line-clamp-3">
+      <CardContent className="pt-0 relative z-10">
+        <CardDescription className="text-slate-300 text-center leading-relaxed mb-4">
           {feature.description}
         </CardDescription>
-        <div className="mt-6 flex justify-center">
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full group-hover:w-16 interactive"></div>
+        <div className="flex justify-center">
+          <div className="w-12 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full group-hover:w-20 transition-all duration-300"></div>
         </div>
       </CardContent>
     </Card>
