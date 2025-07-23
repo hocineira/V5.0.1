@@ -249,9 +249,9 @@ metadata:
 
 test_plan:
   current_focus:
-    - "PDF Modal Functionality in Projects Page"
+    []
   stuck_tasks:
-    - "PDF Modal Functionality in Projects Page"
+    []
   test_all: false
   test_priority: "high_first"
 
