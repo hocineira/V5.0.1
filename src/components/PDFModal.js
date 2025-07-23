@@ -55,12 +55,23 @@ export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
   }
 
   const handleIframeLoad = () => {
+    console.log('PDF iframe loaded successfully')
+    if (loadTimeout) {
+      clearTimeout(loadTimeout)
+      setLoadTimeout(null)
+    }
     setIsLoading(false)
+    setError(false)
   }
 
   const handleIframeError = () => {
+    console.log('PDF iframe failed to load, switching to PDF.js')
+    if (loadTimeout) {
+      clearTimeout(loadTimeout)
+      setLoadTimeout(null)
+    }
     setIsLoading(false)
-    setError(true)
+    setUsePDFJS(true)
   }
 
   const toggleFullscreen = () => {
