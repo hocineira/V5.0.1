@@ -264,7 +264,7 @@ body {
     background-position: 50% 50%;
   }
   
-  /* Optimisations supplémentaires pour mobiles faibles */
+  /* Optimisations supplémentaires pour mobiles faibles ET haute résolution */
   @media (max-width: 768px) and (max-device-memory: 4GB) {
     .animate-float, .animate-float-delay, .animate-float-delay-2 {
       animation: none !important;
@@ -272,7 +272,28 @@ body {
     }
     
     .animate-pulse, .animate-pulse-fast, .animate-pulse-delay {
-      animation-duration: 4s; /* Plus lent sur appareils faibles */
+      animation: none !important;
+    }
+  }
+  
+  /* Optimisations spécifiques Samsung S22 Ultra et similaires */
+  @media (max-width: 768px) and (min-resolution: 3dppx) {
+    .animate-float, .animate-float-delay, .animate-float-delay-2 {
+      animation-duration: 8s !important;
+      animation-timing-function: ease-out !important;
+    }
+    
+    .blur-3xl {
+      backdrop-filter: blur(8px) !important;
+    }
+    
+    .blur-2xl {
+      backdrop-filter: blur(6px) !important;
+    }
+    
+    /* Désactive les patterns coûteux sur haute résolution */
+    .animate-pulse, .animate-pulse-delay {
+      animation: none !important;
     }
   }
   
