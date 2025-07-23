@@ -1,10 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Désactiver ESLint temporairement pour debug
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  
   // Optimisations de performance
   experimental: {
     optimizePackageImports: ['lucide-react'],
