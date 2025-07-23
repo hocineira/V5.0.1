@@ -91,6 +91,12 @@ export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
     }
   }, [isOpen])
 
+  // PDF.js URL generator
+  const getPDFJSUrl = () => {
+    // Use Mozilla's hosted PDF.js viewer
+    return `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + pdfUrl)}`
+  }
+
   if (!isOpen) return null
 
   return (
