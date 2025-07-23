@@ -313,8 +313,8 @@ export default function AccueilPage() {
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-blue-900/30 to-transparent pointer-events-none"></div>
         
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/8 rounded-full blur-3xl animate-float scroll-optimized"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/8 rounded-full blur-3xl animate-float-delay scroll-optimized"></div>
+          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/8 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-400/8 rounded-full blur-3xl animate-float-delay"></div>
         </div>
 
         <div className="relative container mx-auto px-3 sm:px-4">
