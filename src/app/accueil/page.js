@@ -175,30 +175,35 @@ export default function AccueilPage() {
 
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-hidden">
-      {/* Hero Section Moderne */}
-      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        {/* Grille technologique en arrière-plan */}
-        <div className="absolute inset-0 opacity-20">
+      {/* Hero Section avec couleurs bleu/violet technologiques */}
+      <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/30 to-purple-900/40">
+        {/* Grille technologique en arrière-plan avec effet bleu/violet */}
+        <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0" style={{
             backgroundImage: `
-              linear-gradient(90deg, rgb(30 41 59 / 0.5) 1px, transparent 1px),
-              linear-gradient(180deg, rgb(30 41 59 / 0.5) 1px, transparent 1px)
+              linear-gradient(90deg, rgb(59 130 246 / 0.3) 1px, transparent 1px),
+              linear-gradient(180deg, rgb(139 92 246 / 0.3) 1px, transparent 1px)
             `,
             backgroundSize: '40px 40px'
           }}></div>
         </div>
         
-        {/* Éléments décoratifs tech */}
+        {/* Éléments décoratifs tech bleu/violet */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 border border-cyan-400/20 rotate-45 rounded-lg"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 border border-cyan-400/10 rotate-12 rounded-lg"></div>
-          <div className="absolute bottom-32 left-20 w-40 h-40 border border-cyan-400/15 rotate-[-30deg] rounded-lg"></div>
+          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-400/30 rotate-45 rounded-lg shadow-lg shadow-blue-500/20"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-purple-400/30 rotate-12 rounded-lg shadow-lg shadow-purple-500/20"></div>
+          <div className="absolute bottom-32 left-20 w-40 h-40 border-2 border-violet-400/25 rotate-[-30deg] rounded-lg shadow-lg shadow-violet-500/15"></div>
           
-          {/* Circuit pattern subtil */}
-          <div className="absolute top-1/2 left-1/4 w-1 h-20 bg-cyan-400/10"></div>
-          <div className="absolute top-1/2 left-1/4 w-20 h-1 bg-cyan-400/10"></div>
-          <div className="absolute top-1/2 right-1/4 w-1 h-16 bg-cyan-400/10"></div>
-          <div className="absolute top-1/2 right-1/4 w-16 h-1 bg-cyan-400/10"></div>
+          {/* Circuit pattern technologique bleu/violet */}
+          <div className="absolute top-1/2 left-1/4 w-2 h-20 bg-gradient-to-b from-blue-400/30 to-purple-400/30 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/4 w-20 h-2 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full"></div>
+          <div className="absolute top-1/2 right-1/4 w-2 h-16 bg-gradient-to-b from-purple-400/30 to-violet-400/30 rounded-full"></div>
+          <div className="absolute top-1/2 right-1/4 w-16 h-2 bg-gradient-to-r from-purple-400/30 to-violet-400/30 rounded-full"></div>
+          
+          {/* Effets lumineux technologiques */}
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-2/3 left-1/2 w-48 h-48 bg-violet-500/8 rounded-full blur-2xl animate-pulse"></div>
         </div>
 
         <div className="relative container mx-auto px-4 py-20">
