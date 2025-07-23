@@ -67,6 +67,9 @@ frontend:
       - working: true
         agent: "main"
         comment: "🎯 BUG TIMELINE RÉSOLU: Corrigé le problème de layout où les deux cartes de la timeline se chevauchaient. Cause: conflit entre classes CSS 'w-full' et 'md:ml-auto/md:mr-auto'. Solution: remplacé 'inline-block w-full max-w-md' par 'block max-w-md'. Résultat: Année 1 à droite (x=928), Année 2 à gauche (x=544), alternance parfaite sur desktop et responsive sur tablet."
+      - working: true
+        agent: "main"
+        comment: "🎯 BUG TIMELINE DÉFINITIVEMENT RÉSOLU! Après diagnostic approfondi avec troubleshoot_agent, le vrai problème était l'utilisation de 'md:ml-auto/md:mr-auto' qui ne créait pas un vrai positionnement gauche/droite. Solution finale: classes 'w-1/2 max-w-md' avec 'md:ml-auto' pour droite et 'md:mr-0' pour gauche, espacement réduit à 'pr-4/pl-4'. Résultat: séparation de 424px, alternance parfaite Année 1 droite/Année 2 gauche. Timeline complètement fonctionnelle!"
 
   - task: "Page BTS SIO (/bts-sio) with Tabs"
     implemented: true
