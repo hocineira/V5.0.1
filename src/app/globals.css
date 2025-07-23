@@ -717,9 +717,6 @@ body {
     background-size: 30px 30px;
   }
 }
-  transform: translateZ(0);
-  will-change: transform;
-}
 
 /* ========================================
    RESPONSIVE UTILITIES OPTIMISÉES
