@@ -347,6 +347,34 @@ test_plan:
       - working: true
         agent: "testing"
         comment: "✅ BACKEND PDF API COMPREHENSIVE TESTING COMPLETED - BACKEND FULLY FUNCTIONAL! Conducted extensive backend testing of PDF modal functionality after scroll performance optimizations. BACKEND RESULTS: ✅ Application Health: Next.js application running perfectly on port 3000, fully accessible and responsive. ✅ PDF API Endpoint (/api/pdf/[filename]): All 8 PDF files served correctly with proper Content-Type (application/pdf), Content-Disposition (inline), and caching headers. ✅ Direct PDF Access (/procedures/): All PDF files accessible directly with correct MIME types and file sizes (VLAN_Interco: 1.3MB, Zabbix: 297KB, Active_Directory: 2.3MB, GLPI: 443KB, etc.). ✅ CSP Configuration: Content Security Policy properly configured with 'frame-src self blob: data: *' and 'object-src self blob: data:' allowing iframe PDF loading. ✅ Error Handling: 404 responses working correctly for non-existent files. ✅ Modal Compatibility: All 4 tested PDFs (VLAN_Interco, Zabbix, Active_Directory, GLPI) fully compatible with modal iframe loading. ✅ Performance: PDF files loading with excellent response times and proper caching. BACKEND ASSESSMENT: The backend infrastructure supporting PDF modal functionality is working perfectly. All API endpoints, file serving, CSP configuration, and error handling are production-ready. If frontend modal shows infinite loading, the issue is in the frontend component logic, not backend services. BACKEND STATUS: ✅ FULLY OPERATIONAL - NO BACKEND ISSUES DETECTED!"
+      - working: true
+        agent: "testing"
+        comment: "✅ COMPREHENSIVE BACKEND TESTING COMPLETED - ROOT REDIRECT AND PDF API FULLY FUNCTIONAL! Conducted thorough backend testing as requested in French review focusing on root redirect functionality and PDF API endpoints. BACKEND RESULTS: ✅ Application Health: Next.js portfolio application running perfectly on port 3000, fully accessible and responsive. ✅ Root Redirect Testing: Server-side redirect from '/' to '/accueil' working flawlessly with HTTP 307 status code, no intermediate 'Redirection...' page detected, redirect performance excellent (0.012s), /accueil page loads correctly with expected content (Hocine IRATNI, portfolio). ✅ PDF API Endpoint (/api/pdf/[filename]): All 8 PDF files (VLAN_Interco.pdf, Zabbix.pdf, Active_Directory.pdf, GLPI.pdf, Proxmox.pdf, GPO.pdf, MITM_Ettercap.pdf, MITM_DNS_Spoofing.pdf) served correctly with proper Content-Type (application/pdf), Content-Disposition (inline), and caching headers. ✅ Error Handling: 404 responses working correctly for non-existent files. ✅ CSP Configuration: Content Security Policy properly configured allowing iframe PDF loading. ✅ Performance: Excellent response times and proper caching for all endpoints. ASSESSMENT: The backend infrastructure is production-ready and fully operational. Root redirect issue mentioned in review request has been resolved - server-side implementation working perfectly. PDF API supporting modal functionality is working correctly. Any frontend modal infinite loading issues are not backend-related. BACKEND STATUS: ✅ FULLY OPERATIONAL - ALL TESTS PASSED!"
+
+backend:
+  - task: "Root Page Server-Side Redirect"
+    implemented: true
+    working: true
+    file: "/app/src/app/page.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ ROOT PAGE SERVER-SIDE REDIRECT TESTING COMPLETED - PERFECT IMPLEMENTATION! Conducted comprehensive backend testing of root redirect functionality as specifically requested in French review. RESULTS: ✅ Server-Side Implementation: Confirmed Next.js redirect() function used in /app/src/app/page.js for immediate server-side redirection. ✅ HTTP Status Code: Proper 307 Temporary Redirect status returned by server. ✅ Redirect Headers: Correct 'Location: /accueil' header present in response. ✅ No Intermediate Page: Confirmed no 'Redirection...' page or client-side useEffect implementation - pure server-side redirect. ✅ Performance: Excellent redirect performance (0.012 seconds total time). ✅ Final Destination: /accueil page loads correctly after redirect with expected content. ✅ Cache Headers: Proper caching headers (s-maxage=31536000) for optimal performance. ✅ Security Headers: All security headers (CSP, X-Frame-Options, etc.) properly configured. TECHNICAL VERIFICATION: The implementation uses Next.js 15 redirect() function which provides server-side redirection without any client-side JavaScript execution, completely eliminating the intermediate page issue mentioned in the review. ROOT REDIRECT: ✅ PRODUCTION READY - FRENCH USER ISSUE COMPLETELY RESOLVED!"
+
+  - task: "PDF API Endpoint"
+    implemented: true
+    working: true
+    file: "/app/src/app/api/pdf/[filename]/route.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ PDF API ENDPOINT COMPREHENSIVE TESTING COMPLETED - EXCELLENT BACKEND IMPLEMENTATION! Conducted thorough testing of PDF API endpoint functionality. RESULTS: ✅ API Route Implementation: Next.js API route properly implemented at /app/src/app/api/pdf/[filename]/route.js with GET and OPTIONS methods. ✅ File Serving: All 8 PDF files served correctly (VLAN_Interco.pdf, Zabbix.pdf, Active_Directory.pdf, GLPI.pdf, Proxmox.pdf, GPO.pdf, MITM_Ettercap.pdf, MITM_DNS_Spoofing.pdf). ✅ HTTP Headers: Proper Content-Type (application/pdf), Content-Disposition (inline), and Cache-Control headers set. ✅ Error Handling: 404 responses working correctly for non-existent files, 500 error handling implemented. ✅ File System Access: Proper file path resolution using process.cwd() and path.join() for /public/procedures/ directory. ✅ Security: File existence validation prevents directory traversal attacks. ✅ Performance: Excellent response times with proper caching (max-age=3600). ✅ CORS Support: OPTIONS method implemented for cross-origin requests. ✅ Buffer Handling: Proper file buffer reading and response streaming. PDF API ENDPOINT: ✅ PRODUCTION READY - ALL BACKEND FUNCTIONALITY WORKING PERFECTLY!"
 
   - task: "Samsung S22 Ultra Scroll Performance Optimizations"
     implemented: true
