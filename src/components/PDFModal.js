@@ -239,12 +239,25 @@ export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
         </div>
         
         {/* Loading Overlay */}
-        {isLoading && !error && (
+        {isLoading && !error && !usePDFJS && (
           <div className="absolute inset-0 bg-white flex items-center justify-center">
             <div className="text-center">
               <div className="w-12 h-12 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mb-4" />
               <p className="text-gray-600">Chargement du PDF...</p>
               <p className="text-sm text-gray-500 mt-2">Cela peut prendre quelques secondes</p>
+              <div className="mt-4">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setIsLoading(false)
+                    setUsePDFJS(true)
+                  }}
+                  className="text-sm"
+                >
+                  <AlertCircle className="w-4 h-4 mr-2" />
+                  Utiliser le mode compatibilité
+                </Button>
+              </div>
             </div>
           </div>
         )}
