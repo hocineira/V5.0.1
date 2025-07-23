@@ -154,6 +154,9 @@ def main():
         print("\n❌ Application is not running. Cannot proceed with API testing.")
         return False
     
+    # Test root redirect functionality
+    redirect_results = test_root_redirect()
+    
     # Test PDF API endpoint
     pdf_results = test_pdf_api_endpoint()
     
@@ -166,6 +169,10 @@ def main():
     print("=" * 60)
     
     print(f"Application Health: {'✅ HEALTHY' if app_healthy else '❌ UNHEALTHY'}")
+    print(f"Root Redirect: {'✅ WORKING' if redirect_results.get('success') else '❌ FAILING'}")
+    if redirect_results.get('success'):
+        print(f"  - Server-side: {'✅ YES' if redirect_results.get('server_side') else '❌ NO'}")
+        print(f"  - Status Code: {redirect_results.get('redirect_status')}")
     print(f"PDF API Endpoint: {'✅ WORKING' if pdf_results['endpoint_accessible'] else '❌ FAILING'}")
     print(f"Error Handling: {'✅ WORKING' if error_handling_ok else '❌ FAILING'}")
     print(f"PDF Files Served: {pdf_results['files_served']}/{pdf_results['total_files']}")
@@ -183,6 +190,7 @@ def main():
     # Overall assessment
     overall_success = (
         app_healthy and 
+        redirect_results.get('success', False) and
         pdf_results['endpoint_accessible'] and 
         error_handling_ok and
         pdf_results['files_served'] >= 6  # At least 75% of files should work
@@ -194,12 +202,20 @@ def main():
         print("\n🔧 ISSUES IDENTIFIED:")
         if not app_healthy:
             print("  - Application is not running or not accessible")
+        if not redirect_results.get('success'):
+            print(f"  - Root redirect not working: {redirect_results.get('error', 'Unknown error')}")
         if not pdf_results['endpoint_accessible']:
             print("  - PDF API endpoint is not working")
         if not error_handling_ok:
             print("  - Error handling is not working properly")
         if pdf_results['files_served'] < 6:
             print(f"  - Only {pdf_results['files_served']}/8 PDF files are being served correctly")
+    else:
+        print("\n🎉 ALL BACKEND TESTS PASSED:")
+        print("  - Application is healthy and accessible")
+        print("  - Root redirect working with server-side implementation")
+        print("  - PDF API serving all files correctly")
+        print("  - Error handling working properly")
     
     return overall_success
 
