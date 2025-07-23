@@ -327,15 +327,18 @@ test_plan:
 
   - task: "PDF Modal Functionality in Projects Page"
     implemented: true
-    working: true
-    file: "/app/src/components/PDFModal.js, /app/src/app/projets/page.js"
-    stuck_count: 0
+    working: false
+    file: "/app/src/components/PDFModalFinal.js, /app/src/app/projets/page.js"
+    stuck_count: 1
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: true
         agent: "testing"
         comment: "🎯 PDF MODAL FUNCTIONALITY TESTING COMPLETED - EXCELLENT IMPLEMENTATION! Conducted comprehensive testing of the newly implemented PDF modal functionality in the /projets page as requested in French review. RESULTS: ✅ Navigation to /projets: Page loads correctly with 'Mes Procédures Techniques' heading and 9 PDF 'Voir' buttons found. ✅ PDF Modal Opening: Modal opens successfully when clicking 'Voir' buttons, displaying proper titles and loading states. ✅ PDF Loading: All PDFs load correctly in iframe with proper parameters (#toolbar=1&navpanes=1&scrollbar=1&zoom=fit). ✅ Modal Controls: All control buttons working perfectly - Download, External link, Fullscreen toggle, and Close button. ✅ Fullscreen Functionality: Fullscreen mode works correctly, expanding modal to full viewport with proper exit functionality. ✅ Responsive Design: Modal adapts perfectly across Desktop (1920x1080), Tablet (768x1024), and Mobile (390x844) viewports. ✅ Multiple PDFs Tested: Successfully tested 8 different procedures (VLAN_Interco.pdf, Zabbix.pdf, Active_Directory.pdf, GLPI.pdf, Proxmox.pdf, GPO.pdf, MITM_Ettercap.pdf, MITM_DNS_Spoofing.pdf). ✅ Keyboard Interaction: Escape key closes modal correctly. ✅ Loading States: Proper loading spinner and text displayed during PDF load. ✅ Mobile Optimization: Touch-friendly controls, proper sizing, and mobile instructions visible. ✅ Error Handling: Modal includes error fallback with download and external link options. ✅ Cross-Browser Compatibility: PDF viewer works with proper iframe implementation. PDF MODAL FUNCTIONALITY: PRODUCTION READY - ALL REQUESTED FEATURES IMPLEMENTED AND WORKING PERFECTLY!"
+      - working: false
+        agent: "testing"
+        comment: "❌ PDF MODAL INFINITE LOADING ISSUE CONFIRMED - FRENCH USER REPORT VALIDATED! Conducted comprehensive testing of PDF preview functionality as requested in French review. CRITICAL FINDINGS: ✅ Modal UI Working: PDF modals open correctly, all controls (Download, External, Fullscreen, Close) functional, responsive design working across all viewports. ✅ Multiple Modes Available: Standard, API mode (/api/pdf/[filename]), and PDF.js compatibility mode all implemented. ❌ INFINITE LOADING ISSUE: PDFs show perpetual loading spinner and never display content, confirming user report of 'PDFs qui chargent à l'infini sans jamais s'afficher'. ❌ All Modes Fail: Standard mode (direct /procedures/ access), API mode, and PDF.js mode all exhibit same infinite loading behavior. ❌ Timeout Issues: Component timeouts (4-6 seconds) not working properly, loading continues indefinitely. ❌ File Access Problems: Direct PDF file access and API endpoint access may have CORS/CSP restrictions preventing iframe loading. 🔍 ROOT CAUSE: Despite CSP changes from 'frame-ancestors none' to 'self' in next.config.js, PDFs still cannot load in iframes. Issue appears to be with PDF file serving configuration or additional CSP restrictions blocking iframe content. RECOMMENDATION: Investigate CSP 'frame-src' and 'object-src' policies, check PDF file MIME types, and verify API endpoint CORS headers. PDF MODAL FUNCTIONALITY: CRITICAL ISSUE - REQUIRES IMMEDIATE ATTENTION!"
 
 agent_communication:
   - agent: "testing"
