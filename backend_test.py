@@ -15,6 +15,43 @@ from urllib.parse import urljoin
 BASE_URL = "http://localhost:3000"
 API_BASE = f"{BASE_URL}/api"
 
+def test_root_redirect():
+    """Test the root page redirect functionality"""
+    print("🔍 Testing Root Page Redirect (/ → /accueil)...")
+    
+    try:
+        # Test root redirect with allow_redirects=False to see the redirect response
+        response = requests.get(BASE_URL, allow_redirects=False, timeout=10)
+        
+        # Check if it's a proper server-side redirect (307 for Next.js)
+        if response.status_code in [301, 302, 307, 308]:
+            location = response.headers.get('Location', '')
+            
+            # Check if redirecting to /accueil
+            if location.endswith('/accueil') or '/accueil' in location:
+                # Follow the redirect to ensure /accueil loads
+                final_response = requests.get(BASE_URL, allow_redirects=True, timeout=10)
+                if final_response.status_code == 200 and '/accueil' in final_response.url:
+                    print("  ✅ Server-side redirect working correctly")
+                    return {
+                        "success": True,
+                        "redirect_status": response.status_code,
+                        "server_side": True
+                    }
+                else:
+                    print(f"  ❌ /accueil page failed to load properly")
+                    return {"success": False, "error": "/accueil page failed to load"}
+            else:
+                print(f"  ❌ Redirect location incorrect: {location}")
+                return {"success": False, "error": f"Redirect location incorrect: {location}"}
+        else:
+            print(f"  ❌ No proper redirect detected, got status {response.status_code}")
+            return {"success": False, "error": f"No proper redirect detected: {response.status_code}"}
+                
+    except requests.exceptions.RequestException as e:
+        print(f"  ❌ Connection error: {str(e)}")
+        return {"success": False, "error": f"Connection error: {str(e)}"}
+
 def test_pdf_api_endpoint():
     """Test the PDF API endpoint functionality"""
     print("🔍 Testing PDF API Endpoint...")
