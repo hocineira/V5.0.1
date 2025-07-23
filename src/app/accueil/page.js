@@ -98,12 +98,16 @@ const FeatureCard = memo(({ feature, index, onAction }) => {
 export default function AccueilPage() {
   const [isVisible, setIsVisible] = useState(false)
   const [isLowEndDevice, setIsLowEndDevice] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false)
   const router = useRouter()
+  
+  // Variables pour gérer le scroll throttling
+  let scrollTimer = null
 
   useEffect(() => {
     setIsVisible(true)
     
-    // Détection d'appareil faible pour optimiser les performances
+    // Détection d'appareil améliorée pour inclure les appareils haute résolution
     const checkDeviceCapability = () => {
       const isMobile = window.innerWidth <= 768
       const hasLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4
@@ -112,14 +116,67 @@ export default function AccueilPage() {
          navigator.connection.effectiveType === '2g' ||
          navigator.connection.effectiveType === '3g')
       
-      if (isMobile && (hasLowMemory || hasSlowConnection)) {
+      // Nouvelle détection pour appareils haute résolution (Samsung S22 Ultra type)
+      const isHighResolution = window.devicePixelRatio >= 3
+      const hasHighDensityScreen = window.screen.width * window.devicePixelRatio >= 3000
+      
+      if (isMobile && (hasLowMemory || hasSlowConnection || (isHighResolution && hasHighDensityScreen))) {
         setIsLowEndDevice(true)
-        // Ajoute une classe CSS pour désactiver certaines animations
         document.body.classList.add('low-end-device')
       }
     }
     
+    // Gestionnaire de scroll optimisé avec throttling
+    const handleScroll = () => {
+      if (!isScrolling) {
+        setIsScrolling(true)
+        document.body.classList.add('scrolling')
+      }
+      
+      // Clear previous timer
+      if (scrollTimer) {
+        clearTimeout(scrollTimer)
+      }
+      
+      // Set new timer to remove scrolling class
+      scrollTimer = setTimeout(() => {
+        setIsScrolling(false)
+        document.body.classList.remove('scrolling')
+      }, 150)
+    }
+    
+    // Intersection Observer pour optimiser les animations selon la visibilité
+    const observerOptions = {
+      rootMargin: '50px',
+      threshold: 0.1
+    }
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-optimized')
+        } else {
+          entry.target.classList.remove('scroll-optimized')
+        }
+      })
+    }, observerOptions)
+    
+    // Observer les éléments animés
+    const animatedElements = document.querySelectorAll('.animate-float, .animate-float-delay, .animate-float-delay-2')
+    animatedElements.forEach(el => observer.observe(el))
+    
     checkDeviceCapability()
+    
+    // Ajouter le listener de scroll avec throttling
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      observer.disconnect()
+      if (scrollTimer) {
+        clearTimeout(scrollTimer)
+      }
+    }
   }, [])
 
   // Memoisation des handlers
