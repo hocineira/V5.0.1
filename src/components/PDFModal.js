@@ -124,6 +124,12 @@ export default function PDFModal({ isOpen, onClose, pdfUrl, title }) {
                 <span className="hidden sm:inline">Chargement...</span>
               </div>
             )}
+            {usePDFJS && (
+              <div className="flex items-center gap-2 text-xs sm:text-sm opacity-75">
+                <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Mode compatibilité</span>
+              </div>
+            )}
           </div>
           
           {/* Controls */}
