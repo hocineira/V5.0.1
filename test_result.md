@@ -64,6 +64,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ MODIFICATIONS VERIFIED: TCS page successfully updated - title changed to 'Tableau De Compétences', content adapted to BTS SIO SISR with proper objectives, competencies and professional opportunities, 'Documentation complète' section removed as requested"
+      - working: true
+        agent: "main"
+        comment: "🎯 BUG TIMELINE RÉSOLU: Corrigé le problème de layout où les deux cartes de la timeline se chevauchaient. Cause: conflit entre classes CSS 'w-full' et 'md:ml-auto/md:mr-auto'. Solution: remplacé 'inline-block w-full max-w-md' par 'block max-w-md'. Résultat: Année 1 à droite (x=928), Année 2 à gauche (x=544), alternance parfaite sur desktop et responsive sur tablet."
 
   - task: "Page BTS SIO (/bts-sio) with Tabs"
     implemented: true
