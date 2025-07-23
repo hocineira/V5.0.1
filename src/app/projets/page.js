@@ -24,6 +24,16 @@ export default function ProjetsPage() {
     setSelectedImage(null)
   }
 
+  const openPDFModal = (pdfUrl, title) => {
+    setSelectedPDF({ url: pdfUrl, title })
+    setIsPDFModalOpen(true)
+  }
+  
+  const closePDFModal = () => {
+    setIsPDFModalOpen(false)
+    setSelectedPDF(null)
+  }
+
   // Memoize projects data to prevent re-creation on every render
   const projects = useMemo(() => [
     {
