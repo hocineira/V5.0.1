@@ -269,15 +269,18 @@ test_plan:
 
   - task: "Infrastructure Active Sections - French User Issues Resolution"
     implemented: true
-    working: true
+    working: false
     file: "/app/src/app/accueil/page.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
     needs_retesting: false
     status_history:
       - working: true
         agent: "testing"
-        comment: "🎯 INFRASTRUCTURE ACTIVE TESTING COMPLETED - FRENCH USER ISSUES RESOLVED! Conducted comprehensive testing of Infrastructure Active sections as requested by French user. RESULTS: ✅ Section Infrastructure Active - Couleurs: All 4 color indicators now working perfectly - pfSense Firewall (GREEN: rgb(74, 222, 128)), VLANs Configurés (BLUE: rgb(96, 165, 250)), Active Directory (PURPLE: rgb(192, 132, 252)), Monitoring Zabbix (ORANGE: rgb(251, 146, 60)). ✅ Cohérence visuelle des fonds: Both Infrastructure Active sections have consistent gradient backgrounds (bg-gradient-to-br). ✅ Version mobile optimisée: Mobile interface working perfectly, no haptic feedback detected, responsive design functional. ✅ Test desktop: Desktop display verified with proper color indicators and layout. ✅ Navigation et interactions: All navigation buttons functional (4 total), 5 floating animation elements active, smooth interactions. FRENCH USER REPORT CONFIRMED AND RESOLVED: The color visibility issues have been fixed - all Tailwind CSS color classes (bg-green-400, bg-blue-400, bg-purple-400, bg-orange-400) are now loading correctly. Infrastructure Active sections display properly on both desktop and mobile. All requested tests passed successfully."
+        comment: "🎯 INFRASTRUCTURE ACTIVE TESTING COMPLETED - FRENCH USER ISSUES RESOLVED! Conducted comprehensive testing of Infrastructure Active sections as requested by French user. RESULTS: ✅ Section Infrastructure Active - Couleurs: All 4 color indicators now working perfectly - pfSense Firewall (GREEN: rgb(74, 222, 128)), VLANs Configurés (BLUE: rgb(96, 165, 250)), Active Directory (PURPLE: rgb(192, 132, 252)), Monitoring Zabbix (ORANGE: rgb(251, 146, 60)). ✅ Cohérence visuelle des fonds: Both Infrastructure Active sections have consistent gradient backgrounds (bg-gradient-to-br). ✅ Version mobile optimisée: Mobile interface working perfectly, no haptic feedback detected, responsive design functional. ✅ Test desktop: Desktop display verified with proper color indicators and layout. ✅ Navigation et interactions: All navigation buttons functional (4 total), 5 floating animation elements active, smooth interactions. FRENCH USER REPORT CONFIRMED AND RESOLVED: The color visibility issues have been fixed - all Tailwind CSS color classes (bg-green-400, bg-blue-400, bg-blue-400, bg-purple-400, bg-orange-400) are now loading correctly. Infrastructure Active sections display properly on both desktop and mobile. All requested tests passed successfully."
+      - working: false
+        agent: "testing"
+        comment: "❌ CRITICAL BLINKING DOT MISALIGNMENT CONFIRMED - FRENCH USER REPORT VALIDATED! Conducted detailed analysis of the blinking dot in 'Infrastructure Active' badge as specifically requested. FINDINGS: ✅ Badge Location: Successfully located Infrastructure Active badge on /accueil page. ❌ MISALIGNMENT DETECTED: Precise measurements show 8px X-axis and 8px Y-axis misalignment between pulse and ping animations. 🔍 ROOT CAUSE IDENTIFIED: Both dots use 'absolute inset-0' positioning, but animate-ping scales to 2x size (16x16px) with transform matrix(2, 0, 0, 2, -4, -4). The -4px offset is mathematically correct but visually creates misalignment due to absolute positioning conflicts. 📐 TECHNICAL DETAILS: Dot 1 (pulse): 8x8px at position x=225, y=328.125. Dot 2 (ping): 16x16px at position x=217, y=320.125. 🛠️ SOLUTION ATTEMPTED: Modified structure to use flexbox centering approach (relative flex items-center justify-center) but build issues prevented testing. ⚠️ STATUS: User report of persistent misalignment is 100% accurate - dots are NOT perfectly superposed despite previous 'working: true' status."
 
   - task: "BTS SIO Timeline Layout Bug Fix"
     implemented: true
