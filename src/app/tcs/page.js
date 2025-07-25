@@ -32,8 +32,8 @@ export default function TCSPage() {
       { name: 'Configuration WiFi D-Link', level: 70, icon: Network }
     ],
     timeline: [
-      { year: 'Année 1', period: '2023-2024', focus: 'Fondamentaux IT', achievements: ['Bases systèmes', 'Réseaux TCP/IP', 'Virtualisation'] },
-      { year: 'Année 2', period: '2024-2025', focus: 'Spécialisation SISR', achievements: ['Sécurité avancée', 'Projets infrastructure', 'Certifications'] }
+      { year: 'Année 1', period: '2024-2025', focus: 'Fondamentaux IT', achievements: ['Bases systèmes', 'Réseaux TCP/IP', 'Virtualisation'] },
+      { year: 'Année 2', period: '2025-2026', focus: 'Spécialisation SISR', achievements: ['Sécurité avancée', 'Projets infrastructure', 'Certifications'] }
     ],
     certifications: [
       { name: 'Cisco CCNA', status: 'En cours', icon: Network },
